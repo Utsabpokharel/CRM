@@ -60464,7 +60464,7 @@ code {
   position: fixed;
   left: auto;
   top: auto;
-  bottom: 25px;
+  bottom: 0px;
   right: 25px;
   margin: 0;
   box-shadow: 0px 0px 60px -15px rgba(0, 0, 0, 0.2);
