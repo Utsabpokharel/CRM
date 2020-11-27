@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
-		<title>@section('title') @show CRM</title>
+		<title>@section('page_title') @show CRM</title>
 		<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -24,9 +24,37 @@
 		<link href="{{asset('assets/css/themes/layout/header/menu/light.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
+		
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
+
+    </head>
+    <!-- Data Tables -->
+	<link href="{{asset('assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
+
+
+		@stack('css')
+		<style type="text/css">
+			.swal2-icon.swal2-success {
+				border-color: #a5dc86;
+				position: relative;
+				left: 178px;
+			}
+			.swal2-icon.swal2-warning {
+				border-color: #a5dc86;
+				position: relative;
+				left: 178px;
+			}
+			li.flex {
+				width: 82%;
+			}
+			tr.dtrg-group.dtrg-start.dtrg-level-0 {
+				display: none;
+			}
+		</style>
 	</head>
+
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
@@ -57,7 +85,7 @@
 									<!--end::Page Title-->
 								</div>
 								<!--end::Info-->
-						
+
 							</div>
 						</div>
 						<!--end::Subheader-->
@@ -95,8 +123,20 @@
 		<script src="{{asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
+
+        <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
+
+        <!-- Data Table -->
+		<script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+		<script src="{{asset('assets/js/pages/crud/datatables/extensions/rowgroup.js')}}"></script>
+
+
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
+		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
+		@include('admin.layouts.messages')
 		<!--end::Page Scripts-->
+		@stack('scripts')
+
 	</body>
 	<!--end::Body-->
 </html>
