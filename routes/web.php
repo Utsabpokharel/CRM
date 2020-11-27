@@ -16,5 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('index','IndexController@index')->name('admin.index');
-	Route::get('test','IndexController@test')->name("admin.test");
 });

@@ -112,9 +112,11 @@
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
+		<script src="{{asset('assets/js/pages/crud/ktdatatable/advanced/row-details.js')}}"></script>
 		@include('admin.layouts.messages')
 		<!--end::Page Scripts-->
 		@stack('scripts')
+		
 
 	</body>
 	<!--end::Body-->
