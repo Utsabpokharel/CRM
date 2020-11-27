@@ -28,6 +28,13 @@
 		
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
+
+    </head>
+    <!-- Data Tables -->
+	<link href="{{asset('assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+	<link href="{{asset('assets/plugins/datatables/export/buttons.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
+
+
 		@stack('css')
 		<style type="text/css">
 			.swal2-icon.swal2-success {
@@ -42,6 +49,7 @@
 			}
 		</style>
 	</head>
+
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
@@ -72,7 +80,7 @@
 									<!--end::Page Title-->
 								</div>
 								<!--end::Info-->
-						
+
 							</div>
 						</div>
 						<!--end::Subheader-->
@@ -110,6 +118,28 @@
 		<script src="{{asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
+
+        <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
+		<script src="assets/js/pages/crud/ktdatatable/base/data-local.js"></script>
+
+        <script src="{{asset('assets/js/pages/crud/ktdatatable/advanced/row-details.js')}}"></script>
+        <!--end::Page Scripts-->
+        @stack('scripts')
+        <script>
+            var datatable = $('#kt_datatable').KTDatatable();
+        </script>
+        <!-- Data Table -->
+	<script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/dataTables.buttons.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/buttons.flash.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/jszip.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/pdfmake.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/vfs_fonts.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/buttons.html5.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/datatables/export/buttons.print.min.js')}}"></script>
+	<script src="{{asset('assets/js/pages/table/table_data.js')}}"></script>
+
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
 		@include('admin.layouts.messages')
