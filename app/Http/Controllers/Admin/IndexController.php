@@ -11,4 +11,9 @@ class IndexController extends Controller
     {
     	return view('admin.index');
     }
+
+    public function test()
+    {
+    	return redirect()->route('admin.test');
+    }
 }
