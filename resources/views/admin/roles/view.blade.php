@@ -110,7 +110,7 @@
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
+				<table class="table table-bordered table-hover table-checkable myDataTable" id="kt_datatable" style="margin-top: 13px !important;">
 					<thead>
 					<tr>
 						<th>Record ID</th>
@@ -174,4 +174,11 @@
   </div>
 </div>
 @endsection
+@push('scritps')
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+		});
+	</script>
+@endpush
 
