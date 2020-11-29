@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
+	Route::get('index','IndexController@index')->name('admin.index');
 
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
-});
 
+    require_once('components/Emailsetting.php');
+});
 

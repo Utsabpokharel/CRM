@@ -175,6 +175,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\HelperProvider::class,
+        'Intervention\Image\ImageServiceProvider',
 
     ],
 
@@ -231,6 +233,7 @@ return [
         // Metronic Aliases
         'Metronic' => App\Classes\Theme\Metronic::class,
         'Menu' => App\Classes\Theme\Menu::class,
+        'Image' => 'Intervention\Image\Facades\Image',
 
     ],
 
