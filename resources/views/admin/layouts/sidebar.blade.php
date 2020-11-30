@@ -70,7 +70,7 @@
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
 											<li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+											<a href="{{route('user.view')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -78,7 +78,7 @@
 												</a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+											<a href="{{route('user.add')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -229,7 +229,7 @@
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
 											<li class="menu-item" aria-haspopup="true">
-                                            <a href="roles" class="menu-link">
+                                            <a href="{{route('roles.index')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -237,7 +237,7 @@
 												</a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+												<a href="{{route('roles.create')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>

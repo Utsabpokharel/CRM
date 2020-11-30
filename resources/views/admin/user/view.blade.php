@@ -9,10 +9,10 @@
 				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="">Roles</a>&nbsp;
+				<li><a class="parent-item" href="">User</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li class="active">All Roles</li>
+				<li class="active">All Users</li>
 			</ol>
 		</div>
 	</div>
@@ -113,31 +113,29 @@
 				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
 					<thead>
 					<tr>
-						<th>Record ID</th>
-						<th>Order ID</th>
-						<th>Country</th>
-						<th>Ship City</th>
-						<th>Ship Address</th>
-						<th>Company Agent</th>
-						<th>Company Name</th>
-						<th>Ship Date</th>
-						<th>Status</th>
-						<th>Type</th>
+						<th>User ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Password</th>
+						<th>Image</th>
+						<th>Gender</th>
+						<th>Address</th>
+						<th>Role ID</th>
 						<th>Actions</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
 						<td>322</td>
-						<td>0338-1009</td>
-						<td>Brazil</td>
-						<td>Osasco</td>
-						<td>002 Menomonie Crossing</td>
-						<td>Keith Lukesch</td>
-						<td>Hand-Kemmer</td>
-						<td>1/13/2017</td>
-						<td>6</td>
-						<td>1</td>
+						<td>Biju Shrestha</td>
+						<td>ibijushrestha@gmail.com</td>
+						<td>9843789534</td>
+						<td>iamhero</td>
+						<td>Image</td>
+						<td>idontknow</td>
+						<td>Koteshor,Kathmandu</td>
+						<td>65</td>
 						<td class="text-center">
 							<a href="">
 								<i class="fa fa-trash text-danger"></i>
@@ -151,16 +149,15 @@
 					</tbody>
 					<tfoot>
 					<tr>
-						<th>Record ID</th>
-						<th>Order ID</th>
-						<th>Country</th>
-						<th>Ship City</th>
-						<th>Ship Address</th>
-						<th>Company Agent</th>
-						<th>Company Name</th>
-						<th>Ship Date</th>
-						<th>Status</th>
-						<th>Type</th>
+						<th>User ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Password</th>
+						<th>Image</th>
+						<th>Gender</th>
+						<th>Address</th>
+						<th>Role ID</th>
 						<th>Actions</th>
 					</tr>
 					</tfoot>

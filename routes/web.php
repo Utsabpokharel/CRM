@@ -20,3 +20,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::resource('roles', 'roleController');
 });
 
+//users route
+Route::get('/users','Admin\userController@users')->name('user.view');
+Route::get('/adduser','Admin\userController@addUser')->name('user.add');
+

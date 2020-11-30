@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
-@section('page_title','Dashboard')
+@section('page_title','Add Role')
 @section('content')
-<div class="card-body">
+<div class="card-body card">
     <form class="form">
 
      <div class="form-group">
