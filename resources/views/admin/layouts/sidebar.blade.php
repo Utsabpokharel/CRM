@@ -116,7 +116,7 @@
 												</a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+												<a href="{{route('customer.create')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -184,7 +184,7 @@
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
 											<li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+												<a href="{{route('staff.view')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -192,7 +192,7 @@
 												</a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+												<a href="{{route('staff.add')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -633,15 +633,15 @@
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">General</span>
+													<span class="menu-text">General Setting</span>
 												</a>
                                             </li>
                                             <li class="menu-item" aria-haspopup="true">
-												<a href="#" class="menu-link">
+												<a href="{{route('admin.emailsetting')}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">Email</span>
+													<span class="menu-text">Email Setting</span>
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
@@ -649,7 +649,7 @@
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">Profile</span>
+													<span class="menu-text">Profile Setting</span>
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
@@ -657,7 +657,7 @@
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">Payment</span>
+													<span class="menu-text">Payment Setting</span>
 												</a>
 											</li>
 										</ul>
