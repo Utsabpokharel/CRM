@@ -19,6 +19,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+    require_once('components/enquiry-category.php');
+    require_once('components/enquiry-source.php');
     Route::get('customer','Customercontroller@view')->name('customer.view');
     Route::get('customer/create','Customercontroller@create')->name('customer.create');
     Route::get('staff','StaffController@index')->name('staff.view');

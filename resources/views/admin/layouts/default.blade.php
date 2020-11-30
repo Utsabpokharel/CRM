@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
-		<title>@section('page_title') @show-CRM</title>
+		<title>CRM | @section('page_title') @show</title>
 		<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -138,6 +138,8 @@
 		<!--end::Page Scripts-->
 		@stack('scripts')
 		
+
+		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
 
 	</body>
 	<!--end::Body-->
