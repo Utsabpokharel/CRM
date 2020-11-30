@@ -18,9 +18,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
-});
+
 
 //users route
-Route::get('/users','Admin\userController@users')->name('user.view');
-Route::get('/adduser','Admin\userController@addUser')->name('user.add');
-
+Route::get('/users','userController@users')->name('user.view');
+Route::get('/adduser','userController@addUser')->name('user.add');
+});
