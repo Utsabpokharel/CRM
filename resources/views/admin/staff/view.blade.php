@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View Role')
+@section('page_title','View Staff')
 @section('content')
 <div class="page-content-wrapper ">
 	<div class="page-bar">
@@ -9,10 +9,10 @@
 				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="">Roles</a>&nbsp;
+				<li><a class="parent-item" href="">Staff</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li class="active">All Roles</li>
+				<li class="active">All Staff</li>
 			</ol>
 		</div>
 	</div>
@@ -21,10 +21,10 @@
 		<div class="card card-custom">
 			<div class="card-header">
 				<div class="card-title">
-											<span class="card-icon">
-												<i class="flaticon2-gift text-primary"></i>
-											</span>
-					<h3 class="card-label">RowGroup DataTable</h3>
+					<span class="card-icon">
+					<i class="flaticon2-gift text-primary"></i>
+					</span>
+					<h3 class="card-label">RowGroup Staff</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -48,42 +48,46 @@
 								<li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-print"></i>
-																</span>
-										<span class="navi-text">Print</span>
+							        <span class="navi-icon">
+								    <i class="la la-print"></i>
+									</span>
+									<span class="navi-text">Print</span>
 									</a>
-								</li>
+                                </li>
+                                
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-copy"></i>
-																</span>
-										<span class="navi-text">Copy</span>
+									<span class="navi-icon">
+									<i class="la la-copy"></i>
+									</span>
+									<span class="navi-text">Copy</span>
 									</a>
-								</li>
+                                </li>
+                                
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-file-excel-o"></i>
-																</span>
-										<span class="navi-text">Excel</span>
+									<span class="navi-icon">
+									<i class="la la-file-excel-o"></i>
+									</span>
+									<span class="navi-text">Excel</span>
 									</a>
-								</li>
+                                </li>
+                                
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-file-text-o"></i>
-																</span>
-										<span class="navi-text">CSV</span>
+									<span class="navi-icon">
+							        <i class="la la-file-text-o"></i>
+									</span>
+									<span class="navi-text">CSV</span>
 									</a>
-								</li>
+                                </li>
+                                
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-																<span class="navi-icon">
-																	<i class="la la-file-pdf-o"></i>
-																</span>
-										<span class="navi-text">PDF</span>
+									<span class="navi-icon">
+									<i class="la la-file-pdf-o"></i>
+									</span>
+									<span class="navi-text">PDF</span>
 									</a>
 								</li>
 							</ul>
@@ -93,7 +97,7 @@
 					</div>
 					<!--end::Dropdown-->
 					<!--begin::Button-->
-					<a href="#" class="btn btn-primary font-weight-bolder">
+					<a href="{{route('staff.add')}}" class="btn btn-primary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -104,66 +108,48 @@
 													</g>
 												</svg>
 												<!--end::Svg Icon-->
-											</span>New Record</a>
+											</span>Add Staff</a>
 					<!--end::Button-->
 				</div>
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
+				<table class="table table-bordered table-hover table-checkable" id="staffTable" style="margin-top: 13px !important;">
 					<thead>
 					<tr>
-						<th>Record ID</th>
-						<th>Order ID</th>
-						<th>Country</th>
-						<th>Ship City</th>
-						<th>Ship Address</th>
-						<th>Company Agent</th>
-						<th>Company Name</th>
-						<th>Ship Date</th>
-						<th>Status</th>
-						<th>Type</th>
-						<th>Actions</th>
+						<th> S.N.</th>
+						<th> Name </th>
+						<th> Image</th>
+						<th> Mobile Number </th>
+						<th> Department </th>
+						<th> Designation Title </th>
+						<th> Designation Level </th>
+                        <th> Action </th>
 					</tr>
 					</thead>
+
 					<tbody>
+					@foreach($staff as $key=> $staffs)
 					<tr>
-						<td>322</td>
-						<td>0338-1009</td>
-						<td>Brazil</td>
-						<td>Osasco</td>
+						<td>{{$key+1}}</td>
+						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
+						<td>{{$staffs->pp_photo}}</td>
+						<td>{{$staffs->mobileno}}</td>
 						<td>002 Menomonie Crossing</td>
 						<td>Keith Lukesch</td>
-						<td>Hand-Kemmer</td>
-						<td>1/13/2017</td>
-						<td>6</td>
-						<td>1</td>
-						<td class="text-center">
-							<a href="">
+						<td>dsgzdngd</td>
+						<td class="text-center"> 
+							<a href="{{route('staff.destroy',$staffs->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
-							<a href="">
+							<a href="{{route('staff.edit',$staffs->id)}}">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
 						</td>
 					</tr>
+					@endforeach
 					</tbody>
-					<tfoot>
-					<tr>
-						<th>Record ID</th>
-						<th>Order ID</th>
-						<th>Country</th>
-						<th>Ship City</th>
-						<th>Ship Address</th>
-						<th>Company Agent</th>
-						<th>Company Name</th>
-						<th>Ship Date</th>
-						<th>Status</th>
-						<th>Type</th>
-						<th>Actions</th>
-					</tr>
-					</tfoot>
 				</table>
 				<!--end: Datatable-->
 			</div>
@@ -174,4 +160,3 @@
   </div>
 </div>
 @endsection
-
