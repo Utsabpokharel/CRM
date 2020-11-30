@@ -45,7 +45,7 @@
     <div class="card-footer">
      <button type="reset" class="btn btn-primary mr-2">Submit</button>
      <button type="reset" class="btn btn-secondary">Cancel</button>
-
+     
    </form>
 </div>
 @endsection
