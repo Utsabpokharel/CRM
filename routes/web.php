@@ -18,6 +18,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+   require_once('components/enquiry-category.php');
+   require_once('components/enquiry-source.php');
 });
 
 
