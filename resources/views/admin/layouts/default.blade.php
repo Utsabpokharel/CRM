@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
-		<title>@section('page_title') @show CRM</title>
+		<title>@section('page_title') @show-CRM</title>
 		<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -133,9 +133,11 @@
 
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
+		<script src="{{asset('assets/js/pages/crud/ktdatatable/advanced/row-details.js')}}"></script>
 		@include('admin.layouts.messages')
 		<!--end::Page Scripts-->
 		@stack('scripts')
+		
 
 	</body>
 	<!--end::Body-->
