@@ -5,7 +5,7 @@ namespace App\Classes;
 use Image;
 use File;
 use Closure;
-use Intervention\Image\Constraint;
+use Intervention\Image\Constraint;s
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ImageHelper
