@@ -19,6 +19,14 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+    //Customer
+    Route::get('customer','Customercontroller@index')->name('customer.index');
+ Route::post('customer/Store','Customercontroller@store')->name('customer.store');
+  Route::get('customer/edit/{id}','Customercontroller@edit')->name('customer.edit');
+  Route::put('customer/Update/{id}','Customercontroller@update')->name('customer.update');
+ Route::get('customer/destroy/{id}','Customercontroller@destroy')->name('customer.destroy');
+Route::get('customer/Create','Customercontroller@create')->name('customer.create');
+require_once('components/Emailsetting.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
     Route::get('customer','Customercontroller@view')->name('customer.view');
@@ -34,4 +42,5 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 //users route
 Route::get('/users','Admin\userController@users')->name('user.view');
 Route::get('/adduser','Admin\userController@addUser')->name('user.add');
+
 

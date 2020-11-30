@@ -145,13 +145,11 @@
         <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
-		
+
 		@include('admin.layouts.messages')
 		<!--end::Page Scripts-->
 		@stack('scripts')
 		
-
-		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
 
 	</body>
 	<!--end::Body-->
