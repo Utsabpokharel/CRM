@@ -29,4 +29,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('staffdestroy/{id}','StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
 });
+//users route
+Route::get('/users','Admin\userController@users')->name('user.view');
+Route::get('/adduser','Admin\userController@addUser')->name('user.add');
 
