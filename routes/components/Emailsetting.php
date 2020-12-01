@@ -1,6 +1,5 @@
 <?php
+Route::get('email/setting','EmailsettingController@settingform')->name('email.setting');
 
-
-Route::get('email/setting','EmailsettingController@settingform')->name('admin.emailsetting');
 
 

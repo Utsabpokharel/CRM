@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
-		<title>@section('page_title') @show-CRM</title>
+		<title>CRM | @section('page_title') @show</title>
 		<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -18,6 +18,9 @@
 		<link href="{{asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/js/pages/crud/datatables/css/jquery.dataTables.min.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/js/pages/crud/datatables/css/responsive.dataTables.min.css')}}">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css">
 		<!--end::Global Theme Styles-->
 		<!--begin::Layout Themes(used by all pages)-->
 		<link href="{{asset('assets/css/themes/layout/header/base/light.css')}}" rel="stylesheet" type="text/css" />
@@ -25,13 +28,14 @@
 		<link href="{{asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/my.css')}}">
 		
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
 
     </head>
     <!-- Data Tables -->
-	<link href="{{asset('assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
+	
 
 
 		@stack('css')
@@ -47,10 +51,30 @@
 				left: 178px;
 			}
 			li.flex {
-				width: 82%;
+				flex:1s;
 			}
 			tr.dtrg-group.dtrg-start.dtrg-level-0 {
 				display: none;
+			}
+			.table-bg {
+				background: #111111;
+	
+			}
+			thead.table-bg th
+			{
+				color:#fff !important;
+			}
+			.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+				color: #fff !important;
+				border: 1px solid #3699FF !important;
+				background: linear-gradient(to bottom, #3699FF 0%, #3699FF 100%) !important;
+			}
+			.img-css
+			{
+				width:40px;
+				height:40px;
+				border-radius:50%;
+				
 			}
 		</style>
 	</head>
@@ -118,6 +142,8 @@
 		<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 		<script src="{{asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
 		<script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
+		<script src="{{asset('assets/js/pages/crud/datatables/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/js/pages/crud/datatables/js/dataTables.responsive.min.js')}}"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Vendors(used by this page)-->
 		<script src="{{asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
@@ -125,20 +151,13 @@
 		<!--begin::Page Scripts(used by this page)-->
 
         <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
-
-        <!-- Data Table -->
-		<script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-		<script src="{{asset('assets/js/pages/crud/datatables/extensions/rowgroup.js')}}"></script>
-
-
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
-		<script src="{{asset('assets/js/pages/crud/ktdatatable/advanced/row-details.js')}}"></script>
 		@include('admin.layouts.messages')
 		<!--end::Page Scripts-->
 		@stack('scripts')
-		
-
+		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
+	@yield('script')
 	</body>
 	<!--end::Body-->
 </html>

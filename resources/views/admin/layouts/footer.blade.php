@@ -4,7 +4,7 @@
 							<!--begin::Copyright-->
 							<div class="text-dark order-2 order-md-1">
 								<span class="text-muted font-weight-bold mr-2">2020©</span>
-								<a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">GCN</a>
+								<a href="http://www.gcn.com.np/" target="_blank" class="text-dark-75 text-hover-primary">GCN</a>
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Nav-->
