@@ -50,7 +50,7 @@
 
      <div class="form-group">
       <label>Thankyou Point</label>
-      <textarea placeholder="Write Your Message Here" name="thankyou" class="form-control form-control-solid" name="thankyou"  rows="5"> </textarea>
+      <textarea class="form-control form-control-solid" name="thankyou" placeholder="Describe yourself here..." rows="5"> </textarea>
      </div>
 
      <div class="card-footer">
