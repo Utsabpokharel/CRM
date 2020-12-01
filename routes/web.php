@@ -67,6 +67,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('customer/ViewTrash','CustomerController@ViewTrash')->name('customer.ViewTrash');
     Route::get('customer/restore/{id}','CustomerController@restore')->name('customer.restore');
     Route::get('customer/deleteTrash/{id}','CustomerController@deleteTrash')->name('customer.deleteTrash');
+    require_once('components/enquiry.php');    
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
 //staff route
