@@ -10,8 +10,8 @@ class CustomerController extends Controller
 {
     public function index()
     {
-    	$customer=Customer::all();
-    	return view('admin.customer.index', compact('customer'));
+    	$customers=Customer::all();
+    	return view('admin.customer.index', compact('customers'));
     }
     public function create()
     {
@@ -20,8 +20,8 @@ class CustomerController extends Controller
 public function store(Request $request)
    { 
     	$request->validate([
-         'fname'=>'required|alpha',
-         'lname'=>'required|alpha',
+         'fname'=>'required',
+         'lname'=>'required',
          'gender'=>'required',
          'dob'=>'required',
          'password'=>'required',
@@ -35,11 +35,13 @@ public function store(Request $request)
          'customer_type'=>'required'
         ]);
          $data=$request->all();
-         $imagepath="images/customer/";
-         $data['image']=save_image($request->image,150,150,$imagepath);
+         
+         $data['image']=save_image($request->image,150,150,$this->imagePath());
+         $data['frontcitizenshipimage']=save_image($request->frontcitizenshipimage,150,150,$this->imagePath());
+         $data['backcitizenshipimage']=save_image($request->backcitizenshipimage,150,150,$this->imagePath());
         
          Customer::create($data);
-         return redirect()->route('customer.index');
+         return redirect()->route('customer.index')->with('success','User added successfully');
      }
      public function edit($id)
     {
@@ -49,8 +51,8 @@ public function store(Request $request)
     public function update(Request $request,$id)
     {
         $request->validate([
-        'fname'=>'required|alpha',
-         'lname'=>'required|alpha',
+        'fname'=>'required',
+         'lname'=>'required',
          'gender'=>'required',
          'dob'=>'required',
          'password'=>'required',
@@ -59,20 +61,78 @@ public function store(Request $request)
          'temporaryaddress'=>'required|alpha',
          'permanentaddress'=>'required|alpha',
          'email'=>'required|email',
-         'phone'=>'required|numeric|max:10|min:0',
-         'mobile'=>'required|numeric|max:10|min:0',
+         'phone'=>'required|numeric',
+         'mobile'=>'required|numeric',
          'customer_type'=>'required'
         ]);
+
         $customer=Customer::findorfail($id);
-        $data=$request->except('_token','_method');
+        $data=$request->except('_token','_method','current_image','current_frontcitizenshipimage','current_backcitizenshipimage');
+        if($request->hasFile('image'))
+        {
+            $data['image']=save_image($request->image,150,150,$this->imagePath());
+            delete_image($customer->image,$this->imagePath());
+
+
+        }
+        else
+            $data['image']=$request->current_image;
+
+        if($request->hasFile('frontcitizenshipimage'))
+        {
+            $data['frontcitizenshipimage']=save_image($request->image,150,150,$this->imagePath());
+            delete_image($customer->image,$this->imagePath());
+
+
+        }
+        else
+            $data['frontcitizenshipimage']=$request->current_frontcitizenshipimage;
+
+       
+        if($request->hasFile('backcitizenshipimage'))
+        {
+            $data['backcitizenshipimage']=save_image($request->image,150,150,$this->imagePath());
+            delete_image($customer->image,$this->imagePath());
+
+
+        }
+        else
+            $data['backcitizenshipimage']=$request->current_backcitizenshipimage; 
+
         Customer::where('id',$id)->update($data);
-        return redirect()->route('customer.index');
+        return redirect()->route('customer.index')->with('success','Customer updated successfully');
     }
     public function destroy($id)
     {
      $customer=Customer::findorfail($id);
+     
+
      $customer->delete();
         
-    return back();
+    return back()->with('flash_error','delete Successfully')->with('warning','Deleted Successfully');
+    }
+    public function ViewTrash()
+    {
+        $customers=Customer::onlyTrashed()->get();
+        return view('admin.customer.index',compact('customers'))->with('trashed','true');
+    }
+    public function restore($id)
+    {
+        $customer=Customer::onlyTrashed()->where('id',$id)->first();
+        $customer->restore();
+        return back()->with('success','Restored seccessfully');
+
+    }
+    public function deleteTrash($id)
+    {
+        $customer=Customer::onlyTrashed()->where('id',$id)->first();
+        delete_image($customer->image,$this->imagePath());
+        $customer->forcedelete();
+        return back()->with('warning','Customer has been deleted from trashed');
+    }
+
+    protected function imagePath()
+    {
+        return "images/customer/";
     }
 }

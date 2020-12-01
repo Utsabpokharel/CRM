@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 if(!function_exists('save_image'))
 {
-	function save_image(UploadedFile $file,$width=null,$height=null,$path,Closure $callback = null)
+	function save_image(UploadedFile $file=null,$width=null,$height=null,$path,Closure $callback = null)
 	{
 		if(empty($file))
 			return NULL;
@@ -18,7 +18,7 @@ if(!function_exists('delete_image'))
 {
 	function delete_image($fileName=null,$path=null)
 	{
-		$path=$path.$image;
+		$path=$path.$fileName;
 		if(\File::exists($path))
 			\File::delete($path);
 		else
