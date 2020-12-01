@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\VendorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
-    Route::get('index','IndexController@index')->name('admin.index');
+    Route::get('index', 'IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+    Route::resource('vendors', 'VendorController');
+    Route::get('admin/vendors/create', 'VendorController@create')->name('vendor.create');
+    Route::get('admin/vendors', 'VendorController@index')->name('vendor.index');
+    Route::get('admin/vendors/{vendor}/edit', 'VendorController@edit')->name('vendor.edit');
+    Route::get('admin/vendors/{vendor}', 'VendorController@destroy')->name('vendor.destroy');
 });
-
-
