@@ -14,6 +14,37 @@
 			</div>
 			<form action="" method="post">
 				<div class="card-body">
+					<div class="form-group">
+							<label>Mail Driver</label>
+							<select class="form-control form-control-solid" name="maildriver">
+								<option value="">Please Select One...</option>
+								<option value="mail">mail</option>
+								<option value="smtp">smtp</option>
+							</select>
+					</div>
+					<div class="form-group">
+							<label>Mail Host</label>
+							<input type="text" name="mailhost" class="form-control form-control-solid" placeholder="Enter Mail Host">
+					</div>
+					<div class="form-group">
+							<label>Mail Port</label>
+							<input type="text" name="mailport" class="form-control form-control-solid" placeholder="Enter Mail Port">
+					</div>
+					<div class="form-group">
+							<label>Mail Username</label>
+							<input type="text" name="mailusername" class="form-control form-control-solid" placeholder="Enter Mail Username">
+					</div>
+					<div class="form-group">
+							<label>Mail Password</label>
+							<input type="text" name="mailpassword" class="form-control form-control-solid" placeholder="Enter Mail Password">
+					</div>
+					<div class="form-group">
+							<label>Mail Encryption</label>
+							<select class="form-control form-control-solid" name="mailencryption">
+								<option value="">Please Select One...</option>
+								<option value="tls">tls</option>
+								<option value="ssl">ssl</option>
+							</select>
 					<div class="row">
 						<div class="col-lg-6 col-md-6">
 							<div class="form-group">

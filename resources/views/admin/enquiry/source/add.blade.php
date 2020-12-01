@@ -9,7 +9,7 @@
                 <input type="name" class="form-control form-control-solid" placeholder="Enter full name" name="name" value="{{old('name')}}"
                 />
                 @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">

@@ -69,6 +69,13 @@
 				border: 1px solid #3699FF !important;
 				background: linear-gradient(to bottom, #3699FF 0%, #3699FF 100%) !important;
 			}
+			.img-css
+			{
+				width:40px;
+				height:40px;
+				border-radius:50%;
+				
+			}
 		</style>
 	</head>
 
@@ -146,13 +153,12 @@
         <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 		<script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
-		
+
 		@include('admin.layouts.messages')
 		<!--end::Page Scripts-->
 		@stack('scripts')
-		
-
-		
+		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
+	@yield('script')
 
 	</body>
 	<!--end::Body-->

@@ -1,8 +1,28 @@
 @extends('admin.layouts.default')
+@section('title')
+
+@if(!empty($trashed))
+View All Trashed Staff
+@else
+View All Staff
+@endif
+@endsection
 @section('page_title','View Staff')
 @section('content')
+
 <div class="page-content-wrapper ">
 	<div class="page-bar">
+	<div class="btn-group">
+	@if(!empty($trashed))
+    <a href="" id="addRow" class="btn btn-warning">
+    View Staff <i class="fa fa-eye"></i>
+    </a>
+    @else
+	<a href="" id="addRow" class="btn btn-warning">
+    Trashed Staffs <i class="fa fa-eye"></i>
+    </a>
+    @endif
+   </div>
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
@@ -24,7 +44,7 @@
 					<span class="card-icon">
 					<i class="flaticon2-gift text-primary"></i>
 					</span>
-					<h3 class="card-label">RowGroup Staff</h3>
+					<h3 class="card-label">Staff</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -108,7 +128,12 @@
 													</g>
 												</svg>
 												<!--end::Svg Icon-->
-											</span>Add Staff</a>
+											</span>Add Staff</a>&nbsp;&nbsp;
+											@if(!empty($trashed))
+											<a href="{{route('staff.view')}}" class="btn btn-warning">View Staff</a>
+											@else
+												<a href="{{route('staff.trashed')}}" class="btn btn-warning">Trashed Staff</a>
+											@endif
 					<!--end::Button-->
 				</div>
 			</div>
@@ -133,19 +158,31 @@
 					<tr>
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
-						<td>{{$staffs->pp_photo}}</td>
+						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
 						<td>{{$staffs->mobileno}}</td>
 						<td>002 Menomonie Crossing</td>
 						<td>Keith Lukesch</td>
 						<td>dsgzdngd</td>
 						<td class="text-center"> 
-							<a href="{{route('staff.destroy',$staffs->id)}}">
+
+						
+							@if(!empty($trashed))
+							<a href="{{route('staff.restore',$staffs->id)}}">
+                            <i class="fa fa-undo text-info"></i>
+							</a>
+							<a class="deleteData" href="javascript::" rel1="{{route('staff.deleteTrash',$staffs->id)}}">
+								<i class="fa fa-trash text-danger"></i>
+							</a>
+							@else
+					
+							<a class="deleteData" href="javascript::" rel1="{{route('staff.destroy',$staffs->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
 							<a href="{{route('staff.edit',$staffs->id)}}">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
+							@endif
 						</td>
 					</tr>
 					@endforeach
