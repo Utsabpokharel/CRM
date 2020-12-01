@@ -16,13 +16,12 @@ use App\Http\Controllers\CustomerController;
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('index','IndexController@index')->name('admin.index');
-
-    Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
     Route::get('customer','Customercontroller@view')->name('customer.view');
     Route::get('customer/create','Customercontroller@create')->name('customer.create');
+    
     Route::get('staff','StaffController@index')->name('staff.view');
     Route::get('staffadd','StaffController@create')->name('staff.add');
     Route::post('staffstore','StaffController@store')->name('staff.store');
@@ -30,6 +29,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('staffupdate/{id}','StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}','StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
+    require_once('components/Profilesetting.php');
 });
 //users route
 Route::get('/users','Admin\userController@users')->name('user.view');

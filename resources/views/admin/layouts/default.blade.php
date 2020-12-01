@@ -28,6 +28,7 @@
 		<link href="{{asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link href="{{asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/my.css')}}">
 		
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
@@ -50,7 +51,7 @@
 				left: 178px;
 			}
 			li.flex {
-				width: 82%;
+				flex:1s;
 			}
 			tr.dtrg-group.dtrg-start.dtrg-level-0 {
 				display: none;
@@ -151,7 +152,7 @@
 		@stack('scripts')
 		
 
-		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
+		
 
 	</body>
 	<!--end::Body-->
