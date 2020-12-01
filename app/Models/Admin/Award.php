@@ -4,11 +4,9 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class staff extends Model
+class Award extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $guarded=[];
 }

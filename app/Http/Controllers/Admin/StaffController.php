@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Staff;
+use App\Http\Requests\staffValidator;
 class StaffController extends Controller
 {
     /**
@@ -34,37 +35,15 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(staffValidator $request)
     {
-        $request->validate([
-            'fname'=>'required',
-            'lname'=>'required',
-            'gender'=>'required',
-            'dob'=>'required',  
-            'pp_photo'=>'', 
-            'permanent_address'=>'required',    
-            'temporary_address'=>'required',
-            'city'=>'required',  
-            'phoneno'=>'',    
-            'mobileno'=>'',  
-            'department_id'=>'required',
-            'title_id'=>'required',
-            'level_id'=>'required',  
-            'panno'=>'',
-            'joined_date'=>'required',
-            'email'=>'required',
-            'password' => 'required',
-            'confirm_password' => 'required|same:password',
-            'ifuser'=>'',
-            'id_proof'=>'',
-            'resume'=>'',
-            'offer_letter'=>'',
-            'joining_letter'=>'',
-            'contract_agreement'=>''
-            ]);
         $data = $request->except("confirm_password");
+        if($request->hasFile('pp_photo'))
+        {$staff_image_path='images/staff/';
+            $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);}
+
         Staff::create($data);
-        return redirect()->route('staff.view')->with('flash_message', 'Staff Created successfully');
+        return redirect()->route('staff.view')->with('success', 'Staff Created successfully');
     }
 
     /**
@@ -99,12 +78,16 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'password' => 'required',
-            'confirm_password' => 'required|same:password'
-        ]);
+       
+        $data=$request->except('_token','confirm_password');
+        $data['city']='Kathmandu';
+        $data['department_id']=2;
+        $data['level_id']=2;
+        $data['title_id']=2;
+       
+       
         Staff::where("id", $id)->update($data);
-        return redirect()->route('staff.view')->with('flash_message', 'Staff Updated successfully');
+        return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
     }
 
     /**
@@ -117,6 +100,27 @@ class StaffController extends Controller
     {
         $data = Staff::findOrfail($id);
         $data->delete();
-        return redirect()->route('staff.view')->with("flash_error", 'Delete Successfully');
+        return redirect()->route('staff.view')->with("success", 'Delete Successfully');
+    }
+
+    public function trashedView()
+    {
+        $staff=Staff::onlyTrashed()->latest()->get();
+        return view('admin.staff.view', compact('staff'))->with('trashed','true');
+
+
+    }
+    public function restore($id)
+    {
+        $staff=Staff::onlyTrashed()->where('id',$id)->first();
+        $staff->restore();
+        return redirect()->route('staff.view')->with('success','Staff restore successfully');
+    }
+
+    public function deleteTrash($id)
+    {
+        $staff=Staff::onlyTrashed()->where('id',$id)->first();
+        $staff->forceDelete();
+        return redirect()->route('staff.view')->with('warning','Permanent Delete Successfully');
     }
 }
