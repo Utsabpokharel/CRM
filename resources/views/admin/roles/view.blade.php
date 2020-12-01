@@ -157,9 +157,11 @@
 				</div>
 			</div>
 		</div>
-		@endsection
-		@push('scripts')
-			
-		@endpush
+@endsection
+@push('scritps')
+	<script type="text/javascript">
+		$(document).ready(function(){
 
-
+		});
+	</script>
+@endpush
