@@ -5909,8 +5909,8 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-<<<<<<< HEAD
-            "version": "9.2.4",
+            "version": "9.2.5",
+
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
@@ -5918,20 +5918,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0a7f0acf9269c190fd982b5c04423feae986b6e0",
-                "reference": "0a7f0acf9269c190fd982b5c04423feae986b6e0",
-=======
-            "version": "9.2.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f3e026641cc91909d421802dd3ac7827ebfd97e1"
-            },
-            "dist": {
-                "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f3e026641cc91909d421802dd3ac7827ebfd97e1",
                 "reference": "f3e026641cc91909d421802dd3ac7827ebfd97e1",
->>>>>>> 6728b7441af413c94f170961285d34ee83f74e59
                 "shasum": ""
             },
             "require": {
@@ -5995,11 +5983,7 @@
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-11-27T06:15:15+00:00"
-=======
             "time": "2020-11-28T06:44:49+00:00"
->>>>>>> 6728b7441af413c94f170961285d34ee83f74e59
         },
         {
             "name": "phpunit/php-file-iterator",
