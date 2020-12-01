@@ -30,7 +30,7 @@
 			<!--begin::Menu Nav-->
 			<ul class="menu-nav">
 				<li class="menu-item menu-item-active" aria-haspopup="true">
-					<a href="index.html" class="menu-link">
+					<a href="{{route('admin.index')}}" class="menu-link">
 						<span class="svg-icon menu-icon">
 							<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1188,7 +1188,7 @@
 								</a>
 							</li>
 							<li class="menu-item" aria-haspopup="true">
-								<a href="{{route('admin.emailsetting')}}" class="menu-link">
+								<a href="{{route('email.setting')}}" class="menu-link">
 									<i class="menu-bullet menu-bullet-line">
 										<span></span>
 									</i>
