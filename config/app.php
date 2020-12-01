@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-        App\Providers\MetronicServiceProvider::class,
+       
 
         /*
          * Application Service Providers...
@@ -175,6 +175,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\HelperProvider::class,
+        'Intervention\Image\ImageServiceProvider',
 
     ],
 
@@ -227,10 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        // Metronic Aliases
-        'Metronic' => App\Classes\Theme\Metronic::class,
-        'Menu' => App\Classes\Theme\Menu::class,
+        'Image' => 'Intervention\Image\Facades\Image',
 
     ],
 
