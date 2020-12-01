@@ -43,7 +43,6 @@ class CreateVendorTable extends Migration
             $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *
