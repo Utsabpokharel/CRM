@@ -67,9 +67,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('customer/ViewTrash', 'CustomerController@ViewTrash')->name('customer.ViewTrash');
     Route::get('customer/restore/{id}', 'CustomerController@restore')->name('customer.restore');
     Route::get('customer/deleteTrash/{id}', 'CustomerController@deleteTrash')->name('customer.deleteTrash');
-    require_once('components/enquiry.php');
-    require_once('components/enquiry-category.php');
-    require_once('components/enquiry-source.php');
+
+
 //staff route
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staffadd', 'StaffController@create')->name('staff.add');
@@ -78,5 +77,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('staffupdate/{id}', 'StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}', 'StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
+    require_once('components/enquiry.php');
+    require_once('components/enquiry-category.php');
+    require_once('components/enquiry-source.php');
 });
 
