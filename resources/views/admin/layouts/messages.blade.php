@@ -1,7 +1,11 @@
 <script>
 
 	$(document).ready(function(){
+		let tableId='#'+$('.table').attr('id')
+		$(tableId).DataTable({
+			responsive: false,
 
+		});
 		@if(session('success'))
 			swal(
 				'Success',

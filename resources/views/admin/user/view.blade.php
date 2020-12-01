@@ -117,7 +117,6 @@
 						<th>Name</th>
 						<th>Email</th>
 						<th>Phone</th>
-						<th>Password</th>
 						<th>Image</th>
 						<th>Gender</th>
 						<th>Address</th>
@@ -126,26 +125,27 @@
 					</tr>
 					</thead>
 					<tbody>
+						@foreach($user as $key=>$user)
 					<tr>
-						<td>322</td>
-						<td>Biju Shrestha</td>
-						<td>ibijushrestha@gmail.com</td>
-						<td>9843789534</td>
-						<td>iamhero</td>
-						<td>Image</td>
-						<td>idontknow</td>
-						<td>Koteshor,Kathmandu</td>
-						<td>65</td>
+					<td>{{$key+1}}</td>
+					<td>{{$user->name}}</td>
+					<td>{{$user->email}}</td>
+					<td>{{$user->phone}}</td>
+					<td><img src="{{asset('images/users/'.$user->image)}}"></td>
+					<td>{{$user->gender}}</td>
+					<td>{{$user->address}}</td>
+					<td>{{$user->roleid}}</td>
 						<td class="text-center">
-							<a href="">
+						 <a href="javascript::" class="deleteData" rel1="{{route('user.destroy',$user->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
-							<a href="">
+						<a href="{{route('user.edit',$user->id)}}">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
 						</td>
 					</tr>
+					@endforeach
 					</tbody>
 					<tfoot>
 					<tr>
@@ -153,7 +153,6 @@
 						<th>Name</th>
 						<th>Email</th>
 						<th>Phone</th>
-						<th>Password</th>
 						<th>Image</th>
 						<th>Gender</th>
 						<th>Address</th>
@@ -165,9 +164,6 @@
 				<!--end: Datatable-->
 			</div>
 		</div>
-
-
-
   </div>
 </div>
 @endsection
