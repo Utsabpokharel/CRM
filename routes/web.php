@@ -39,7 +39,6 @@ require_once('components/Emailsetting.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
     Route::get('customer','Customercontroller@view')->name('customer.view');
-    Route::get('customer/create','Customercontroller@create')->name('customer.create');
 
 //staff route
     Route::get('staff','StaffController@index')->name('staff.view');
@@ -51,6 +50,6 @@ require_once('components/Emailsetting.php');
     require_once('components/Emailsetting.php');
 
 //users route
-Route::get('/users','Admin\userController@users')->name('user.view');
-Route::get('/adduser','Admin\userController@addUser')->name('user.add');
+Route::get('/users','userController@users')->name('user.view');
+Route::get('/adduser','userController@addUser')->name('user.add');
 });

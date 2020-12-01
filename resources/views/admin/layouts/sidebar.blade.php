@@ -108,7 +108,7 @@
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
 											<li class="menu-item" aria-haspopup="true">
-												<a href="{{route('customer.index')}}" class="menu-link">
+												<a href="#" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
