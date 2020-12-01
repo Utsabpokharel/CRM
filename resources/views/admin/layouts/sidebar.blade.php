@@ -84,7 +84,15 @@
 													</i>
 													<span class="menu-text">Add User</span>
 												</a>
-											</li>
+                                            </li>
+                                            <li class="menu-item" aria-haspopup="true">
+                                                <a href="profile" class="menu-link">
+                                                        <i class="menu-bullet menu-bullet-line">
+                                                            <span></span>
+                                                        </i>
+                                                        <span class="menu-text">Profile Demo</span>
+                                                    </a>
+                                                </li>
 										</ul>
 									</div>
                                 </li>

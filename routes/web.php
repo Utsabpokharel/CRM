@@ -69,12 +69,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('Expenses/Viewtrashed', 'Expensescontroller@Viewtrashed')->name('expenses.Viewtrashed');
     Route::get('expenses/restore/{id}', 'Expensescontroller@restore')->name('expenses.restore');
     Route::get('Expenses/Delete{expensesid}', 'Expensescontroller@destroy')->name('expenses.destroy');
+ //Designation-Title-Level-ProfileDemo
     Route::resource('designation', 'designationController');
     Route::resource('level', 'levelController');
     Route::resource('title', 'titleController');
-    Route::resource('designation', 'designationController');
-    Route::resource('level', 'levelController');
-    Route::resource('title', 'titleController');
+    Route::resource('profile', 'profileDemoController');
+    Route::get('personalInfo','profileDemoController@personal')->name('personal');
 //users route
     Route::get('/users', 'userController@users')->name('user.view');
     Route::get('/adduser', 'userController@addUser')->name('user.add');
