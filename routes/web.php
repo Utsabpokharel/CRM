@@ -18,6 +18,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('index','IndexController@index')->name('admin.index');
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+
+    Route::resource('designation', 'designationController');
+    Route::resource('level', 'levelController');
+    Route::resource('title', 'titleController');
     Route::resource('designation', 'designationController');
     Route::resource('level', 'levelController');
     Route::resource('title', 'titleController');
@@ -48,6 +52,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('staffupdate/{id}','StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}','StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
+});
 //users route
 Route::get('/users','Admin\userController@users')->name('user.view');
 Route::get('/adduser','Admin\userController@addUser')->name('user.add');
