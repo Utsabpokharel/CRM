@@ -140,6 +140,7 @@
 		
 
 		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
+	@yield('script')
 
 	</body>
 	<!--end::Body-->

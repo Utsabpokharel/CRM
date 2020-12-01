@@ -19,6 +19,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+    require_once('components/enquiry.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
     Route::get('customer','Customercontroller@view')->name('customer.view');

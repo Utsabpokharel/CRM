@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('image');
             $table->string('gender');
             $table->string('address');
-            $table->int('roleid');
+            $table->integer('roleid');
         });
     }
 
