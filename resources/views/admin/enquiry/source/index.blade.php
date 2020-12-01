@@ -21,7 +21,7 @@
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-                        <h3 class="card-label">RowGroup DataTable</h3>
+                        <h3 class="card-label">Enquiry Source Table</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
@@ -119,9 +119,8 @@
                 </div>
                 <div class="card-body">
                     <!--begin: Datatable-->
-                    <table class="table table-bordered table-hover table-checkable" id="kt_datatable"
-                           style="margin-top: 13px !important;">
-                        <thead>
+                    <table id="demo_table" class="display nowrap table" style="width:100%">
+                        <thead class="table-bg">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>

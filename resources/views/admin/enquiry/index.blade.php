@@ -21,7 +21,7 @@
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-                        <h3 class="card-label">RowGroup DataTable</h3>
+                        <h3 class="card-label">Enquiry Table</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
@@ -119,13 +119,17 @@
                 </div>
                 <div class="card-body">
                     <!--begin: Datatable-->
-                    <table class="table table-bordered table-hover table-checkable" id="kt_datatable"
-                           style="margin-top: 13px !important;">
-                        <thead>
+                    <table id="demo_table" class="display nowrap table" style="width:100%">
+                        <thead class="table-bg">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Description</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Enquiry Category</th>
+                            <th>Enquiry Source</th>
+                            <th>Enquired Date</th>
+                            <th>Enquired Time</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -133,8 +137,19 @@
                         @foreach($enquiry as $enquiry)
                             <tr>
                                 <td>{{$enquiry->id}}</td>
-                                <td>{{$enquiry->name}}</td>
-                                <td>{{$enquiry->description}}</td>
+                                @if($enquiry->is_customer=='Yes')
+                                    <td>{{$enquiry->customer_id}}</td>
+                                    <td>admin@admin.com</td>
+                                    <td>9860143597</td>
+                                @else
+                                    <td>{{$enquiry->name}}</td>
+                                    <td>{{$enquiry->email}}</td>
+                                    <td>{{$enquiry->phone}}</td>
+                                @endif
+                                <td>{{$enquiry->category_id}}</td>
+                                <td>{{$enquiry->source_id}}</td>
+                                <td>{{$enquiry->date}}</td>
+                                <td>{{$enquiry->time}}</td>
                                 <td class="text-center">
                                     <a href="{{route('Enquiry.destroy',$enquiry->id)}}">
                                         <i class="fa fa-trash text-danger"></i>
@@ -147,14 +162,6 @@
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                        </tfoot>
                     </table>
                     <!--end: Datatable-->
                 </div>

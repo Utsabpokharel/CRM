@@ -34,10 +34,10 @@
             </div>
             <div class="form-group d-none" id="customer">
                 <label>Enquiry Name :</label>
-                <select name="customer" class="form-control form-control-solid customer">
+                <select name="customer_id" class="form-control form-control-solid customer">
                     <option disabled selected>--select any one--</option>
-                    <option @if(old('customer')=='1') selected @endif value="1">Ram</option>
-                    <option @if(old('customer')=='2') selected @endif value="2">Hari</option>
+                    <option @if(old('customer_id')=='1') selected @endif value="1">Ram</option>
+                    <option @if(old('customer_id')=='2') selected @endif value="2">Hari</option>
                 </select>
             </div>
             <div id="notcustomer">
