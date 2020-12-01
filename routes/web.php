@@ -16,9 +16,18 @@ use App\Http\Controllers\CustomerController;
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('index','IndexController@index')->name('admin.index');
-
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
+<<<<<<< HEAD
+//users route
+    Route::get('/users','userController@users')->name('user.view');
+    Route::get('/adduser','userController@addUser')->name('user.add');
+    Route::post('storeuser','userController@store')->name('user.store');
+    Route::get('users/delete/{userid}','userController@destroy')->name('user.destroy');
+    Route::get('user/edit/{userid}','userController@editUser')->name('user.edit');
+    Route::post('user/update/{userid}','userController@updateUser')->name('user.update');
+//customer route
+=======
     //Customer
     Route::get('customer','Customercontroller@index')->name('customer.index');
  Route::post('customer/Store','Customercontroller@store')->name('customer.store');
@@ -29,8 +38,11 @@ Route::get('customer/Create','Customercontroller@create')->name('customer.create
 require_once('components/Emailsetting.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
+>>>>>>> 451c2141edded87f75f62ff03fbb499550dd6420
     Route::get('customer','Customercontroller@view')->name('customer.view');
     Route::get('customer/create','Customercontroller@create')->name('customer.create');
+
+//staff route
     Route::get('staff','StaffController@index')->name('staff.view');
     Route::get('staffadd','StaffController@create')->name('staff.add');
     Route::post('staffstore','StaffController@store')->name('staff.store');
@@ -39,8 +51,11 @@ require_once('components/Emailsetting.php');
     Route::get('staffdestroy/{id}','StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
 });
+<<<<<<< HEAD
+=======
 //users route
 Route::get('/users','Admin\userController@users')->name('user.view');
 Route::get('/adduser','Admin\userController@addUser')->name('user.add');
 
 
+>>>>>>> 451c2141edded87f75f62ff03fbb499550dd6420
