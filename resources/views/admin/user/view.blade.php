@@ -164,9 +164,6 @@
 				<!--end: Datatable-->
 			</div>
 		</div>
-
-
-
   </div>
 </div>
 @endsection
