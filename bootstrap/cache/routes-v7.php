@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::IlcAKvel3crpp4jG',
+            '_route' => 'generated::aMMbuvzH0qd6B9x3',
           ),
           1 => NULL,
           2 => 
@@ -676,10 +676,207 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/email/setting' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.emailsetting',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/index' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Enquiry.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Enquiry.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Enquiry.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/category/index' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquiryCategory.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/category/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquiryCategory.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/category/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquiryCategory.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/source/index' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquirySource.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/source/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquirySource.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/enquiry/source/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquirySource.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/admin/(?|roles/([^/]++)(?|(*:34)|/edit(*:46)|(*:53))|Incomecategory/(?|Edit/([^/]++)(*:92)|Update/([^/]++)(*:114)|Delete/([^/]++)(*:137))|Expenses(?|category/(?|Edit/([^/]++)(*:182)|Update/([^/]++)(*:205)|Delete/([^/]++)(*:228))|/(?|Edit/([^/]++)(*:254)|Update/([^/]++)(*:277)|deleteTrashed/([^/]++)(*:307)|Delete([^/]++)(*:329)))|expenses/restore/([^/]++)(*:364)|designation/([^/]++)(?|(*:395)|/edit(*:408)|(*:416))|level/([^/]++)(?|(*:442)|/edit(*:455)|(*:463))|title/([^/]++)(?|(*:489)|/edit(*:502)|(*:510))|user(?|s/delete/([^/]++)(*:543)|/(?|edit/([^/]++)(*:568)|update/([^/]++)(*:591)))|customer/(?|edit/([^/]++)(*:626)|Update/([^/]++)(*:649)|de(?|stroy/([^/]++)(*:676)|leteTrash/([^/]++)(*:702))|restore/([^/]++)(*:727))|staff(?|edit/([^/]++)(*:757)|update/([^/]++)(*:780)|destroy/([^/]++)(*:804))))/?$}sDu',
+      0 => '{^(?|/admin/(?|roles/([^/]++)(?|(*:34)|/edit(*:46)|(*:53))|Incomecategory/(?|Edit/([^/]++)(*:92)|Update/([^/]++)(*:114)|Delete/([^/]++)(*:137))|Expenses(?|category/(?|Edit/([^/]++)(*:182)|Update/([^/]++)(*:205)|Delete/([^/]++)(*:228))|/(?|Edit/([^/]++)(*:254)|Update/([^/]++)(*:277)|deleteTrashed/([^/]++)(*:307)|Delete([^/]++)(*:329)))|e(?|xpenses/restore/([^/]++)(*:367)|nquiry/(?|delete/([^/]++)(*:400)|edit/([^/]++)(*:421)|update/([^/]++)(*:444)|category/(?|delete/([^/]++)(*:479)|edit/([^/]++)(*:500)|update/([^/]++)(*:523))|source/(?|delete/([^/]++)(*:557)|edit/([^/]++)(*:578)|update/([^/]++)(*:601))))|designation/([^/]++)(?|(*:635)|/edit(*:648)|(*:656))|level/([^/]++)(?|(*:682)|/edit(*:695)|(*:703))|title/([^/]++)(?|(*:729)|/edit(*:742)|(*:750))|user(?|s/delete/([^/]++)(*:783)|/(?|edit/([^/]++)(*:808)|update/([^/]++)(*:831)))|customer/(?|edit/([^/]++)(*:866)|Update/([^/]++)(*:889)|de(?|stroy/([^/]++)(*:916)|leteTrash/([^/]++)(*:942))|restore/([^/]++)(*:967))|staff(?|edit/([^/]++)(*:997)|update/([^/]++)(*:1020)|destroy/([^/]++)(*:1045))))/?$}sDu',
     ),
     3 => 
     array (
@@ -998,7 +1195,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      364 => 
+      367 => 
       array (
         0 => 
         array (
@@ -1021,7 +1218,211 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      395 => 
+      400 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Enquiry.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      421 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Enquiry.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      444 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Enquiry.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      479 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquiryCategory.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      500 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquiryCategory.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      523 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquiryCategory.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      557 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquirySource.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      578 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquirySource.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      601 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'EnquirySource.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      635 => 
       array (
         0 => 
         array (
@@ -1044,7 +1445,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      408 => 
+      648 => 
       array (
         0 => 
         array (
@@ -1067,7 +1468,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      416 => 
+      656 => 
       array (
         0 => 
         array (
@@ -1109,7 +1510,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      442 => 
+      682 => 
       array (
         0 => 
         array (
@@ -1132,7 +1533,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      455 => 
+      695 => 
       array (
         0 => 
         array (
@@ -1155,7 +1556,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      463 => 
+      703 => 
       array (
         0 => 
         array (
@@ -1197,7 +1598,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      489 => 
+      729 => 
       array (
         0 => 
         array (
@@ -1220,7 +1621,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      502 => 
+      742 => 
       array (
         0 => 
         array (
@@ -1243,7 +1644,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      510 => 
+      750 => 
       array (
         0 => 
         array (
@@ -1285,7 +1686,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      543 => 
+      783 => 
       array (
         0 => 
         array (
@@ -1308,7 +1709,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      568 => 
+      808 => 
       array (
         0 => 
         array (
@@ -1331,7 +1732,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      591 => 
+      831 => 
       array (
         0 => 
         array (
@@ -1353,7 +1754,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      626 => 
+      866 => 
       array (
         0 => 
         array (
@@ -1376,7 +1777,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      649 => 
+      889 => 
       array (
         0 => 
         array (
@@ -1398,7 +1799,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      676 => 
+      916 => 
       array (
         0 => 
         array (
@@ -1421,7 +1822,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      702 => 
+      942 => 
       array (
         0 => 
         array (
@@ -1444,7 +1845,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      727 => 
+      967 => 
       array (
         0 => 
         array (
@@ -1467,7 +1868,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      757 => 
+      997 => 
       array (
         0 => 
         array (
@@ -1490,7 +1891,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      780 => 
+      1020 => 
       array (
         0 => 
         array (
@@ -1513,7 +1914,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      804 => 
+      1045 => 
       array (
         0 => 
         array (
@@ -1551,7 +1952,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::IlcAKvel3crpp4jG' => 
+    'generated::aMMbuvzH0qd6B9x3' => 
     array (
       'methods' => 
       array (
@@ -1566,15 +1967,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@8NRFMmA71OOmVukLJAmMxWgYxIImkiKysBXlLjGlDEk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":291:{@cI9lpEKuIygs+ASSXskkTWwRlTo1YN71CJdITzxBF74=.a:5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000001df6310b000000000d13a82b";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000269ec9600000000724b31ef";}}',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::IlcAKvel3crpp4jG',
+        'as' => 'generated::aMMbuvzH0qd6B9x3',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4112,6 +4513,684 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'staff.destroy',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.emailsetting' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/email/setting',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EmailsettingController@settingform',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EmailsettingController@settingform',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.emailsetting',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Enquiry.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/index',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryController@index',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'Enquiry.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Enquiry.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryController@create',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'Enquiry.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Enquiry.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/enquiry/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryController@store',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'Enquiry.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Enquiry.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/delete/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'Enquiry.destroy',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Enquiry.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryController@edit',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'Enquiry.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Enquiry.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/enquiry/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryController@update',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'Enquiry.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquiryCategory.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/category/index',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@index',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquiryCategory.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquiryCategory.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/category/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@create',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquiryCategory.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquiryCategory.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/enquiry/category/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@store',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquiryCategory.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquiryCategory.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/category/delete/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquiryCategory.destroy',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquiryCategory.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/category/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@edit',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquiryCategory.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquiryCategory.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/enquiry/category/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquiryCategoryController@update',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquiryCategory.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquirySource.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/source/index',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@index',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquirySource.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquirySource.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/source/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@create',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquirySource.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquirySource.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/enquiry/source/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@store',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquirySource.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquirySource.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/source/delete/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquirySource.destroy',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquirySource.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/enquiry/source/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@edit',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquirySource.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'EnquirySource.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/enquiry/source/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\EnquirySourceController@update',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'EnquirySource.update',
       ),
       'fallback' => false,
       'defaults' => 
