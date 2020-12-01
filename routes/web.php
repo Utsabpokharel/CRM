@@ -16,12 +16,18 @@ use App\Http\Controllers\CustomerController;
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 	Route::get('index','IndexController@index')->name('admin.index');
-
     Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
-
-
-
+    Route::resource('designation', 'designationController');
+    Route::resource('level', 'levelController');
+    Route::resource('title', 'titleController');
+//users route
+    Route::get('/users','userController@users')->name('user.view');
+    Route::get('/adduser','userController@addUser')->name('user.add');
+    Route::post('storeuser','userController@store')->name('user.store');
+    Route::get('users/delete/{userid}','userController@destroy')->name('user.destroy');
+    Route::get('user/edit/{userid}','userController@editUser')->name('user.edit');
+    Route::post('user/update/{userid}','userController@updateUser')->name('user.update');
     //Customer
     Route::get('customer','CustomerController@index')->name('customer.index');
      Route::post('customer/Store','CustomerController@store')->name('customer.store');
@@ -34,12 +40,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('customer/deleteTrash/{id}','CustomerController@deleteTrash')->name('customer.deleteTrash');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
-
-
-
-
-
-
+//staff route
     Route::get('staff','StaffController@index')->name('staff.view');
     Route::get('staffadd','StaffController@create')->name('staff.add');
     Route::post('staffstore','StaffController@store')->name('staff.store');
@@ -47,9 +48,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('staffupdate/{id}','StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}','StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
-});
 //users route
 Route::get('/users','Admin\userController@users')->name('user.view');
 Route::get('/adduser','Admin\userController@addUser')->name('user.add');
-
-

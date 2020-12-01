@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View Role')
+@section('page_title','View Title')
 @section('content')
 <div class="page-content-wrapper ">
 	<div class="page-bar">
@@ -9,10 +9,10 @@
 				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="">User</a>&nbsp;
+				<li><a class="parent-item" href="">Title</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li class="active">All Users</li>
+				<li class="active">All Title</li>
 			</ol>
 		</div>
 	</div>
@@ -93,7 +93,7 @@
 					</div>
 					<!--end::Dropdown-->
 					<!--begin::Button-->
-					<a href="#" class="btn btn-primary font-weight-bolder">
+                <a href="{{route('title.create')}}" class="btn btn-primary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -113,50 +113,54 @@
 				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
 					<thead>
 					<tr>
-						<th>User ID</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Phone</th>
-						<th>Image</th>
-						<th>Gender</th>
-						<th>Address</th>
-						<th>Role ID</th>
+						<th>Record ID</th>
+						<th>Order ID</th>
+						<th>Country</th>
+						<th>Ship City</th>
+						<th>Ship Address</th>
+						<th>Company Agent</th>
+						<th>Company Name</th>
+						<th>Ship Date</th>
+						<th>Status</th>
+						<th>Type</th>
 						<th>Actions</th>
 					</tr>
 					</thead>
 					<tbody>
-						@foreach($user as $key=>$user)
 					<tr>
-					<td>{{$key+1}}</td>
-					<td>{{$user->name}}</td>
-					<td>{{$user->email}}</td>
-					<td>{{$user->phone}}</td>
-					<td><img src="{{asset('images/users/'.$user->image)}}"></td>
-					<td>{{$user->gender}}</td>
-					<td>{{$user->address}}</td>
-					<td>{{$user->roleid}}</td>
+						<td>322</td>
+						<td>0338-1009</td>
+						<td>Brazil</td>
+						<td>Osasco</td>
+						<td>002 Menomonie Crossing</td>
+						<td>Keith Lukesch</td>
+						<td>Hand-Kemmer</td>
+						<td>1/13/2017</td>
+						<td>6</td>
+						<td>1</td>
 						<td class="text-center">
-						 <a href="javascript::" class="deleteData" rel1="{{route('user.destroy',$user->id)}}">
+							<a href="">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
-						<a href="{{route('user.edit',$user->id)}}">
+							<a href="">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
 						</td>
 					</tr>
-					@endforeach
 					</tbody>
 					<tfoot>
 					<tr>
-						<th>User ID</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Phone</th>
-						<th>Image</th>
-						<th>Gender</th>
-						<th>Address</th>
-						<th>Role ID</th>
+						<th>Record ID</th>
+						<th>Order ID</th>
+						<th>Country</th>
+						<th>Ship City</th>
+						<th>Ship Address</th>
+						<th>Company Agent</th>
+						<th>Company Name</th>
+						<th>Ship Date</th>
+						<th>Status</th>
+						<th>Type</th>
 						<th>Actions</th>
 					</tr>
 					</tfoot>
@@ -164,6 +168,9 @@
 				<!--end: Datatable-->
 			</div>
 		</div>
+
+
+
   </div>
 </div>
 @endsection
