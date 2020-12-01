@@ -15,14 +15,14 @@ use App\Http\Controllers\CustomerController;
 */
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::get('index', 'IndexController@index')->name('admin.index');
-    Route::get('index', 'IndexController@index')->name('admin.index');
+
+Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
+	Route::get('index','IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
 
     Route::get('customer','Customercontroller@view')->name('customer.view');
     Route::get('customer/create','Customercontroller@create')->name('customer.create');
-    
+
     // Route for staff
     Route::get('staff','StaffController@index')->name('staff.view');
     Route::get('staffadd','StaffController@create')->name('staff.add');
@@ -35,7 +35,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('staffdeleteTrash/{id}','StaffController@deleteTrash')->name('staff.deleteTrash');
     require_once('components/Emailsetting.php');
-
+    require_once('components/Profilesetting.php');
+});
     // Route for award
     Route::get('award','AwardController@index')->name('award.view');
     Route::get('awardadd','AwardController@create')->name('award.add');
