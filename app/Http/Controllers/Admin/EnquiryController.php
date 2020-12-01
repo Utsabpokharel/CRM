@@ -40,8 +40,8 @@ class EnquiryController extends Controller
     {
         $data = $request->validate(
             [
-                'is_costumer'=>'',
-                'costumer_id'=>'',
+                'is_customer'=>'',
+                'customer_id'=>'',
                 'name'=>'',
                 'email'=>'',
                 'phone'=>'',
@@ -98,8 +98,8 @@ class EnquiryController extends Controller
     {
         $data = $request->validate(
             [
-                'is_costumer'=>'',
-                'costumer_id'=>'',
+                'is_customer'=>'',
+                'customer_id'=>'',
                 'name'=>'',
                 'email'=>'',
                 'phone'=>'',
