@@ -29,18 +29,17 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('user/edit/{userid}','userController@editUser')->name('user.edit');
     Route::post('user/update/{userid}','userController@updateUser')->name('user.update');
     //Customer
-    Route::get('customer','Customercontroller@index')->name('customer.index');
- Route::post('customer/Store','Customercontroller@store')->name('customer.store');
-  Route::get('customer/edit/{id}','Customercontroller@edit')->name('customer.edit');
-  Route::put('customer/Update/{id}','Customercontroller@update')->name('customer.update');
- Route::get('customer/destroy/{id}','Customercontroller@destroy')->name('customer.destroy');
-Route::get('customer/Create','Customercontroller@create')->name('customer.create');
-require_once('components/Emailsetting.php');
+    Route::get('customer','CustomerController@index')->name('customer.index');
+     Route::post('customer/Store','CustomerController@store')->name('customer.store');
+      Route::get('customer/edit/{id}','CustomerController@edit')->name('customer.edit');
+      Route::put('customer/Update/{id}','CustomerController@update')->name('customer.update');
+    Route::get('customer/destroy/{id}','CustomerController@destroy')->name('customer.destroy');
+    Route::get('customer/Create','CustomerController@create')->name('customer.create');
+    Route::get('customer/ViewTrash','CustomerController@ViewTrash')->name('customer.ViewTrash');
+    Route::get('customer/restore/{id}','CustomerController@restore')->name('customer.restore');
+    Route::get('customer/deleteTrash/{id}','CustomerController@deleteTrash')->name('customer.deleteTrash');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
-    Route::get('customer','Customercontroller@view')->name('customer.view');
-    Route::get('customer/create','Customercontroller@create')->name('customer.create');
-
 //staff route
     Route::get('staff','StaffController@index')->name('staff.view');
     Route::get('staffadd','StaffController@create')->name('staff.add');

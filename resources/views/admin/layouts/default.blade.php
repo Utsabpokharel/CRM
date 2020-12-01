@@ -68,6 +68,13 @@
 				border: 1px solid #3699FF !important;
 				background: linear-gradient(to bottom, #3699FF 0%, #3699FF 100%) !important;
 			}
+			.img-css
+			{
+				width:40px;
+				height:40px;
+				border-radius:50%;
+				
+			}
 		</style>
 	</head>
 

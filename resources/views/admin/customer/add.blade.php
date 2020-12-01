@@ -19,7 +19,7 @@
       <label>First Name:</label>
 
 
-      <input type="text" name="fname" class="form-control form-control-solid" placeholder="Enter First Name"/>
+      <input type="text" name="fname" class="form-control form-control-solid" placeholder="Enter First Name" value="{{old('fname')}}"/>
       @error('fname')
           <p>The First Name is required.</p>
           @enderror
@@ -32,7 +32,7 @@
      <div class="form-group">
       <label>Last Name:</label>
       
-      <input type="text" name="lname" class="form-control form-control-solid" placeholder="Enter Last Name"/>
+      <input type="text" name="lname" class="form-control form-control-solid" placeholder="Enter Last Name" value="{{old('lname')}}"/>
       @error('lname')
       <p>The Last Name is required.</p>
       @enderror
@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <label for="gender">Select Gender</label>
                                     
-                                    <select name="gender" id="gender" class="form-control form-control-solid"  value=""
+                                    <select name="gender"  class="form-control form-control-solid" value="{{old('gender')}}"
                                             >
                                         <option selected disabled="">Select  Gender</option>
                                         <option value="male">Male</option>
@@ -63,7 +63,7 @@
      <div class="col-md-6">
       <div class="form-group">
       
-      <input type="date" name="dob" class="form-control form-control-solid" placeholder="Select your Birth Date"/>
+      <input type="date" name="dob" class="form-control form-control-solid" placeholder="Select your Birth Date" value="{{old('dob')}}"/>
       <label>Date Of Birth</label>
       @error('dob')
       <p>The Date of Birth is required.</p>
@@ -74,7 +74,7 @@
      <div class="form-group">
       <label>Email address:</label>
       
-      <input type="email" name="email" class="form-control form-control-solid" placeholder="Enter email"/>
+      <input type="email" name="email" class="form-control form-control-solid" placeholder="Enter email" value="{{old('email')}}"/>
       @error('email')
       <p>The Email is required.</p>
       @enderror
@@ -85,7 +85,7 @@
      <div class="form-group">
       <label>Password:</label>
       
-      <input type="password" name="password" class="form-control form-control-solid" placeholder="Enter password"/>
+      <input type="password" name="password" class="form-control form-control-solid" placeholder="Enter password" value="{{old('password')}}"/>
       @error('password')
       <p>The Password is required.</p>
       @enderror
@@ -96,7 +96,7 @@
      <div class="form-group">
       <label>Phone Number:</label>
       
-      <input type="text" name="phone" class="form-control form-control-solid" placeholder="Enter Phone Number"/>
+      <input type="text" name="phone" class="form-control form-control-solid" placeholder="Enter Phone Number" value="{{old('phone')}}"/>
       @error('phone')
       <p>The Phone Number is required.</p>
       @enderror
@@ -106,7 +106,7 @@
       <div class="form-group">
       <label>Mobile Number:</label>
       
-      <input type="text" name="mobile" class="form-control form-control-solid" placeholder="Enter Mobile Number"/>
+      <input type="text" name="mobile" class="form-control form-control-solid" placeholder="Enter Mobile Number" value="{{old('mobile')}}"/>
       @error('mobile')
       <p>The Mobile Number is required.</p>
       @enderror
@@ -118,7 +118,7 @@
      <div class="form-group">
                                     <label>Select your City</label>
                                     
-                                    <select name="city"  class="form-control form-control-solid"  value=""
+                                    <select name="city"  class="form-control form-control-solid" value="{{old('city')}}"
                                             >
                                         <option selected disabled="">Select  City</option>
                                         <option value="Kathmandu">Kathamandu</option>
@@ -134,7 +134,7 @@
       <div class="form-group">
                                     <label>Select your District</label>
                                     
-                                    <select name="district"  class="form-control form-control-solid"  value=""
+                                    <select name="district"  class="form-control form-control-solid" value="{{old('district')}}"
                                             >
                                         <option selected disabled="">Select District</option>
                                         <option value="Kathmandu">Kathamandu</option>
@@ -150,7 +150,7 @@
      <div class="form-group">
       <label>Permanent Address</label>
       
-      <input type="text" name="permanentaddress" class="form-control form-control-solid" placeholder="Enter Permanent Address"/>
+      <input type="text" name="permanentaddress" class="form-control form-control-solid" placeholder="Enter Permanent Address" value="{{old('permanentaddress')}}"/>
       @error('permanentaddress')
       <p>The Permanent Address is required.</p>
       @enderror
@@ -161,7 +161,7 @@
      <div class="form-group">
       <label>Temporary Address</label>
       
-      <input type="text" name="temporaryaddress" class="form-control form-control-solid" placeholder="Enter Temporary Address"/>
+      <input type="text" name="temporaryaddress" class="form-control form-control-solid" placeholder="Enter Temporary Address" value="{{old('temporaryaddress')}}"/>
       @error('temporaryaddress')
       <p>The Temporary Address is required.</p>
       @enderror
@@ -172,7 +172,7 @@
       <div class="form-group">
                                     <label>Please Select One</label>
                                    
-                                    <select name="customer_type"  class="form-control form-control-solid"  value=""
+                                    <select name="customer_type"  class="form-control form-control-solid"  value="{{old('customer_type')}}"
                                             >
                                         <option selected disabled="">Select One</option>
                                         <option value="Organization">Organization</option>
@@ -190,7 +190,7 @@
                                     <label>Your Photo</label>
                                     
                                     <input type="hidden" name="image">
-                                    <input type="file" class="form-control form-control-solid" name="image"  value="">
+                                    <input type="file" class="form-control form-control-solid" name="image"  value="{{old('image')}}">
                                    @error('image')
                                 <p>The image is required.</p>
                                    @enderror
@@ -201,7 +201,7 @@
                                     <label>Front Citizenship Photo</label>
                                     
                                     <input type="hidden" name="image">
-                                    <input type="file" class="form-control form-control-solid"  name="frontcitizenshipimage"  value="">
+                                    <input type="file" class="form-control form-control-solid"  name="frontcitizenshipimage"  value="{{old('frontcitizenshipimage')}}">
                                     @error('frontcitizenshipimage')
                                    <p>The Front Citizenship photo is required.</p>
                                         @enderror
@@ -213,7 +213,7 @@
                                     <label>Back Citizenship Photo</label>
                                     
                                     <input type="hidden" name="image">
-                                    <input type="file" class="form-control form-control-solid"  name="frontcitizenshipimage"  value="">
+                                    <input type="file" class="form-control form-control-solid"  name="backcitizenshipimage" value="{{old('backcitizenshipimage')}}">
                                    @error('backcitizenshipimage')
                                    <p>The Back Citizenship photo is required.</p>
                                         @enderror
