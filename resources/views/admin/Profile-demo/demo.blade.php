@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View Role')
+@section('page_title','My Profile')
 @section('content')
 <!--begin::Profile 2-->
 								<div class="d-flex flex-row">
@@ -57,8 +57,8 @@
 												<div class="card card-custom card-stretch gutter-b">
 													<!--begin::Header-->
 													<div class="card-header border-0">
-														<h3 class="card-title font-weight-bolder text-dark">Notifications</h3>
-														<div class="card-toolbar">
+														<h3 class="card-title font-weight-bolder text-dark">Profile Details</h3>
+														{{-- <div class="card-toolbar">
 															<div class="dropdown dropdown-inline">
 																<a href="#" class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 																	<i class="ki ki-bold-more-ver"></i>
@@ -118,7 +118,7 @@
 																	<!--end::Naviigation-->
 																</div>
 															</div>
-														</div>
+														</div> --}}
 													</div>
 													<!--end::Header-->
 													<!--begin::Body-->

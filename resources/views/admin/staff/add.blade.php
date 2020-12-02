@@ -9,6 +9,7 @@
 }
 </style>
 
+
 <div class="card-body card">
     <form method="post" action="{{ route('staff.store') }}" enctype="multipart/form-data">
     @csrf
