@@ -147,9 +147,9 @@
 					                <td>8422</td>
 					                <td>g.winters@datatables.net</td>
 					            </tr>
-					           
-					           
-					           
+
+
+
 					        </tbody>
 					    </table>
 						<!--end: Datatable-->
@@ -157,9 +157,11 @@
 				</div>
 			</div>
 		</div>
-		@endsection
-		@push('scripts')
-			
-		@endpush
+@endsection
+@push('scritps')
+	<script type="text/javascript">
+		$(document).ready(function(){
 
-
+		});
+	</script>
+@endpush
