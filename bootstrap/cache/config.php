@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:4Yd5YAkk/RmyBySWauZphrNjJwrnaa2vFoNdFEEKHuE=',
+    'key' => 'base64:Bj1v7z8aG1XMeEJ93byJZFfLQIX8xnQVYPOwGfGGSoM=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -180,7 +180,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\CRM\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -257,7 +257,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'crm',
+        'database' => 'customer',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -267,7 +267,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'crm',
+        'database' => 'customer',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -287,7 +287,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'crm',
+        'database' => 'customer',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -302,7 +302,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'crm',
+        'database' => 'customer',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -346,12 +346,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Xampp\\htdocs\\CRM\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\CRM\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Xampp\\htdocs\\CRM\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\CRM\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -368,7 +368,7 @@
     ),
     'links' => 
     array (
-      'D:\\Xampp\\htdocs\\CRM\\public\\storage' => 'D:\\Xampp\\htdocs\\CRM\\storage\\app/public',
+      'C:\\xampp\\htdocs\\CRM\\public\\storage' => 'C:\\xampp\\htdocs\\CRM\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -693,13 +693,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -749,7 +749,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -806,7 +806,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\Xampp\\htdocs\\CRM\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\CRM\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -885,7 +885,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\Xampp\\htdocs\\CRM\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\CRM\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -905,9 +905,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\Xampp\\htdocs\\CRM\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\CRM\\resources\\views',
     ),
-    'compiled' => 'D:\\Xampp\\htdocs\\CRM\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\CRM\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -946,7 +946,7 @@
   'trustedproxy' => 
   array (
     'proxies' => NULL,
-    'headers' => 94,
+    'headers' => 30,
   ),
   'tinker' => 
   array (
