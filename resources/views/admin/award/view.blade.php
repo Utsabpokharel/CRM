@@ -22,7 +22,7 @@
 			<div class="card-header">
 				<div class="card-title">
 					<span class="card-icon">
-					<i class="flaticon2-gift text-primary"></i>
+					<i class="fa fa-trophy"></i>
 					</span>
 					<h3 class="card-label">Award</h3>
 				</div>
@@ -110,16 +110,16 @@
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable myDataTable" id="kt_datatable" style="margin-top: 13px !important;">
-					<thead>
-					<tr>
+				<table id="demo_table" class="display nowrap table" style="width:100%">
+					<thead class="table-bg">
+						<tr>
 						<th>S.N.</th>
 						<th>Staff Name</th>
 						<th>Award Name</th>
 						<th>Gift</th>
 						<th>Award Date</th>
 						<th>Actions</th>
-					</tr>
+						</tr>
 					</thead>
 					<tbody>
 					@foreach($data as $key=> $datas)

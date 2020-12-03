@@ -1,15 +1,6 @@
 @extends('admin.layouts.default')
-@section('title')
-
-@if(!empty($trashed))
-View All Trashed Staff
-@else
-View All Staff
-@endif
-@endsection
-@section('page_title','View Staff')
+@section('page_title','View Level')
 @section('content')
-
 <div class="page-content-wrapper ">
 	<div class="page-bar">
 		<div class="page-title-breadcrumb">
@@ -18,10 +9,10 @@ View All Staff
 				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="">Staff</a>&nbsp;
+				<li><a class="parent-item" href="">Title</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li class="active">All Staff</li>
+				<li class="active">All Title</li>
 			</ol>
 		</div>
 	</div>
@@ -30,10 +21,10 @@ View All Staff
 		<div class="card card-custom">
 			<div class="card-header">
 				<div class="card-title">
-					<span class="card-icon">
-					<i class="fa fa-users"></i>
-					</span>
-					<h3 class="card-label">Staff</h3>
+											<span class="card-icon">
+												<i class="flaticon2-gift text-primary"></i>
+											</span>
+					<h3 class="card-label">All Titles</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -57,46 +48,42 @@ View All Staff
 								<li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-							        <span class="navi-icon">
-								    <i class="la la-print"></i>
-									</span>
-									<span class="navi-text">Print</span>
+																<span class="navi-icon">
+																	<i class="la la-print"></i>
+																</span>
+										<span class="navi-text">Print</span>
 									</a>
-                                </li>
-                                
+								</li>
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-									<span class="navi-icon">
-									<i class="la la-copy"></i>
-									</span>
-									<span class="navi-text">Copy</span>
+																<span class="navi-icon">
+																	<i class="la la-copy"></i>
+																</span>
+										<span class="navi-text">Copy</span>
 									</a>
-                                </li>
-                                
+								</li>
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-									<span class="navi-icon">
-									<i class="la la-file-excel-o"></i>
-									</span>
-									<span class="navi-text">Excel</span>
+																<span class="navi-icon">
+																	<i class="la la-file-excel-o"></i>
+																</span>
+										<span class="navi-text">Excel</span>
 									</a>
-                                </li>
-                                
+								</li>
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-									<span class="navi-icon">
-							        <i class="la la-file-text-o"></i>
-									</span>
-									<span class="navi-text">CSV</span>
+																<span class="navi-icon">
+																	<i class="la la-file-text-o"></i>
+																</span>
+										<span class="navi-text">CSV</span>
 									</a>
-                                </li>
-                                
+								</li>
 								<li class="navi-item">
 									<a href="#" class="navi-link">
-									<span class="navi-icon">
-									<i class="la la-file-pdf-o"></i>
-									</span>
-									<span class="navi-text">PDF</span>
+																<span class="navi-icon">
+																	<i class="la la-file-pdf-o"></i>
+																</span>
+										<span class="navi-text">PDF</span>
 									</a>
 								</li>
 							</ul>
@@ -106,7 +93,7 @@ View All Staff
 					</div>
 					<!--end::Dropdown-->
 					<!--begin::Button-->
-					<a href="{{route('staff.add')}}" class="btn btn-primary font-weight-bolder">
+                <a href="{{route('level.create')}}" class="btn btn-primary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -117,70 +104,51 @@ View All Staff
 													</g>
 												</svg>
 												<!--end::Svg Icon-->
-											</span>Add Staff</a>&nbsp;&nbsp;
-											@if(!empty($trashed))
-											<a href="{{route('staff.view')}}" class="btn btn-warning">View Staff</a>
-											@else
-												<a href="{{route('staff.trashed')}}" class="btn btn-warning">Trashed Staff</a>
-											@endif
+											</span>New Record</a>
 					<!--end::Button-->
 				</div>
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
 				<table id="demo_table" class="display nowrap table" style="width:100%">
-					<thead class="table-bg">
-						<tr>
-						<th> S.N.</th>
-						<th> Name </th>
-						<th> Image</th>
-						<th> Department </th>
-						<th> Designation Title </th>
-						<th> Designation Level </th>
-                        <th> Action </th>
-						</tr>
-					</thead>
+                    <thead class="table-bg">
+					<tr>
+						<th>ID</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Actions</th>
+					</tr>
+                    </thead>
 
 					<tbody>
-					@foreach($staff as $key=> $staffs)
 					<tr>
-						<td>{{$key+1}}</td>
-						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
-						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>002 Menomonie Crossing</td>
-						<td>Keith Lukesch</td>
-						<td>dsgzdngd</td>
-						<td class="text-center"> 
-
-						
-							@if(!empty($trashed))
-							<a href="{{route('staff.restore',$staffs->id)}}">
-                            <i class="fa fa-undo text-info"></i>
-							</a>
-							<a class="deleteData" href="javascript::" rel1="{{route('staff.deleteTrash',$staffs->id)}}">
-								<i class="fa fa-trash text-danger"></i>
-							</a>
-							@else
-					
-							<a class="deleteData" href="javascript::" rel1="{{route('staff.destroy',$staffs->id)}}">
-								<i class="fa fa-trash text-danger"></i>
-							</a>
-							<hr>
-							<a href="{{route('staff.edit',$staffs->id)}}">
+                        <td>{{$title->id}}</td>
+                        <td>{{$title->title}}</td>
+                        <td>{{$title->description}}</td>
+						<td class="text-center">
+							<a href="">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
-							@endif
-						</td>
+							<hr>
+                              <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1=""><span
+                                class="fa fa-trash"></span></a>
+                          </form>
+                        </td>
 					</tr>
-					@endforeach
 					</tbody>
+
 				</table>
 				<!--end: Datatable-->
 			</div>
 		</div>
-
-
-
   </div>
 </div>
 @endsection
+@push('scritps')
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+		});
+	</script>
+@endpush
+

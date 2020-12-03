@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Add Title')
+@section('page_title','Add Level')
 @section('content')
 <div class="card-body card">
     <form class="form" action="{{route('title.store')}}" method="post" autocomplete="on">

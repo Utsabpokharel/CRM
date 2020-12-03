@@ -24,7 +24,7 @@
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-					<h3 class="card-label">RowGroup DataTable</h3>
+					<h3 class="card-label">All Titles</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -110,68 +110,49 @@
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
-					<thead>
+				<table id="demo_table" class="display nowrap table" style="width:100%">
+                    <thead class="table-bg">
 					<tr>
-						<th>Record ID</th>
-						<th>Order ID</th>
-						<th>Country</th>
-						<th>Ship City</th>
-						<th>Ship Address</th>
-						<th>Company Agent</th>
-						<th>Company Name</th>
-						<th>Ship Date</th>
-						<th>Status</th>
-						<th>Type</th>
+						<th>ID</th>
+						<th>Title</th>
+						<th>Description</th>
 						<th>Actions</th>
 					</tr>
-					</thead>
+                    </thead>
+                @foreach ($title as $title)
 					<tbody>
 					<tr>
-						<td>322</td>
-						<td>0338-1009</td>
-						<td>Brazil</td>
-						<td>Osasco</td>
-						<td>002 Menomonie Crossing</td>
-						<td>Keith Lukesch</td>
-						<td>Hand-Kemmer</td>
-						<td>1/13/2017</td>
-						<td>6</td>
-						<td>1</td>
+                        <td>{{$title->id}}</td>
+                        <td>{{$title->title}}</td>
+                        <td>{{$title->description}}</td>
 						<td class="text-center">
-							<a href="">
-								<i class="fa fa-trash text-danger"></i>
-							</a>
-							<hr>
-							<a href="">
+							<a href="{{route('title.edit',$title->id)}}">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
-						</td>
+							<hr>
+                            {{-- <form class="deleteData"  action="javascript::" rel1="{{ route('title.destroy', $title->id)}}" method="post"
+                                style="display: inline-block">
+                              {{csrf_field()}}
+                              {{method_field('DELETE')}} --}}
+                              <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('title.destroy', $title->id)}}"><span
+                                class="fa fa-trash"></span></a>
+                          </form>
+                        </td>
 					</tr>
 					</tbody>
-					<tfoot>
-					<tr>
-						<th>Record ID</th>
-						<th>Order ID</th>
-						<th>Country</th>
-						<th>Ship City</th>
-						<th>Ship Address</th>
-						<th>Company Agent</th>
-						<th>Company Name</th>
-						<th>Ship Date</th>
-						<th>Status</th>
-						<th>Type</th>
-						<th>Actions</th>
-					</tr>
-					</tfoot>
+                @endforeach
 				</table>
 				<!--end: Datatable-->
 			</div>
 		</div>
-
-
-
   </div>
 </div>
 @endsection
+@push('scritps')
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+		});
+	</script>
+@endpush
 

@@ -15,22 +15,24 @@
      <div class="form-group">
       <label>Staff Name</label>
       <span class="text-danger">*</span>
-      <select name="staff" id="staff" class="form-control form-control-solid" name="staff" data-validation="required">
-            <option selected disabled="">Select Staff</option>
-            <option value="1">ram</option>
-            <option value="2">hari</option>
+      <select name="staff" id="staff" class="form-control form-control-solid @error('staff') is-invalid @enderror" name="staff" data-validation="required">
+            <option selected disabled="">Please Select... </option>
+            @foreach($staffs as $staff)
+            <option value="{{$staff->id}}" class="form-control">{{$staff->fname}} {{$staff->lname}}</option>
+            @endforeach
       </select>
+      
       @error('staff')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
      </div>
 
      <div class="form-group">
       <label>Award Name</label>
       <span class="text-danger">*</span>
-      <input type="text" class="form-control form-control-solid" name="award" placeholder="Enter Award Name" data-validation="required">
+      <input type="text" class="form-control form-control-solid @error('award') is-invalid @enderror" name="award" placeholder="Enter Award Name" data-validation="required">
       @error('award')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
      </div>
 
@@ -42,9 +44,9 @@
      <div class="form-group">
       <label>Award Date</label>
       <span class="text-danger">*</span>
-      <input type="date" class="form-control form-control-solid" name="date" placeholder="Enter Gift">
+      <input type="date" class="form-control form-control-solid @error('date') is-invalid @enderror" name="date" placeholder="Enter Gift">
       @error('date')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
      </div>
 
