@@ -70,7 +70,7 @@
      <div class="form-group">
         <label>Gender</label>
         <select name="gender" id="gender" class="form-control form-control-solid">
-            <option value="">Select a Gender</option>
+            <option selected disabled = "">Select a Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Others</option>
@@ -93,7 +93,7 @@
      <div class="form-group">
         <label>Roles</label>
         <select name="roleid" id="role" class="form-control form-control-solid">
-            <option value="">Select a Role</option>
+            <option selected disabled="" >Select a Role</option>
             <option value="1">staff</option>
             <option value="2">vendor</option>
         </select>
