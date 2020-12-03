@@ -35,7 +35,27 @@ class CustomerController extends Controller
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'customer_type' => 'required'
-        ]);
+        ],[
+            'fname.required'=>'First Name is required',
+            'fname.min'=>'The First Name must be at least 3 characters.',
+            'fname.max'=>'The First Name Name may not be greater than 20 characters.',
+            'lname.min'=>'The Last Name must be at least 3 characters.',
+            'lname.max'=>'The Last Name Name may not be greater than 20 characters.',
+            'lname.required'=>'Last Name is required',
+            'gender.required'=>'Gender is required',
+            'dob.required'=>'Date of Birth  is required',
+            'password.required'=>'Password is required',
+            'city.required'=>'City is required',
+            'district.required'=>'District is required',
+            'temporaryaddress.required'=>'Temporary address is required',
+            'permanentaddress.required'=>'Permanent address is required',
+            'email.required'=>'Email is required',
+            'phone.required'=>'Phone Number is required',
+            'mobile.required'=>'Mobile Number is required',
+            'customer_type.required'=>'Customer Type is required'
+
+
+             ]);
         $data = $request->all();
 
         $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
@@ -68,7 +88,27 @@ class CustomerController extends Controller
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'customer_type' => 'required'
-        ]);
+        ],[
+            'fname.required'=>'First Name is required',
+             'fname.min'=>'The First Name must be at least 3 characters.',
+            'fname.max'=>'The First Name Name may not be greater than 20 characters.',
+            'lname.min'=>'The Last Name must be at least 3 characters.',
+            'lname.max'=>'The Last Name Name may not be greater than 20 characters.',
+            'lname.required'=>'Last Name is required',
+            'gender.required'=>'Gender is required',
+            'dob.required'=>'Date of Birth  is required',
+            'password.required'=>'Password is required',
+            'city.required'=>'City is required',
+            'district.required'=>'District is required',
+            'temporaryaddress.required'=>'Temporary address is required',
+            'permanentaddress.required'=>'Permanent address is required',
+            'email.required'=>'Email is required',
+            'phone.required'=>'Phone Number is required',
+            'mobile.required'=>'Mobile Number is required',
+            'customer_type.required'=>'Customer Type is required'
+
+
+             ]);
 
         $customer = Customer::findorfail($id);
         $data = $request->except('_token', '_method', 'current_image', 'current_frontcitizenshipimage', 'current_backcitizenshipimage');
