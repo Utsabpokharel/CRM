@@ -113,4 +113,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
+    // Routing for Vendor
+    Route::get("vendors/index", "VendorController@index")->name("vendors.view");
+    Route::get("vendors/add", "VendorController@addVendor")->name("vendors.add");
+    Route::post("vendors/store", "VendorController@store")->name("vendors.store");
+    Route::get("vendors/edit/{id}", "VendorController@editVendor")->name("vendors.edit");
+    Route::post("vendors/update/{id}", "VendorController@update")->name("vendors.update");
+    Route::get("vendors/delete/{id}", "VendorController@destroy")->name("vendors.destroy");
+    Route::get("vendors/ViewTrash", "VendorController@ViewTrash")->name("vendors.ViewTrash");
+    Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
+    Route::get('customer/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
 });

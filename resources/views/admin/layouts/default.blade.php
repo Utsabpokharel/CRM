@@ -29,13 +29,13 @@
 		<link href="{{asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/my.css')}}">
-		
+
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
 
     </head>
     <!-- Data Tables -->
-	
+
 
 
 		@stack('css')
@@ -58,7 +58,7 @@
 			}
 			.table-bg {
 				background: #111111;
-	
+
 			}
 			thead.table-bg th
 			{
@@ -74,7 +74,7 @@
 				width:40px;
 				height:40px;
 				border-radius:50%;
-				
+
 			}
 		</style>
 	</head>

@@ -1,101 +1,218 @@
 @extends('admin.layouts.default')
 @section('page_title','Edit Vendor')
 @section('content')
+<style>
+    p{
+        color:red;
+    }
+    </style>
 <div class="card-body card">
-    <form class="form">
-<form method="post" action="{{ route('vendor.edit',$vendor->id) }}" enctype="multipart/form-data">
-                        @csrf
+    <form class="form" method="post" action="{{route('vendors.update',$vendor->id)}}" enctype="multipart/form-data">
+                            @csrf
 
-     <div class="form-group">
-      <label for='fname'>Firstname</label>
-      <input type="name" id="fname" name="fname" value="{{$vendor->fname  }}"class="form-control form-control-solid" placeholder="Edit first name"/>
-      <span class="form-text text-muted">Please edit your first name</span>
+     <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+        <label>First Name</label>
+       <input type="text" name="fname"  class="form-control form-control-solid" placeholder="Enter First Name" value="{{ $vendor->fname }}"/>
+      @error('fname')
+      <p>Please Enter First Name</p>
+      @enderror
+      {{-- <span class="form-text text-muted">Please enter your full name</span> --}}
      </div>
-     <div class="form-group">
-      <label for='lname'>Lastname</label>
-      <input type="name" id="lname" name="lname" value="{{$vendor->lname  }}"class="form-control form-control-solid" placeholder="Edit last name"/>
-      <span class="form-text text-muted">Please edit your last name</span>
+   </div>
+   <div class="col-md-6">
+        <div class="form-group">
+        <label>Last Name</label>
+       <input type="text" name="lname"  class="form-control form-control-solid" placeholder="Enter Last Name" value="{{$vendor->lname  }}"/>
+      @error('lname')
+      <p>Please Enter Last Name</p>
+      @enderror
+      {{-- <span class="form-text text-muted">Please enter your full name</span> --}}
      </div>
+   </div>
+     <div class="col-md-6">
      <div class="form-group">
-      <label for="gender">Gender</label>
-      <div class="checkbox-list">
-       <label class="checkbox">
-        <input type="checkbox" id="gender" name="gender" value="{{@if($data->gender=="Male")selected @endif  }}"/>
-        <span></span>
-        Male
-       </label>
-       <label class="checkbox">
-        <input type="checkbox" id="gender" name="gender" value="{{@if($data->gender=="Female")selected @endif  }}"/>
-        <span></span>
-        Female
-       </label>
-       <label class="checkbox">
-        <input type="checkbox" id="gender" name="gender" value="{{@if($data->gender=="Other")selected @endif  }}"/>
-        <span></span>
-        Other
-       </label>
-      </div>
+        <label>Gender</label>
+        <select name="gender" class="form-control form-control-solid" value="{{ $vendor->gender }}">
+            <option>Select a Gender</option>
+            <option @if($vendor->gender=='Male') selected @endif value="Male">Male</option>
+            <option @if($vendor->gender=='Female') selected @endif value="Female">Female</option>
+            <option @if($vendor->gender=='Other') selected @endif>Others</option>
+        </select>
+        @error('gender')
+      <p>Please Select a Gender</p>
+      @enderror
      </div>
+   </div>
+   <div class="col-md-6">
+       <div class="form-group">
+           <label>Date of Birth</label>
+           <input type="date" name="dateofbirth"  class="form-control form-control-solid" placeholder="Enter Birth Date" value="{{$vendor->dateofbirth  }}"/>
+           @error('dateofbirth')
+           <p>Please Enter Date of Birth</p>
+           @enderror
+       </div>
+   </div>
+   <div class="col-md-6">
+       <div class="form-group">
+           <label>Registration Number</label>
+           <input type="text" name="registrationnumber"  class="form-control form-control-solid" placeholder="Enter Registration Number" value="{{$vendor->registrationnumber  }}"/>
+           @error('registrationnumber')
+           <p>Please Enter Registration Number</p>
+           @enderror
+       </div>
+   </div>
+   <div class="col-md-6">
+       <div class="form-group">
+           <label>PAN/VAT Number</label>
+           <input type="text" name="panvatnumber"  class="form-control form-control-solid" placeholder="Enter PAN/VAT Number" value="{{ $vendor->panvatnumber }}"/>
+           @error('panvatnumber')
+           <p>Please Enter PAN/VAT Number</p>
+           @enderror
+       </div>
+   </div>
+   <div class="col-md-6">
      <div class="form-group">
-      <label>Date of Birth</label>
-      <input type="date" id="dateofbirth" name="dateofbirth"value="{{$vendor->dateofbirth  }}" class="form-control form-control-solid" placeholder="Edit your birth date"/>
-      <span class="form-text text-muted">Birth Date is required</span>
+      <label>Email address</label>
+      <input type="email"  name="email" class="form-control form-control-solid" placeholder="Enter Email" value="{{ $vendor->email }}"/>
+      @error('email')
+      <p>Please Enter Email</p>
+      @enderror
      </div>
+   </div>
+   <div class="col-md-6">
      <div class="form-group">
-      <label>Registration Number</label>
-      <input type="text" id="registrationumber" name="registrationnumber" value="{{$vendor->registrationnumber  }}" class="form-control form-control-solid" placeholder="Edit your registration number"/>
-      <span class="form-text text-muted">Registration Number is required</span>
+        <label>Image</label>
+        <input type="hidden" name="image">
+        <input type="file" class="form-control form-control-solid"  name="image" value="{{ $vendor->image }}"/>
+        @error('image')
+      <p>Please Select a Image</p>
+      @enderror
      </div>
+   </div>
+   <div class="col-md-6">
      <div class="form-group">
-      <label>PAN/VAT Number</label>
-      <input type="text" id="panvatnumber" name="panvatnumber" value="{{$vendor->panvatnumber  }}" class="form-control form-control-solid" placeholder="Edit your pan/vat number"/>
-      <span class="form-text text-muted">PAN/VAT is required</span>
+        <label>Phone Number</label>
+        <input type="text" name="mobile" class="form-control form-control-solid" placeholder="Enter Mobile Number" value="{{$vendor->mobile  }}"/>
+        @error('mobile')
+      <p>Please Enter Mobile Number</p>
+      @enderror
      </div>
+   </div>
+   <div class="col-md-6">
      <div class="form-group">
-      <label>Email</label>
-      <input type="email" id="email" name="email" value="{{$vendor->email  }}" class="form-control form-control-solid" placeholder="Edit your email"/>
-      <span class="form-text text-muted">Email is required</span>
+        <label>Address</label>
+        <input type="text" name="address1" class="form-control form-control-solid" placeholder="Enter a Address" value="{{ $vendor->address1 }}"/>
+        @error('address1')
+      <p>Please Enter a Address</p>
+      @enderror
      </div>
+   </div>
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Vendor Type</label>
+        <select name="vendor_type" class="form-control form-control-solid" value="{{ $vendor->vendor_type }}">
+            <option>Select Vendor Type</option>
+            <option @if($vendor->vendor_type=="Individual") selected @endif value="Individual">Individual</option>
+            <option @if($vendor->vendor_type=="Organisation") selected @endif value="Organisation">Organisation</option>
+        </select>
+        @error('vendor_type')
+      <p>Please Select Vendor Type</p>
+      @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="form-group">
+        <label>First Contact Person</label>
+        <input type="text" name="firstcontactperson" class="form-control form-control-solid" placeholder="Enter the name of first contact person" value="{{ $vendor->firstcontactperson }}"/>
+        @error('firstcontactperson')
+      <p>Please Enter the name of first contact person</p>
+      @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="form-group">
+        <label>First Contact Person Email Address</label>
+        <input type="email" name="firstemail" class="form-control form-control-solid" placeholder="Enter the email of first contact person" value="{{ $vendor->firstemail }}"/>
+        @error('firstemail')
+      <p>Please Enter the email of first contact person</p>
+      @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="form-group">
+        <label>First Contact Person Phone Number</label>
+        <input type="text" name="firstphone" class="form-control form-control-solid" placeholder="Enter the phone number of first contact person" value="{{ $vendor->firstphone }}"/>
+        @error('firstphone')
+      <p>Please Enter the name of first contact person</p>
+      @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="form-group">
+        <label>Second Contact Person </label>
+        <input type="text" name="secondcontactperson" class="form-control form-control-solid" placeholder="Enter the name of second contact person" value="{{ $vendor->secondcontactperson }}"/>
+        @error('secondcontactperson')
+      <p>Please Enter the name of second contact person</p>
+      @enderror
+     </div>
+   </div>
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Second Contact Person Email Address </label>
+        <input type="text" name="secondemail" class="form-control form-control-solid" placeholder="Enter the email of second contact person" value="{{ $vendor->secondemail }}"/>
+        @error('secondemail')
+      <p>Please Enter the email of second contact person</p>
+      @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+     <div class="form-group">
+        <label>Second Contact Person Phone Number </label>
+        <input type="text" name="secondphone" class="form-control form-control-solid" placeholder="Enter the phone number of second contact person" value="{{ $vendor->secondphone }}"/>
+        @error('secondphone')
+      <p>Please Enter the phone number of second contact person</p>
+      @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+      <div class="form-group">
 
+                                    <input type="checkbox" value="1" id="Usercheck" name="ifuser"  checked>
+                                    <span>Register For Vendor</span>
+                                     @error('ifuser')
+                                   <p>Select this checkbox.</p>
+                                        @enderror
+                                </div>
+    </div>
+   <div class="col-md-6">
      <div class="form-group">
-      <label>Image</label>
-      <input type="file" id="image" name="image" value="{{$vendor->image  }}" class="form-control form-control-solid" placeholder="Change your image"/>
-      <span class="form-text text-muted">Image is required</span>
+        <label>ID Proof</label>
+        <input type="hidden" name="idproof">
+        <input type="file" class="form-control form-control-solid" id="idproof" name="idproof"  value="{{ $vendor->idproof }}"/>
+        @error('idproof')
+      <p>ID Proof is required</p>
+      @enderror
      </div>
-
-     <div class="form-group">
-      <label>Mobile Number</label>
-      <input type="text" id="mobile" name="mobile" value="{{$vendor->mobile  }}"class="form-control form-control-solid" placeholder="Edit your mobile number"/>
-      <span class="form-text text-muted">Mobile Number is required</span>
-     </div>
-
-     <div class="form-group">
-      <label>Address</label>
-      <input type="text" id="address1" name="address1" value={{ $vendor->address1 }} class="form-control form-control-solid" placeholder="Edit your address"/>
-      <span class="form-text text-muted">Address is required</span>
-     </div>
-
-     <div class="form-group">
-      <label for="vendor_type">Vendor Type</label>
-      <div class="checkbox-list">
-       <label class="checkbox">
-        <input type="checkbox" id="vendor_type" name="vendor_type"/>
-        <span></span>
-        Organization
-       </label>
-       <label class="checkbox">
-        <input type="checkbox" id="vendor_type" name="vendor_type"/>
-        <span></span>
-        Individual
-       </label>
-      </div>
-     </div>
-
-    <div class="card-footer">
-     <button type="reset" class="btn btn-primary mr-2">Update</button>
-     <a href="{{ route('vendor.index') }}" class="btn btn-info">View All</a>
-     <button type="reset" class="btn btn-secondary">Cancel</button>
-
+   </div>
+        </div>
+        <div class="card-footer">
+    <button type="submit" class="btn btn-primary mr-2" value="submit">Update</button>
+     <button type="reset" class="btn btn-secondary" value="reset">Reset</button>
+   </div>
    </form>
 </div>
+
+
+@endsection
+@section('css')
+<link href="{{asset('adminAssets/assets/plugins/select2/css/select2.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('adminAssets/assets/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('scripts')
+<script src="{{asset('adminAssets/assets/plugins/select2/js/select2.js')}}"></script>
+<script src="{{asset('adminAssets/assets/js/pages/select2/select2-init.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 @endsection

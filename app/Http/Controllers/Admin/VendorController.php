@@ -24,41 +24,8 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function addVendor()
     {
-        $vendor = Vendor::all();
-        ini_set('memory_limit', '256M');
-        if ($request->isMethod('post')) {
-            $request->validate([
-                'fname' => 'required',
-                'lname' => 'required',
-                'gender' => 'required',
-                'dateofbirth' => 'required',
-                'registrationnumber' => 'required',
-                'panvatnumber' => 'required',
-                'email' => 'required',
-                'image' => 'required',
-                'mobile' => 'required',
-                'address1' => 'required',
-                'vendor_type' => 'required',
-
-            ]);
-            $data = $request->all();
-            //dd($data);
-            $vendor = new Vendor;
-            $vendor->fname = $data['fname'];
-            $vendor->lname = $data['lname'];
-            $vendor->gender = $data['gender'];
-            $vendor->dateofbirth = $data['dateofbirth'];
-            $vendor->registrationnumber = $data['registrationnumber'];
-            $vendor->panvatnumber = $data['panvatnumber'];
-            $vendor->email = $data['email'];
-            $vendor->mobile = $data['mobile'];
-            $vendor->address1 = $data['address1'];
-            $vendor->vendor_type = $data['vendor_type'];
-            $vendor->save();
-            return redirect()->route('department.index');
-        }
 
         return view('admin.vendors.add');
     }
@@ -72,7 +39,39 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'gender' => 'required',
+            'dateofbirth' => 'required',
+            'registrationnumber' => 'required',
+            'panvatnumber' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'phone' => 'required',
+            'mobile' => 'required',
+            'city' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'firstcontactperson' => 'required',
+            'firstemail' => 'required',
+            'firstphone' => 'required',
+            'secondcontactperson' => 'required',
+            'secondemail' => 'required',
+            'secondphone' => 'required',
+            'ifuser' => 'required',
+            'vendor_type' => 'required',
+
+        ]);
+        $data = $request->all();
+
+        $imagepath = 'images/vendors/';
+
+        $data['image'] = save_image($request->image, 150, 150, $imagepath);
+        $data['idproof'] = save_image($request->idproof, 150, 150, $imagepath);
+
+        Vendor::create($data);
+        return redirect()->route('vendors.view')->with('success', 'Vendor added sucessfully');
     }
 
     /**
@@ -92,34 +91,11 @@ class VendorController extends Controller
      * @param  \App\Models\Vendor  $vendor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vendor $vendor, $id, Request $request)
+    public function editVendor($id)
     {
-        $vendor = Vendor::find($id);
+        $vendor = Vendor::findOrfail($id);
 
-        ini_set('memory_limit', '256M');
-        if ($request->isMethod('post')) {
-            $request->validate([
-                'department_id' => 'required',
-                'departmentname' => 'required',
-            ]);
-            $data = $request->all();
-            $department = Vendor::findOrfail($id);
-            $vendor->fname = $data['fname'];
-            $vendor->lname = $data['lname'];
-            $vendor->gender = $data['gender'];
-            $vendor->dateofbirth = $data['dateofbirth'];
-            $vendor->registrationnumber = $data['registrationnumber'];
-            $vendor->panvatnumber = $data['panvatnumber'];
-            $vendor->email = $data['email'];
-            $vendor->mobile = $data['mobile'];
-            $vendor->address1 = $data['address1'];
-            $vendor->vendor_type = $data['vendor_type'];
-            $vendor->save();
-
-
-            return redirect()->route('vendor.index');
-        }
-        return view('admin.vendor.edit', compact('vendor'));
+        return view('admin.vendors.edit', compact('vendor'));
     }
 
     /**
@@ -129,9 +105,49 @@ class VendorController extends Controller
      * @param  \App\Models\Vendor  $vendor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vendor $vendor)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'gender' => 'required',
+            'dateofbirth' => 'required',
+            'registrationnumber' => 'required',
+            'panvatnumber' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'phone' => 'required',
+            'mobile' => 'required',
+            'city' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'firstcontactperson' => 'required',
+            'firstemail' => 'required',
+            'firstphone' => 'required',
+            'secondcontactperson' => 'required',
+            'secondemail' => 'required',
+            'secondphone' => 'required',
+            'ifuser' => 'required',
+            'idproof' => 'required',
+            'vendor_type' => 'required',
+
+        ]);
+        $vendor = Vendor::find($id);
+        /*$data = $request->except('_token', '_method', 'current_image', 'current_idproof');
+        if ($request->hasFile('image')) {
+            $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
+            delete_image($vendor->image, $this->imagePath());
+        } else
+            $data['image'] = $request->current_image;
+
+        if ($request->hasFile('idproof')) {
+            $data['idproof'] = save_image($request->idproof, 150, 150, $this->imagePath());
+            delete_image($vendor->idproof, $this->imagePath());
+        } else
+            $data['idproof'] = $request->current_idproof;
+
+        Vendor::where('id', $id)->update($data);*/
+        return redirect()->route('vendors.view', compact('vendor'))->with('success', 'Vendor updated sucessfully');
     }
 
     /**
@@ -144,6 +160,29 @@ class VendorController extends Controller
     {
         $vendor = Vendor::find($id);
         $vendor->delete();
-        return redirect()->route('vendors.index');
+        return back()->with('flash_error', 'Deleted Successfully')->with('warning', 'Deleted Successfully');
+    }
+    public function ViewTrash()
+    {
+        $vendor = Vendor::onlyTrashed()->get();
+        return view('admin.vendors.view', compact('vendor'))->with('trashed', 'true');
+    }
+    public function restore($id)
+    {
+        $vendor = Vendor::onlyTrashed()->where('id', $id)->first();
+        $vendor->restore();
+        return back()->with('success', 'Restored successfully');
+    }
+    public function deleteTrash($id)
+    {
+        $vendor = Vendor::onlyTrashed()->where('id', $id)->first();
+        delete_image($vendor->image, $this->imagePath());
+        $vendor->forcedelete();
+        return back()->with('warning', 'Vendor has been deleted from trashed');
+    }
+
+    protected function imagePath()
+    {
+        return "images/vendors/";
     }
 }

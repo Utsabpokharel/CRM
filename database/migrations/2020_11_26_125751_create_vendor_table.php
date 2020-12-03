@@ -14,7 +14,7 @@ class CreateVendorTable extends Migration
     public function up()
     {
         Schema::create('vendors', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('fname');
             $table->string('lname');
             $table->string('gender');
@@ -36,7 +36,7 @@ class CreateVendorTable extends Migration
             $table->string('secondcontactperson')->nullable();
             $table->string('secondemail')->nullable();
             $table->string('secondphone')->nullable();
-            $table->string('ifuser')->nullable();
+            $table->tinyinteger('ifuser')->default(0);
             $table->string('idproof')->nullable();
 
             $table->timestamps();

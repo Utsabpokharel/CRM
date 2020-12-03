@@ -1,8 +1,27 @@
 @extends('admin.layouts.default')
+@section('title')
+@if(!empty($trashed))
+View All Trashed Vendors
+@else
+View All Vendors
+@endif
+@endsection
 @section('page_title','View Vendor')
 @section('content')
+
 <div class="page-content-wrapper ">
 	<div class="page-bar">
+        <div class="btn-group">
+	@if(!empty($trashed))
+    <a href="" id="addRow" class="btn btn-warning">
+    View Vendor <i class="fa fa-eye"></i>
+    </a>
+    @else
+	<a href="" id="addRow" class="btn btn-warning">
+    Trashed Vendor <i class="fa fa-eye"></i>
+    </a>
+    @endif
+   </div>
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
@@ -93,7 +112,7 @@
 					</div>
 					<!--end::Dropdown-->
 					<!--begin::Button-->
-					<a href="{{ route('vendor.create') }}" class="btn btn-primary font-weight-bolder">
+					<a href="{{ route('vendors.add') }}" class="btn btn-primary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -104,7 +123,12 @@
 													</g>
 												</svg>
 												<!--end::Svg Icon-->
-											</span>New Record</a>
+                                            </span>Add New Vendor</a>
+                                            	@if(!empty($trashed))
+											<a href="{{route('vendors.view')}}" class="btn btn-warning">View Vendors</a>
+											@else
+												<a href="{{route('vendors.ViewTrash')}}" class="btn btn-warning"> View Trashed Vendors</a>
+											@endif
 					<!--end::Button-->
 				</div>
 			</div>
@@ -113,7 +137,7 @@
 				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
 					<thead>
 					<tr>
-                        <th>#</th>
+                        <th>Vendor ID</th>
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Gender</th>
@@ -140,18 +164,27 @@
                         <td>{{ $value->registrationnumber }}</td>
                         <td>{{ $value->panvatnumber }}</td>
                         <td>{{ $value->email }}</td>
-                        <td>{{ $value->image }}</td>
+                        <td><img src="{{ asset('images/vendors/'.$value->image) }}"></td>
                         <td>{{ $value->mobile }}</td>
                         <td>{{ $value->address1 }}</td>
                         <td>{{ $value->vendor_type }}
 						<td class="text-center">
-							<a href="{{ route('vendor.edit',$value->id) }}">
+                            @if(!empty($trashed))
+							<a href="{{route('vendors.restore',$value->id)}}">
+                            <i class="fa fa-undo text-info"></i>
+                            </a>
+                            <a class="deleteData" href="javascript::" rel1="{{route('vendors.deleteTrash',$value->id)}}">
+								<i class="fa fa-trash text-danger"></i>
+							</a>
+							@else
+							<a href="javascript::" class="deleteData" rel1="{{route('vendors.destroy',$value->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
-							<a href="{{ route('vendor.destroy',$value->id) }}">
+							<a href="{{ route('vendors.edit',$value->id) }}">
 								<i class="fa fa-paper-plane text-primary"></i>
-							</a>
+                            </a>
+                            @endif
                         </td>
 
                     </tr>
@@ -159,7 +192,7 @@
 					</tbody>
 					<tfoot>
 					<tr>
-                    <th>#</th>
+                    <th>Vendor ID</th>
 					<th>First Name</th>
 						<th>Last Name</th>
 						<th>Gender</th>
@@ -183,5 +216,15 @@
 
   </div>
 </div>
+@endsection
+@section('css')
+<link href="{{asset('adminAssets/assets/plugins/select2/css/select2.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('adminAssets/assets/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('scripts')
+<script src="{{asset('adminAssets/assets/plugins/select2/js/select2.js')}}"></script>
+<script src="{{asset('adminAssets/assets/js/pages/select2/select2-init.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 @endsection
 
