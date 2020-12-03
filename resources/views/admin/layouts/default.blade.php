@@ -157,7 +157,7 @@
 		<!--end::Page Scripts-->
 		@stack('scripts')
 		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
-	@yield('script')
+	    @yield('script')
 	</body>
 	<!--end::Body-->
 </html>

@@ -31,29 +31,44 @@
 				<form action="" method="post">
 					<div class="row">
 						<div class="col-lg-12 setting-heading">
-							<h2>Login Details Setting</h2>
+							<h2>Personal Details Setting</h2>
 						</div>
-						<div class="col-lg-4 col-md-4 col-sm-12">
+						<div class="col-lg-3 col-md-3 col-sm-12">
 							<div class="avatar-upload">
 								<div class="avatar-edit">
 									<input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
 									<label for="imageUpload"><i class="fas fa-pencil-alt" style="margin-top:6px;margin-left:8px"></i></label>
 								</div>
 								<div class="avatar-preview">
-									<div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+									<div id="imagePreview" style="background-image: url({{asset('images/profile.png')}});">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-8 col-md-8 col-sm-12">
+						<div class="col-lg-9 col-md-9 col-sm-12">
 
-							<div class="form-group">
-								<label>Name</label>
-								<input type="text" name="name" class="form-control form-control-solid" placeholder="Enter Name">
-							</div>
-							<div class="form-group">
-								<label>Login Email Address</label>
-								<input type="email" name="email" class="form-control form-control-solid" placeholder="Enter Login Email Address">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="form-group">
+										<label>Name</label>
+										<input type="text" name="name" class="form-control form-control-solid" placeholder="Enter Name">
+									</div>
+									<div class="form-group">
+										<label>Login Email Address</label>
+										<input type="email" name="email" class="form-control form-control-solid" placeholder="Enter Login Email Address">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="form-group">
+										<label>Phone Number</label>
+										<input type="text" name="phonenumber" class="form-control form-control-solid" placeholder="Enter Phone Number">
+									</div>
+									<div class="form-group">
+										<label>Address</label>
+										<input type="text" name="address" class="form-control form-control-solid" placeholder="Enter Address">
+									</div>
+								</div>
+								
 							</div>
 						</div>
 						<div class="col-lg-12">
@@ -73,6 +88,9 @@
 								<label>New Password</label>
 								<input type="password" name="newpasword" class="form-control form-control-solid" placeholder="Enter New Password">
 							</div>
+							
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
 							<div class="form-group">
 								<label>Confirm Password</label>
 								<input type="password" name="confirmpassword" class="form-control form-control-solid" placeholder="Enter Confirm Password">
