@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Customer;
-
+use Validate;
 class CustomerController extends Controller
 {
     public function index()
@@ -22,18 +22,18 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+            'fname' => 'required|min:3|max:20|alpha',
+            'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dob' => 'required',
             'password' => 'required',
             'city' => 'required',
             'district' => 'required',
-            'temporaryaddress' => 'required|alpha',
-            'permanentaddress' => 'required|alpha',
+            'temporaryaddress' => 'required',
+            'permanentaddress' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|numeric',
-            'mobile' => 'required|numeric',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'customer_type' => 'required'
         ]);
         $data = $request->all();
@@ -43,7 +43,7 @@ class CustomerController extends Controller
         $data['backcitizenshipimage'] = save_image($request->backcitizenshipimage, 150, 150, $this->imagePath());
 
         Customer::create($data);
-        return redirect()->route('customer.index')->with('success', 'User added successfully');
+        return redirect()->route('customer.index')->with('success', 'Customer added successfully');
     }
 
     public function edit($id)
@@ -55,18 +55,18 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+            'fname' => 'required|min:3|max:20|alpha',
+            'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dob' => 'required',
             'password' => 'required',
             'city' => 'required',
             'district' => 'required',
-            'temporaryaddress' => 'required|alpha',
-            'permanentaddress' => 'required|alpha',
+            'temporaryaddress' => 'required',
+            'permanentaddress' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|numeric',
-            'mobile' => 'required|numeric',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'customer_type' => 'required'
         ]);
 
