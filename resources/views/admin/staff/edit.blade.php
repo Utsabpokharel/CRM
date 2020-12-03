@@ -2,12 +2,12 @@
 @section('page_title',' Update Staff')
 @section('content')
 
-<style type='text/css'>
+<!-- <style type='text/css'>
 .red{
     color:red;
     font-size:12px;
 }
-</style>
+</style> -->
 
 <div class="card-body card">
     <form method="post" action="{{ route('staff.update',$staff->id)}}" enctype="multipart/form-data">
@@ -17,41 +17,41 @@
      <div class="form-group">
       <label>First Name</label>
       <span class="text-danger">*</span>
-      <input type="text" class="form-control form-control-solid" name="fname" placeholder="Enter First Name" value="{{$staff->fname}}"/>
+      <input type="text" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname" placeholder="Enter First Name" value="{{$staff->fname}}"/>
       @error('fname')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
      </div>
 
      <div class="form-group">
       <label>Last Name</label>
       <span class="text-danger">*</span>
-      <input type="text" class="form-control form-control-solid" name="lname" placeholder="Enter Last Name" value="{{$staff->lname}}"/>
+      <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname" placeholder="Enter Last Name" value="{{$staff->lname}}"/>
       @error('lname')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
      </div>
 
      <div class="form-group">
       <label>Gender</label>
       <span class="text-danger">*</span>
-      <select name="gender" id="gender" class="form-control form-control-solid" name="gender" >
+      <select name="gender" id="gender" class="form-control form-control-solid @error('gender') is-invalid @enderror" name="gender" >
       <option selected disabled="">Select Gender</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
       <option value="others">Others</option>
       </select>
       @error('gender')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
      </div>
 
      <div class="form-group">
       <label>Date of Birth</label>
       <span class="text-danger">*</span>
-      <input type="date" class="form-control form-control-solid" name="dob" value="{{$staff->dob}}" placeholder="Enter Date Of Birth"/>
+      <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob" value="{{$staff->dob}}"/>
       @error('dob')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
      </div>
 
@@ -63,29 +63,29 @@
      <div class="form-group">
       <label>Permanent Address</label>
       <span class="text-danger">*</span>
-      <input type="text" class="form-control form-control-solid" name="permanent_address" value="{{$staff->permanent_address}}"/>
+      <input type="text" class="form-control form-control-solid @error('permanent_address') is-invalid @enderror" name="permanent_address" value="{{$staff->permanent_address}}"/>
       @error('permanent_address')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
     </div>
 
     <div class="form-group">
       <label>Temporary Address</label>
       <span class="text-danger">*</span>
-      <input type="text" class="form-control form-control-solid" name="temporary_address" value="{{$staff->temporary_address}}"/>
+      <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" value="{{$staff->temporary_address}}"/>
       @error('temporary_address')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
     </div>
 
     <div class="form-group">
       <label>City</label>
       <span class="text-danger">*</span>
-      <select name="city" id="city" class="form-control form-control-solid" name="city" value="{{$staff->city}}">
+      <select name="city" id="city" class="form-control form-control-solid @error('city') is-invalid @enderror" name="city" value="{{$staff->city}}">
       <option selected value="">Please Select One...</option>
       </select>
       @error('city')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
     </div>
 
@@ -102,22 +102,25 @@
     <div class="form-group">
       <label>Department</label>
       <span class="text-danger">*</span>
-      <select name="department_id" id="department_id" class="form-control form-control-solid" name="department_id" value="{{$staff->department_id}}">
-      <option selected value="">Please Select...</option>
+      <select name="department_id" id="department_id" class="form-control form-control-solid @error('department_id') is-invalid @enderror" name="department_id" value="{{$staff->department_id}}">
+      @foreach($departments as $department)
+      <option value="{{$department->id}}" class="form-control">{{$department->dep_name}}</option>
+      @endforeach
       </select>
+      
       @error('department_id')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
-    </div>
 
     <div class="form-group">
       <label>Title</label>
       <span class="text-danger">*</span>
-      <select name="title_id" id="title_id" class="form-control form-control-solid" name="title_id" value="{{$staff->title_id}}">
+      <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" name="title_id" value="{{$staff->title_id}}">
       <option selected value="">Please Select...</option>
       </select>
+
       @error('title_id')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
     </div>
     </div>
@@ -126,11 +129,12 @@
     <div class="form-group">
       <label>Level</label>
       <span class="text-danger">*</span>
-      <select name="level_id" id="level_id" class="form-control form-control-solid" name="level_id" value="{{$staff->level_id}}">
+      <select name="level_id" id="level_id" class="form-control form-control-solid @error('level_id') is-invalid @enderror" name="level_id" value="{{$staff->level_id}}">
       <option selected value="">Please Select...</option>
       </select>
+
       @error('level_id')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
     </div>
 
@@ -142,36 +146,36 @@
     <div class="form-group">
       <label>Joined Date</label>
       <span class="text-danger">*</span>
-      <input type="date" class="form-control form-control-solid" name="joined_date" value="{{$staff->joined_date}}"/>
+      <input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" value="{{$staff->joined_date}}"/>
       @error('joined_date')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
     </div>
 
     <div class="form-group">
       <label>Email Address</label>
       <span class="text-danger">*</span>
-      <input type="email" class="form-control form-control-solid" id="email" name="email" value="{{$staff->email}}"/>
+      <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" id="email" name="email" value="{{$staff->email}}"/>
       @error('email')
-      <p class="red">The Field is Required.</p>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
       <p id="emailExists" style="color: red; display: none">Email Already Exists In Our Database</p>
     </div>
 
     <div class="form-group">
       <label>Password</label>
+      <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="pass" name="password" value="{{$staff->password}}"/>
       @error('password')
-      <span>{{$message}}</span>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
-      <input type="password" class="form-control form-control-solid" id="pass" name="password" value="{{$staff->password}}"/>
     </div>
 
     <div class="form-group">
       <label>Confirm Password</label>
+      <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror" id="password" name="confirm_password"/>
       @error('confirm_password')
-      <span>{{$message}}</span>
+      <span class="invalid-feedback" role="alert"> {{$message}}</span>
       @enderror
-      <input type="password" class="form-control form-control-solid" id="password" name="confirm_password"/>
     </div>
 
     <div class="form-group">
@@ -207,20 +211,9 @@
        
     <div class="card-footer">
      <button type="submit" class="btn btn-primary mr-2">Update</button>
-     <button type="reset" class="btn btn-secondary">Cancel</button>
+     <button type="reset" class="btn btn-danger mr-2">Reset</button>
     </div>
    </form>
 </div>
 @endsection
 
-
-@section('css')
-<link href="{{asset('adminAssets/assets/plugins/select2/css/select2.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{asset('adminAssets/assets/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-@endsection
-
-@section('scripts')
-<script src="{{asset('adminAssets/assets/plugins/select2/js/select2.js')}}"></script>
-<script src="{{asset('adminAssets/assets/js/pages/select2/select2-init.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-@endsection

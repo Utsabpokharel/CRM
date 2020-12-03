@@ -24,15 +24,15 @@ class staffValidator extends FormRequest
     public function rules()
     {
         return [
-            'fname'=>'required',
-            'lname'=>'required',
+            'fname'=>'required |min:0|max:20|alpha',
+            'lname'=>'required |min:0|max:20|alpha',
             'gender'=>'required',
             'dob'=>'required',  
             'pp_photo'=>'nullable', 
             'permanent_address'=>'required',    
             'temporary_address'=>'required',
             'city'=>'required',  
-            'phoneno'=>'',    
+            'phoneno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',    
             'mobileno'=>'',  
             'department_id'=>'required',
             'title_id'=>'required',
