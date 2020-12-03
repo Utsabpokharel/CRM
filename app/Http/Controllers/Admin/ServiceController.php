@@ -24,18 +24,18 @@ class ServiceController extends Controller
     {
         $data = $request->all();
         Service::create($data);
-        return redirect()->route('view_service')->with('success', 'Department Created successfully');
+        return redirect()->route('view_services')->with('success', 'Department Created successfully');
     }
     function edit($id)
     {
         $data = Service::findOrfail($id);
-        return view("admin.department.edit", compact("data"));
+        return view("admin.services.edit", compact("data"));
     }
-    function update($id, departmentValidator $request)
+    function update($id, Request $request)
     {
         $data = Service::findOrfail($id);
         $data->update($request->all());
-        return redirect()->route('view_department');
+        return redirect()->route('view_services');
     }
     function destroy($id)
     {
