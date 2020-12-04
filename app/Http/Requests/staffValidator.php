@@ -24,15 +24,15 @@ class staffValidator extends FormRequest
     public function rules()
     {
         return [
-            'fname'=>'required',
-            'lname'=>'required',
+            'fname'=>'required |min:2|max:20|alpha',
+            'lname'=>'required |min:2|max:20|alpha',
             'gender'=>'required',
             'dob'=>'required',  
             'pp_photo'=>'nullable', 
             'permanent_address'=>'required',    
             'temporary_address'=>'required',
             'city'=>'required',  
-            'phoneno'=>'',    
+            'phoneno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',    
             'mobileno'=>'',  
             'department_id'=>'required',
             'title_id'=>'required',
@@ -48,6 +48,20 @@ class staffValidator extends FormRequest
             'offer_letter'=>'',
             'joining_letter'=>'',
             'contract_agreement'=>''
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'fname.required'=>'First Name field is required',
+            'fname.min'=>'Minimum two character is required',
+            'fname.max'=>'Maximum twenty character is required',
+            'fname.alpha'=>'Only alphabet is accepted',
+
+            'lname.required'=>'Last Name field is required',
+            'lname.min'=>'Minimum two character is required',
+            'lname.max'=>'Maximum twenty character is required',
+            'lname.alpha'=>'Only alphabet is accepted'
         ];
     }
 }

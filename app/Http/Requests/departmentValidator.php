@@ -24,8 +24,17 @@ class departmentValidator extends FormRequest
     public function rules()
     {
         return [
-            'dwp_name' => 'required',
-            'dwp_description' => 'required',
+            'dep_name' => 'required|min:3',
+            // max and min 
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'dep_name.required' => 'Department Name is required',
+            'dep_name.min' => 'Minimum 3 Character is required'
+
         ];
     }
 }

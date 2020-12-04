@@ -29,13 +29,13 @@
 		<link href="{{asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/my.css')}}">
-		
+
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
 
     </head>
     <!-- Data Tables -->
-	
+
 
 
 		@stack('css')
@@ -57,8 +57,7 @@
 				display: none;
 			}
 			.table-bg {
-				background: #111111;
-	
+				background: #1a1a27;
 			}
 			thead.table-bg th
 			{
@@ -74,7 +73,7 @@
 				width:40px;
 				height:40px;
 				border-radius:50%;
-				
+
 			}
 		</style>
 	</head>
@@ -157,7 +156,7 @@
 		<!--end::Page Scripts-->
 		@stack('scripts')
 		<script src="{{asset('assets/js/pages/crud/forms/validation/form-controls.js')}}"></script>
-	@yield('script')
+	    @yield('script')
 	</body>
 	<!--end::Body-->
 </html>

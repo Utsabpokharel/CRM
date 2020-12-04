@@ -12,17 +12,6 @@ View All Staff
 
 <div class="page-content-wrapper ">
 	<div class="page-bar">
-	<div class="btn-group">
-	@if(!empty($trashed))
-    <a href="" id="addRow" class="btn btn-warning">
-    View Staff <i class="fa fa-eye"></i>
-    </a>
-    @else
-	<a href="" id="addRow" class="btn btn-warning">
-    Trashed Staffs <i class="fa fa-eye"></i>
-    </a>
-    @endif
-   </div>
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
@@ -42,7 +31,7 @@ View All Staff
 			<div class="card-header">
 				<div class="card-title">
 					<span class="card-icon">
-					<i class="flaticon2-gift text-primary"></i>
+					<i class="fa fa-users"></i>
 					</span>
 					<h3 class="card-label">Staff</h3>
 				</div>
@@ -139,18 +128,17 @@ View All Staff
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable" id="staffTable" style="margin-top: 13px !important;">
-					<thead>
-					<tr>
+				<table id="demo_table" class="display nowrap table" style="width:100%">
+					<thead class="table-bg">
+						<tr>
 						<th> S.N.</th>
 						<th> Name </th>
 						<th> Image</th>
-						<th> Mobile Number </th>
 						<th> Department </th>
 						<th> Designation Title </th>
 						<th> Designation Level </th>
                         <th> Action </th>
-					</tr>
+						</tr>
 					</thead>
 
 					<tbody>
@@ -159,7 +147,6 @@ View All Staff
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>{{$staffs->mobileno}}</td>
 						<td>002 Menomonie Crossing</td>
 						<td>Keith Lukesch</td>
 						<td>dsgzdngd</td>

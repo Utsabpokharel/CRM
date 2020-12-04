@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Award;
 use App\Http\Requests\awardValidator;
+use App\Models\Admin\Staff;
 class AwardController extends Controller
 {
     public function index()
@@ -16,7 +17,8 @@ class AwardController extends Controller
 
     public function create()
     {
-        return view('admin.award.add');
+        $staffs=Staff::all();
+        return view('admin.award.add',compact('staffs'));
     }
 
     public function store(awardValidator $request)
@@ -28,8 +30,9 @@ class AwardController extends Controller
 
     public function edit($id)
     {
+        $staffs=Staff::all();
         $award = Award::findOrfail($id);
-        return view("admin.award.edit", compact('award'));
+        return view("admin.award.edit", compact('award','staffs'));
     }
 
     public function update(Request $request, $id)
