@@ -17,10 +17,6 @@ use App\Http\Controllers\CustomerController;
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('index', 'IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
-
-    Route::get('customer', 'Customercontroller@view')->name('customer.view');
-    Route::get('customer/create', 'Customercontroller@create')->name('customer.create');
-
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staffadd', 'StaffController@create')->name('staff.add');
@@ -67,7 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('Expenses/Viewtrashed', 'Expensescontroller@Viewtrashed')->name('expenses.Viewtrashed');
     Route::get('expenses/restore/{id}', 'Expensescontroller@restore')->name('expenses.restore');
     Route::get('Expenses/Delete{expensesid}', 'Expensescontroller@destroy')->name('expenses.destroy');
-//Title-Level-ProfileDemo
+    //Title-Level-ProfileDemo
     Route::resource('level', 'levelController');
     Route::resource('title', 'titleController');
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
@@ -115,4 +111,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
+    // Routing for Vendor
+    Route::get("vendors/index", "VendorController@index")->name("vendors.view");
+    Route::get("vendors/add", "VendorController@addVendor")->name("vendors.add");
+    Route::post("vendors/store", "VendorController@store")->name("vendors.store");
+    Route::get("vendors/edit/{id}", "VendorController@editVendor")->name("vendors.edit");
+    Route::post("vendors/update/{id}", "VendorController@update")->name("vendors.update");
+    Route::get("vendors/delete/{id}", "VendorController@destroy")->name("vendors.destroy");
+    Route::get("vendors/ViewTrash", "VendorController@ViewTrash")->name("vendors.ViewTrash");
+    Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
+    Route::get('customer/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
 });
