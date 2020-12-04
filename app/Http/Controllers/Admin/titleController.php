@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\title;
+use App\Http\Requests\titleValidator;
 
 class titleController extends Controller
 {
@@ -15,7 +16,8 @@ class titleController extends Controller
      */
     public function index()
     {
-        return view('admin.Designation.Title.view');
+        $title = title::all();
+        return view('admin.Designation.Title.view',compact('title'));
     }
 
     /**
@@ -34,12 +36,12 @@ class titleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(titleValidator $request)
     {
-        $title = new title([
-            'title' => $request->title,
-            'description' => $request->description
-        ]);
+        $title = $request->all();
+        title::create($title);
+        return redirect()->route('title.index')->with('success','New Title Created Successfully');
+
     }
 
     /**
@@ -61,7 +63,8 @@ class titleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = title::findOrfail($id);
+        return view('admin.Designation.Title.edit',compact('title'));
     }
 
     /**
@@ -71,9 +74,12 @@ class titleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(titleValidator $request, $id)
     {
-        //
+        $data = title::findOrfail($id);
+        $data->update($request->all());
+        return redirect()->route('title.index')->with('success','Selected Title is Updated');
+
     }
 
     /**
@@ -84,6 +90,8 @@ class titleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $title = title::findorfail($id);
+        $title->delete();
+        return redirect()->route('title.index')->with('success', 'Selected Title has been deleted');
     }
 }

@@ -51,6 +51,8 @@ class VendorController extends Controller
             'phone' => 'required',
             'mobile' => 'required',
             'city' => 'required',
+            'image'=> '',
+            'idproof'=>'',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
@@ -115,38 +117,43 @@ class VendorController extends Controller
             'registrationnumber' => 'required',
             'panvatnumber' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => '',
             'phone' => 'required',
             'mobile' => 'required',
             'city' => 'required',
+            'image' => '',
+            'idproof' => '',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
-            'firstemail' => 'required',
+            'firstemail' => 'required|email',
             'firstphone' => 'required',
             'secondcontactperson' => 'required',
-            'secondemail' => 'required',
+            'secondemail' => 'required|email',
             'secondphone' => 'required',
             'ifuser' => 'required',
-            'idproof' => 'required',
             'vendor_type' => 'required',
 
         ]);
         $vendor = Vendor::find($id);
-        /*$data = $request->except('_token', '_method', 'current_image', 'current_idproof');
+
+        $data = $request->except('image', 'idproof');
         if ($request->hasFile('image')) {
             $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
             delete_image($vendor->image, $this->imagePath());
-        } else
+        } else {
             $data['image'] = $request->current_image;
+        }
 
         if ($request->hasFile('idproof')) {
             $data['idproof'] = save_image($request->idproof, 150, 150, $this->imagePath());
             delete_image($vendor->idproof, $this->imagePath());
-        } else
-            $data['idproof'] = $request->current_idproof;
+        } else {
 
-        Vendor::where('id', $id)->update($data);*/
+            $data['idproof'] = $request->current_idproof;
+        }
+
+        $vendor->update($data);
         return redirect()->route('vendors.view', compact('vendor'))->with('success', 'Vendor updated sucessfully');
     }
 
@@ -160,7 +167,7 @@ class VendorController extends Controller
     {
         $vendor = Vendor::find($id);
         $vendor->delete();
-        return back()->with('flash_error', 'Deleted Successfully')->with('warning', 'Deleted Successfully');
+        return back()->with('flash_error', 'Deleted Successfully')->with('success', 'Deleted Successfully');
     }
     public function ViewTrash()
     {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Staff;
 use App\Http\Requests\staffValidator;
+use App\Models\Admin\Department;
 class StaffController extends Controller
 {
     /**
@@ -26,7 +27,8 @@ class StaffController extends Controller
      */
     public function create()
     {
-        return view('admin.staff.add');
+        $departments=Department::all();
+        return view('admin.staff.add',compact('departments'));
     }
 
     /**
@@ -65,8 +67,9 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
+        $departments=Department::all();
         $staff = Staff::findOrfail($id);
-        return view("admin.staff.edit", compact('staff'));
+        return view("admin.staff.edit", compact('staff', 'departments'));
     }
 
     /**

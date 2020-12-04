@@ -11,6 +11,15 @@
                             @csrf
 
      <div class="row">
+         @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="col-md-6">
         <div class="form-group">
         <label>First Name</label>
@@ -94,18 +103,44 @@
    <div class="col-md-6">
      <div class="form-group">
         <label>Phone Number</label>
+        <input type="text" name="phone" class="form-control form-control-solid" placeholder="Enter Phone Number" value="{{$vendor->phone  }}"/>
+        @error('phone')
+      <p>Please Enter Mobile Number</p>
+      @enderror
+     </div>
+   </div>
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Phone Number</label>
         <input type="text" name="mobile" class="form-control form-control-solid" placeholder="Enter Mobile Number" value="{{$vendor->mobile  }}"/>
         @error('mobile')
       <p>Please Enter Mobile Number</p>
       @enderror
      </div>
    </div>
+     <div class="col-md-6">
+     <div class="form-group">
+        <label>City</label>
+        <input type="text" name="city" class="form-control form-control-solid" placeholder="Enter City" value="{{$vendor->city }}"/>
+        @error('city')
+      <p>Please Enter city</p>
+      @enderror
+     </div>
    <div class="col-md-6">
      <div class="form-group">
-        <label>Address</label>
-        <input type="text" name="address1" class="form-control form-control-solid" placeholder="Enter a Address" value="{{ $vendor->address1 }}"/>
+        <label>Permanent Address</label>
+        <input type="text" name="address1" class="form-control form-control-solid" placeholder="Enter Permanent Address" value="{{ $vendor->address1 }}"/>
         @error('address1')
-      <p>Please Enter a Address</p>
+      <p>Please Enter Permanent Address</p>
+      @enderror
+     </div>
+   </div>
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Temporary Address</label>
+        <input type="text" name="address2" class="form-control form-control-solid" placeholder="Enter Temporary Address" value="{{ $vendor->address2 }}"/>
+        @error('address2')
+      <p>Please Enter Temporary Address</p>
       @enderror
      </div>
    </div>

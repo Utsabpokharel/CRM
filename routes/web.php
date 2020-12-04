@@ -63,10 +63,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('Expenses/Viewtrashed', 'Expensescontroller@Viewtrashed')->name('expenses.Viewtrashed');
     Route::get('expenses/restore/{id}', 'Expensescontroller@restore')->name('expenses.restore');
     Route::get('Expenses/Delete{expensesid}', 'Expensescontroller@destroy')->name('expenses.destroy');
-    //Designation-Title-Level-ProfileDemo
-    Route::resource('designation', 'designationController');
+    //Title-Level-ProfileDemo
     Route::resource('level', 'levelController');
     Route::resource('title', 'titleController');
+    Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
     Route::resource('profile', 'profileDemoController');
     Route::get('personalInfo', 'profileDemoController@personal')->name('personal');
     //users route
@@ -86,8 +86,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('customer/ViewTrash', 'CustomerController@ViewTrash')->name('customer.ViewTrash');
     Route::get('customer/restore/{id}', 'CustomerController@restore')->name('customer.restore');
     Route::get('customer/deleteTrash/{id}', 'CustomerController@deleteTrash')->name('customer.deleteTrash');
-
-
     //staff route
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staffadd', 'StaffController@create')->name('staff.add');
@@ -107,7 +105,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post("department/update/{id}", "DepartmentController@update")->name("update_department");
     Route::get('department/delete/{id}', 'DepartmentController@destroy')->name('delete_department');
     // Routing for Service
-    Route::get("services/view_all", "ServiceController@index")->name("view_service");
+    Route::get("services/view_all", "ServiceController@index")->name("view_services");
     Route::get("services/add", "ServiceController@create")->name("add_service");
     Route::post("services/store", "ServiceController@store")->name("store_service");
     Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");

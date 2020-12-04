@@ -13,11 +13,11 @@ View All Vendors
 	<div class="page-bar">
         <div class="btn-group">
 	@if(!empty($trashed))
-    <a href="" id="addRow" class="btn btn-warning">
+    <a href="{{ route('vendors.view') }}" id="addRow" class="btn btn-warning">
     View Vendor <i class="fa fa-eye"></i>
     </a>
     @else
-	<a href="" id="addRow" class="btn btn-warning">
+	<a href="{{ route('vendors.ViewTrash') }}" id="addRow" class="btn btn-warning">
     Trashed Vendor <i class="fa fa-eye"></i>
     </a>
     @endif
@@ -25,10 +25,10 @@ View All Vendors
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
-				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
+				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route("admin.index") }}">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="">Vendors</a>&nbsp;
+				<li><a class="parent-item" href="{{ route("vendors.view") }}">Vendors</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
 				<li class="active">All Vendors</li>
@@ -149,6 +149,7 @@ View All Vendors
                         <th>Mobile Number</th>
                         <th>Address </th>
                         <th>Vendor Type</th>
+                        <th>ID Proof</th>
                         <th>Action</th>
 
 					</tr>
@@ -167,12 +168,14 @@ View All Vendors
                         <td><img src="{{ asset('images/vendors/'.$value->image) }}"></td>
                         <td>{{ $value->mobile }}</td>
                         <td>{{ $value->address1 }}</td>
-                        <td>{{ $value->vendor_type }}
+                        <td>{{ $value->vendor_type }}</td>
+                        <td><img src="{{asset('images/vendors/'.$value->idproof) }}"></td>
 						<td class="text-center">
                             @if(!empty($trashed))
 							<a href="{{route('vendors.restore',$value->id)}}">
                             <i class="fa fa-undo text-info"></i>
                             </a>
+                            <hr>
                             <a class="deleteData" href="javascript::" rel1="{{route('vendors.deleteTrash',$value->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
@@ -204,6 +207,7 @@ View All Vendors
                         <th>Mobile Number</th>
                         <th>Address</th>
                         <th>Vendor Type</th>
+                        <th>ID Proof</th>
                         <th>Action</th>
 
 					</tfoot>

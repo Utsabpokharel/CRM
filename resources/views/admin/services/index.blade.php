@@ -9,10 +9,10 @@
                 <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
                     <i class="fa fa-angle-right"></i>
                 </li>
-                <li><a class="parent-item" href="">Departments</a>&nbsp;
+                <li><a class="parent-item" href="">Services</a>&nbsp;
                     <i class="fa fa-angle-right"></i>
                 </li>
-                <li class="active">All Departments</li>
+                <li class="active">All Services</li>
             </ol>
         </div>
     </div>
@@ -24,7 +24,7 @@
                     <span class="card-icon">
                         <i class="flaticon2-gift text-primary"></i>
                     </span>
-                    <h3 class="card-label">RowGroup DataTable</h3>
+                    <h3 class="card-label">All Services</h3>
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Dropdown-->
@@ -93,7 +93,7 @@
                     </div>
                     <!--end::Dropdown-->
                     <!--begin::Button-->
-                    <a href="{{route('add_department')}}" class="btn btn-primary font-weight-bolder">
+                    <a href="{{route('add_service')}}" class="btn btn-primary font-weight-bolder">
                         <span class="svg-icon svg-icon-md">
                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -104,18 +104,19 @@
                                 </g>
                             </svg>
                             <!--end::Svg Icon-->
-                        </span>New Record</a>
+                        </span>Add Department</a>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">
                 <!--begin: Datatable-->
-                <table class="table table-bordered table-hover table-checkable myDataTable" id="kt_datatable" style="margin-top: 13px !important;">
-                    <thead>
+                <table id="demo_table" class="display nowrap table" style="width:100%">
+                    <thead class="table-bg">
                         <tr>
-                            <th>Department ID</th>
-                            <th>Department Name</th>
-                            <th>Department Description</th>
+                            <th>Service ID</th>
+                            <th>Service Name</th>
+                            <th>Service Description</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -124,36 +125,25 @@
                         @foreach($data as $data)
                         <tr class="odd gradeX">
                             <td>{{$data->id}}</td>
-                            <td>{{$data->dep_name}}</td>
-                            <td>{{$data->dep_description}}</td>
+                            <td>{{$data->service_name}}</td>
+                            <td>{{$data->service_description}}</td>
+                            <td>{{$data->service_status}}</td>
                             <td class="text-center">
-                                <a href="{{route('delete_department',$data->id)}}">
-                                    <i class="fa fa-trash text-danger"></i>
-                                </a>
-                                <hr>
-                                <a href="{{route('edit_department',$data->id)}}">
+                                <a href="{{route('edit_service',$data->id)}}">
                                     <i class="fa fa-paper-plane text-primary"></i>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a class="deleteData" href="javascript::" rel1="{{route('delete_service',$data->id)}}">
+                                    <i class="fa fa-trash text-danger"></i>
                                 </a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Department ID</th>
-                            <th>Department Name</th>
-                            <th>Department Description</th>
-                            <th>Actions</th>
-                        </tr>
-                        </tr>
-                    </tfoot>
                 </table>
                 <!--end: Datatable-->
             </div>
         </div>
-
-
-
     </div>
 </div>
 @endsection

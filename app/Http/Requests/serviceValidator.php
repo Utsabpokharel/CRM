@@ -24,9 +24,18 @@ class serviceValidator extends FormRequest
     public function rules()
     {
         return [
-            'service_name' => 'required',
+            'service_name' => 'required|min:3',
             'service_price' => 'required',
-            'service_description' => 'required',
+            'service_status' => 'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'service_name.required' => 'Service Name is required',
+            'service_name.min' => 'Minimum 3 Character is required',
+            'service_price.required' => 'Service Price is required',
+            'service_status.required' => 'Please Select Status'
         ];
     }
 }
