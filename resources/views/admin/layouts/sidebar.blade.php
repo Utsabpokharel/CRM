@@ -2,13 +2,8 @@
     <!--begin::Brand-->
     <div class="brand flex-column-auto" id="kt_brand">
         <!--begin::Logo-->
-<<<<<<< HEAD
         <a href="{{route('admin.index')}}" class="brand-logo">
             <img alt="Logo" src="{{asset('assets/media/logos/logo-light.png')}}"/>
-=======
-        <a href="index.html" class="brand-logo">
-            <img alt="Logo" src="{{asset('assets/media/logos/logo-light.png')}}" />
->>>>>>> 8a9e70bc0ee169b7295a025e745340244c401773
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->
