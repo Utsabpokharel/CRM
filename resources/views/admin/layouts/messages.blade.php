@@ -6,6 +6,22 @@
 			responsive: false,
 
 		});
+		$('.form-group').each(function(){
+			let inputClass=$(this).find('.is-invalid');
+			let errormessage=$(this).find('.invalid-feedback');
+			if(inputClass)
+			{
+				inputClass.on('keyup',function(){
+					$(this).removeClass('is-invalid');
+					$(errormessage).remove();
+
+				}).on('change',function(){
+					$(this).removeClass('is-invalid');
+					$(errormessage).remove();
+
+				});
+			}
+		});
 		@if(session('success'))
 			swal(
 				'Success',

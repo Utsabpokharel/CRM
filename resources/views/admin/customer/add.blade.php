@@ -7,17 +7,13 @@
     <form class="form" method="post" action="{{route('customer.store')}}" enctype="multipart/form-data">
      @csrf
       <div class="row">
-
 <div class="col-sm-6">
      <div class="form-group">
       <label>First Name:</label>
-
-
       <input type="text" name="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" placeholder="Enter First Name" value="{{old('fname')}}"/>
-
       @error('fname')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
-          @enderror
+      @enderror
      </div>
    </div>
 

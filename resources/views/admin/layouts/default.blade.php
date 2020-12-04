@@ -57,8 +57,7 @@
 				display: none;
 			}
 			.table-bg {
-				background: #111111;
-
+				background: #1a1a27;
 			}
 			thead.table-bg th
 			{
