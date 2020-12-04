@@ -52,9 +52,9 @@
                             
      <div class="col-md-6">
       <div class="form-group">
-      
+       <label>Date Of Birth</label>
       <input type="date" name="dob" class="form-control form-control-solid @error('dob') is-invalid @enderror" placeholder="Select your Birth Date" value="{{$customer->dob}}"/>
-      <label>Date Of Birth</label>
+     
       @error('dob')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
           @enderror 
@@ -71,16 +71,7 @@
      </div>
 </div>
 
-<div class="col-md-6">
-     <div class="form-group">
-      <label>Password:</label>
-      
-      <input type="password" name="password" class="form-control form-control-solid @error('password') is-invalid @enderror" placeholder="Enter password" value="{{$customer->password}}"/>
-      @error('password')
-          <span class="invalid-feedback" role="alert">{{$message}}</span>
-          @enderror
-     </div>
-</div>
+
 
 <div class="col-md-6">
      <div class="form-group">
@@ -190,7 +181,7 @@
      <div class="form-group">
                                     <label>Front Citizenship Photo</label>
                                     
-                                    <input type="hidden" name="image">
+                                    <input type="hidden" name="current_frontcitizenshipimage">
                                     <input type="file" class="form-control form-control-solid @error('frontcitizenshipimage') is-invalid @enderror"  name="frontcitizenshipimage"  value="{{$customer->frontcitizenshipimage}}">
                                     @error('frontcitizenshipimage')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -202,7 +193,7 @@
      <div class="form-group">
                                     <label>Back Citizenship Photo</label>
                                     
-                                    <input type="hidden" name="image">
+                                    <input type="hidden" name="current_backcitizenshipimage">
                                     <input type="file" class="form-control form-control-solid @error('backcitizenshipimage') is-invalid @enderror"  name="frontcitizenshipimage"  value="{{$customer->backcitizenshipimage}}">
                                    @error('backcitizenshipimage')
           <span class="invalid-feedback" role="alert">{{$message}}</span>

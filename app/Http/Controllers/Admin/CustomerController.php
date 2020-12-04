@@ -79,7 +79,7 @@ class CustomerController extends Controller
             'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dob' => 'required',
-            'password' => 'required',
+            
             'city' => 'required',
             'district' => 'required',
             'temporaryaddress' => 'required',
@@ -97,7 +97,7 @@ class CustomerController extends Controller
             'lname.required'=>'Last Name is required',
             'gender.required'=>'Gender is required',
             'dob.required'=>'Date of Birth  is required',
-            'password.required'=>'Password is required',
+            
             'city.required'=>'City is required',
             'district.required'=>'District is required',
             'temporaryaddress.required'=>'Temporary address is required',
