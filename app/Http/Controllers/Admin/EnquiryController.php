@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Enquiry;
 use App\Models\Admin\EnquiryCategory;
 use App\Models\Admin\EnquirySource;
+use App\Models\Admin\Customer;
 
 class EnquiryController extends Controller
 {
@@ -27,7 +28,8 @@ class EnquiryController extends Controller
     {
         $category=EnquiryCategory::all();
         $source=EnquirySource::all();
-        return view('admin.enquiry.add',compact('category'),compact('source'));
+        $customer=Customer::all();
+        return view('admin.enquiry.add',compact('category','source','customer'));
     }
 
     /**
@@ -83,8 +85,9 @@ class EnquiryController extends Controller
     {
         $category=EnquiryCategory::all();
         $source=EnquirySource::all();
+        $customer=Customer::all();
         $enquiry = Enquiry::findorfail($id);
-        return view('admin.enquiry.edit',compact('enquiry','source','category'));
+        return view('admin.enquiry.edit',compact('enquiry','source','category','customer'));
     }
 
     /**
@@ -135,5 +138,26 @@ class EnquiryController extends Controller
         } else {
             return redirect()->route('Enquiry.index')->with('error', 'Sorry! there is an error deleting  enquiry enquiry');
         }
+    }
+
+    public function ViewTrash()
+    {
+        $enquiry = Enquiry::onlyTrashed()->get();
+        return view('admin.enquiry.index', compact('enquiry'))->with('trashed', 'true');
+    }
+
+    public function restore($id)
+    {
+        $enquiry = Enquiry::onlyTrashed()->where('id', $id)->first();
+        $enquiry->restore();
+        return redirect()->route('Enquiry.index')->with('success', 'Restored seccessfully');
+
+    }
+
+    public function deleteTrash($id)
+    {
+        $enquiry = Enquiry::onlyTrashed()->where('id', $id)->first();
+        $enquiry->forcedelete();
+        return back()->with('warning', 'Enquiry has been deleted from trashed');
     }
 }

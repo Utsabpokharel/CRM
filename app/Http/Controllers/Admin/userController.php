@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\user;
+use Hash;
 
 class userController extends Controller
 {
@@ -21,11 +22,15 @@ class userController extends Controller
             'email'=>'required',
             'phone'=>'required',
             'password'=>'required',
+            'confirm_password'=>'required|same:password',
             'gender'=>'required',
             'address'=>'required',
             'roleid'=>'required'
         ]);
+
         $data=$request->except('confirm_password');
+        $password = Hash::make($request->password);
+        $data['password'] = $password;
         $imagepath='images/users/';
         $data['image']=save_image($request->image,150,150,$imagepath);
         user::create($data);
@@ -41,7 +46,20 @@ class userController extends Controller
         return view('Admin.user.edit',compact('user'));
     }
     public function updateUser(Request $request,$id){
-        $data = $request->except('confirm_password');
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'password'=>'required',
+            'confirm_password'=>'required|same:password',
+            'gender'=>'required',
+            'address'=>'required',
+            'roleid'=>'required'
+        ]);
+
+        $data=$request->except('confirm_password');
+        $password = Hash::make($request->password);
+        $data['password'] = $password;
         $user = user::find($id);
         $user->update($data);
         return redirect()->route('user.view')->with('success','User updated sucessfully');

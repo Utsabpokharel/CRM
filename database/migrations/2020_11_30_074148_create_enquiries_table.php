@@ -26,6 +26,7 @@ class CreateEnquiriesTable extends Migration
             $table->integer('source_id');
             $table->string('remarks')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

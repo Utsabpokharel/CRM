@@ -13,7 +13,14 @@ use App\Http\Controllers\CustomerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+
+/*login route*/
+Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],function (){
+   route::get('/','LoginController@form')->name('login');
+   route::post('/login/check','LoginController@login')->name('login.check');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'], function () {
     Route::get('index', 'IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
 
@@ -99,6 +106,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('staffupdate/{id}', 'StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}', 'StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
+
+    /*enquiry*/
     require_once('components/enquiry.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
@@ -116,4 +125,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
+
+    /*logout*/
+    Route::get('/logout','LoginController@logout')->name('logout');
 });

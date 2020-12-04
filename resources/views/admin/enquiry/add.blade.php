@@ -36,8 +36,9 @@
                 <label>Enquiry Name :</label>
                 <select name="customer_id" class="form-control form-control-solid customer">
                     <option disabled selected>--select any one--</option>
-                    <option @if(old('customer_id')=='1') selected @endif value="1">Ram</option>
-                    <option @if(old('customer_id')=='2') selected @endif value="2">Hari</option>
+                    @foreach($customer as $customer)
+                    <option @if(old('customer_id')==$customer->id) selected @endif value="{{$customer->id}}">{{$customer->fname}} {{$customer->lname}}</option>
+                        @endforeach
                 </select>
             </div>
             <div id="notcustomer">
