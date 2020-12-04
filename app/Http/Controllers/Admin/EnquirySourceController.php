@@ -113,4 +113,25 @@ class EnquirySourceController extends Controller
             return redirect()->route('EnquirySource.index')->with('error', 'Sorry! there is an error deleting  enquiry source');
         }
     }
+
+    public function ViewTrash()
+    {
+        $source = EnquirySource::onlyTrashed()->get();
+        return view('admin.enquiry.source.index', compact('source'))->with('trashed', 'true');
+    }
+
+    public function restore($id)
+    {
+        $source = EnquirySource::onlyTrashed()->where('id', $id)->first();
+        $source->restore();
+        return redirect()->route('EnquirySource.index')->with('success', 'Restored seccessfully');
+
+    }
+
+    public function deleteTrash($id)
+    {
+        $source = EnquirySource::onlyTrashed()->where('id', $id)->first();
+        $source->forcedelete();
+        return back()->with('warning', 'Enquiry Source has been deleted from trashed');
+    }
 }

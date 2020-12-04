@@ -14,7 +14,17 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
+<<<<<<< HEAD
+/*login route*/
+Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],function (){
+   route::get('/','LoginController@form')->name('login');
+   route::post('/login/check','LoginController@login')->name('login.check');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'], function () {
+=======
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+>>>>>>> 8a9e70bc0ee169b7295a025e745340244c401773
     Route::get('index', 'IndexController@index')->name('admin.index');
     Route::resource('roles', 'roleController');
     // Route for staff
@@ -94,6 +104,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('staffupdate/{id}', 'StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}', 'StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
+
+    /*enquiry*/
     require_once('components/enquiry.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
@@ -111,6 +123,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
+<<<<<<< HEAD
+
+    /*logout*/
+    Route::get('/logout','LoginController@logout')->name('logout');
+});
+=======
     // Routing for Vendor
     Route::get("vendors/index", "VendorController@index")->name("vendors.view");
     Route::get("vendors/add", "VendorController@addVendor")->name("vendors.add");
@@ -122,3 +140,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
     Route::get('customer/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
 });
+>>>>>>> 8a9e70bc0ee169b7295a025e745340244c401773

@@ -117,7 +117,12 @@
 												</svg>
                                                 <!--end::Svg Icon-->
 											</span>New Record</a>
-                        <!--end::Button-->
+                        @if(!empty($trashed))
+                            <a href="{{route('EnquiryCategory.index')}}" class="btn btn-warning">View Enquiry</a>
+                        @else
+                            <a href="{{route('EnquiryCategory.ViewTrash')}}" class="btn btn-warning">View Trashed Enquiry</a>
+                    @endif
+                    <!--end::Button-->
                     </div>
                 </div>
                 <div class="card-body">
@@ -138,13 +143,24 @@
                                 <td>{{$category->name}}</td>
                                 <td>{{$category->description}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('EnquiryCategory.destroy',$category->id)}}">
+                                    @if(!empty($trashed))
+                                        <a class="deleteData" href="javascript::" rel1="{{route('EnquiryCategory.deleteTrash',$category->id)}}">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                        <hr>
+                                        <a href="{{route('EnquiryCategory.restore',$category->id)}}">
+                                            <i class="fa fa-undo text-primary"></i>
+                                        </a>
+                                    @else
+                                    <a class="deleteData" href="javascript:"
+                                       rel1="{{route('EnquiryCategory.destroy',$category->id)}}">
                                         <i class="fa fa-trash text-danger"></i>
                                     </a>
                                     <hr>
                                     <a href="{{route('EnquiryCategory.edit',$category->id)}}">
                                         <i class="fa fa-paper-plane text-primary"></i>
                                     </a>
+                                        @endif
                                 </td>
                             </tr>
                         @endforeach

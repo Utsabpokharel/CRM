@@ -114,7 +114,13 @@
 												</svg>
                                                 <!--end::Svg Icon-->
 											</span>New Record</a>
-                        <!--end::Button-->
+                        @if(!empty($trashed))
+                            <a href="{{route('EnquirySource.index')}}" class="btn btn-warning">View Enquiry</a>
+                        @else
+                            <a href="{{route('EnquirySource.ViewTrash')}}" class="btn btn-warning">View Trashed
+                                Enquiry</a>
+                    @endif
+                    <!--end::Button-->
                     </div>
                 </div>
                 <div class="card-body">
@@ -135,13 +141,25 @@
                                 <td>{{$source->name}}</td>
                                 <td>{{$source->description}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('EnquirySource.destroy',$source->id)}}">
-                                        <i class="fa fa-trash text-danger"></i>
-                                    </a>
-                                    <hr>
-                                    <a href="{{route('EnquirySource.edit',$source->id)}}">
-                                        <i class="fa fa-paper-plane text-primary"></i>
-                                    </a>
+                                    @if(!empty($trashed))
+                                        <a class="deleteData" href="javascript::"
+                                           rel1="{{route('EnquirySource.deleteTrash',$source->id)}}">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                        <hr>
+                                        <a href="{{route('EnquirySource.restore',$source->id)}}">
+                                            <i class="fa fa-undo text-primary"></i>
+                                        </a>
+                                    @else
+                                        <a class="deleteData" href="javascript:"
+                                           rel1="{{route('EnquirySource.destroy',$source->id)}}">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                        <hr>
+                                        <a href="{{route('EnquirySource.edit',$source->id)}}">
+                                            <i class="fa fa-paper-plane text-primary"></i>
+                                        </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -114,7 +114,13 @@
 												</svg>
                                                 <!--end::Svg Icon-->
 											</span>New Record</a>
-                        <!--end::Button-->
+                        @if(!empty($trashed))
+                            <a href="{{route('Enquiry.index')}}" class="btn btn-warning">View Enquiry</a>
+                        @else
+                            <a href="{{route('Enquiry.ViewTrash')}}" class="btn btn-warning">View Trashed
+                                Enquiry</a>
+                    @endif
+                    <!--end::Button-->
                     </div>
                 </div>
                 <div class="card-body">
@@ -138,26 +144,38 @@
                             <tr>
                                 <td>{{$enquiry->id}}</td>
                                 @if($enquiry->is_customer=='Yes')
-                                    <td>{{$enquiry->customer_id}}</td>
-                                    <td>admin@admin.com</td>
-                                    <td>9860143597</td>
+                                    <td>{{$enquiry->customer->fname}} {{$enquiry->customer->lname}}</td>
+                                    <td>{{$enquiry->customer->email}}</td>
+                                    <td>{{$enquiry->customer->phone}}</td>
                                 @else
                                     <td>{{$enquiry->name}}</td>
                                     <td>{{$enquiry->email}}</td>
                                     <td>{{$enquiry->phone}}</td>
                                 @endif
-                                <td>{{$enquiry->category_id}}</td>
-                                <td>{{$enquiry->source_id}}</td>
+                                <td>{{$enquiry->category->name}}</td>
+                                <td>{{$enquiry->source->name}}</td>
                                 <td>{{$enquiry->date}}</td>
                                 <td>{{$enquiry->time}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('Enquiry.destroy',$enquiry->id)}}">
-                                        <i class="fa fa-trash text-danger"></i>
-                                    </a>
-                                    <hr>
-                                    <a href="{{route('Enquiry.edit',$enquiry->id)}}">
-                                        <i class="fa fa-paper-plane text-primary"></i>
-                                    </a>
+                                    @if(!empty($trashed))
+                                        <a class="deleteData" href="javascript:"
+                                           rel1="{{route('Enquiry.deleteTrash',$enquiry->id)}}">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                        <hr>
+                                        <a href="{{route('Enquiry.restore',$enquiry->id)}}">
+                                            <i class="fa fa-undo text-primary"></i>
+                                        </a>
+                                    @else
+                                        <a class="deleteData" href="javascript:"
+                                           rel1="{{route('Enquiry.destroy',$enquiry->id)}}">
+                                            <i class="fa fa-trash text-danger"></i>
+                                        </a>
+                                        <hr>
+                                        <a href="{{route('Enquiry.edit',$enquiry->id)}}">
+                                            <i class="fa fa-paper-plane text-primary"></i>
+                                        </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

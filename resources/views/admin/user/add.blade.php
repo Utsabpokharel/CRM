@@ -43,7 +43,7 @@
         <label>Password</label>
         <input type="password" name="password" class="form-control form-control-solid" placeholder="Enter Passowrd"/>
         @error('password')
-      <p>Please Enter Password</p>
+      <p>{{$message}}</p>
       @enderror
      </div>
    </div>

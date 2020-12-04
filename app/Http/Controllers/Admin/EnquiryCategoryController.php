@@ -114,4 +114,25 @@ class EnquiryCategoryController extends Controller
             return redirect()->route('EnquiryCategory.index')->with('error', 'Sorry! there is an error deleting  enquiry category');
         }
     }
+
+    public function ViewTrash()
+    {
+        $category = EnquiryCategory::onlyTrashed()->get();
+        return view('admin.enquiry.category.index', compact('category'))->with('trashed', 'true');
+    }
+
+    public function restore($id)
+    {
+        $category = EnquiryCategory::onlyTrashed()->where('id', $id)->first();
+        $category->restore();
+        return redirect()->route('EnquiryCategory.index')->with('success', 'Restored seccessfully');
+
+    }
+
+    public function deleteTrash($id)
+    {
+        $category = EnquiryCategory::onlyTrashed()->where('id', $id)->first();
+        $category->forcedelete();
+        return back()->with('warning', 'EnquiryCategory has been deleted from trashed');
+    }
 }

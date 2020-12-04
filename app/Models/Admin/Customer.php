@@ -11,4 +11,9 @@ class Customer extends Model
     use softdeletes;
      protected $guarded=[
    ];
+
+    public function enquiry()
+    {
+        return $this->hasMany('App\Models\Admin\enquiry');
+    }
 }

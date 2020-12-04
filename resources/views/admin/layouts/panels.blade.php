@@ -14,11 +14,11 @@
 				<!--begin::Header-->
 				<div class="d-flex align-items-center mt-5">
 					<div class="symbol symbol-100 mr-5">
-						<div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')"></div>
+						<div class="symbol-label" style="background-image:url({{asset('images/users/'.Auth::user()->image)}})"></div>
 						<i class="symbol-badge bg-success"></i>
 					</div>
 					<div class="d-flex flex-column">
-						<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
+						<a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{Auth::user()->name}}</a>
 						<div class="text-muted mt-1">Application Developer</div>
 						<div class="navi mt-2">
 							<a href="#" class="navi-item">
@@ -26,7 +26,7 @@
 									<span class="navi-icon mr-1">
 										<span class="svg-icon svg-icon-lg svg-icon-primary">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect x="0" y="0" width="24" height="24" />
 													<path d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z" fill="#000000" />
@@ -36,10 +36,10 @@
 											<!--end::Svg Icon-->
 										</span>
 									</span>
-									<span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+									<span class="navi-text text-muted text-hover-primary">{{Auth::user()->email}}</span>
 								</span>
 							</a>
-							<a href="#" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
+							<a href="{{route('logout')}}" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign Out</a>
 						</div>
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-success">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/General/Notification2.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<path d="M13.2070325,4 C13.0721672,4.47683179 13,4.97998812 13,5.5 C13,8.53756612 15.4624339,11 18.5,11 C19.0200119,11 19.5231682,10.9278328 20,10.7929675 L20,17 C20,18.6568542 18.6568542,20 17,20 L7,20 C5.34314575,20 4,18.6568542 4,17 L4,7 C4,5.34314575 5.34314575,4 7,4 L13.2070325,4 Z" fill="#000000" />
@@ -82,7 +82,7 @@
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-warning">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Shopping/Chart-bar1.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<rect fill="#000000" opacity="0.3" x="12" y="4" width="3" height="13" rx="1.5" />
@@ -109,7 +109,7 @@
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-danger">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Files/Selected-file.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<polygon points="0 0 24 0 24 24 0 24" />
 												<path d="M4.85714286,1 L11.7364114,1 C12.0910962,1 12.4343066,1.12568431 12.7051108,1.35473959 L17.4686994,5.3839416 C17.8056532,5.66894833 18,6.08787823 18,6.52920201 L18,19.0833333 C18,20.8738751 17.9795521,21 16.1428571,21 L4.85714286,21 C3.02044787,21 3,20.8738751 3,19.0833333 L3,2.91666667 C3,1.12612489 3.02044787,1 4.85714286,1 Z M8,12 C7.44771525,12 7,12.4477153 7,13 C7,13.5522847 7.44771525,14 8,14 L15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 L8,12 Z M8,16 C7.44771525,16 7,16.4477153 7,17 C7,17.5522847 7.44771525,18 8,18 L11,18 C11.5522847,18 12,17.5522847 12,17 C12,16.4477153 11.5522847,16 11,16 L8,16 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
@@ -134,7 +134,7 @@
 								<div class="symbol-label">
 									<span class="svg-icon svg-icon-md svg-icon-primary">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-opened.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" fill="#000000" opacity="0.3" />
@@ -167,7 +167,7 @@
 						<span class="svg-icon svg-icon-warning mr-5">
 							<span class="svg-icon svg-icon-lg">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
 										<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
@@ -189,7 +189,7 @@
 						<span class="svg-icon svg-icon-success mr-5">
 							<span class="svg-icon svg-icon-lg">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
 										<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)" />
@@ -211,7 +211,7 @@
 						<span class="svg-icon svg-icon-danger mr-5">
 							<span class="svg-icon svg-icon-lg">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
 										<path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" fill="#000000" />
@@ -233,7 +233,7 @@
 						<span class="svg-icon svg-icon-info mr-5">
 							<span class="svg-icon svg-icon-lg">
 								<!--begin::Svg Icon | path:assets/media/svg/icons/General/Attachment2.svg-->
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<rect x="0" y="0" width="24" height="24" />
 										<path d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z" fill="#000000" opacity="0.3" transform="translate(7.757359, 16.242641) rotate(-45.000000) translate(-7.757359, -16.242641)" />
@@ -290,7 +290,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="assets/media/stock-600x400/img-1.jpg" title="" alt="" />
+							<img src="" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -315,7 +315,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="assets/media/stock-600x400/img-2.jpg" title="" alt="" />
+							<img src="" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -340,7 +340,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="assets/media/stock-600x400/img-3.jpg" title="" alt="" />
+							<img src="" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -365,7 +365,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="assets/media/stock-600x400/img-4.jpg" title="" alt="" />
+							<img src="" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -390,7 +390,7 @@
 							</div>
 						</div>
 						<a href="#" class="symbol symbol-70 flex-shrink-0">
-							<img src="assets/media/stock-600x400/img-8.jpg" title="" alt="" />
+							<img src="" title="" alt="" />
 						</a>
 					</div>
 					<!--end::Item-->
@@ -449,7 +449,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="" />
+										<img src="" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -463,7 +463,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/015-telegram.svg" class="h-50 align-self-center" alt="" />
+										<img src="" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -477,7 +477,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/003-puzzle.svg" class="h-50 align-self-center" alt="" />
+										<img src="" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -491,7 +491,7 @@
 							<div class="d-flex align-items-center flex-wrap mb-5">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/005-bebo.svg" class="h-50 align-self-center" alt="" />
+										<img src="" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -505,7 +505,7 @@
 							<div class="d-flex align-items-center flex-wrap">
 								<div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/014-kickstarter.svg" class="h-50 align-self-center" alt="" />
+										<img src="" class="h-50 align-self-center" alt="" />
 									</span>
 								</div>
 								<div class="d-flex flex-column flex-grow-1 mr-2">
@@ -525,7 +525,7 @@
 								<span class="svg-icon svg-icon-warning mr-5">
 									<span class="svg-icon svg-icon-lg">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
@@ -547,7 +547,7 @@
 								<span class="svg-icon svg-icon-success mr-5">
 									<span class="svg-icon svg-icon-lg">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)" />
@@ -569,7 +569,7 @@
 								<span class="svg-icon svg-icon-danger mr-5">
 									<span class="svg-icon svg-icon-lg">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" fill="#000000" />
@@ -591,7 +591,7 @@
 								<span class="svg-icon svg-icon-info mr-5">
 									<span class="svg-icon svg-icon-lg">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/General/Attachment2.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 												<rect x="0" y="0" width="24" height="24" />
 												<path d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z" fill="#000000" opacity="0.3" transform="translate(7.757359, 16.242641) rotate(-45.000000) translate(-7.757359, -16.242641)" />
@@ -958,7 +958,7 @@
 									<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<span class="svg-icon svg-icon-lg">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<polygon points="0 0 24 0 24 24 0 24" />
 													<path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
@@ -1064,7 +1064,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="assets/media/users/300_12.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1082,7 +1082,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="assets/media/users/300_21.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
@@ -1092,7 +1092,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="assets/media/users/300_21.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1110,7 +1110,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="assets/media/users/300_21.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">You’ll receive notifications for all issues, pull requests!</div>
@@ -1120,7 +1120,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="assets/media/users/300_12.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1139,7 +1139,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="assets/media/users/300_21.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
@@ -1149,7 +1149,7 @@
 									<div class="d-flex flex-column mb-5 align-items-start">
 										<div class="d-flex align-items-center">
 											<div class="symbol symbol-circle symbol-40 mr-3">
-												<img alt="Pic" src="assets/media/users/300_12.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 											<div>
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1167,7 +1167,7 @@
 												<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
 											</div>
 											<div class="symbol symbol-circle symbol-40 ml-3">
-												<img alt="Pic" src="assets/media/users/300_21.jpg" />
+												<img alt="Pic" src="" />
 											</div>
 										</div>
 										<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
@@ -1209,7 +1209,7 @@
 		<div id="kt_scrolltop" class="scrolltop">
 			<span class="svg-icon">
 				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+				<svg xmlns="" xmlns:xlink="" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 						<polygon points="0 0 24 0 24 24 0 24" />
 						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
@@ -1238,7 +1238,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 1</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo offcanvas-demo-active">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo1.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo1/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1248,7 +1248,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 2</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo2.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo2/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1258,7 +1258,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 3</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo3.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo3/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1268,7 +1268,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 4</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo4.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo4/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1278,7 +1278,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 5</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo5.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo5/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1288,7 +1288,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 6</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo6.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo6/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1298,7 +1298,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 7</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo7.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo7/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1308,7 +1308,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 8</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo8.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo8/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1318,7 +1318,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 9</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo9.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo9/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1328,7 +1328,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 10</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo10.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo10/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1338,7 +1338,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 11</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo11.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo11/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1348,7 +1348,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 12</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo12.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo12/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1358,7 +1358,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 13</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo13.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="../../demo13/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -1368,7 +1368,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 14</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo14.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1377,7 +1377,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 15</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo15.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1386,7 +1386,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 16</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo16.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1395,7 +1395,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 17</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo17.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1404,7 +1404,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 18</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo18.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1413,7 +1413,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 19</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo19.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1422,7 +1422,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 20</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo20.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1431,7 +1431,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 21</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo21.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1440,7 +1440,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 22</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo22.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1449,7 +1449,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 23</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo23.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1458,7 +1458,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 24</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo24.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1467,7 +1467,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 25</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo25.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1476,7 +1476,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 26</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo26.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1485,7 +1485,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 27</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo27.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1494,7 +1494,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 28</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo28.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1503,7 +1503,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 29</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo29.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -1512,7 +1512,7 @@
 					<h5 class="font-weight-bold mb-4 text-center">Demo 30</h5>
 					<div class="overlay rounded-lg mb-8 offcanvas-demo">
 						<div class="overlay-wrapper rounded-lg">
-							<img src="assets/media/demos/demo30.png" alt="" class="w-100" />
+							<img src="" alt="" class="w-100" />
 						</div>
 						<div class="overlay-layer">
 							<a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
