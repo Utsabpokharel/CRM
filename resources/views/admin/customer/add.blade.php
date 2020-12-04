@@ -180,7 +180,7 @@
      <div class="form-group">
                                     <label>Your Photo</label>
                                     
-                                    <input type="hidden" name="current_image">
+
                                     <input type="file" class="form-control form-control-solid @error('image') is-invalid @enderror" name="image"  value="{{old('image')}}">
                                    @error('image')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -191,7 +191,7 @@
      <div class="form-group">
                                     <label>Front Citizenship Photo</label>
                                     
-                                    <input type="hidden" name="current_frontcitizenshipimage">
+                                    
                                     <input type="file" class="form-control form-control-solid @error('frontcitizenshipimage') is-invalid @enderror"  name="frontcitizenshipimage"  value="{{old('frontcitizenshipimage')}}">
                                     @error('frontcitizenshipimage')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -203,7 +203,7 @@
      <div class="form-group">
                                     <label>Back Citizenship Photo</label>
                                     
-                                    <input type="hidden" name="current_backcitizenshipimage">
+                                    
                                     <input type="file" class="form-control form-control-solid @error('backcitizenshipimage') is-invalid @enderror"  name="backcitizenshipimage" value="{{old('backcitizenshipimage')}}">
                                    @error('backcitizenshipimage')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
