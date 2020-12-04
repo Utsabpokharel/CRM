@@ -100,11 +100,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::get('staffupdate/{id}', 'StaffController@update')->name('staff.update');
     Route::get('staffdestroy/{id}', 'StaffController@destroy')->name('staff.destroy');
     require_once('components/Emailsetting.php');
-
     /*enquiry*/
     require_once('components/enquiry.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
+    require_once('components/enquiry-response.php');
     // Routing for Department
     Route::get("department/view_all", "DepartmentController@index")->name("view_department");
     Route::get("department/add", "DepartmentController@create")->name("add_department");
