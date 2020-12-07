@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function login(Request $request){
         $cretential = $request->only('email', 'password');
         if (AUTH::guard('user')->attempt($cretential)) {
-            return redirect()->route('admin.index');
+            return redirect()->route();
         } else {
             return redirect()->back()->withErrors('email or password do not match');
         }

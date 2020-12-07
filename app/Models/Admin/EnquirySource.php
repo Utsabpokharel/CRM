@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\admin;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +14,6 @@ class EnquirySource extends Model
 
     public function enquiry()
     {
-        return $this->hasMany('App\Models\Admin\enquiry');
+        return $this->hasMany('App\Models\Admin\Enquiry');
     }
 }

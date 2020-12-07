@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\EnquiryResponse;
+use App\Models\Admin\Enquiry;
 
 class EnquiryResponseController extends Controller
 {
@@ -16,9 +17,10 @@ class EnquiryResponseController extends Controller
     }
 
 
-    public function create()
+    public function create($id)
     {
-        return view('admin.enquiry.response.add');
+        $enquiry=$id;
+        return view('admin.enquiry.response.add',compact('enquiry'));
     }
 
 
@@ -26,8 +28,11 @@ class EnquiryResponseController extends Controller
     {
         $data = $request->validate(
             [
-                'name'=>'required|string',
-                'description'=>''
+                'enquiry_by'=>'required',
+                'responded_by'=>'required',
+                'responded_through'=>'required',
+                'message'=>'required',
+                'remarks'=>'',
             ]
         );
         $response = new EnquiryResponse();
@@ -72,7 +77,7 @@ class EnquiryResponseController extends Controller
         }
     }
 
-   
+
     public function destroy($id)
     {
         $response = EnquiryResponse::findorfail($id);
