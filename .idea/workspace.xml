@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7725a075-9bed-4ae8-9715-d374e2cc4d7f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/panels.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/panels.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,26 +29,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="panels.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/panels.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="26" column="146" selection-start-line="26" selection-start-column="146" selection-end-line="26" selection-end-column="146" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/header.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="482" column="50" lean-forward="true" selection-start-line="482" selection-start-column="50" selection-end-line="482" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -353,25 +334,24 @@
       <workItem from="1607269137750" duration="646000" />
       <workItem from="1607320789751" duration="14610000" />
       <workItem from="1607352652173" duration="323000" />
-      <workItem from="1607408415373" duration="4668000" />
+      <workItem from="1607408415373" duration="6074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96413000" />
+    <option name="totallyTimeSpent" value="97819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32843137" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32843137" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="npm" order="2" sideWeight="0.501634" side_tool="true" weight="0.30786687" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32843137" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30786687" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498366" visible="true" weight="0.30786687" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -419,15 +399,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/user/add.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/users/20201130_081512_15531840725c93b5489d84e9.43781620.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/images/users/20201130_081608_15531840725c93b5489d84e9.43781620.jpg" />
     <entry file="file://$PROJECT_DIR$/public/images/users/20201130_082457_15531840725c93b5489d84e9.43781620.jpg" />
     <entry file="file://$PROJECT_DIR$/public/images/users/20201130_082548_15531840725c93b5489d84e9.43781620.jpg" />
     <entry file="file://$PROJECT_DIR$/public/images/users/20201130_091449_15531840725c93b5489d84e9.43781620.jpg" />
@@ -638,16 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="e#7#44#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/enquiry/response/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -693,19 +654,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/header.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/panels.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="482" column="50" lean-forward="true" selection-start-line="482" selection-start-column="50" selection-end-line="482" selection-end-column="50" />
+        <state relative-caret-position="144">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/panels.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="26" column="146" selection-start-line="26" selection-start-column="146" selection-end-line="26" selection-end-column="146" />
+        <state relative-caret-position="131">
+          <caret line="482" column="50" selection-start-line="482" selection-start-column="50" selection-end-line="482" selection-end-column="50" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1693">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/404.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/app.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
