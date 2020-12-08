@@ -241,17 +241,10 @@
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">View Role</span>
+                                    <span class="menu-text">All Roles</span>
                                 </a>
                             </li>
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="{{route('roles.create')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Add Role</span>
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </li>
