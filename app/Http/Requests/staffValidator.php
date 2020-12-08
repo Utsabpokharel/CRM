@@ -31,23 +31,15 @@ class staffValidator extends FormRequest
             'pp_photo'=>'nullable', 
             'permanent_address'=>'required',    
             'temporary_address'=>'required',
-            'city'=>'required',  
-            'phoneno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',    
-            'mobileno'=>'',  
+            'city'=>'required',   
             'department_id'=>'required',
             'title_id'=>'required',
             'level_id'=>'required',  
-            'panno'=>'',
             'joined_date'=>'required',
             'email'=>'required',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-            'ifuser'=>'',
-            'id_proof'=>'',
-            'resume'=>'',
-            'offer_letter'=>'',
-            'joining_letter'=>'',
-            'contract_agreement'=>''
+            
         ];
     }
     public function messages()

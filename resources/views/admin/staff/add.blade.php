@@ -121,7 +121,9 @@
       <span class="text-danger">*</span>
       <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" name="title_id"data-validation="required">
       <option selected value="">Please Select...</option>
-      <option value="1">abcd</option>
+      @foreach($titles as $title)
+      <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
+      @endforeach
       </select>
       
       @error('title_id')

@@ -83,6 +83,7 @@
       <span class="text-danger">*</span>
       <select name="city" id="city" class="form-control form-control-solid @error('city') is-invalid @enderror" name="city" value="{{$staff->city}}">
       <option selected value="">Please Select One...</option>
+      <option value="abcd">abcd</option>
       </select>
       @error('city')
       <span class="invalid-feedback" role="alert"> {{$message}}</span>
@@ -111,6 +112,7 @@
       @error('department_id')
       <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
+    </div>
 
     <div class="form-group">
       <label>Title</label>
