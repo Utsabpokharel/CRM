@@ -93,7 +93,7 @@
     ),
     'guards' => 
     array (
-      'web' => 
+      'user' => 
       array (
         'driver' => 'session',
         'provider' => 'users',
@@ -110,7 +110,7 @@
       'users' => 
       array (
         'driver' => 'eloquent',
-        'model' => 'App\\Models\\User',
+        'model' => 'App\\Models\\Admin\\user',
       ),
     ),
     'passwords' => 

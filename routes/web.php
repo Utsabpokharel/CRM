@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::post('Incomecategory/Update/{incomecategoryid}', 'incomecategorycontroller@update')->name('incomecategory.update');
     Route::get('Incomecategory/Delete/{incomecategoryid}', 'incomecategorycontroller@destroy')->name('incomecategory.destroy');
     //Income
+    Route::get('Income','IncomeController@view')->name('income.view');
     //Expenses and expenses category
     Route::get('Expensescategory', 'Expensescategorycontroller@view')->name('expensescategory.view');
     Route::get('Expensescategory/Create', 'Expensescategorycontroller@create')->name('expensescategory.create');
