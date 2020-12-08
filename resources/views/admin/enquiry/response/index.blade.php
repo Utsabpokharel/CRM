@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View enquiry')
+@section('page_title','View enquiry Response')
 @section('content')
     <div class="page-content-wrapper ">
         <div class="page-bar">
@@ -9,7 +9,7 @@
                     <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{route('admin.index')}}">Home</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li class="active">All Enquiry</li>
+                    <li class="active">All Enquiry Response</li>
                 </ol>
             </div>
         </div>
@@ -21,7 +21,7 @@
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-                        <h3 class="card-label">Enquiry Table</h3>
+                        <h3 class="card-label">Enquiry Response Table</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Dropdown-->
@@ -99,26 +99,11 @@
                         </div>
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="{{route('Enquiry.create')}}" class="btn btn-primary font-weight-bolder">
-											<span class="svg-icon svg-icon-md">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                     height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24"/>
-														<circle fill="#000000" cx="9" cy="15" r="6"/>
-														<path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
-                                                              fill="#000000" opacity="0.3"/>
-													</g>
-												</svg>
-                                                <!--end::Svg Icon-->
-											</span>New Record</a>
                         @if(!empty($trashed))
-                            <a href="{{route('Enquiry.index')}}" class="btn btn-warning">View Enquiry</a>
+                            <a href="{{route('EnquiryResponse.index')}}" class="btn btn-warning">View Enquiry</a>
                         @else
-                            <a href="{{route('Enquiry.ViewTrash')}}" class="btn btn-warning">View Trashed
-                                Enquiry</a>
+                            <a href="{{route('EnquiryResponse.ViewTrash')}}" class="btn btn-warning">View Trashed
+                                Enquiry Response</a>
                     @endif
                     <!--end::Button-->
                     </div>
@@ -128,61 +113,44 @@
                     <table id="demo_table" class="display nowrap table" style="width:100%">
                         <thead class="table-bg">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Enquiry Category</th>
-                            <th>Enquiry Source</th>
-                            <th>Enquired Date</th>
-                            <th>Enquired Time</th>
+                            <th>Enquiry By</th>
+                            <th>Responded BY</th>
+                            <th>Responded Through</th>
+                            <th>Message</th>
+                            <th>Remarks</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($enquiry as $enquiry)
+                        @foreach($response as $response)
                             <tr>
-                                <td>{{$enquiry->id}}</td>
-                                @if($enquiry->is_customer=='Yes')
-                                    <td>{{$enquiry->customer->fname}} {{$enquiry->customer->lname}}</td>
-                                    <td>{{$enquiry->customer->email}}</td>
-                                    <td>{{$enquiry->customer->phone}}</td>
-                                @else
-                                    <td>{{$enquiry->name}}</td>
-                                    <td>{{$enquiry->email}}</td>
-                                    <td>{{$enquiry->phone}}</td>
-                                @endif
-                                <td>{{$enquiry->category->name}}</td>
-                                <td>{{$enquiry->source->name}}</td>
-                                <td>{{$enquiry->date}}</td>
-                                <td>{{$enquiry->time}}</td>
+                                <td>{{$response->response->name}}</td>
+                                <td>{{$response->user->name}}</td>
+                                <td>{{$response->responded_through}}</td>
+                                <td>{{$response->message}}</td>
+                                <td>{{$response->remarks}}</td>
                                 <td class="text-center">
                                     @if(!empty($trashed))
                                         <a class="deleteData" href="javascript:"
-                                           rel1="{{route('Enquiry.deleteTrash',$enquiry->id)}}">
+                                           rel1="{{route('EnquiryResponse.deleteTrash',$response->id)}}">
                                             <i class="fa fa-trash text-danger"></i>
                                         </a>
                                         <hr>
-                                        <a href="{{route('Enquiry.restore',$enquiry->id)}}">
+                                        <a href="{{route('EnquiryResponse.restore',$response->id)}}">
                                             <i class="fa fa-undo text-primary"></i>
                                         </a>
                                     @else
                                         <div>
                                             <a class="deleteData" href="javascript:"
-                                               rel1="{{route('Enquiry.destroy',$enquiry->id)}}">
+                                               rel1="{{route('EnquiryResponse.destroy',$response->id)}}">
                                                 <i class="fa fa-trash text-danger"></i>
                                             </a>
                                         </div>
-                                        <div class="mt-2">
-                                            <a href="{{route('Enquiry.edit',$enquiry->id)}}">
-                                                <i class="fa fa-paper-plane text-primary"></i>
-                                            </a>
-                                        </div>
-                                        <div class="mt-2">
-                                            <a href="{{route('EnquiryResponse.create',$enquiry->id)}}" title="Response">
-                                                <i class="fa fa-reply text-success"></i>
-                                            </a>
-                                        </div>
+                                        {{--<div class="mt-2">--}}
+                                            {{--<a href="{{route('EnquiryResponse.edit',$response->id)}}">--}}
+                                                {{--<i class="fa fa-paper-plane text-primary"></i>--}}
+                                            {{--</a>--}}
+                                        {{--</div>--}}
                                     @endif
                                 </td>
                             </tr>

@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:SDR+ZgFdWuBHgiB34/P8EHjsQMgWvKeQ20gXmapM5rI=',
+    'key' => 'base64:4Yd5YAkk/RmyBySWauZphrNjJwrnaa2vFoNdFEEKHuE=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -180,7 +180,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\xampp\\htdocs\\CRM\\storage\\framework/cache/data',
+        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -257,7 +257,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'CRM2',
+        'database' => 'crm',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -267,7 +267,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'CRM2',
+        'database' => 'crm',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -287,7 +287,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'CRM2',
+        'database' => 'crm',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -302,7 +302,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'CRM2',
+        'database' => 'crm',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -346,12 +346,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\xampp\\htdocs\\CRM\\storage\\app',
+        'root' => 'D:\\Xampp\\htdocs\\CRM\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\xampp\\htdocs\\CRM\\storage\\app/public',
+        'root' => 'D:\\Xampp\\htdocs\\CRM\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -368,7 +368,7 @@
     ),
     'links' => 
     array (
-      'E:\\xampp\\htdocs\\CRM\\public\\storage' => 'E:\\xampp\\htdocs\\CRM\\storage\\app/public',
+      'D:\\Xampp\\htdocs\\CRM\\public\\storage' => 'D:\\Xampp\\htdocs\\CRM\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -693,13 +693,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
+        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
+        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -749,7 +749,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'E:\\xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
+        'path' => 'D:\\Xampp\\htdocs\\CRM\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -806,7 +806,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\xampp\\htdocs\\CRM\\resources\\views/vendor/mail',
+        0 => 'D:\\Xampp\\htdocs\\CRM\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -885,7 +885,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\xampp\\htdocs\\CRM\\storage\\framework/sessions',
+    'files' => 'D:\\Xampp\\htdocs\\CRM\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -905,9 +905,9 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\xampp\\htdocs\\CRM\\resources\\views',
+      0 => 'D:\\Xampp\\htdocs\\CRM\\resources\\views',
     ),
-    'compiled' => 'E:\\xampp\\htdocs\\CRM\\storage\\framework\\views',
+    'compiled' => 'D:\\Xampp\\htdocs\\CRM\\storage\\framework\\views',
   ),
   'flare' => 
   array (
