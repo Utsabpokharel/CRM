@@ -76,7 +76,6 @@
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
-
                     <div class="form-group">
                         <label>Temporary Address</label>
                         <span class="text-danger">*</span>
