@@ -75,6 +75,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
 
     //Title-Level-ProfileDemo
     Route::resource('level', 'levelController');
+    Route::get('level/delete/{id}', 'levelController@destroy')->name('level.destroy');
     Route::resource('title', 'titleController');
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
     Route::resource('profile', 'profileDemoController');

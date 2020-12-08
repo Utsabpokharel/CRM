@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\level;
 use Illuminate\Http\Request;
 
 class levelController extends Controller
@@ -14,7 +15,8 @@ class levelController extends Controller
      */
     public function index()
     {
-        //
+        $level = level::all();
+        return view('admin.Designation.Level.view',compact('level'));
     }
 
     /**
@@ -24,7 +26,7 @@ class levelController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.Designation.Level.add');
     }
 
     /**
@@ -35,7 +37,9 @@ class levelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $level = $request->all();
+        level::create($level);
+        return redirect()->route('level.index')->with('success','New Level Created Successfully');
     }
 
     /**
@@ -57,7 +61,8 @@ class levelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $level = level::findOrfail($id);
+        return view('admin.Designation.Level.edit',compact('level'));
     }
 
     /**
@@ -69,7 +74,9 @@ class levelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = level::findOrfail($id);
+        $data->update($request->all());
+        return redirect()->route('level.index')->with('success','Selected Level is Updated');
     }
 
     /**
@@ -80,6 +87,8 @@ class levelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $level = level::findorfail($id);
+        $level->delete();
+        return redirect()->route('level.index')->with('success', 'Selected Level has been deleted');
     }
 }
