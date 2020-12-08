@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View Role')
+@section('page_title','View User')
 @section('content')
 <div class="page-content-wrapper ">
 	<div class="page-bar">
@@ -24,7 +24,7 @@
 					<span class="card-icon">
 						<i class="flaticon2-gift text-primary"></i>
 					</span>
-					<h3 class="card-label">RowGroup DataTable</h3>
+					<h3 class="card-label">View User Table</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
