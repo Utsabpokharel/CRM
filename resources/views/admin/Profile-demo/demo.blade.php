@@ -75,6 +75,22 @@
                                                             <div class="card">
                                                                 {{-- <div class="card-body padding height-9"> --}}
                                                                     <ul class="list-group list-group-unbordered">
+                                                                    	<li class="list-group-item">
+                                                                            <b>First Name</b>
+                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->name}}</div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
+                                                                            <b>Last Name</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                         <li class="list-group-item">
+                                                                            <b>Gender </b>
+                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->gender}}</div>
+                                                                        </li>
+                                                                         <li class="list-group-item">
+                                                                            <b>Date of Birth </b>
+                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->dob}}</div>
+                                                                        </li>
                                                                         <li class="list-group-item">
                                                                             <b>Current Address</b>
                                                                             <div class="profile-desc-item pull-right"></div>
@@ -83,11 +99,6 @@
                                                                             <b>Permanent Address</b>
                                                                             <div class="profile-desc-item pull-right"></div>
                                                                         </li>
-                                                                        <li class="list-group-item">
-                                                                            <b>Gender </b>
-                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->gender}}</div>
-                                                                        </li>
-
                                                                         <li class="list-group-item">
                                                                             <b>Position in Company</b>
                                                                             <div class="profile-desc-item pull-right"></div>
@@ -104,11 +115,35 @@
                                                                         </li>
 
                                                                         <li class="list-group-item">
+                                                                            <b>Phone No.</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
+                                                                            <b>Mobile No.</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
                                                                             <b>Contact No.</b>
                                                                             <div class="profile-desc-item pull-right"></div>
                                                                         </li>
                                                                         <li class="list-group-item">
-                                                                            <b>Date of Birth</b>
+                                                                            <b>Desgination Tittle</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
+                                                                            <b>Desgination Level</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
+                                                                            <b>PAN Number</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
+                                                                            <b>Joined Date</b>
+                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                        </li>
+                                                                        <li class="list-group-item">
+                                                                            <b>Email</b>
                                                                             <div class="profile-desc-item pull-right"></div>
                                                                         </li>
                                                                     </ul>
