@@ -260,7 +260,7 @@
   </div>
         </div>
         <div class="card-footer">
-     <button type="submit" class="btn btn-primary mr-2" value="submit">Update</button>
+     <button type="submit" class="btn btn-success mr-2" value="submit">Update</button>
      <a href="{{route('vendors.view')}}" class ="btn btn-primary mr-2">Cancel</a>
    </div>
    </form>

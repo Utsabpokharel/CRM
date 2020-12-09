@@ -277,8 +277,9 @@
   </div>
         </div>
         <div class="card-footer">
-     <button type="submit" class="btn btn-primary mr-2" value="submit">Submit</button>
+     <button type="submit" class="btn btn-success mr-2" value="submit">Submit</button>
      <button type="reset" class="btn btn-secondary" value="reset">Reset</button>
+     <a href="{{route('vendors.view')}}" class ="btn btn-primary mr-2">Cancel</a>
    </div>
    </form>
 </div>
