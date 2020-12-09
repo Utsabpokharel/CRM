@@ -67,6 +67,13 @@ class VendorController extends Controller
             'secondphone' => 'required',
             'ifuser' => 'required',
             'vendor_type' => 'required',
+        ], [
+            'fname.required' => 'First Name is required',
+            'fname.min' => 'The First Name must be at least 3 characters.',
+            'fname.max' => 'The First Name Name may not be greater than 20 characters.',
+            'lname.min' => 'The Last Name must be at least 3 characters.',
+            'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
+            'lname.required' => 'Last Name is required',
 
         ]);
 
@@ -145,7 +152,13 @@ class VendorController extends Controller
             'secondphone' => 'required',
             'ifuser' => 'required',
             'vendor_type' => 'required',
-
+        ], [
+            'fname.required' => 'First Name is required',
+            'fname.min' => 'The First Name must be at least 3 characters.',
+            'fname.max' => 'The First Name Name may not be greater than 20 characters.',
+            'lname.min' => 'The Last Name must be at least 3 characters.',
+            'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
+            'lname.required' => 'Last Name is required',
         ]);
         $vendor = Vendor::find($id);
 

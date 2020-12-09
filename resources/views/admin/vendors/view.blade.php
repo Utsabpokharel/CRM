@@ -179,7 +179,7 @@ View All Vendors
                     @endforeach
 					</tbody>
 					<tfoot>
-					
+
 
 					</tfoot>
 				</table>
