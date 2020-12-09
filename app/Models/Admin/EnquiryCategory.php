@@ -15,6 +15,6 @@ class EnquiryCategory extends Model
 
     public function enquiry()
     {
-        return $this->hasMany('App\Models\Admin\enquiry');
+        return $this->hasMany('App\Models\Admin\Enquiry');
     }
 }
