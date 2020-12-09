@@ -27,6 +27,7 @@ class CreateVendorTable extends Migration
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
             $table->string('city');
+            $table->string('district');
             $table->string('address1');
             $table->string('address2')->nullable();
             $table->enum('vendor_type', ['Organization', 'Individual']);
@@ -37,8 +38,8 @@ class CreateVendorTable extends Migration
             $table->string('secondemail')->nullable();
             $table->string('secondphone')->nullable();
             $table->tinyinteger('ifuser')->default(0);
-            $table->string('idproof')->nullable();
-
+            $table->string('frontcitizenshipimage')->nullable();
+            $table->string('backcitizenshipimage')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

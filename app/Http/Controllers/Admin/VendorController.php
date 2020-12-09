@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
+use Hash;
 
 class VendorController extends Controller
 {
@@ -40,19 +41,22 @@ class VendorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+            'fname' => 'required|min:3|max:20|alpha',
+            'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dateofbirth' => 'required',
             'registrationnumber' => 'required',
             'panvatnumber' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'phone' => 'required',
-            'mobile' => 'required',
+            'confirm_password' => 'required|same:password',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'city' => 'required',
-            'image'=> '',
-            'idproof'=>'',
+            'district' => 'required',
+            'image' => '',
+            'frontcitizenshipimage' => '',
+            'backcitizenshipimage' => '',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
@@ -65,12 +69,17 @@ class VendorController extends Controller
             'vendor_type' => 'required',
 
         ]);
+
+        $data = $request->except('confirm_password');
+        $password = Hash::make($request->password);
+        $data['password'] = $password;
         $data = $request->all();
 
         $imagepath = 'images/vendors/';
 
         $data['image'] = save_image($request->image, 150, 150, $imagepath);
-        $data['idproof'] = save_image($request->idproof, 150, 150, $imagepath);
+        $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $imagepath);
+        $data['backcitizenshipimage'] = save_image($request->backcitizenshipimage, 150, 150, $imagepath);
 
         Vendor::create($data);
         return redirect()->route('vendors.view')->with('success', 'Vendor added sucessfully');
@@ -110,19 +119,22 @@ class VendorController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+            'fname' => 'required|min:3|max:20|alpha',
+            'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dateofbirth' => 'required',
             'registrationnumber' => 'required',
             'panvatnumber' => 'required',
             'email' => 'required|email',
             'password' => '',
-            'phone' => 'required',
-            'mobile' => 'required',
+            'confirm_password' => '',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'city' => 'required',
+            'district' => 'required',
             'image' => '',
-            'idproof' => '',
+            'frontendcitizenshipimage' => '',
+            'backendcitizenshipimage' => '',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
@@ -137,7 +149,7 @@ class VendorController extends Controller
         ]);
         $vendor = Vendor::find($id);
 
-        $data = $request->except('image', 'idproof');
+        $data = $request->except('image', 'frontcitizenshipimage', 'backcitizenshipimage');
         if ($request->hasFile('image')) {
             $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
             delete_image($vendor->image, $this->imagePath());
@@ -145,12 +157,19 @@ class VendorController extends Controller
             $data['image'] = $request->current_image;
         }
 
-        if ($request->hasFile('idproof')) {
-            $data['idproof'] = save_image($request->idproof, 150, 150, $this->imagePath());
-            delete_image($vendor->idproof, $this->imagePath());
+        if ($request->hasFile('frontcitizenshipimage')) {
+            $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $this->imagePath());
+            delete_image($vendor->frontcitizenshipimage, $this->imagePath());
         } else {
 
-            $data['idproof'] = $request->current_idproof;
+            $data['frontcitizenshipimage'] = $request->current_frontcitizenshipimage;
+        }
+        if ($request->hasFile('backcitizenshipimage')) {
+            $data['backcitizenshipimage'] = save_image($request->backcitizenshipimage, 150, 150, $this->imagePath());
+            delete_image($vendor->backcitizenshipimage, $this->imagePath());
+        } else {
+
+            $data['backcitizenshipimage'] = $request->current_backcitizenshipimage;
         }
 
         $vendor->update($data);
