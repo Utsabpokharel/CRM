@@ -171,7 +171,6 @@
                         <select name="department_id" id="department_id"
                                 class="form-control form-control-solid @error('department_id') is-invalid @enderror"
                                 name="department_id" value="{{$staff->department_id}}">
-                                <option value="1">abcd</option>
                             @foreach($departments as $department)
                                 <option value="{{$department->id}}"
                                         class="form-control">{{$department->dep_name}}</option>

@@ -15,11 +15,19 @@
           <label>Name: </label>
           <select name="name" id="name" class="form-control form-control-solid">
             <option value="">Select Name</option>
-            <option value="Sanjaya Shrestha">Sanjaya Shrestha</option>
-            <option value="Sanjaya Shrestha">Utsab Pokharel</option>
-            <option value="Sanjaya Shrestha">Basant Tamang</option>
-            <option value="Sanjaya Shrestha">Biju Shrestha</option>
-            <option value="Sanjaya Shrestha">Anup Pudasaini</option>
+            @foreach($staffs as $name)
+              <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
+
+            @foreach($vendors as $name)
+              <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
+
+            @foreach($customers as $name)
+              <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
+
+            
           </select>
           @error('name')
           <p>Select Name</p>
