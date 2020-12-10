@@ -20,14 +20,29 @@ Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],funct
    route::post('/login/check','LoginController@login')->name('login.check');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','user'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','user']], function () {
     //dashboard
     Route::get('index', 'IndexController@index')->name('admin.index');
+    //ProfileDemo
+     Route::resource('profile', 'profileDemoController');
+     Route::get('personalInfo', 'profileDemoController@personal')->name('personal');
+    // Routing for Service
+    Route::get("services/view_all", "ServiceController@index")->name("view_services");
+    Route::get("services/add", "ServiceController@create")->name("add_service");
+    Route::post("services/store", "ServiceController@store")->name("store_service");
+    Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
+    Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
+    Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
+    /*logout*/
+    Route::get('/logout','LoginController@logout')->name('logout');
+});
 
-    Route::group(['middleware' => ['super']], function () {
-        //roles
-        Route::resource('roles', 'roleController');
-    });
+Route::group(['middleware' => ['super']], function () {
+    //roles
+    Route::resource('roles', 'roleController');
+});
+
+Route::group(['middleware' => ['super','admin']], function () {
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staff/add', 'StaffController@create')->name('staff.add');
@@ -37,11 +52,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','
     Route::get('staff/destroy/{staffid}', 'StaffController@destroy')->name('staff.destroy');
     Route::get('staff/trashed', 'StaffController@trashedView')->name('staff.trashed');
     Route::get('staff/restore/{id}', 'StaffController@restore')->name('staff.restore');
-
     Route::get('staff/deleteTrash/{id}', 'StaffController@deleteTrash')->name('staff.deleteTrash');
     require_once('components/Emailsetting.php');
     require_once('components/Profilesetting.php');
-
     // Route for award
     Route::get('award', 'AwardController@index')->name('award.view');
     Route::get('award/add', 'AwardController@create')->name('award.add');
@@ -49,7 +62,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','
     Route::get('award/edit/{awardid}', 'AwardController@edit')->name('award.edit');
     Route::post('award/update/{awardid}', 'AwardController@update')->name('award.update');
     Route::get('award/destroy/{awardid}', 'AwardController@destroy')->name('award.destroy');
+    //users route
+    Route::get('/users', 'userController@users')->name('user.view');
+    Route::get('/adduser', 'userController@addUser')->name('user.add');
+    Route::post('storeuser', 'userController@store')->name('user.store');
+    Route::get('users/delete/{userid}', 'userController@destroy')->name('user.destroy');
+    Route::get('user/edit/{userid}', 'userController@editUser')->name('user.edit');
+    Route::post('user/update/{userid}', 'userController@updateUser')->name('user.update');
+    //level
+    Route::resource('level', 'levelController');
+    Route::get('level/delete/{id}', 'levelController@destroy')->name('level.destroy');
+    //title
+    Route::resource('title', 'titleController');
+    Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
+});
 
+Route::group(['middleware' => ['super','admin','staff']], function () {
     //Income and income category
     Route::get('Incomecategory/Create', 'incomecategorycontroller@create')->name('incomecategory.create');
     Route::get('Incomecategory', 'incomecategorycontroller@view')->name('incomecategory.view');
@@ -78,23 +106,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','
     Route::get('Expenses/Viewtrashed', 'Expensescontroller@Viewtrashed')->name('expenses.Viewtrashed');
     Route::get('expenses/restore/{id}', 'Expensescontroller@restore')->name('expenses.restore');
     Route::get('Expenses/Delete{expensesid}', 'Expensescontroller@destroy')->name('expenses.destroy');
-
-    //Title-Level-ProfileDemo
-    Route::resource('level', 'levelController');
-    Route::get('level/delete/{id}', 'levelController@destroy')->name('level.destroy');
-    Route::resource('title', 'titleController');
-    Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
-    Route::resource('profile', 'profileDemoController');
-    Route::get('personalInfo', 'profileDemoController@personal')->name('personal');
-
-    //users route
-    Route::get('/users', 'userController@users')->name('user.view');
-    Route::get('/adduser', 'userController@addUser')->name('user.add');
-    Route::post('storeuser', 'userController@store')->name('user.store');
-    Route::get('users/delete/{userid}', 'userController@destroy')->name('user.destroy');
-    Route::get('user/edit/{userid}', 'userController@editUser')->name('user.edit');
-    Route::post('user/update/{userid}', 'userController@updateUser')->name('user.update');
-
     //Customer
     Route::get('customer', 'CustomerController@index')->name('customer.index');
     Route::post('customer/Store', 'CustomerController@store')->name('customer.store');
@@ -118,16 +129,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','
     Route::post("department/update/{id}", "DepartmentController@update")->name("update_department");
     Route::get('department/delete/{id}', 'DepartmentController@destroy')->name('delete_department');
 
-    // Routing for Service
-    Route::get("services/view_all", "ServiceController@index")->name("view_services");
-    Route::get("services/add", "ServiceController@create")->name("add_service");
-    Route::post("services/store", "ServiceController@store")->name("store_service");
-    Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
-    Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
-    Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
-    /*logout*/
-    Route::get('/logout','LoginController@logout')->name('logout');
-
     // Routing for Vendor
     Route::get("vendors/index", "VendorController@index")->name("vendors.view");
     Route::get("vendors/add", "VendorController@addVendor")->name("vendors.add");
@@ -138,7 +139,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','
     Route::get("vendors/ViewTrash", "VendorController@ViewTrash")->name("vendors.ViewTrash");
     Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
     Route::get('customer/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
-});
 
+});
 
 
