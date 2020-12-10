@@ -17,14 +17,14 @@ class roleFilter
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!(Auth::user()->roles->name == 'super_admin' || Auth::user()->roles->name == 'admin' || Auth::user()->roles->name == 'staff' || Auth::user()->roles->name == 'customer' || Auth::user()->roles->name == 'vendor')) {
-            return redirect()->route('login')->with('error', 'Sorry You are not authorized user.');
+        if (!(Auth::user()->roleid== '1' || Auth::user()->roleid== '2' || Auth::user()->roleid== '3' || Auth::user()->roleid== '4' || Auth::user()->roleid== '5')) {
+            return redirect()->route('admin.index')->with('error', 'Sorry You are not authorized user.');
         }
 
-        if ((Auth::user()->roles->name == 'super_admin' || Auth::user()->roles->name == 'admin' || Auth::user()->roles->name == 'staff' || Auth::user()->roles->name == 'customer' || Auth::user()->roles->name == 'vendor')) {
+        if ((Auth::user()->roleid== '1' || Auth::user()->roleid== '2' || Auth::user()->roleid== '3' || Auth::user()->roleid== '4' || Auth::user()->roleid== '5')) {
             return $next($request);
         } else {
-            return redirect()->route('login')->with('error', 'Sorry You are not authorized user.');
+            return redirect()->route('admin.index')->with('error', 'Sorry You are not authorized user.');
         }
     }
 }
