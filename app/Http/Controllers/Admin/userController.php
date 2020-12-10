@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\user;
 use Hash;
+use App\Models\Admin\Staff;
+use App\Models\Vendor;
+use App\Models\Admin\Customer;
+
+
 
 class userController extends Controller
 {
@@ -14,7 +19,10 @@ class userController extends Controller
         return view('Admin.user.view',compact('user'));
     }
     public function addUser(){
-        return view('Admin.user.add');
+        $staffs=Staff::all();
+        $vendors=Vendor::all();
+        $customers=Customer::all();
+        return view('Admin.user.add',compact('staffs','vendors','customers'));
     }
     public function store(Request $request){
         $request->validate([
@@ -42,8 +50,11 @@ class userController extends Controller
         return back()->with('flash_error','Deleted Successfully')->with('warning','Deleted Successfully');
     }
     public function editUser($id){
+        $staffs=Staff::all();
+        $vendors=Vendor::all();
+        $customers=Customer::all();
         $user=user::findorfail($id);
-        return view('Admin.user.edit',compact('user'));
+        return view('Admin.user.edit',compact('user','staffs','vendors','customers'));
     }
     public function updateUser(Request $request,$id){
         $request->validate([
