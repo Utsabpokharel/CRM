@@ -17,10 +17,11 @@ class SuperAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->roles->name == 'super_admin') {
+        // dd(Auth::user());
+        if (Auth::user()->roleid == '1') {
             return $next($request);
         } else {
-            return redirect()->route('admin-dashboard')->with('warning', 'Sorry you don\'t have access to view the requested resource');
+            return redirect()->route('admin.index')->with('error', 'Sorry you don\'t have access to view the requested resource');
         }
     }
 }
