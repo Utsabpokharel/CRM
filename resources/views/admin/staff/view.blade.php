@@ -15,7 +15,7 @@ View All Staff
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
-				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
+				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route('admin.index') }}">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
 				<li><a class="parent-item" href="">Staff</a>&nbsp;

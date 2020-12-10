@@ -8,6 +8,8 @@ use App\Models\Admin\Staff;
 use App\Http\Requests\staffValidator;
 use App\Models\Admin\Department;
 use App\Models\Admin\title;
+use App\Models\Admin\level;
+
 class StaffController extends Controller
 {
     /**
@@ -28,9 +30,10 @@ class StaffController extends Controller
      */
     public function create()
     {
+        $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
-        return view('admin.staff.add',compact('departments','titles'));
+        return view('admin.staff.add',compact('departments','titles','levels'));
     }
 
     /**
@@ -41,6 +44,7 @@ class StaffController extends Controller
      */
     public function store(staffValidator $request)
     {
+        $data = $request->all();
         $data = $request->except("confirm_password");
         if($request->hasFile('pp_photo'))
         {$staff_image_path='images/staff/';
@@ -69,10 +73,11 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
+        $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
         $staff = Staff::findOrfail($id);
-        return view("admin.staff.edit", compact('staff', 'departments','titles'));
+        return view("admin.staff.edit", compact('staff', 'departments','titles','levels'));
     }
 
     /**
