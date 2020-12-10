@@ -11,24 +11,13 @@ View All Vendors
 
 <div class="page-content-wrapper ">
 	<div class="page-bar">
-        <div class="btn-group">
-	@if(!empty($trashed))
-    <a href="{{ route('vendors.view') }}" id="addRow" class="btn btn-warning">
-    View Vendor <i class="fa fa-eye"></i>
-    </a>
-    @else
-	<a href="{{ route('vendors.ViewTrash') }}" id="addRow" class="btn btn-warning">
-    Trashed Vendor <i class="fa fa-eye"></i>
-    </a>
-    @endif
-   </div>
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
-				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route("admin.index") }}">Home</a>&nbsp;
+				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route('admin.index') }}">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="{{ route("vendors.view") }}">Vendors</a>&nbsp;
+				<li><a class="parent-item" href="{{ route('vendors.view') }}">Vendors</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
 				<li class="active">All Vendors</li>

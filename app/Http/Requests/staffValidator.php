@@ -31,7 +31,7 @@ class staffValidator extends FormRequest
             'pp_photo'=>'nullable', 
             'permanent_address'=>'required',    
             'temporary_address'=>'required',
-            'mobileno'=>'required',
+            'mobileno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'city'=>'required',   
             'district'=>'required',
             'department_id'=>'required',
@@ -41,6 +41,7 @@ class staffValidator extends FormRequest
             'email'=>'required',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
+
             
         ];
     }
@@ -55,7 +56,9 @@ class staffValidator extends FormRequest
             'lname.required'=>'Last Name field is required',
             'lname.min'=>'Minimum two character is required',
             'lname.max'=>'Maximum twenty character is required',
-            'lname.alpha'=>'Only alphabet is accepted'
+            'lname.alpha'=>'Only alphabet is accepted',
+
+            'mobileno.required'=>'Mobile Number is required',
         ];
     }
 }

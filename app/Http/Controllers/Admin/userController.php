@@ -35,7 +35,6 @@ class userController extends Controller
             'password'=>'required',
             'confirm_password'=>'required|same:password',
             'gender'=>'required',
-            'address'=>'required',
             'roleid'=>'required'
         ]);
 
@@ -65,10 +64,7 @@ class userController extends Controller
             'name'=>'required',
             'email'=>'required',
             'phone'=>'required',
-            'password'=>'required',
-            'confirm_password'=>'required|same:password',
             'gender'=>'required',
-            'address'=>'required',
             'roleid'=>'required'
         ]);
 
