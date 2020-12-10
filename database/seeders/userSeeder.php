@@ -22,7 +22,7 @@ class userSeeder extends Seeder
                     'phone'=>'123456789',
                     'password' => bcrypt('super123'),
                     'gender'=>'male',
-                    'address' => 'Kathmandu',
+                    'date_of_birth' =>'01/01/2001',
                     'roleid'=>1
                 ),
                 array(
@@ -31,7 +31,7 @@ class userSeeder extends Seeder
                     'phone'=>'123456789',
                     'password' => bcrypt('admin123'),
                     'gender'=>'male',
-                    'address' => 'Kathmandu',
+                    'date_of_birth' =>'01/01/2001',
                     'roleid'=>2
                 ),
                 array(
@@ -40,7 +40,7 @@ class userSeeder extends Seeder
                     'phone'=>'123456789',
                     'password' => bcrypt('staff123'),
                     'gender'=>'male',
-                    'address' => 'Kathmandu',
+                    'date_of_birth' =>'01/01/2001',
                     'roleid'=>3
                 ),
                 array(
@@ -49,7 +49,7 @@ class userSeeder extends Seeder
                     'phone'=>'123456789',
                     'password' => bcrypt('customer123'),
                     'gender'=>'male',
-                    'address' => 'Kathmandu',
+                    'date_of_birth' =>'01/01/2001',
                     'roleid'=>4
                 ),
                 array(
@@ -58,7 +58,7 @@ class userSeeder extends Seeder
                     'phone'=>'123456789',
                     'password' => bcrypt('vendor123'),
                     'gender'=>'male',
-                    'address' => 'Kathmandu',
+                    'date_of_birth' =>'01/01/2001',
                     'roleid'=>5
                 ),
         );

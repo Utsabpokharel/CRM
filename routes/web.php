@@ -20,10 +20,14 @@ Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],funct
    route::post('/login/check','LoginController@login')->name('login.check');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth','user'], function () {
+    //dashboard
     Route::get('index', 'IndexController@index')->name('admin.index');
-    Route::resource('roles', 'roleController');
 
+    Route::group(['middleware' => ['super']], function () {
+        //roles
+        Route::resource('roles', 'roleController');
+    });
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staff/add', 'StaffController@create')->name('staff.add');
@@ -113,7 +117,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::get("department/edit/{id}", "DepartmentController@edit")->name("edit_department");
     Route::post("department/update/{id}", "DepartmentController@update")->name("update_department");
     Route::get('department/delete/{id}', 'DepartmentController@destroy')->name('delete_department');
-    
+
     // Routing for Service
     Route::get("services/view_all", "ServiceController@index")->name("view_services");
     Route::get("services/add", "ServiceController@create")->name("add_service");
