@@ -17,7 +17,7 @@ class CusVen
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->roles->name == 'customer' || Auth::user()->roles->name == 'vendor') {
+        if (Auth::user()->roleid == '4'|| Auth::user()->roleid == '5') {
             return $next($request);
         } else {
             return redirect()->route('admin.index')->with('error', 'Sorry you don\'t have access to view the requested resource');

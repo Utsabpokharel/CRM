@@ -17,7 +17,7 @@ class Staff
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->roles->name == 'staff') {
+        if (Auth::user()->roleid == '3') {
             return $next($request);
         } else {
             return redirect()->route('admin.index')->with('error', 'Sorry you don\'t have access to view the requested resource');

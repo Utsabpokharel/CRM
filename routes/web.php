@@ -37,12 +37,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::get('/logout','LoginController@logout')->name('logout');
 });
 
-Route::group(['middleware' => ['super']], function () {
+Route::group(['namespace' => 'Admin','middleware' => ['super']], function () {
     //roles
     Route::resource('roles', 'roleController');
 });
 
-Route::group(['middleware' => ['super','admin']], function () {
+Route::group(['namespace' => 'Admin','middleware' => ['super','admin']], function () {
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staff/add', 'StaffController@create')->name('staff.add');
@@ -77,7 +77,7 @@ Route::group(['middleware' => ['super','admin']], function () {
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
 });
 
-Route::group(['middleware' => ['super','admin','staff']], function () {
+Route::group(['namespace' => 'Admin','middleware' => ['super','admin','staff']], function () {
     //Income and income category
     Route::get('Incomecategory/Create', 'incomecategorycontroller@create')->name('incomecategory.create');
     Route::get('Incomecategory', 'incomecategorycontroller@view')->name('incomecategory.view');
