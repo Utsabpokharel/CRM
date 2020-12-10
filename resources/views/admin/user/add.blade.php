@@ -92,8 +92,9 @@
           <label>Roles</label>
           <select name="roleid" id="role" class="form-control form-control-solid">
             <option value="">Select a Role</option>
-            <option value="Staff">Staff</option>
-            <option value="Vendor">Vendor</option>
+            @foreach($roles as $roleid)
+              <option value="{{$roleid->id}}" class="form-control">{{$roleid->name}}</option>
+            @endforeach
           </select>
           @error('roleid')
           <p>Please Select a Role</p>
