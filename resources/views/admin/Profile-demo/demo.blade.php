@@ -21,7 +21,7 @@
 												</div>
 												<!--end::User-->
 												<!--begin::Contact-->
-												<div class="mb-10 text-center">
+												{{-- <div class="mb-10 text-center">
 													<a href="#" class="btn btn-icon btn-circle btn-light-facebook mr-2">
 														<i class="socicon-facebook"></i>
 													</a>
@@ -31,16 +31,14 @@
 													<a href="#" class="btn btn-icon btn-circle btn-light-google">
 														<i class="socicon-google"></i>
 													</a>
-												</div>
+												</div> --}}
 												<!--end::Contact-->
 												<!--begin::Nav-->
 												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Profile Overview</a>
 												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Personal info</a>
 												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Account Info</a>
-												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Passwort</a>
+												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
 												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
-												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Saved Credit Cards</a>
-												<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Tax information</a>
 												<!--end::Nav-->
 											</div>
 											<!--end::Body-->
