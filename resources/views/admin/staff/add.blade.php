@@ -2,14 +2,6 @@
 @section('page_title','Add New Staff')
 @section('content')
 
-    <!-- <style type='text/css'>
-.red{
-    color:red;
-    font-size:12px;
-}
-</style> -->
-
-
     <div class="card-body card">
         <form method="post" action="{{ route('staff.store') }}" enctype="multipart/form-data">
             @csrf
@@ -26,12 +18,107 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Email Address</label>
+                        <span class="text-danger">*</span>
+                        <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror"
+                               id="email" name="email" placeholder="Enter Email Address"/>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                        <p id="emailExists" style="color: red; display: none">Email Already Exists In Our Database</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password"
+                               class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
+                               id="password" name="confirm_password" placeholder="Confirm Password"/>
+                        @error('confirm_password')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <span class="text-danger">*</span>
+                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob" placeholder="Enter Date Of Birth"/>
+                        @error('dob')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Temporary Address</label>
+                        <span class="text-danger">*</span>
+                        <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address"/>
+                        @error('temporary_address')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>District</label>
+                        <span class="text-danger">*</span>
+                            <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" > 
+                            <option selected value="">Please Select One...</option>
+                            <option value="abcd">abcd</option>
+                            </select>
+                            @error('district')
+                            <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                            @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno"
+                               placeholder="Enter Mobile Number" data-validation="required"/>
+                            @error('mobileno')
+                            <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                            @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Designation Title</label>
+                        <span class="text-danger">*</span>
+                        <select name="title_id" id="title_id"
+                                class="form-control form-control-solid @error('title_id') is-invalid @enderror"
+                                name="title_id" data-validation="required">
+                            <option selected value="">Please Select...</option>
+                            @foreach($titles as $title)
+                                <option value="{{$title->id}}"
+                                        class="form-control">{{$title->title}}</option>
+                            @endforeach
+                        </select>
+
+                        @error('title_id')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>PAN Number</label>
+                        <input type="number" class="form-control form-control-solid" name="panno"
+                               placeholder="Enter PAN Number" data-validation="required"/>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
                         <label>Last Name</label>
                         <span class="text-danger">*</span>
                         <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror"
                                name="lname" placeholder="Enter Last Name"/>
                         @error('lname')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="pass"
+                               name="password" placeholder="Enter Password"/>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
                     </div>
 
@@ -52,21 +139,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Date of Birth</label>
-                        <span class="text-danger">*</span>
-                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror"
-                               name="dob" placeholder="Enter Date Of Birth"/>
-                        @error('dob')
-                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Passport Size Photo</label>
-                        <input type="file" class="form-control form-control-solid" name="pp_photo"/>
-                    </div>
-
-                    <div class="form-group">
                         <label>Permanent Address</label>
                         <span class="text-danger">*</span>
                         <input type="text"
@@ -76,17 +148,7 @@
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <label>Temporary Address</label>
-                        <span class="text-danger">*</span>
-                        <input type="text"
-                               class="form-control form-control-solid @error('temporary_address') is-invalid @enderror"
-                               name="temporary_address" placeholder="Enter Temporary Address"/>
-                        @error('temporary_address')
-                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                        @enderror
-                    </div>
-
+                    
                     <div class="form-group">
                         <label>City</label>
                         <span class="text-danger">*</span>
@@ -99,17 +161,11 @@
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Phone Number</label>
                         <input type="number" class="form-control form-control-solid" name="phoneno"
                                placeholder="Enter Phone Number" data-validation="required"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Mobile Number</label>
-                        <input type="number" class="form-control form-control-solid" name="mobileno"
-                               placeholder="Enter Mobile Number" data-validation="required"/>
                     </div>
 
                     <div class="form-group">
@@ -131,43 +187,22 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Title</label>
-                        <span class="text-danger">*</span>
-                        <select name="title_id" id="title_id"
-                                class="form-control form-control-solid @error('title_id') is-invalid @enderror"
-                                name="title_id" data-validation="required">
-                            <option selected value="">Please Select...</option>
-                            <option value="1">abcd</option>
-                        </select>
-
-                        @error('title_id')
-                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Level</label>
+                        <label>Designation Level</label>
                         <span class="text-danger">*</span>
                         <select name="level_id" id="level_id"
                                 class="form-control form-control-solid @error('level_id') is-invalid @enderror"
                                 name="level_id" data-validation="required">
                             <option selected value="">Please Select...</option>
-                            <option value="1">abcd</option>
+                            @foreach($levels as $level)
+                                <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
+                            @endforeach
                         </select>
 
                         @error('level_id')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
-
-                    <div class="form-group">
-                        <label>PAN Number</label>
-                        <input type="number" class="form-control form-control-solid" name="panno"
-                               placeholder="Enter PAN Number" data-validation="required"/>
-                    </div>
-
+                    
                     <div class="form-group">
                         <label>Joined Date</label>
                         <span class="text-danger">*</span>
@@ -178,47 +213,21 @@
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
+                </div>
 
+                    <div class="col-lg-12">
+                    <center> <h1 style="background-color:powderblue;">Documents</h1> </center>
+                    </div>
+
+                    <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Email Address</label>
-                        <span class="text-danger">*</span>
-                        <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror"
-                               id="email" name="email" placeholder="Enter Email Address"/>
-                        @error('email')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                        <p id="emailExists" style="color: red; display: none">Email Already Exists In Our Database</p>
+                        <label>Passport Size Photo</label>
+                        <input type="file" class="form-control form-control-solid" name="pp_photo"/>
                     </div>
 
                     <div class="form-group">
-                        <label>Password</label>
-                        <input type="password"
-                               class="form-control form-control-solid @error('password') is-invalid @enderror" id="pass"
-                               name="password" placeholder="Enter Password"/>
-                        @error('password')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input type="password"
-                               class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
-                               id="password" name="confirm_password" placeholder="Confirm Password"/>
-                        @error('confirm_password')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>ID Proof</label>
-                        <input type="file" class="form-control form-control-solid" name="id_proof"
-                               data-validation="required"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Resume</label>
-                        <input type="file" class="form-control form-control-solid" name="resume"
+                        <label>Citizenship Proof (Frontside)</label>
+                        <input type="file" class="form-control form-control-solid" name="ctzn_front"
                                data-validation="required"/>
                     </div>
 
@@ -229,17 +238,31 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Joining Letter</label>
-                        <input type="file" class="form-control form-control-solid" name="joining_letter"
-                               data-validation="required"/>
-                    </div>
-
-                    <div class="form-group">
                         <label>Contract and Agreement</label>
                         <input type="file" class="form-control form-control-solid" name="contract_agreement"
                                data-validation="required"/>
                     </div>
-                </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Resume</label>
+                        <input type="file" class="form-control form-control-solid" name="resume"
+                               data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Citizenship Proof (Backside)</label>
+                        <input type="file" class="form-control form-control-solid" name="ctzn_back"
+                               data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Joining Letter</label>
+                        <input type="file" class="form-control form-control-solid" name="joining_letter"
+                               data-validation="required"/>
+                    </div>
+                    </div>
 
                 <div class="form-group">
                     <input type="checkbox" id="Usercheck" name="ifuser" value='1' checked>

@@ -23,6 +23,7 @@ class CreateStaffTable extends Migration
             $table->string('permanent_address');
             $table->string('temporary_address');
             $table->string('city');
+            $table->string('district');
             $table->string('phoneno');
             $table->string('mobileno');
             $table->bigInteger('department_id')->unsigned();
@@ -33,7 +34,8 @@ class CreateStaffTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->tinyinteger('ifuser');
-            $table->string('id_proof')->nullable();
+            $table->string('ctzn_front')->nullable();
+            $table->string('ctzn_back')->nullable();
             $table->string('resume')->nullable();
             $table->string('offer_letter')->nullable();
             $table->string('joining_letter')->nullable();
