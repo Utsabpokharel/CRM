@@ -43,7 +43,7 @@ View All Vendors
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-					<h3 class="card-label">RowGroup DataTable</h3>
+					<h3 class="card-label">Vendor DataTable</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -138,49 +138,34 @@ View All Vendors
 					<thead>
 					<tr>
                         <th>Vendor ID</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Gender</th>
-						<th>Date of Birth</th>
-						<th>Registration Number</th>
-						<th>PAN/VAT Number</th>
-						<th>Email</th>
-						<th>Image</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Image</th>
                         <th>Mobile Number</th>
-                        <th>Address </th>
-                        <th>Vendor Type</th>
-                        <th>ID Proof</th>
-                        <th>Action</th>
-
+                        <th>Gender</th>
+                        <th>Actions</th>
 					</tr>
 					</thead>
 					<tbody>
                         @foreach($vendor as $value)
 					<tr>
 						<td>{{ $loop->index+1 }}</td>
-                        <td>{{ $value->fname }}</td>
-                        <td>{{ $value->lname }}</td>
-                        <td>{{ $value->gender }}</td>
-                        <td>{{ $value->dateofbirth }}</td>
-                        <td>{{ $value->registrationnumber }}</td>
-                        <td>{{ $value->panvatnumber }}</td>
+                        <td>{{ $value->fname }}&nbsp;{{$value->lname }}</td>
                         <td>{{ $value->email }}</td>
                         <td><img src="{{ asset('images/vendors/'.$value->image) }}"></td>
                         <td>{{ $value->mobile }}</td>
-                        <td>{{ $value->address1 }}</td>
-                        <td>{{ $value->vendor_type }}</td>
-                        <td><img src="{{asset('images/vendors/'.$value->idproof) }}"></td>
+                        <td>{{ $value->gender }}</td>
 						<td class="text-center">
                             @if(!empty($trashed))
 							<a href="{{route('vendors.restore',$value->id)}}">
                             <i class="fa fa-undo text-info"></i>
                             </a>
                             <hr>
-                            <a class="deleteData" href="javascript::" rel1="{{route('vendors.deleteTrash',$value->id)}}">
+                            <a class="deleteData" href="javascript:void(0)" rel1="{{route('vendors.deleteTrash',$value->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							@else
-							<a href="javascript::" class="deleteData" rel1="{{route('vendors.destroy',$value->id)}}">
+							<a href="javascript:void(0)" class="deleteData" rel1="{{route('vendors.destroy',$value->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
@@ -194,21 +179,7 @@ View All Vendors
                     @endforeach
 					</tbody>
 					<tfoot>
-					<tr>
-                    <th>Vendor ID</th>
-					<th>First Name</th>
-						<th>Last Name</th>
-						<th>Gender</th>
-						<th>Date of Birth</th>
-						<th>Registration Number</th>
-						<th>PAN/VAT Number</th>
-						<th>Email</th>
-						<th>Image</th>
-                        <th>Mobile Number</th>
-                        <th>Address</th>
-                        <th>Vendor Type</th>
-                        <th>ID Proof</th>
-                        <th>Action</th>
+
 
 					</tfoot>
 				</table>
