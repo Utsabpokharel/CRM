@@ -12,8 +12,6 @@ use App\Models\Admin\Customer;
 use App\Models\Admin\role;
 
 
-
-
 class userController extends Controller
 {
     public function users(){
