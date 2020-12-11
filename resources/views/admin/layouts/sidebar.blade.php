@@ -662,16 +662,18 @@
                                 </a>
                             </li>
                             @endif
+                            @if(Auth::user()->roleid==1 || Auth::user()->roleid==2 || Auth::user()->roleid==3)
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="{{route('email.setting')}}" class="menu-link">
+                                <a href="{{route('email')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
                                     <span class="menu-text">Email Setting</span>
                                 </a>
                             </li>
+                            @endif
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="{{route('profile.setting')}}" class="menu-link">
+                                <a href="{{route('profile')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
