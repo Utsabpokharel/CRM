@@ -53,8 +53,9 @@
           <label>Roles</label>
           <select name="roleid" id="role" class="form-control form-control-solid" value="{{$user->roleid}}">
             <option value="">Select a Role</option>
-            <option @if($user->roleid==1) selected @endif value="1">staff</option>
-            <option @if($user->roleid==2) selected @endif value="2">vendor</option>
+            @foreach($roles as $roleid)
+              <option value="{{$roleid->id}}" class="form-control">{{$roleid->name}}</option>
+            @endforeach
           </select>
         </div>
       </div>

@@ -83,7 +83,9 @@
                         <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror"
                                 name="title_id" value="{{$staff->title_id}}">
                               <option selected value="">Please Select...</option>
-                              <option value="1">abcd</option>
+                              @foreach($titles as $title)
+                                <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
+                              @endforeach
                         </select>
 
                         @error('title_id')
@@ -189,7 +191,9 @@
                                     class="form-control form-control-solid @error('level_id') is-invalid @enderror"
                                     name="level_id" value="{{$staff->level_id}}">
                                 <option selected value="">Please Select...</option>
-                                <option value="1">abcd</option>
+                            @foreach($levels as $level)
+                                <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
+                            @endforeach
                             </select>
 
                             @error('level_id')

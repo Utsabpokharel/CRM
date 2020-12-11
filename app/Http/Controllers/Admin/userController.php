@@ -9,6 +9,8 @@ use Hash;
 use App\Models\Admin\Staff;
 use App\Models\Vendor;
 use App\Models\Admin\Customer;
+use App\Models\Admin\role;
+
 
 
 
@@ -22,7 +24,8 @@ class userController extends Controller
         $staffs=Staff::all();
         $vendors=Vendor::all();
         $customers=Customer::all();
-        return view('Admin.user.add',compact('staffs','vendors','customers'));
+        $roles=role::all();
+        return view('Admin.user.add',compact('staffs','vendors','customers','roles'));
     }
     public function store(Request $request){
         $request->validate([
@@ -53,8 +56,9 @@ class userController extends Controller
         $staffs=Staff::all();
         $vendors=Vendor::all();
         $customers=Customer::all();
+        $roles=role::all();
         $user=user::findorfail($id);
-        return view('Admin.user.edit',compact('user','staffs','vendors','customers'));
+        return view('Admin.user.edit',compact('user','staffs','vendors','customers','roles'));
     }
     public function updateUser(Request $request,$id){
         $request->validate([
