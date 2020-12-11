@@ -112,7 +112,7 @@ View All Vendors
 													</g>
 												</svg>
 												<!--end::Svg Icon-->
-                                            </span>Add New Vendor</a>
+                                            </span>Add New Vendor</a>&nbsp;&nbsp;
                                             	@if(!empty($trashed))
 											<a href="{{route('vendors.view')}}" class="btn btn-warning">View Vendors</a>
 											@else
@@ -123,8 +123,8 @@ View All Vendors
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
-					<thead>
+				<table id="demo_table" class="display nowrap table" style="width:100%">
+					<thead class="table-bg">
 					<tr>
                         <th>Vendor ID</th>
                         <th>Name</th>
@@ -167,10 +167,6 @@ View All Vendors
                     </tr>
                     @endforeach
 					</tbody>
-					<tfoot>
-
-
-					</tfoot>
 				</table>
 				<!--end: Datatable-->
 			</div>
