@@ -23,9 +23,11 @@ Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],funct
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','user']], function () {
     //dashboard
     Route::get('index', 'IndexController@index')->name('admin.index');
-    //ProfileDemo
+    //Profile
      Route::resource('profile', 'profileDemoController');
      Route::get('personalInfo', 'profileDemoController@personal')->name('personal');
+     //profile Setting
+     Route::get('Profile-Setting','ProfilesettingController@settingform')->name('profile');
     // Routing for Service
     Route::get("services/view_all", "ServiceController@index")->name("view_services");
     Route::get("services/add", "ServiceController@create")->name("add_service");
@@ -37,12 +39,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::get('/logout','LoginController@logout')->name('logout');
 });
 
-Route::group(['namespace' => 'Admin','middleware' => ['auth','super']], function () {
+Route::group(['namespace' => 'Admin','middleware' => ['super']], function () {
     //roles
     Route::resource('roles', 'roleController');
 });
 
-Route::group(['namespace' => 'Admin','middleware' => ['auth','super','admin']], function () {
+Route::group(['namespace' => 'Admin','middleware' => ['admin']], function () {
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staff/add', 'StaffController@create')->name('staff.add');
@@ -77,7 +79,7 @@ Route::group(['namespace' => 'Admin','middleware' => ['auth','super','admin']], 
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
 });
 
-Route::group(['namespace' => 'Admin','middleware' => ['auth','super','admin','staff']], function () {
+Route::group(['namespace' => 'Admin','middleware' => ['staff']], function () {
     //Income and income category
     Route::get('Incomecategory/Create', 'incomecategorycontroller@create')->name('incomecategory.create');
     Route::get('Incomecategory', 'incomecategorycontroller@view')->name('incomecategory.view');
@@ -138,8 +140,9 @@ Route::group(['namespace' => 'Admin','middleware' => ['auth','super','admin','st
     Route::get("vendors/delete/{id}", "VendorController@destroy")->name("vendors.destroy");
     Route::get("vendors/ViewTrash", "VendorController@ViewTrash")->name("vendors.ViewTrash");
     Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
-    Route::get('customer/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
-
+    Route::get('vendors/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
+    //email
+    Route::get('Email-Settings','EmailsettingController@settingform')->name('email');
 });
 
 
