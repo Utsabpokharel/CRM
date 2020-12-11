@@ -92,9 +92,7 @@ class StaffController extends Controller
        
         $data=$request->except('_token','confirm_password');
         $data['city']='Kathmandu';
-        $data['department_id']=2;
-        $data['level_id']=2;
-        $data['title_id']=2;
+      
        
        
         Staff::where("id", $id)->update($data);

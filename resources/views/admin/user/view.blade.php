@@ -115,7 +115,6 @@
 						<tr>
 							<th>User ID</th>
 							<th>Name</th>
-							<th>Photo</th>
 							<th>Email</th>
 							<th>Phone</th>
 							<th>Gender</th>
@@ -127,12 +126,11 @@
 						@foreach($user as $key=>$user)
 						<tr>
 							<td>{{$key+1}}</td>
-							<td><img src="{{asset('images/users/'.$user->image)}}"></td>
 							<td>{{$user->name}}</td>
 							<td>{{$user->email}}</td>
 							<td>{{$user->phone}}</td>
 							<td>{{$user->gender}}</td>
-							<td></td>
+							<td>{{$user->roleid}}</td>
 							<td class="text-center">
 								<a href="javascript::" class="deleteData" rel1="{{route('user.destroy',$user->id)}}">
 									<i class="fa fa-trash text-danger"></i>

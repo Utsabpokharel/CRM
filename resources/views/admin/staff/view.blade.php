@@ -147,9 +147,9 @@ View All Staff
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>002 Menomonie Crossing</td>
-						<td>Keith Lukesch</td>
-						<td>dsgzdngd</td>
+						<td>{{$staffs->department_id}}</td>
+						<td>{{$staffs->title_id}}</td>
+						<td>{{$staffs->level_id}}</td>
 						<td class="text-center"> 
 
 						

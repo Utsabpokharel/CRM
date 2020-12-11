@@ -29,15 +29,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
-                                   id="password" name="confirm_password"/>
-                        @error('confirm_password')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
                         <label>Date of Birth</label>
                         <span class="text-danger">*</span>
                         <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror"
@@ -107,15 +98,6 @@
                         <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror"
                                name="lname" placeholder="Enter Last Name" value="{{$staff->lname}}"/>
                         @error('lname')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror"
-                                id="pass" name="password" value="{{$staff->password}}"/>
-                        @error('password')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
                     </div>
@@ -216,7 +198,7 @@
                         <div class="col-lg-12">
                         <center> <h1 style="background-color:powderblue;">Documents</h1> </center>
                         </div>
-
+    
                         <div class="col-sm-6">
                         <div class="form-group">
                             <label>Passport Size Photo</label>
