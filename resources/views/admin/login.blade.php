@@ -37,7 +37,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{asset('assets/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css"/>
     <!--end::Layout Themes-->
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico"/>
+    <link rel="shortcut icon" href="assets/media/logos/logo-2.png"/>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -48,20 +48,20 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--begin::Login-->
     <div class="login login-3 login-signin-on d-flex flex-row-fluid" id="kt_login">
         <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
-             style="background-image: url({{asset('assets/media/bg/bg-1.jpg')}});">
+             style="background-image: url({{asset('assets/media/bg/bg-14.jpeg')}});">
             <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                 <!--begin::Login Header-->
                 <div class="d-flex flex-center mb-15">
                     <a href="#">
-                        <img src="assets/media/logos/logo-letter-9.png" class="max-h-100px" alt=""/>
+                        <img src="#" class="max-h-150px" alt=""/>
                     </a>
                 </div>
                 <!--end::Login Header-->
                 <!--begin::Login Sign in form-->
-                <div class="login-signin">
+                <div class="login-signin bg-dark-o-60">
                     <div class="mb-20">
-                        <h3>Sign In To Admin</h3>
-                        <p class="opacity-60 font-weight-bold">Enter your details to login to your account:</p>
+                        <h3>Dashboard Login</h3>
+                        <p class="opacity-70 font-weight-bold">Enter your details to login to your account:</p>
                     </div>
                     @if ($errors->any())
                         <div class="text-danger">
@@ -73,11 +73,11 @@ License: You must have a valid license purchased only from themeforest(the above
                     <form action="{{route('login.check')}}" method="post" class="form">
                         @csrf
                         <div class="form-group">
-                            <input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5"
+                            <input class="form-control h-auto text-white placeholder-white opacity-370 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5"
                                    type="text" placeholder="Email" name="email" autocomplete="off"/>
                         </div>
                         <div class="form-group">
-                            <input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5"
+                            <input class="form-control h-auto text-white placeholder-white opacity-370 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5"
                                    type="password" placeholder="Password" name="password"/>
                         </div>
                         <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
@@ -85,7 +85,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                         </div>
                         <button type="submit"
-                                class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Sign In
+                                class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3 bg-dark-o-100">Sign In
                         </button>
                     </form>
                 </div>
