@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Staff;
 use App\Http\Requests\staffValidator;
 use App\Models\Admin\Department;
+use App\Models\Admin\title;
+use App\Models\Admin\level;
+
 class StaffController extends Controller
 {
     /**
@@ -27,8 +30,10 @@ class StaffController extends Controller
      */
     public function create()
     {
+        $levels=level::all();
+        $titles=title::all();
         $departments=Department::all();
-        return view('admin.staff.add',compact('departments'));
+        return view('admin.staff.add',compact('levels','titles','departments'));
     }
 
     /**
@@ -39,6 +44,7 @@ class StaffController extends Controller
      */
     public function store(staffValidator $request)
     {
+        $data = $request->all();
         $data = $request->except("confirm_password");
         if($request->hasFile('pp_photo'))
         {$staff_image_path='images/staff/';
@@ -67,9 +73,11 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
+        $levels=level::all();
+        $titles=title::all();
         $departments=Department::all();
         $staff = Staff::findOrfail($id);
-        return view("admin.staff.edit", compact('staff', 'departments'));
+        return view("admin.staff.edit", compact('staff','levels','titles','departments'));
     }
 
     /**
@@ -84,9 +92,7 @@ class StaffController extends Controller
        
         $data=$request->except('_token','confirm_password');
         $data['city']='Kathmandu';
-        $data['department_id']=2;
-        $data['level_id']=2;
-        $data['title_id']=2;
+      
        
        
         Staff::where("id", $id)->update($data);

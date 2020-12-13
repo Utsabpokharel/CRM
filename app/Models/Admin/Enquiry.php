@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Models\admin;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Softdeletes;
+use App\Models\Admin\EnquiryResponse;
 
 class Enquiry extends Model
 {
@@ -22,5 +23,10 @@ class Enquiry extends Model
 
     public function customer(){
         return $this->belongsTo('App\Models\Admin\Customer','customer_id');
+    }
+
+    public function response(){
+        return $this->hasMany(EnquiryResponse::class);
+
     }
 }

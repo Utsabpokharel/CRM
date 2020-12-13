@@ -167,14 +167,22 @@
                                             <i class="fa fa-undo text-primary"></i>
                                         </a>
                                     @else
-                                        <a class="deleteData" href="javascript:"
-                                           rel1="{{route('Enquiry.destroy',$enquiry->id)}}">
-                                            <i class="fa fa-trash text-danger"></i>
-                                        </a>
-                                        <hr>
-                                        <a href="{{route('Enquiry.edit',$enquiry->id)}}">
-                                            <i class="fa fa-paper-plane text-primary"></i>
-                                        </a>
+                                        <div>
+                                            <a class="deleteData" href="javascript:"
+                                               rel1="{{route('Enquiry.destroy',$enquiry->id)}}">
+                                                <i class="fa fa-trash text-danger"></i>
+                                            </a>
+                                        </div>
+                                        <div class="mt-2">
+                                            <a href="{{route('Enquiry.edit',$enquiry->id)}}">
+                                                <i class="fa fa-paper-plane text-primary"></i>
+                                            </a>
+                                        </div>
+                                        <div class="mt-2">
+                                            <a href="{{route('EnquiryResponse.create',$enquiry->id)}}" title="Response">
+                                                <i class="fa fa-reply text-success"></i>
+                                            </a>
+                                        </div>
                                     @endif
                                 </td>
                             </tr>

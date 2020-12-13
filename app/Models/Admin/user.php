@@ -12,4 +12,8 @@ class user extends  Authenticatable
 {
     use HasFactory, Notifiable;
     protected $guarded = [];
+
+    public function enquiry(){
+        return $this->hasMany('App\Models\Admin\EnquiryResponse');
+    }
 }

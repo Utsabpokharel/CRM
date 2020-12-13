@@ -15,7 +15,7 @@ View All Staff
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
-				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
+				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route('admin.index') }}">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
 				<li><a class="parent-item" href="">Staff</a>&nbsp;
@@ -147,9 +147,9 @@ View All Staff
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>002 Menomonie Crossing</td>
-						<td>Keith Lukesch</td>
-						<td>dsgzdngd</td>
+						<td>{{$staffs->department_id}}</td>
+						<td>{{$staffs->title_id}}</td>
+						<td>{{$staffs->level_id}}</td>
 						<td class="text-center"> 
 
 						

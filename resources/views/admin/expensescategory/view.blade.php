@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View Role')
+@section('page_title','View Expensescategory')
 @section('content')
 <div class="page-content-wrapper ">
   <div class="page-bar">
@@ -9,10 +9,10 @@
         <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
           <i class="fa fa-angle-right"></i>
         </li>
-        <li><a class="parent-item" href="">Roles</a>&nbsp;
+        <li><a class="parent-item" href="">Expensescategory</a>&nbsp;
           <i class="fa fa-angle-right"></i>
         </li>
-        <li class="active">All Roles</li>
+        <li class="active">All Expensescategory</li>
       </ol>
     </div>
   </div>
@@ -22,9 +22,9 @@
       <div class="card-header">
         <div class="card-title">
           <span class="card-icon">
-            <i class="flaticon2-gift text-primary"></i>
+             <i class="far fa-money-bill-alt"></i>
           </span>
-          <h3 class="card-label">RowGroup DataTable</h3>
+          <h3 class="card-label">Expensescategory</h3>
         </div>
         <div class="card-toolbar">
           <!--begin::Dropdown-->
