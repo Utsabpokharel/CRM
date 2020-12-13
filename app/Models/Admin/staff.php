@@ -11,4 +11,22 @@ class staff extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded=[];
+
+    public function title(){
+        return $this->belongsTo('App\Models\Admin\title','title_id');
+    }
+
+    public function level(){
+        return $this->belongsTo('App\Models\Admin\level',' level_id');
+    }
+    
+    public function department(){
+        return $this->belongsTo('App\Models\Admin\department',' department_id');
+    }
+
+    public function award()
+    {
+        return $this->hasMany('App\Models\Admin\Award');
+    }
+
 }
