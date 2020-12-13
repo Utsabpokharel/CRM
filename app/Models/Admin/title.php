@@ -9,4 +9,10 @@ class title extends Model
 {
     use HasFactory;
     protected $fillable=['title','description'];
+
+    public function staff()
+    {
+        return $this->hasMany('App\Models\Admin\Staff');
+    }
 }
+

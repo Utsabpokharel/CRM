@@ -268,9 +268,8 @@
    </div>
    <div class="col-md-6">
       <div class="form-group">
-
-                                    <input type="checkbox" value="1" id="Usercheck" name="ifuser"  checked>
-                                    <span>Register For User</span>
+        <input type="checkbox" value="1" id="Usercheck" name="ifuser"  checked>
+        <span>Register For User</span>
 
 
     </div>
