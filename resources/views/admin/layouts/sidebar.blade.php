@@ -3,7 +3,8 @@
     <div class="brand flex-column-auto" id="kt_brand">
         <!--begin::Logo-->
         <a href="{{route('admin.index')}}" class="brand-logo">
-            <img alt="Logo" src="{{asset('assets/media/logos/logo-light.png')}}"/>
+            <h1>CRM</h1>
+            {{-- <img alt="Logo" class="max-h-50" src="{{asset('assets/media/logos/crm-1.png')}}"/> --}}
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->
@@ -570,7 +571,7 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('bank.index')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
@@ -578,7 +579,7 @@
                                 </a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('bank.create')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>

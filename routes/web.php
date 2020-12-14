@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BankController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -153,6 +155,21 @@ Route::group(['namespace' => 'Admin','middleware' => ['staff']], function () {
     Route::get('vendors/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
     //email
     Route::get('Email-Settings','EmailsettingController@settingform')->name('email');
+
+
+//BankAccount
+Route::get('bank', 'BankController@index')->name('bank.index');
+Route::get('bank/Create','BankController@create')->name('bank.create');
+Route::post('bank/Store', 'BankController@store')->name('bank.store');
+Route::get('bank/edit/{id}', 'BankController@edit')->name('bank.edit');
+Route::put('bank/Update/{id}', 'BankController@update')->name('bank.update');
+Route::get('bank/destroy/{id}', 'BankController@destroy')->name('bank.destroy');
+
+Route::get('bank/ViewTrash', 'BankController@ViewTrash')->name('bank.ViewTrash');
+Route::get('bank/restore/{id}', 'BankController@restore')->name('bank.restore');
+Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.deleteTrash');
 });
+
+
 
 

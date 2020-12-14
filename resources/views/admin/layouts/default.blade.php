@@ -31,7 +31,7 @@
 		<link rel="stylesheet" type="text/css" href="{{asset('assets/css/my.css')}}">
 
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
+		<link rel="shortcut icon" href="{{asset('assets/media/logos/logo-2.png')}}" />
 
     </head>
     <!-- Data Tables -->
