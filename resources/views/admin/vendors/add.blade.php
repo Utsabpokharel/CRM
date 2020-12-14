@@ -84,6 +84,7 @@
 
         <div class="form-group">
           <label>Vendor Type</label>
+          <span class="text-danger">*</span>
           <select name="vendor_type"  class="form-control form-control-solid @error('vendor_type') is-invalid @enderror" value="{{ old('vendor_type') }}">
           <option value="">Select Vendor Type</option>
           <option value="1">Individual</option>
