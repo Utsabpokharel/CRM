@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BankController;
+use App\Http\Controllers\GeneralController;
+
 
 
 /*
@@ -168,6 +170,11 @@ Route::get('bank/destroy/{id}', 'BankController@destroy')->name('bank.destroy');
 Route::get('bank/ViewTrash', 'BankController@ViewTrash')->name('bank.ViewTrash');
 Route::get('bank/restore/{id}', 'BankController@restore')->name('bank.restore');
 Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.deleteTrash');
+
+// General setting
+Route::get('general/Create', 'GeneralController@create')->name('general.create');
+Route::post('general/Store', 'GeneralController@store')->name('general.store');
+
 });
 
 

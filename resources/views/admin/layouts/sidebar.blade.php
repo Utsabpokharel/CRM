@@ -655,7 +655,7 @@
                         <ul class="menu-subnav">
                             @if(Auth::user()->roleid==1 || Auth::user()->roleid==2)
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('general.create')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
