@@ -79,8 +79,8 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Date of Birth</label>
-          <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob" />
-          @error('dob')
+          <input type="date" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror" name="date_of_birth" />
+          @error('date_of_birth')
           <span class="invalid-feedback" role="alert"> {{$message}}</span>
           @enderror
         </div>
