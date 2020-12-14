@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Hash;
+use App\Models\Admin\Department;
+use App\Models\Admin\title;
+use App\Models\Admin\level;
 
 class VendorController extends Controller
 {
@@ -27,8 +30,10 @@ class VendorController extends Controller
      */
     public function addVendor()
     {
-
-        return view('admin.vendors.add');
+        $levels=level::all();
+        $titles=title::all();
+        $departments=Department::all();
+        return view('admin.vendors.add',compact('levels','titles','departments'));
     }
 
 
