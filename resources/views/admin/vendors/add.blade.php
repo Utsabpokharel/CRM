@@ -52,6 +52,7 @@
 
         <div class="form-group">
           <label>Password</label>
+          <span class="text-danger">*</span>
           <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password"
           name="password" placeholder="Enter Password"/>
           @error('password')
@@ -140,6 +141,7 @@
 
         <div class="form-group">
                         <label>Mobile Number</label>
+                        <span class="text-danger">*</span>
                         <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno"
                                placeholder="Enter Mobile Number" data-validation="required"/>
                             @error('mobileno')
@@ -149,7 +151,7 @@
 
                     <div class="form-group">
                       <label>Registration Number</label>
-                      <input type="text" name="registrationnumber"  class="form-control form-control-solid @error('registrationnumber') is-invalid @enderror" placeholder="Enter Registration Number" value="{{ old('registrationnumber') }}"/>
+                      <input type="number" name="registrationnumber"  class="form-control form-control-solid @error('registrationnumber') is-invalid @enderror" placeholder="Enter Registration Number" value="{{ old('registrationnumber') }}"/>
                       @error('registrationnumber')
                       <span class="invalid-feedback" role="alert">{{ $message }}</span>
                       @enderror
@@ -157,6 +159,7 @@
 
         <div class="form-group">
           <label>Confirm Password</label>
+          <span class="text-danger">*</span>
           <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
           id="password" name="confirm_password" placeholder="Confirm Password"/>
           @error('confirm_password')
@@ -193,10 +196,6 @@
                         <input type="number" class="form-control form-control-solid" name="panvatnumber"
                                placeholder="Enter PAN Number" data-validation="required"/>
                     </div>
-                  
-
-                
-
 
      <div class="form-group">
         <label>First Contact Person Email Address</label>

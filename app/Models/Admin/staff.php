@@ -21,7 +21,7 @@ class staff extends Model
     }
     
     public function department(){
-        return $this->belongsTo('App\Models\Admin\department',' department_id');
+        return $this->belongsTo('App\Models\Admin\Department',' department_id');
     }
 
     public function award()

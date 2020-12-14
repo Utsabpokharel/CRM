@@ -46,6 +46,31 @@
 
       <div class="col-md-6">
         <div class="form-group">
+          <label>Gender</label>
+          <select name="gender" id="gender" class="form-control form-control-solid @error('gender') is-invalid @enderror">
+            <option value="">Select a Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Others</option>
+          </select>
+          @error('gender')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror" name="date_of_birth" />
+          @error('date_of_birth')
+          <span class="invalid-feedback" role="alert"> {{$message}}</span>
+          @enderror
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
           <label>Phone Number</label>
           <input type="number" name="phone" class="form-control form-control-solid @error('phone') is-invalid @enderror" placeholder="Enter Phone Number" />
           @error('phone')
@@ -75,16 +100,16 @@
         </div>
       </div>
 
-
       <div class="col-md-6">
         <div class="form-group">
-          <label>Date of Birth</label>
-          <input type="date" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror" name="date_of_birth" />
-          @error('date_of_birth')
-          <span class="invalid-feedback" role="alert"> {{$message}}</span>
-          @enderror
+          <label>PAN Number</label>
+          <input type="number" class="form-control form-control-solid" name="panno"
+          placeholder="Enter PAN Number" data-validation="required"/>
         </div>
       </div>
+
+
+      
      
       <div class="col-md-6">
         <div class="form-group">
@@ -103,73 +128,6 @@
           @error('confirm_password')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Gender</label>
-          <select name="gender" id="gender" class="form-control form-control-solid @error('gender') is-invalid @enderror">
-            <option value="">Select a Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Others</option>
-          </select>
-          @error('gender')
-          <span class="invalid-feedback" role="alert"> {{$message}} </span>
-          @enderror
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Department</label>
-          <select name="department" id="department"
-          class="form-control form-control-solid @error('department') is-invalid @enderror" data-validation="required">
-          <option selected value="">Please Select...</option>
-          @foreach($departments as $department)
-          <option value="{{$department->id}}"
-          class="form-control">{{$department->dep_name}}</option>
-          @endforeach
-          </select>
-          @error('department')
-          <span class="invalid-feedback" role="alert"> {{$message}}</span>
-          @enderror
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Designation Title</label>
-          <select name="title" id="title"
-          class="form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
-          <option selected value="">Please Select...</option>
-            @foreach($titles as $title)
-            <option value="{{$title->id}}"
-            class="form-control">{{$title->title}}</option>
-            @endforeach
-          </select>
-
-          @error('title')
-          <span class="invalid-feedback" role="alert"> {{$message}} </span>
-          @enderror
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Designation Level</label>
-          <select name="level" id="level"
-          class="form-control form-control-solid @error('level') is-invalid @enderror" data-validation="required">
-          <option selected value="">Please Select...</option>
-            @foreach($levels as $level)
-            <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
-            @endforeach
-            </select>
-
-            @error('level')
-            <span class="invalid-feedback" role="alert"> {{$message}} </span>
-            @enderror
         </div>
       </div>
 
@@ -206,7 +164,7 @@
           @enderror
         </div>
       </div>
-      
+
       <div class="col-md-6">
         <div class="form-group">
           <label>City</label>
@@ -223,9 +181,55 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label>PAN Number</label>
-          <input type="number" class="form-control form-control-solid" name="panno"
-          placeholder="Enter PAN Number" data-validation="required"/>
+          <label>Designation Title</label>
+          <select name="title" id="title"
+          class="form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
+          <option selected value="">Please Select...</option>
+            @foreach($titles as $title)
+            <option value="{{$title->id}}"
+            class="form-control">{{$title->title}}</option>
+            @endforeach
+          </select>
+
+          @error('title')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Department</label>
+          <select name="department" id="department"
+          class="form-control form-control-solid @error('department') is-invalid @enderror" data-validation="required">
+          <option selected value="">Please Select...</option>
+          @foreach($departments as $department)
+          <option value="{{$department->id}}"
+          class="form-control">{{$department->dep_name}}</option>
+          @endforeach
+          </select>
+          @error('department')
+          <span class="invalid-feedback" role="alert"> {{$message}}</span>
+          @enderror
+        </div>
+      </div>
+
+      
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Designation Level</label>
+          <select name="level" id="level"
+          class="form-control form-control-solid @error('level') is-invalid @enderror" data-validation="required">
+          <option selected value="">Please Select...</option>
+            @foreach($levels as $level)
+            <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
+            @endforeach
+            </select>
+
+            @error('level')
+            <span class="invalid-feedback" role="alert"> {{$message}} </span>
+            @enderror
         </div>
       </div>
 
@@ -240,9 +244,6 @@
         </div>
       </div>
 
-      
-
-     
     </div>
     <div class="card-footer">
       <button type="submit" class="btn btn-primary mr-2" value="submit">Add</button>
