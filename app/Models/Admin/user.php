@@ -18,6 +18,8 @@ class user extends  Authenticatable
     }
     public function bank(){
         return $this->hasMany('App\Models\Admin\Bank');
+    }
+    
     public function role(){
         return $this->belongsTo('App\Models\Admin\role','roleid');
     }
