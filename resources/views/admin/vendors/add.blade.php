@@ -133,7 +133,7 @@
                     <div class="form-group">
           <label>Date of Birth</label>
           <span class="text-danger">*</span>
-          <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob"/>
+          <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dateofbirth"/>
           @error('dob')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
