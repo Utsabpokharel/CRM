@@ -87,7 +87,7 @@
                                                                         </li>
                                                                          <li class="list-group-item">
                                                                             <b>Date of Birth </b>
-                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->dob}}</div>
+                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->date_of_birth}}</div>
                                                                         </li>
                                                                         <li class="list-group-item">
                                                                             <b>Current Address</b>
@@ -114,7 +114,7 @@
 
                                                                         <li class="list-group-item">
                                                                             <b>Phone No.</b>
-                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->phone}}</div>
                                                                         </li>
                                                                         <li class="list-group-item">
                                                                             <b>Mobile No.</b>
@@ -125,7 +125,7 @@
                                                                             <div class="profile-desc-item pull-right"></div>
                                                                         </li>
                                                                         <li class="list-group-item">
-                                                                            <b>Desgination Tittle</b>
+                                                                            <b>Desgination Title</b>
                                                                             <div class="profile-desc-item pull-right"></div>
                                                                         </li>
                                                                         <li class="list-group-item">
@@ -142,7 +142,7 @@
                                                                         </li>
                                                                         <li class="list-group-item">
                                                                             <b>Email</b>
-                                                                            <div class="profile-desc-item pull-right"></div>
+                                                                            <div class="profile-desc-item pull-right">{{Auth::user()->email}}</div>
                                                                         </li>
                                                                     </ul>
                                                                 {{-- </div> --}}

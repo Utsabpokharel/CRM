@@ -10,7 +10,9 @@ use App\Models\Admin\Staff;
 use App\Models\Vendor;
 use App\Models\Admin\Customer;
 use App\Models\Admin\role;
-
+use App\Models\Admin\Department;
+use App\Models\Admin\title;
+use App\Models\Admin\level;
 
 class userController extends Controller
 {
@@ -22,8 +24,11 @@ class userController extends Controller
         $staffs=Staff::all();
         $vendors=Vendor::all();
         $customers=Customer::all();
+        $departments=Department::all();
         $roles=role::all();
-        return view('Admin.user.add',compact('staffs','vendors','customers','roles'));
+        $titles=title::all();
+        $levels=level::all();
+        return view('Admin.user.add',compact('staffs','vendors','customers','roles','departments','titles','levels'));
     }
     public function store(Request $request){
         $request->validate([

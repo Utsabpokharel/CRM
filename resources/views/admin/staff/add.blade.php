@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label>Date of Birth</label>
                         <span class="text-danger">*</span>
-                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob" placeholder="Enter Date Of Birth"/>
+                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob"/>
                         @error('dob')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
@@ -81,8 +81,7 @@
                         <label>Designation Title</label>
                         <span class="text-danger">*</span>
                         <select name="title_id" id="title_id"
-                                class="form-control form-control-solid @error('title_id') is-invalid @enderror"
-                                name="title_id" data-validation="required">
+                        class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required">
                             <option selected value="">Please Select...</option>
                             @foreach($titles as $title)
                                 <option value="{{$title->id}}"
@@ -115,7 +114,7 @@
 
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="pass"
+                        <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password"
                                name="password" placeholder="Enter Password"/>
                         @error('password')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
@@ -172,8 +171,7 @@
                         <label>Department</label>
                         <span class="text-danger">*</span>
                         <select name="department_id" id="department_id"
-                                class="form-control form-control-solid @error('department_id') is-invalid @enderror"
-                                name="department_id" data-validation="required">
+                                class="form-control form-control-solid @error('department_id') is-invalid @enderror" data-validation="required">
                             <option selected value="">Please Select...</option>
                             @foreach($departments as $department)
                                 <option value="{{$department->id}}"
@@ -190,8 +188,7 @@
                         <label>Designation Level</label>
                         <span class="text-danger">*</span>
                         <select name="level_id" id="level_id"
-                                class="form-control form-control-solid @error('level_id') is-invalid @enderror"
-                                name="level_id" data-validation="required">
+                                class="form-control form-control-solid @error('level_id') is-invalid @enderror" data-validation="required">
                             <option selected value="">Please Select...</option>
                             @foreach($levels as $level)
                                 <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
@@ -277,3 +274,28 @@
     </div>
 @endsection
 
+@section('css')
+
+    <link href="{{asset('adminAssets/assets/plugins/select2/css/select2.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('adminAssets/assets/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+
+@endsection
+
+@section('scripts')
+<script src="{{asset('adminAssets/assets/plugins/select2/js/select2.js')}}"></script>
+    <script src="{{asset('adminAssets/assets/js/pages/select2/select2-init.js')}}"></script>
+
+
+<script>
+$(document).ready(function() {
+            $('.select2-multiple').select2({
+                placeholder: 'Please Choose Service'
+            });
+        });
+
+</script>
+
+<script type="text/javascript">
+    $('#title_id').select2();
+    </script>
+@endsection
