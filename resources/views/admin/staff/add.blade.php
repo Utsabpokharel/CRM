@@ -61,7 +61,10 @@
                         <span class="text-danger">*</span>
                              <select class="form-control" name="district">
                                        <option value="" selected>Please Select One</option>
-                                     
+                                      <option value="kathmandu">kathmandu</option>
+                                      <option value="bhaktapur">bhaktapur</option>
+                                      <option value="lalitpur">lalitpur</option>
+
                                    </select>
                             @error('district')
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>

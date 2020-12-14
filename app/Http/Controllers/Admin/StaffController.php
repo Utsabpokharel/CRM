@@ -78,7 +78,6 @@ class StaffController extends Controller
         $titles=title::all();
         $departments=Department::all();
         $staff = Staff::findOrfail($id);
-        
         return view("admin.staff.edit", compact('staff','levels','titles','departments'));
     }
 
