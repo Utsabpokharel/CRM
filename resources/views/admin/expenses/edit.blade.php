@@ -29,8 +29,8 @@
      <div class="form-group">
                                     <label>Select Mode of CategoryID</label>
                                     <select name="category_id"  class="form-control form-control-solid"  
-                                            >{{$expenses->category_id}}
-                                        <option selected disabled="">Select Mode of CategoryID</option>
+                                            >
+                                        <option  selected disabled="">{{ $expenses->category_id}}</option>
                                         <option value="Kathmandu">Kathamandu</option>
                                         <option value="Pokhara">Pokhara</option>
                                         <option value="Hetauda">Hetauda</option>
@@ -38,8 +38,6 @@
                                      <span class="form-text text-muted">Please select your Mode of CategoryID</span>
                                 </div>
                               </div>
-
-
 <div class="col-md-6">
      <div class="form-group">
       <label>Paid By:</label>
@@ -47,15 +45,11 @@
       <span class="form-text text-muted">Your Paid By</span>
      </div>
 </div>
-
-
-     
-
      <div class="col-md-6">
      <div class="form-group">
                                     <label>Select Mode of Payment</label>
                                     <select name="mode_of_payment"  class="form-control form-control-solid"  value=""
-                                            >{{$expenses->category_id}}
+                                            >{{$expenses->mode_of_payment}}
                                         <option value="{{ $expenses->mode_of_payment}}" selected hidden>{{ $expenses->mode_of_payment}}</option>
                                         <option value="Kathmandu">Kathamandu</option>
                                         <option value="Pokhara">Pokhara</option>

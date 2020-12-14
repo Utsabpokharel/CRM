@@ -146,7 +146,7 @@
             <td>{{$expensess->date}}</td>
             <td>{{$expensess->particular}}</td>
             <td>{{$expensess->amount}}</td>
-            <td>{{$expensess->category_id}}</td>
+            <td>{{$expensess->expensescategory->name}}</td>
             <td>{{$expensess->mode_of_payment}}</td>
             <td>{{$expensess->expenditure}}</td>
             <td class="text-center">

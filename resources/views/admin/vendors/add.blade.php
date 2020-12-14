@@ -94,7 +94,6 @@
           <span class="invalid-feedback" role="alert">{{ $message }}</span>
           @enderror
         </div>
-
         <div class="form-group">
           <label>First Contact Person</label>
           <input type="text" name="firstcontactperson" class="form-control form-control-solid @error('firstcontactperson') is-invalid @enderror" placeholder="Enter the name of first contact person" value="{{ old('firstcontactperson') }}"/>
@@ -231,6 +230,7 @@
  
   </div>
 
+
                     <div class="col-lg-12">
                     <center> <h1 style="background-color:powderblue;">Documents</h1> </center>
                     </div>
@@ -240,6 +240,7 @@
                         <label>Passport Size Photo</label>
                         <input type="file" class="form-control form-control-solid" name="pp_photo"/>
                     </div>
+
 
                     <div class="form-group">
                         <label>Citizenship Proof (Frontside)</label>

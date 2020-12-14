@@ -73,10 +73,13 @@
                     <div class="form-group">
                         <label>District</label>
                         <span class="text-danger">*</span>
-                            <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" > 
-                            <option selected value="">Please Select One...</option>
-                            <option value="abcd">abcd</option>
-                            </select>
+                             <select class="form-control" name="district">
+                                       <option value="" selected>Please Select One</option>
+                                      <option value="kathmandu">kathmandu</option>
+                                      <option value="bhaktapur">bhaktapur</option>
+                                      <option value="lalitpur">lalitpur</option>
+
+                                   </select>
                             @error('district')
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>
                             @enderror

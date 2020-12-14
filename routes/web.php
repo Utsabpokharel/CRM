@@ -91,7 +91,17 @@ Route::group(['namespace' => 'Admin','middleware' => ['staff']], function () {
     Route::get('Incomecategory/Delete/{incomecategoryid}', 'incomecategorycontroller@destroy')->name('incomecategory.destroy');
     //Income
 
+    
+    Route::get('Income/Create','IncomeController@create')->name('income.create');
     Route::get('Income','IncomeController@view')->name('income.view');
+    Route::post('Income/Store','IncomeController@store')->name('income.store');
+    Route::get('Income/Edit{incomeid}','IncomeController@edit')->name('income.edit');
+    Route::post('Income/Update{incomeid}','IncomeController@update')->name('income.update');
+    Route::get('Income/deleteTrashed/{id}', 'Incomecontroller@deletetrashed')->name('income.trashed');
+    Route::get('Income/Viewtrashed', 'Incomecontroller@Viewtrashed')->name('income.Viewtrashed');
+    Route::get('Income/restore/{id}', 'Incomecontroller@restore')->name('income.restore');
+    Route::get('Income/Delete{incomeid}', 'Incomecontroller@destroy')->name('income.destroy');
+
 
     //Expenses and expenses category
     Route::get('Expensescategory', 'Expensescategorycontroller@view')->name('expensescategory.view');

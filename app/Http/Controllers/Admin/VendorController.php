@@ -30,10 +30,15 @@ class VendorController extends Controller
      */
     public function addVendor()
     {
+
+        $district=$this->district();
+        return view('admin.vendors.add',compact('district'));
+
         $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
         return view('admin.vendors.add',compact('levels','titles','departments'));
+
     }
 
 
@@ -45,7 +50,7 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'fname' => 'required|min:3|max:20|alpha',
             'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
@@ -80,7 +85,7 @@ class VendorController extends Controller
             'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
             'lname.required' => 'Last Name is required',
 
-        ]);
+        ]);*/
 
         $data = $request->except('confirm_password');
         $password = Hash::make($request->password);
@@ -116,9 +121,9 @@ class VendorController extends Controller
      */
     public function editVendor($id)
     {
+        $district=$this->district();
         $vendor = Vendor::findOrfail($id);
-
-        return view('admin.vendors.edit', compact('vendor'));
+        return view('admin.vendors.edit', compact('vendor',compact('district')));
     }
 
     /**
@@ -228,5 +233,9 @@ class VendorController extends Controller
     protected function imagePath()
     {
         return "images/vendors/";
+    }
+    protected function district()
+    {
+          return \DB::table('district')->get();
     }
 }
