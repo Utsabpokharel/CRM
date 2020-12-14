@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      
+
       <div class="col-md-6">
         <div class="form-group">
           <label>Mobile Number</label>
@@ -107,10 +107,6 @@
           placeholder="Enter PAN Number" data-validation="required"/>
         </div>
       </div>
-
-
-      
-     
       <div class="col-md-6">
         <div class="form-group">
           <label>Password</label>
@@ -154,7 +150,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>District</label>
-          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" > 
+          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" >
           <option selected value="">Please Select One...</option>
           <option value="abcd">abcd</option>
           </select>
@@ -243,7 +239,6 @@
           @enderror
         </div>
       </div>
-
     </div>
     <div class="card-footer">
       <button type="submit" class="btn btn-primary mr-2" value="submit">Add</button>
