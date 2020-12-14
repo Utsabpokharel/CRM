@@ -125,13 +125,14 @@
       <div class="form-group">
                                     <label>Select your District</label>
                                     
-                                    <select name="district"  class="form-control form-control-solid @error('district') is-invalid @enderror" value="{{old('district')}}"
-                                            >
-                                        <option selected disabled="">Select District</option>
-                                        <option value="Kathmandu">Kathmandu</option>
-                                        <option value="Bhaktapur">Bhaktapur</option>
-                                        <option value="Lalitpur">Laltipur</option>
-                                    </select>
+                                    <select class="form-control" name="district">
+                                       <option value="" selected>Please Select One</option>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}">
+                                                {{ strtoupper($districts->district_name)}}
+                                            </option>
+                                       @endforeach
+                                   </select>
                                      @error('district')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
           @enderror

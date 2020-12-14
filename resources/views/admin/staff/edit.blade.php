@@ -18,6 +18,28 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Gender</label>
+                        <span class="text-danger">*</span>
+                        <select name="gender" id="gender"
+                                class="form-control form-control-solid @error('gender') is-invalid @enderror"
+                                name="gender">
+                            <option selected disabled="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                        @error('gender')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control form-control-solid" name="phoneno"
+                               value="{{$staff->phoneno}}"/>
+                    </div>
+
+                    <div class="form-group">
                         <label>Email Address</label>
                         <span class="text-danger">*</span>
                         <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror"
@@ -29,22 +51,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Date of Birth</label>
-                        <span class="text-danger">*</span>
-                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror"
-                               name="dob" value="{{$staff->dob}}"/>
-                        @error('dob')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Temporary Address</label>
+                        <label>Permanent Address</label>
                         <span class="text-danger">*</span>
                         <input type="text"
-                               class="form-control form-control-solid @error('temporary_address') is-invalid @enderror"
-                               name="temporary_address" value="{{$staff->temporary_address}}"/>
-                        @error('temporary_address')
+                               class="form-control form-control-solid @error('permanent_address') is-invalid @enderror"
+                               name="permanent_address" value="{{$staff->permanent_address}}"/>
+                        @error('permanent_address')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
                     </div>
@@ -60,12 +72,6 @@
                         @error('district')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Mobile Number</label>
-                        <input type="text" class="form-control form-control-solid" name="mobileno"
-                               value="{{$staff->mobileno}}"/>
                     </div>
 
                     <div class="form-group">
@@ -85,88 +91,6 @@
                     </div>
 
                     <div class="form-group">
-                      <label>PAN Number</label>
-                      <input type="number" class="form-control form-control-solid" name="panno"
-                          value="{{$staff->panno}}"/>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <span class="text-danger">*</span>
-                        <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror"
-                               name="lname" placeholder="Enter Last Name" value="{{$staff->lname}}"/>
-                        @error('lname')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Gender</label>
-                        <span class="text-danger">*</span>
-                        <select name="gender" id="gender"
-                                class="form-control form-control-solid @error('gender') is-invalid @enderror"
-                                name="gender">
-                            <option selected disabled="">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="others">Others</option>
-                        </select>
-                        @error('gender')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Permanent Address</label>
-                        <span class="text-danger">*</span>
-                        <input type="text"
-                               class="form-control form-control-solid @error('permanent_address') is-invalid @enderror"
-                               name="permanent_address" value="{{$staff->permanent_address}}"/>
-                        @error('permanent_address')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>City</label>
-                        <span class="text-danger">*</span>
-                        <select name="city" id="city"
-                                class="form-control form-control-solid @error('city') is-invalid @enderror" name="city"
-                                value="{{$staff->city}}">
-                            <option selected value="">Please Select One...</option>
-                            <option value="abcd">abcd</option>
-                        </select>
-                        @error('city')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" class="form-control form-control-solid" name="phoneno"
-                               value="{{$staff->phoneno}}"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Department</label>
-                        <span class="text-danger">*</span>
-                        <select name="department_id" id="department_id"
-                                class="form-control form-control-solid @error('department_id') is-invalid @enderror"
-                                name="department_id" value="{{$staff->department_id}}">
-                            @foreach($departments as $department)
-                                <option value="{{$department->id}}"
-                                        class="form-control">{{$department->dep_name}}</option>
-                            @endforeach
-                        </select>
-
-                        @error('department_id')
-                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                        @enderror
-                    </div>
-
-                        <div class="form-group">
                             <label> Designation Level</label>
                             <span class="text-danger">*</span>
                             <select name="level_id" id="level_id"
@@ -182,6 +106,83 @@
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>
                             @enderror
                         </div>
+                    </div>
+                        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label>Last Name</label>
+                        <span class="text-danger">*</span>
+                        <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror"
+                               name="lname" value="{{$staff->lname}}"/>
+                        @error('lname')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                        </div>
+
+                        <div class="form-group">
+                        <label>Date of Birth</label>
+                        <span class="text-danger">*</span>
+                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror"
+                               name="dob" value="{{$staff->dob}}"/>
+                        @error('dob')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                        </div>
+
+                        <div class="form-group">
+                        <label>Mobile Number</label>
+                        <span class="text-danger">*</span>
+                        <input type="text" class="form-control form-control-solid" name="mobileno"
+                               value="{{$staff->mobileno}}"/>
+                        </div>
+
+                        <div class="form-group">
+                        <label>PAN Number</label>
+                        <input type="number" class="form-control form-control-solid" name="panno"
+                             value="{{$staff->panno}}" data-validation="required"/>
+                        </div>
+
+                        <div class="form-group">
+                        <label>Temporary Address</label>
+                        <span class="text-danger">*</span>
+                        <input type="text"
+                               class="form-control form-control-solid @error('temporary_address') is-invalid @enderror"
+                               name="temporary_address" value="{{$staff->temporary_address}}"/>
+                        @error('temporary_address')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                        </div>
+
+                        <div class="form-group">
+                        <label>City</label>
+                        <span class="text-danger">*</span>
+                        <select name="city" id="city"
+                                class="form-control form-control-solid @error('city') is-invalid @enderror" name="city"
+                                value="{{$staff->city}}">
+                            <option selected value="">Please Select One...</option>
+                            <option value="abcd">abcd</option>
+                        </select>
+                        @error('city')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                        </div>
+
+                        <div class="form-group">
+                        <label>Department</label>
+                        <span class="text-danger">*</span>
+                        <select name="department_id" id="department_id"
+                                class="form-control form-control-solid @error('department_id') is-invalid @enderror"
+                                name="department_id" value="{{$staff->department_id}}">
+                            @foreach($departments as $department)
+                                <option value="{{$department->id}}"
+                                        class="form-control">{{$department->dep_name}}</option>
+                            @endforeach
+                        </select>
+
+                        @error('department_id')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                        </div>
 
                         <div class="form-group">
                             <label>Joined Date</label>
@@ -193,7 +194,7 @@
                             <span class="invalid-feedback" role="alert"> {{$message}}</span>
                             @enderror
                         </div>
-                  </div>
+                    </div>
                         
                         <div class="col-lg-12">
                         <center> <h1 style="background-color:powderblue;">Documents</h1> </center>
@@ -246,7 +247,7 @@
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Update</button>
-                        <button type="reset" class="btn btn-danger mr-2">Reset</button>
+                        <a href="{{route('staff.view')}}" class="btn btn-danger mr-2">Cancel</a>
                     </div>
         </form>
     </div>

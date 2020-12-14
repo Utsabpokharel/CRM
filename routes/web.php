@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BankController;
+use App\Http\Controllers\GeneralController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +19,20 @@ use App\Http\Controllers\CustomerController;
 */
 
 /*login route*/
-Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],function (){
-   route::get('/','LoginController@form')->name('login');
-   route::post('/login/check','LoginController@login')->name('login.check');
+
+Route::group(['prefix' => '/', 'namespace' => 'Admin', 'middleware' => 'guest'], function () {
+    route::get('/', 'LoginController@form')->name('login');
+    route::post('/login/check', 'LoginController@login')->name('login.check');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth','user']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'user']], function () {
     //dashboard
     Route::get('index', 'IndexController@index')->name('admin.index');
     //Profile
-     Route::resource('profile', 'profileDemoController');
-     Route::get('personalInfo', 'profileDemoController@personal')->name('personal');
-     //profile Setting
-     Route::get('Profile-Setting','ProfilesettingController@settingform')->name('profile');
+    Route::resource('profile', 'profileDemoController');
+    Route::get('personalInfo', 'PersonalInfoController@index')->name('personal');
+    //profile Setting
+    Route::get('Profile-Setting', 'ProfilesettingController@settingform')->name('profile');
     // Routing for Service
     Route::get("services/view_all", "ServiceController@index")->name("view_services");
     Route::get("services/add", "ServiceController@create")->name("add_service");
@@ -36,15 +41,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>['auth',
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
     /*logout*/
-    Route::get('/logout','LoginController@logout')->name('logout');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 });
 
-Route::group(['namespace' => 'Admin','middleware' => ['super']], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => ['super']], function () {
     //roles
     Route::resource('roles', 'roleController');
 });
 
-Route::group(['namespace' => 'Admin','middleware' => ['admin']], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => ['admin']], function () {
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
     Route::get('staff/add', 'StaffController@create')->name('staff.add');
@@ -79,7 +84,7 @@ Route::group(['namespace' => 'Admin','middleware' => ['admin']], function () {
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
 });
 
-Route::group(['namespace' => 'Admin','middleware' => ['staff']], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
     //Income and income category
     Route::get('Incomecategory/Create', 'incomecategorycontroller@create')->name('incomecategory.create');
     Route::get('Incomecategory', 'incomecategorycontroller@view')->name('incomecategory.view');
@@ -88,9 +93,16 @@ Route::group(['namespace' => 'Admin','middleware' => ['staff']], function () {
     Route::post('Incomecategory/Update/{incomecategoryid}', 'incomecategorycontroller@update')->name('incomecategory.update');
     Route::get('Incomecategory/Delete/{incomecategoryid}', 'incomecategorycontroller@destroy')->name('incomecategory.destroy');
     //Income
-
+    Route::get('Income', 'IncomeController@view')->name('income.view');
+    Route::get('Income/Create','IncomeController@create')->name('income.create');
     Route::get('Income','IncomeController@view')->name('income.view');
-
+    Route::post('Income/Store','IncomeController@store')->name('income.store');
+    Route::get('Income/Edit{incomeid}','IncomeController@edit')->name('income.edit');
+    Route::post('Income/Update{incomeid}','IncomeController@update')->name('income.update');
+    Route::get('Income/deleteTrashed/{id}', 'Incomecontroller@deletetrashed')->name('income.trashed');
+    Route::get('Income/Viewtrashed', 'Incomecontroller@Viewtrashed')->name('income.Viewtrashed');
+    Route::get('Income/restore/{id}', 'Incomecontroller@restore')->name('income.restore');
+    Route::get('Income/Delete{incomeid}', 'Incomecontroller@destroy')->name('income.destroy');
     //Expenses and expenses category
     Route::get('Expensescategory', 'Expensescategorycontroller@view')->name('expensescategory.view');
     Route::get('Expensescategory/Create', 'Expensescategorycontroller@create')->name('expensescategory.create');
@@ -142,7 +154,23 @@ Route::group(['namespace' => 'Admin','middleware' => ['staff']], function () {
     Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
     Route::get('vendors/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
     //email
-    Route::get('Email-Settings','EmailsettingController@settingform')->name('email');
+    Route::get('Email-Settings', 'EmailsettingController@settingform')->name('email');
 });
+//BankAccount
+Route::get('bank', 'BankController@index')->name('bank.index');
+Route::get('bank/Create','BankController@create')->name('bank.create');
+Route::post('bank/Store', 'BankController@store')->name('bank.store');
+Route::get('bank/edit/{id}', 'BankController@edit')->name('bank.edit');
+Route::put('bank/Update/{id}', 'BankController@update')->name('bank.update');
+Route::get('bank/destroy/{id}', 'BankController@destroy')->name('bank.destroy');
 
+Route::get('bank/ViewTrash', 'BankController@ViewTrash')->name('bank.ViewTrash');
+Route::get('bank/restore/{id}', 'BankController@restore')->name('bank.restore');
+Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.deleteTrash');
+
+// General setting
+Route::get('general/Create', 'GeneralController@create')->name('general.create');
+Route::post('general/Store', 'GeneralController@store')->name('general.store');
+
+});
 

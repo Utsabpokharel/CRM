@@ -16,11 +16,12 @@ class CustomerController extends Controller
 
     public function create()
     {
-        return view('admin.customer.add');
+        $district=$this->district();
+        return view('admin.customer.add',compact('district'));
     }
 
     public function store(Request $request)
-    {
+    {/*
         $request->validate([
             'fname' => 'required|min:3|max:20|alpha',
             'lname' => 'required|min:3|max:20|alpha',
@@ -55,8 +56,9 @@ class CustomerController extends Controller
             'customer_type.required'=>'Customer Type is required'
 
 
-             ]);
+             ]);*/
         $data = $request->all();
+        // $customers->password = Hash::make('super123');
 
         $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
         $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $this->imagePath());
@@ -66,10 +68,11 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('success', 'Customer added successfully');
     }
 
-    public function edit($id)
+    public function edit($id) 
     {
+        $district=$this->district();
         $customer = Customer::findorfail($id);
-        return view('admin.customer.edit', compact('customer'));
+        return view('admin.customer.edit', compact('customer',compact('district')));
     }
 
     public function update(Request $request, $id)
@@ -176,5 +179,9 @@ class CustomerController extends Controller
     protected function imagePath()
     {
         return "images/customer/";
+    }
+    protected function district()
+    {
+          return \DB::table('district')->get();
     }
 }

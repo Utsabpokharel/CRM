@@ -18,6 +18,28 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Gender</label>
+                        <span class="text-danger">*</span>
+                        <select name="gender" id="gender"
+                                class="form-control form-control-solid @error('gender') is-invalid @enderror"
+                                name="gender" data-validation="required">
+                            <option selected disabled="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="others">Others</option>
+                        </select>
+                        @error('gender')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="number" class="form-control form-control-solid" name="phoneno"
+                               placeholder="Enter Phone Number" data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
                         <label>Email Address</label>
                         <span class="text-danger">*</span>
                         <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror"
@@ -29,29 +51,21 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input type="password"
-                               class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
-                               id="password" name="confirm_password" placeholder="Confirm Password"/>
-                        @error('confirm_password')
+                        <label>Password</label>
+                        <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password"
+                               name="password" placeholder="Enter Password"/>
+                        @error('password')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Date of Birth</label>
+                        <label>Permanent Address</label>
                         <span class="text-danger">*</span>
-                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob"/>
-                        @error('dob')
-                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Temporary Address</label>
-                        <span class="text-danger">*</span>
-                        <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address"/>
-                        @error('temporary_address')
+                        <input type="text"
+                               class="form-control form-control-solid @error('permanent_address') is-invalid @enderror"
+                               name="permanent_address" placeholder="Enter Permanent Address"/>
+                        @error('permanent_address')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
@@ -59,23 +73,18 @@
                     <div class="form-group">
                         <label>District</label>
                         <span class="text-danger">*</span>
-                            <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" > 
-                            <option selected value="">Please Select One...</option>
-                            <option value="abcd">abcd</option>
-                            </select>
+                             <select class="form-control" name="district">
+                                       <option value="" selected>Please Select One</option>
+                                      <option value="kathmandu">kathmandu</option>
+                                      <option value="bhaktapur">bhaktapur</option>
+                                      <option value="lalitpur">lalitpur</option>
+
+                                   </select>
                             @error('district')
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>
                             @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label>Mobile Number</label>
-                        <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno"
-                               placeholder="Enter Mobile Number" data-validation="required"/>
-                            @error('mobileno')
-                            <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                            @enderror
-                    </div>
 
                     <div class="form-group">
                         <label>Designation Title</label>
@@ -95,9 +104,19 @@
                     </div>
 
                     <div class="form-group">
-                        <label>PAN Number</label>
-                        <input type="number" class="form-control form-control-solid" name="panno"
-                               placeholder="Enter PAN Number" data-validation="required"/>
+                        <label>Designation Level</label>
+                        <span class="text-danger">*</span>
+                        <select name="level_id" id="level_id"
+                                class="form-control form-control-solid @error('level_id') is-invalid @enderror" data-validation="required">
+                            <option selected value="">Please Select...</option>
+                            @foreach($levels as $level)
+                                <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
+                            @endforeach
+                        </select>
+
+                        @error('level_id')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
                     </div>
                 </div>
 
@@ -113,37 +132,45 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password"
-                               name="password" placeholder="Enter Password"/>
-                        @error('password')
-                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label>Gender</label>
+                        <label>Date of Birth</label>
                         <span class="text-danger">*</span>
-                        <select name="gender" id="gender"
-                                class="form-control form-control-solid @error('gender') is-invalid @enderror"
-                                name="gender" data-validation="required">
-                            <option selected disabled="">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="others">Others</option>
-                        </select>
-                        @error('gender')
+                        <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob"/>
+                        @error('dob')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Permanent Address</label>
+                        <label>Mobile Number</label>
                         <span class="text-danger">*</span>
-                        <input type="text"
-                               class="form-control form-control-solid @error('permanent_address') is-invalid @enderror"
-                               name="permanent_address" placeholder="Enter Permanent Address"/>
-                        @error('permanent_address')
+                        <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno"
+                        placeholder="Enter Mobile Number" data-validation="required"/>
+                        @error('mobileno')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>PAN Number</label>
+                        <input type="number" class="form-control form-control-solid" name="panno"
+                               placeholder="Enter PAN Number" data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password"
+                               class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
+                               id="password" name="confirm_password" placeholder="Confirm Password"/>
+                        @error('confirm_password')
+                        <span class="invalid-feedback" role="alert"> {{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Temporary Address</label>
+                        <span class="text-danger">*</span>
+                        <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address"/>
+                        @error('temporary_address')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
@@ -160,13 +187,7 @@
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
-                    
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="number" class="form-control form-control-solid" name="phoneno"
-                               placeholder="Enter Phone Number" data-validation="required"/>
-                    </div>
-
+                
                     <div class="form-group">
                         <label>Department</label>
                         <span class="text-danger">*</span>
@@ -184,21 +205,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label>Designation Level</label>
-                        <span class="text-danger">*</span>
-                        <select name="level_id" id="level_id"
-                                class="form-control form-control-solid @error('level_id') is-invalid @enderror" data-validation="required">
-                            <option selected value="">Please Select...</option>
-                            @foreach($levels as $level)
-                                <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
-                            @endforeach
-                        </select>
-
-                        @error('level_id')
-                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
-                        @enderror
-                    </div>
+                    
                     
                     <div class="form-group">
                         <label>Joined Date</label>

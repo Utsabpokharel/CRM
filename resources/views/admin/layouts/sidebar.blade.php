@@ -202,10 +202,9 @@
                                         <span class="menu-text">All Roles</span>
                                     </a>
                                 </li>
-
-                            </ul>
-                        </div>
-                    </li>
+                        </ul>
+                    </div>
+                </li>
                 @endif
                 @if(Auth::user()->roleid==1 || Auth::user()->roleid==2|| Auth::user()->roleid==3)
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -393,7 +392,7 @@
                                 </a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('income.view')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
@@ -441,7 +440,7 @@
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('bank.index')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
@@ -449,7 +448,7 @@
                                 </a>
                             </li>
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('bank.create')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
@@ -505,7 +504,7 @@
                         <ul class="menu-subnav">
                             @if(Auth::user()->roleid==1 || Auth::user()->roleid==2)
                             <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
+                                <a href="{{route('general.create')}}" class="menu-link">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>

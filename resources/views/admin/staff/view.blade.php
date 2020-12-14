@@ -144,11 +144,12 @@ View All Staff
 					<tbody>
 					@foreach($staff as $key=> $staffs)
 					<tr>
+						
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
 						<td>{{$staffs->department_id}}</td>
-						<td>{{$staffs->title_id}}</td>
+						<td>{{$staffs->title['title']}}</td>
 						<td>{{$staffs->level_id}}</td>
 						<td class="text-center"> 
 
