@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Expenses;
 use App\Http\Requests\ExpensesValidator;
+use App\Models\Admin\Expensescategory;
+
 
 class Expensescontroller extends Controller
 {
@@ -17,7 +19,8 @@ class Expensescontroller extends Controller
     }
     public function create()
     {
-    	return view('admin.expenses.create');
+      $expensescategories=$this->getCategories();
+    	return view('admin.expenses.create',compact('expensescategories'));
     }
     public function store(ExpensesValidator $request)
     {
@@ -27,8 +30,9 @@ class Expensescontroller extends Controller
     }
     public function edit($id)
     {
+      $expensescategories=$this->getCategories();
     	$expenses=Expenses::findorfail($id);
-    	return view('admin.expenses.edit',compact('expenses'));
+    	return view('admin.expenses.edit',compact('expenses','expensescategories'));
     }
     public function update(Request  $request, $id)
     {
@@ -70,4 +74,9 @@ class Expensescontroller extends Controller
     return back()->with('flash_error','Expenses has been deleted from trashed');
 
   }
+   protected function getCategories()
+   {
+        return Expensescategory::all();
+   }
+ 
 }

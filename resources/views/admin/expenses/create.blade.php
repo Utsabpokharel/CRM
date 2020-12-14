@@ -48,9 +48,9 @@
                                     <select name="category_id"  class="form-control form-control-solid"  value=""
                                             >
                                         <option selected disabled="">Select Mode of CategoryID</option>
-                                        <option value="Kathmandu">Kathamandu</option>
-                                        <option value="Pokhara">Pokhara</option>
-                                        <option value="Hetauda">Hetauda</option>
+                                         @foreach($expensescategories as $expensess)
+                                <option value="{{$expensess->id}}">{{$expensess->name}}</option>
+                                        @endforeach  
                                     </select>
                                      <span class="form-text text-muted">Please select your Mode of CategoryID</span>
                                 </div>

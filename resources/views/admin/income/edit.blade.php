@@ -7,7 +7,7 @@
   }
 </style>
 <div class="card-body card">
-    <form class="form" method="post" action="{{route('income.store')}}" enctype="multipart/form-data">
+    <form class="form" method="post" action="{{route('income.update',$income->id)}}" enctype="multipart/form-data">
      @csrf
 <div class="row">
           <div class="col-sm-6">
@@ -16,7 +16,7 @@
            @error('date')
            <p>The Date is required.</p>
            @enderror
-                   <input type="date" name="date" class="form-control form-control-solid" placeholder="Enter Date" />
+                   <input type="date" name="date" value="{{$income->date}}" class="form-control form-control-solid" placeholder="Enter Date"  />
                  <span class="form-text text-muted">Please enter Date</span>
              </div>
            </div>        
@@ -26,7 +26,7 @@
            @error('amount')
            <p>The Amount is required.</p>
            @enderror
-           <input type="number" name="amount" class="form-control form-control-solid" placeholder="     Enter Amount"/>
+           <input type="number" name="amount" class="form-control form-control-solid" placeholder="     Enter Amount" value="{{$income->amount}}"/>
            <span class="form-text text-muted">Please enter amount </span>
           </div>
           </div><div class="col-md-6">
@@ -51,7 +51,7 @@
        @error('paid_by')
                <p>The Paid By is required.</p>
                   @enderror
-            <input type="text" name="paid_by" class="form-control form-control-solid" placeholder="Enter Paid By"/>
+            <input type="text" name="paid_by" class="form-control form-control-solid" placeholder="Enter Paid By" value="{{$income->paid_by}}"/>
             <span class="form-text text-muted">Your Paid By</span>
             </div>
             </div>
@@ -61,12 +61,12 @@
                                     @error('mode_of_payment')
                              <p>The Mode of Payment is required.</p>
                                           @enderror
-                                    <select name="mode_of_payment"  class="form-control form-control-solid"  value=""
+                                    <select name="mode_of_payment"  class="form-control form-control-solid"  
                                             >
                                         <option selected disabled="">Select Mode of Payment</option>
-                                        <option value="bank">bank</option>
-                                        <option value="esewa">esewa</option>
-                                        <option value="khalti">khalti</option>
+                                        <option value="bank" @if($income->mode_of_payment=='bank')selected @endif>bank</option>
+                                        <option value="esewa" @if($income->mode_of_payment=='esewa')selected @endif>esewa</option>
+                                        <option value="khalti" @if($income->mode_of_payment=='khalti')selected @endif>khalti</option>
                                     </select>
                                      <span class="form-text text-muted">Please select your Mode of Payment</span>
                                 </div>
@@ -78,7 +78,7 @@
       @error('received_by')
                              <p>The Received By is required.</p>
                                           @enderror
-      <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By"/>
+      <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By" value="{{$income->received_by}}"/>
       <span class="form-text text-muted">Please enter your Received By</span>
      </div>
                 </div>
