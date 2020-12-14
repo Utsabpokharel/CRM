@@ -24,7 +24,7 @@
           <input type="text" name="phone" class="form-control form-control-solid" placeholder="Enter Phone Number" value="{{$user->phone}}" />
         </div>
       </div>
-      
+
       <div class="col-md-6">
         <div class="form-group">
           <label>Gender</label>
@@ -36,7 +36,7 @@
           </select>
         </div>
       </div>
-    
+
       <div class="col-md-6">
         <div class="form-group">
           <label>Roles</label>
@@ -57,6 +57,3 @@
   </form>
 </div>
 @endsection
-
-
-  
