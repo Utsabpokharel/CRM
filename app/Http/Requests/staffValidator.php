@@ -24,7 +24,7 @@ class staffValidator extends FormRequest
     public function rules()
     {
         return [
-            'fname'=>'required |min:2|max:20|alpha',
+            /*'fname'=>'required |min:2|max:20|alpha',
             'lname'=>'required |min:2|max:20|alpha',
             'gender'=>'required',
             'dob'=>'required',  
@@ -41,14 +41,14 @@ class staffValidator extends FormRequest
             'email'=>'required',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-
+*/
             
         ];
     }
     public function messages()
     {
         return [
-            'fname.required'=>'First Name field is required',
+           /* 'fname.required'=>'First Name field is required',
             'fname.min'=>'Minimum two character is required',
             'fname.max'=>'Maximum twenty character is required',
             'fname.alpha'=>'Only alphabet is accepted',
@@ -58,7 +58,7 @@ class staffValidator extends FormRequest
             'lname.max'=>'Maximum twenty character is required',
             'lname.alpha'=>'Only alphabet is accepted',
 
-            'mobileno.required'=>'Mobile Number is required',
+            'mobileno.required'=>'Mobile Number is required',*/
         ];
     }
 }

@@ -33,6 +33,7 @@ class StaffController extends Controller
         $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
+       
         return view('admin.staff.add',compact('levels','titles','departments'));
     }
 
@@ -77,6 +78,7 @@ class StaffController extends Controller
         $titles=title::all();
         $departments=Department::all();
         $staff = Staff::findOrfail($id);
+        
         return view("admin.staff.edit", compact('staff','levels','titles','departments'));
     }
 
@@ -131,5 +133,9 @@ class StaffController extends Controller
         $staff=Staff::onlyTrashed()->where('id',$id)->first();
         $staff->forceDelete();
         return redirect()->route('staff.view')->with('warning','Permanent Delete Successfully');
+    }
+     protected function district()
+    {
+        return \DB::table('district')->get();
     }
 }

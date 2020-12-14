@@ -146,13 +146,14 @@
    <div class="col-md-6">
      <div class="form-group">
         <label>Select Your District</label>
-        <select name="district"  class="form-control form-control-solid @error('district') is-invalid @enderror " value="{{old('district')}}"
-                                            >
-                                        <option selected disabled="">Select District</option>
-                                        <option value="Kathmandu">Kathmandu</option>
-                                        <option value="Lalitpur">Lalitpur</option>
-                                        <option value="Bhaktapur">Bhaktapur</option>
-                                    </select>
+       <select class="form-control" name="district">
+                                       <option value="" selected>Please Select One</option>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}">
+                                                {{ strtoupper($districts->district_name)}}
+                                            </option>
+                                       @endforeach
+                                   </select>
         @error('district')
        <span class="invalid-feedback" role="alert">{{ $message }}</span>
       @enderror
@@ -248,9 +249,9 @@
    <div class="col-md-6">
      <div class="form-group">
         <label>Front Citizenship Image</label>
-        <input type="hidden" name="frontcitizenshipimage">
-        <input type="file" class="form-control form-control-solid @error('frontcitizenshipimage') is-invalid @enderror" id="frontcitizenshipimage" name="frontcitizenshipimage" value="{{ old('frontcitizenshipimage') }}"/>
-        @error('frontcitizenshipimage')
+        <input type="hidden" name="frontdistrictzenshipimage">
+        <input type="file" class="form-control form-control-solid @error('frontdistrictzenshipimage') is-invalid @enderror" id="frontdistrictzenshipimage" name="frontdistrictzenshipimage" value="{{ old('frontdistrictzenshipimage') }}"/>
+        @error('frontdistrictzenshipimage')
       <span class="invalid-feedback" role="alert">{{ $message }}</span>
       @enderror
      </div>
@@ -259,9 +260,9 @@
    <div class="col-md-6">
      <div class="form-group">
         <label>Back Citizenship Image</label>
-        <input type="hidden" name="backcitizenshipimage">
-        <input type="file" class="form-control form-control-solid @error('backcitizenshipimage') is-invalid @enderror" id="backcitizenshipimage" name="backcitizenshipimage" value="{{ old('backcitizenshipimage') }}"/>
-        @error('backcitizenshipimage')
+        <input type="hidden" name="backdistrictzenshipimage">
+        <input type="file" class="form-control form-control-solid @error('backdistrictzenshipimage') is-invalid @enderror" id="backdistrictzenshipimage" name="backdistrictzenshipimage" value="{{ old('backdistrictzenshipimage') }}"/>
+        @error('backdistrictzenshipimage')
       <span class="invalid-feedback" role="alert">{{ $message }}</span>
       @enderror
      </div>
