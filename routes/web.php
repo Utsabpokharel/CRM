@@ -171,6 +171,3 @@ Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.de
 // General setting
 Route::get('general/Create', 'GeneralController@create')->name('general.create');
 Route::post('general/Store', 'GeneralController@store')->name('general.store');
-
-});
-
