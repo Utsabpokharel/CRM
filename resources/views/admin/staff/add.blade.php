@@ -115,7 +115,6 @@
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
                     </div>
-                    
                 </div>
 
                 <div class="col-sm-6">
@@ -140,6 +139,7 @@
 
                     <div class="form-group">
                         <label>Mobile Number</label>
+                        <span class="text-danger">*</span>
                         <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno"
                         placeholder="Enter Mobile Number" data-validation="required"/>
                         @error('mobileno')
