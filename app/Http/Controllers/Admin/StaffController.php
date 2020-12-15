@@ -33,8 +33,8 @@ class StaffController extends Controller
         $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
-       
-        return view('admin.staff.add',compact('levels','titles','departments'));
+        $district=$this->district();
+        return view('admin.staff.add',compact('levels','titles','departments','district'));
     }
 
     /**
@@ -78,7 +78,8 @@ class StaffController extends Controller
         $titles=title::all();
         $departments=Department::all();
         $staff = Staff::findOrfail($id);
-        return view("admin.staff.edit", compact('staff','levels','titles','departments'));
+        $district=$this->district();
+        return view("admin.staff.edit", compact('staff','levels','titles','departments','district'));
     }
 
     /**

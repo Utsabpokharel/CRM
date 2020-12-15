@@ -73,10 +73,15 @@
         <div class="form-group">
           <label>District</label>
           <span class="text-danger">*</span>
-          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" > 
+          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" data-validation="required" > 
           <option selected value="">Please Select One...</option>
-          <option value="abcd">abcd</option>
+          @foreach($district as $districts)
+              <option value="{{$districts->district_name}}">
+              {{ strtoupper($districts->district_name)}}
+              </option>
+          @endforeach
           </select>
+
           @error('district')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
@@ -244,7 +249,7 @@
 
                     <div class="form-group">
                         <label>Citizenship Proof (Frontside)</label>
-                        <input type="file" class="form-control form-control-solid" name="ctzn_front"
+                        <input type="file" class="form-control form-control-solid" name="frontcitizenshipimage"
                                data-validation="required"/>
                     </div>
 
@@ -270,7 +275,7 @@
 
                     <div class="form-group">
                         <label>Citizenship Proof (Backside)</label>
-                        <input type="file" class="form-control form-control-solid" name="ctzn_back"
+                        <input type="file" class="form-control form-control-solid" name="backcitizenshipimage"
                                data-validation="required"/>
                     </div>
 

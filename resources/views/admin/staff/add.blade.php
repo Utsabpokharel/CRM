@@ -52,6 +52,7 @@
 
                     <div class="form-group">
                         <label>Password</label>
+                        <span class="text-danger">*</span>
                         <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password"
                                name="password" placeholder="Enter Password"/>
                         @error('password')
@@ -73,11 +74,13 @@
                     <div class="form-group">
                         <label>District</label>
                         <span class="text-danger">*</span>
-                             <select class="form-control" name="district">
+                             <select class="form-control form-control-solid @error('disctrict') is-invalid @enderror" name="district">
                                        <option value="" selected>Please Select One</option>
-                                      <option value="kathmandu">kathmandu</option>
-                                      <option value="bhaktapur">bhaktapur</option>
-                                      <option value="lalitpur">lalitpur</option>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}">
+                                                {{ strtoupper($districts->district_name)}}
+                                            </option>
+                                       @endforeach
 
                                    </select>
                             @error('district')
@@ -158,6 +161,7 @@
 
                     <div class="form-group">
                         <label>Confirm Password</label>
+                        <span class="text-danger">*</span>
                         <input type="password"
                                class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
                                id="password" name="confirm_password" placeholder="Confirm Password"/>
@@ -303,6 +307,6 @@ $(document).ready(function() {
 </script>
 
 <script type="text/javascript">
-    $('#title_id').select2();
+    $('#district').select2();
     </script>
 @endsection
