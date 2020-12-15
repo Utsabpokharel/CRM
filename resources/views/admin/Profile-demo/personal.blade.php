@@ -36,9 +36,8 @@
 				<!--begin::Nav-->
 				<a href="{{url('admin/profile')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block ">Profile Overview</a>
 				<a href="{{route('personal')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Personal info</a>
-				<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Account Info</a>
 				<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
-				<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
+				<a href="{{route('email')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
 				<!--end::Nav-->
 			</div>
 			<!--end::Body-->
@@ -80,7 +79,7 @@
 					</div>
 				</div> -->
 				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
+					<label class="col-xl-3 col-lg-3 col-form-label">Bank Name</label>
 					<div class="col-lg-9 col-xl-6">
 						<input class="form-control form-control-lg form-control-solid" type="text" value="Nick" />
 					</div>

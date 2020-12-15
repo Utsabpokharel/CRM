@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Admin\Bank;
 
 class profileDemoController extends Controller
 {
@@ -15,7 +16,8 @@ class profileDemoController extends Controller
      */
     public function index()
     {
-        return view('admin.Profile-demo.demo');
+        $data = Bank::all();
+        return view('admin.Profile-demo.demo', compact('data'));
     }
 
     /**
@@ -83,7 +85,8 @@ class profileDemoController extends Controller
     {
         //
     }
-    public function personal(){
+    public function personal()
+    {
         return view('admin.Profile-demo.personal');
     }
 }

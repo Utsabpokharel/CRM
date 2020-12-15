@@ -36,9 +36,8 @@
                 <!--begin::Nav-->
                 <a href="{{url('admin/profile')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Profile Overview</a>
                 <a href="{{route('personal')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Personal info</a>
-                <a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Account Info</a>
                 <a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
-                <a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
+                <a href="{{route('email')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
                 <!--end::Nav-->
             </div>
             <!--end::Body-->
@@ -72,79 +71,43 @@
                             <!--begin::Form-->
                             <div class="card">
                                 {{-- <div class="card-body padding height-9"> --}}
-                                <ul class="list-group list-group-unbordered">
-                                    <li class="list-group-item">
-                                        <b>First Name</b>
-                                        <div class="profile-desc-item pull-right">{{Auth::user()->name}}</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Last Name</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Gender </b>
-                                        <div class="profile-desc-item pull-right">{{Auth::user()->gender}}</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Date of Birth </b>
-                                        <div class="profile-desc-item pull-right">{{Auth::user()->date_of_birth}}</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Current Address</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Permanent Address</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Position in Company</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Gender</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->gender}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Date of Birth</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->date_of_birth}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Current Address</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Permanent Address</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Position in Company</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Department</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Mobile Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Phone Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->phone}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">PAN Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->phone}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Phone Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->phone}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Date of Birth</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->date_of_birth}}</h6>
+                                </div>
+                                <div class="row">
+                                    <h6 class="col-xl-4 col-lg-4">Email</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->email}}</h6>
+                                </div>
 
-                                    <li class="list-group-item">
-                                        <b>Main Department</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <b>Sub-Department</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-
-                                    <li class="list-group-item">
-                                        <b>Phone No.</b>
-                                        <div class="profile-desc-item pull-right">{{Auth::user()->phone}}</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Mobile No.</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Contact No.</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Desgination Title</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Desgination Level</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>PAN Number</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Joined Date</b>
-                                        <div class="profile-desc-item pull-right"></div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Email</b>
-                                        <div class="profile-desc-item pull-right">{{Auth::user()->email}}</div>
-                                    </li>
-                                </ul>
                                 {{-- </div> --}}
                             </div>
                             <!--end::Form-->
@@ -162,7 +125,71 @@
 
         <!--end::Advance Table Widget 5-->
     </div>
+    <!-- Bank Details -->
+
     <!--end::Content-->
 </div>
+<!--end::Profile 2-->
+
+<!--begin::Profile 2-->
+
+<!--begin::Aside-->
+
+<!--end::Aside-->
+<!--begin::Content-->
+<!--begin::Row-->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-custom card-stretch gutter-b">
+            <div class="card-header border-0">
+                <h3 class="card-title font-weight-bolder text-dark">Bank Account Details</h3>
+            </div>
+            <div class="flex-row-fluid ml-lg-8">
+                <!--begin::Card-->
+                <div class="card card-custom card-stretch">
+                    <!--begin::Header-->
+
+                    <!--end::Header-->
+                    <!--begin::Form-->
+                    <div class="card">
+                        {{-- <div class="card-body padding height-9"> --}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Bank Name</h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4> SwagisteR</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Account Number</h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4> {{Auth::user()->date_of_birth}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- </div> --}}
+                    </div>
+                    <!--end::Form-->
+                </div>
+            </div>
+            <!--end: Card Body-->
+        </div>
+        <!--end: Card-->
+        <!--end: List Widget 10-->
+    </div>
+
+</div>
+<!-- Bank Details -->
+
+<!--end::Content-->
+
 <!--end::Profile 2-->
 @endsection
