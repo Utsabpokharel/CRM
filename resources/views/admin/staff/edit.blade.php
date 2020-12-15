@@ -23,7 +23,6 @@
                         <select name="gender" id="gender"
                                 class="form-control form-control-solid @error('gender') is-invalid @enderror"
                                 name="gender">
-                            <option selected disabled="">Select Gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="others">Others</option>
@@ -66,8 +65,11 @@
                         <span class="text-danger">*</span>
                         <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district"
                                 value="{{$staff->district}}">
-                            <option selected value="">Please Select One...</option>
-                            <option value="abcd">abcd</option>
+                                @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}">
+                                                {{ strtoupper($districts->district_name)}}
+                                            </option>
+                                       @endforeach
                         </select>
                         @error('district')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
@@ -79,7 +81,6 @@
                         <span class="text-danger">*</span>
                         <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror"
                                 name="title_id" value="{{$staff->title_id}}">
-                              <option selected value="">Please Select...</option>
                               @foreach($titles as $title)
                                 <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
                               @endforeach
@@ -96,7 +97,6 @@
                             <select name="level_id" id="level_id"
                                     class="form-control form-control-solid @error('level_id') is-invalid @enderror"
                                     name="level_id" value="{{$staff->level_id}}">
-                                <option selected value="">Please Select...</option>
                             @foreach($levels as $level)
                                 <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
                             @endforeach
@@ -159,7 +159,6 @@
                         <select name="city" id="city"
                                 class="form-control form-control-solid @error('city') is-invalid @enderror" name="city"
                                 value="{{$staff->city}}">
-                            <option selected value="">Please Select One...</option>
                             <option value="abcd">abcd</option>
                         </select>
                         @error('city')
