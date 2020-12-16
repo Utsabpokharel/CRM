@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\user;
-use Hash;
 use App\Models\Admin\Staff;
 use App\Models\Vendor;
 use App\Models\Admin\Customer;
@@ -13,6 +12,7 @@ use App\Models\Admin\role;
 use App\Models\Admin\Department;
 use App\Models\Admin\title;
 use App\Models\Admin\level;
+use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller
 {
@@ -31,21 +31,21 @@ class userController extends Controller
         return view('Admin.user.add',compact('staffs','vendors','customers','roles','departments','titles','levels'));
     }
     public function store(Request $request){
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'phone'=>'required',
-            'password'=>'required',
-            'confirm_password'=>'required|same:password',
-            'gender'=>'required',
-            'roleid'=>'required'
-        ]);
+        // $request->validate([
+        //     'name'=>'required',
+        //     'email'=>'required',
+        //     'phone'=>'required',
+        //     'password'=>'required',
+        //     'confirm_password'=>'required|same:password',
+        //     'gender'=>'required',
+        //     'roleid'=>'required'
+        // ]);
 
         $data=$request->except('confirm_password');
         $password = Hash::make($request->password);
         $data['password'] = $password;
-        $imagepath='images/users/';
-        $data['image']=save_image($request->image,150,150,$imagepath);
+        // $imagepath='images/users/';
+        // $data['image']=save_image($request->image,150,150,$imagepath);
         user::create($data);
         return redirect()->route('user.view')->with('success','User added sucessfully');
     }
@@ -63,13 +63,13 @@ class userController extends Controller
         return view('Admin.user.edit',compact('user','staffs','vendors','customers','roles'));
     }
     public function updateUser(Request $request,$id){
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'phone'=>'required',
-            'gender'=>'required',
-            'roleid'=>'required'
-        ]);
+        // $request->validate([
+        //     'name'=>'required',
+        //     'email'=>'required',
+        //     'phone'=>'required',
+        //     'gender'=>'required',
+        //     'roleid'=>'required'
+        // ]);
 
         $data=$request->except('confirm_password');
         $password = Hash::make($request->password);

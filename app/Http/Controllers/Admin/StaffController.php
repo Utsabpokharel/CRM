@@ -9,6 +9,7 @@ use App\Http\Requests\staffValidator;
 use App\Models\Admin\Department;
 use App\Models\Admin\title;
 use App\Models\Admin\level;
+use Illuminate\Support\Facades\DB;
 
 class StaffController extends Controller
 {
@@ -91,12 +92,12 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $data=$request->except('_token','confirm_password');
         $data['city']='Kathmandu';
-      
-       
-       
+
+
+
         Staff::where("id", $id)->update($data);
         return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
     }
@@ -136,6 +137,6 @@ class StaffController extends Controller
     }
      protected function district()
     {
-        return \DB::table('district')->get();
+        return DB::table('districts')->get();
     }
 }

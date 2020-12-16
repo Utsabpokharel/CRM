@@ -16,52 +16,24 @@ class userSeeder extends Seeder
     {
 
         $user = array(
-                array(
                     'name' => 'Super Admin',
                     'email' => 'super@admin.com',
                     'phone'=>'123456789',
                     'password' => bcrypt('super123'),
                     'gender'=>'male',
                     'date_of_birth' =>'01/01/2001',
-                    'roleid'=>1
-                ),
-                array(
-                    'name' => 'Admin',
-                    'email' => 'admin@admin.com',
-                    'phone'=>'123456789',
-                    'password' => bcrypt('admin123'),
-                    'gender'=>'male',
-                    'date_of_birth' =>'01/01/2001',
-                    'roleid'=>2
-                ),
-                array(
-                    'name' => 'Staff',
-                    'email' => 'staff@staff.com',
-                    'phone'=>'123456789',
-                    'password' => bcrypt('staff123'),
-                    'gender'=>'male',
-                    'date_of_birth' =>'01/01/2001',
-                    'roleid'=>3
-                ),
-                array(
-                    'name' => 'Customer',
-                    'email' => 'customer@customer.com',
-                    'phone'=>'123456789',
-                    'password' => bcrypt('customer123'),
-                    'gender'=>'male',
-                    'date_of_birth' =>'01/01/2001',
-                    'roleid'=>4
-                ),
-                array(
-                    'name' => 'Vendor',
-                    'email' => 'vendor@vendor.com',
-                    'phone'=>'123456789',
-                    'password' => bcrypt('vendor123'),
-                    'gender'=>'male',
-                    'date_of_birth' =>'01/01/2001',
-                    'roleid'=>5
-                ),
-        );
+                    'roleid'=>1,
+                    'mobileno'=>'9988776655',
+                    'panno' =>'100200300400500',
+                    'permanent_address' => 'NEPAL',
+                    'temporary_address' => 'RAAJDHANI',
+                    'district' => 'KTM',
+                    'city' => 'KTMMMM',
+                    'title' => 1,
+                    'department' =>1,
+                    'level' => 1,
+                    'joined_date'=>'01/10/2020',
+                );
         DB::table('users')->insert($user);
     }
 }

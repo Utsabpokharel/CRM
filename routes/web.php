@@ -25,9 +25,10 @@ Route::group(['prefix' => '/', 'namespace' => 'Admin', 'middleware' => 'guest'],
     route::post('/login/check', 'LoginController@login')->name('login.check');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'user']], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['auth','user']] ,function () {
     //dashboard
-    Route::get('index', 'IndexController@index')->name('admin.index');
+    Route::get('index','IndexController@index'
+    )->name('admin.index');
     //Profile
     Route::resource('profile', 'profileDemoController');
     Route::get('personalInfo', 'PersonalInfoController@index')->name('personal');

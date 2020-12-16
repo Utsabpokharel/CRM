@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
-use Hash;
 use App\Models\Admin\Department;
 use App\Models\Admin\title;
 use App\Models\Admin\level;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class VendorController extends Controller
 {
@@ -236,6 +237,6 @@ class VendorController extends Controller
     }
     protected function district()
     {
-          return \DB::table('district')->get();
+          return DB::table('districts')->get();
     }
 }
