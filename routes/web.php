@@ -83,6 +83,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['admin']], function () {
     //title
     Route::resource('title', 'titleController');
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
+    // General setting
+    Route::get('general/Create', 'GeneralController@create')->name('general.create');
+    Route::post('general/Store', 'GeneralController@store')->name('general.store');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
