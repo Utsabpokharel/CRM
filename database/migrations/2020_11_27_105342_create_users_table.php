@@ -19,10 +19,20 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->string('mobileno');
             $table->string('password');
             $table->string('date_of_birth');
             $table->string('gender');
+            $table->string('panno');
+            $table->string('permanent_address');
+            $table->string('temporary_address');
+            $table->string('district');
+            $table->string('city');
+            $table->integer('title');
+            $table->integer('department');
+            $table->integer('level');
             $table->integer('roleid');
+            $table->string('joined_date');
             $table->timestamps();
         });
     }

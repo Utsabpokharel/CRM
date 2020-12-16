@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Customer;
+use Illuminate\Support\Facades\DB;
 use Validate;
 class CustomerController extends Controller
 {
@@ -68,7 +69,7 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('success', 'Customer added successfully');
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         $district=$this->district();
         $customer = Customer::findorfail($id);
@@ -82,7 +83,7 @@ class CustomerController extends Controller
             'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dob' => 'required',
-            
+
             'city' => 'required',
             'district' => 'required',
             'temporaryaddress' => 'required',
@@ -100,7 +101,7 @@ class CustomerController extends Controller
             'lname.required'=>'Last Name is required',
             'gender.required'=>'Gender is required',
             'dob.required'=>'Date of Birth  is required',
-            
+
             'city.required'=>'City is required',
             'district.required'=>'District is required',
             'temporaryaddress.required'=>'Temporary address is required',
@@ -182,6 +183,6 @@ class CustomerController extends Controller
     }
     protected function district()
     {
-          return \DB::table('district')->get();
+          return DB::table('districts')->get();
     }
 }

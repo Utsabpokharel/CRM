@@ -9,7 +9,8 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Name</label>
-          <select name="name" id="name" class="form-control form-control-solid @error('name') is-invalid @enderror">
+          <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" >
+          {{-- <select name="name" id="name" class="form-control form-control-solid @error('name') is-invalid @enderror">
             <option value="">Select Name</option>
             @foreach($staffs as $name)
               <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
@@ -22,7 +23,7 @@
             @foreach($customers as $name)
               <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
             @endforeach
-          </select>
+          </select> --}}
           @error('name')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
@@ -32,7 +33,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Roles</label>
-          <select name="roleid" id="role" class="form-control form-control-solid @error('role') is-invalid @enderror">
+          <select name="roleid" id="role" class="form-control form-control-solid @error('roleid') is-invalid @enderror">
             <option value="">Select a Role</option>
             @foreach($roles as $roleid)
               <option value="{{$roleid->id}}" class="form-control">{{$roleid->name}}</option>
@@ -210,7 +211,7 @@
         </div>
       </div>
 
-      
+
 
       <div class="col-md-6">
         <div class="form-group">
