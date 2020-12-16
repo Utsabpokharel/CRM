@@ -21,7 +21,7 @@ class CustomerController extends Controller
     }
 
     public function store(Request $request)
-    {/*
+    {
         $request->validate([
             'fname' => 'required|min:3|max:20|alpha',
             'lname' => 'required|min:3|max:20|alpha',
@@ -56,7 +56,7 @@ class CustomerController extends Controller
             'customer_type.required'=>'Customer Type is required'
 
 
-             ]);*/
+             ]);
         $data = $request->all();
         // $customers->password = Hash::make('super123');
 

@@ -71,8 +71,6 @@
           @enderror
         </div>
 
-        
-
         <div class="form-group">
           <label>Vendor Type</label>
           <span class="text-danger">*</span>
@@ -261,8 +259,8 @@
         </div>
 
         <div class="card-footer">
-     <button type="submit" class="btn btn-success mr-2" value="submit">Update</button>
-     <a href="{{route('vendors.view')}}" class ="btn btn-primary mr-2">Cancel</a>
+     <button type="submit" class="btn btn-primary mr-2" value="submit">Update</button>
+     <a href="{{route('vendors.view')}}" class ="btn btn-danger mr-2">Cancel</a>
    </div>
    </form>
 </div>

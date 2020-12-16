@@ -21,8 +21,7 @@
                         <label>Gender</label>
                         <span class="text-danger">*</span>
                         <select name="gender" id="gender"
-                                class="form-control form-control-solid @error('gender') is-invalid @enderror"
-                                name="gender">
+                                class="form-control form-control-solid @error('gender') is-invalid @enderror" value="{{old('gender', $staff->gender)}}">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="others">Others</option>
@@ -242,6 +241,7 @@
                     <div class="form-group">
                         <input type="checkbox" id="Usercheck" value="1" name="ifuser" checked>
                         <span>Register For User</span>
+                    </div>
                     </div>
 
                     <div class="card-footer">
