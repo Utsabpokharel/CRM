@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             userSeeder::class,
             roleSeeder::class,
             districtSeeder::class,
+            CitySeeder::class,
         ]);
     }
 }
