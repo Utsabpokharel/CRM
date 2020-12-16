@@ -75,7 +75,7 @@
                         <label>District</label>
                         <span class="text-danger">*</span>
                              <select class="form-control form-control-solid @error('disctrict') is-invalid @enderror" name="district">
-                                       <option value="" selected>Please Select One</option>
+                                       <option value="" selected>Please Select...</option>
                                        @foreach($district as $districts)
                                             <option value="{{$districts->district_name}}">
                                                 {{ strtoupper($districts->district_name)}}
@@ -184,7 +184,7 @@
                         <span class="text-danger">*</span>
                         <select name="city" id="city"
                                 class="form-control form-control-solid @error('city') is-invalid @enderror" name="city">
-                            <option selected value="">Please Select One...</option>
+                            <option selected value="">Please Select...</option>
                             <option value="abcd">abcd</option>
                         </select>
                         @error('city')
@@ -271,10 +271,11 @@
                                data-validation="required"/>
                     </div>
                     </div>
-
+                
                 <div class="form-group">
                     <input type="checkbox" id="Usercheck" name="ifuser" value='1' checked>
                     <span>Register For User</span>
+                </div>
                 </div>
 
                 <div class="card-footer">

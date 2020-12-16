@@ -101,7 +101,6 @@
                                     
                                     <select name="city"  class="form-control form-control-solid @error('city') is-invalid @enderror" value="{{$customer->city}}"
                                             >
-                                        <option selected disabled="">Select  City</option>
                                         <option value="Kathmandu">Kathmandu</option>
                                         <option value="Pokhara">Pokhara</option>
                                         <option value="Hetauda">Hetauda</option>
@@ -117,7 +116,7 @@
                                     
                                     <select name="district"  class="form-control form-control-solid @error('district') is-invalid @enderror"  value="{{$customer->district}}"
                                             >
-                                        <option selected disabled="">Select District</option>
+                              
                                         <option value="Kathmandu">Kathmandu</option>
                                         <option value="Bhaktapur">Bhaktapur</option>
                                         <option value="Lalitpur">Laltipur</option>
