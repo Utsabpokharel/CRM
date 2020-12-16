@@ -22,9 +22,9 @@
                         <span class="text-danger">*</span>
                         <select name="gender" id="gender"
                                 class="form-control form-control-solid @error('gender') is-invalid @enderror" value="{{old('gender', $staff->gender)}}">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="others">Others</option>
+                            <option value="male" @if($staff->gender=='male')selected @endif>Male</option>
+                            <option value="female" @if($staff->gender=='female')selected @endif>Female</option>
+                            <option value="others" @if($staff->gender=='others')selected @endif>Others</option>
                         </select>
                         @error('gender')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
