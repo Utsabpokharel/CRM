@@ -73,14 +73,12 @@
         <div class="form-group">
           <label>District</label>
           <span class="text-danger">*</span>
-          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" data-validation="required" > 
-          <option selected value="">Please Select...</option>
-          @foreach($district as $districts)
-              <option value="{{$districts->district_name}}">
-              {{ strtoupper($districts->district_name)}}
-              </option>
-          @endforeach
-          </select>
+          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select...">
+                             <datalist id='districtname'>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}"> </option>
+                                       @endforeach
+                             </datalist>
 
           @error('district')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
@@ -186,11 +184,13 @@
                     <div class="form-group">
                         <label>City</label>
                         <span class="text-danger">*</span>
-                        <select name="city" id="city"
-                                class="form-control form-control-solid @error('city') is-invalid @enderror" name="city">
-                            <option selected value="">Please Select...</option>
-                            <option value="abcd">abcd</option>
-                        </select>
+                        <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+                             <datalist id='cityname'>
+                                       @foreach($city as $cities)
+                                            <option value="{{$cities->city_name}}"> </option>
+                                       @endforeach
+                             </datalist>
+
                         @error('city')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror

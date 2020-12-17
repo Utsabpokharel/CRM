@@ -35,7 +35,8 @@ class StaffController extends Controller
         $titles=title::all();
         $departments=Department::all();
         $district=$this->district();
-        return view('admin.staff.add',compact('levels','titles','departments','district'));
+        $city=$this->city();
+        return view('admin.staff.add',compact('levels','titles','departments','district','city'));
     }
 
     /**
@@ -80,7 +81,8 @@ class StaffController extends Controller
         $departments=Department::all();
         $staff = Staff::findOrfail($id);
         $district=$this->district();
-        return view("admin.staff.edit", compact('staff','levels','titles','departments','district'));
+        $city=$this->city();
+        return view("admin.staff.edit", compact('staff','levels','titles','departments','district','city'));
     }
 
     /**
@@ -94,10 +96,6 @@ class StaffController extends Controller
     {
 
         $data=$request->except('_token','confirm_password');
-        $data['city']='Kathmandu';
-
-
-
         Staff::where("id", $id)->update($data);
         return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
     }
@@ -138,5 +136,10 @@ class StaffController extends Controller
      protected function district()
     {
         return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }

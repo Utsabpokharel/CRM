@@ -98,13 +98,12 @@
      <div class="col-md-6">
      <div class="form-group">
                                     <label>Select your City</label>
-                                    
-                                    <select name="city"  class="form-control form-control-solid @error('city') is-invalid @enderror" value="{{$customer->city}}"
-                                            >
-                                        <option value="Kathmandu">Kathmandu</option>
-                                        <option value="Pokhara">Pokhara</option>
-                                        <option value="Hetauda">Hetauda</option>
-                                    </select>
+                                    <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+                                    <datalist id='cityname'>
+                                       @foreach($city as $cities)
+                                            <option value="{{$cities->city_name}}"> </option>
+                                       @endforeach
+                                    </datalist>
                                      @error('city')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
           @enderror
@@ -113,14 +112,12 @@
      <div class="col-md-6">
       <div class="form-group">
                                     <label>Select your District</label>
-                                    
-                                    <select name="district"  class="form-control form-control-solid @error('district') is-invalid @enderror"  value="{{$customer->district}}"
-                                            >
-                              
-                                        <option value="Kathmandu">Kathmandu</option>
-                                        <option value="Bhaktapur">Bhaktapur</option>
-                                        <option value="Lalitpur">Laltipur</option>
-                                    </select>
+                                    <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select...">
+                             <datalist id='districtname'>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}"> </option>
+                                       @endforeach
+                             </datalist>
                                      @error('district')
           <span class="invalid-feedback" role="alert">{{$message}}</span>
           @enderror

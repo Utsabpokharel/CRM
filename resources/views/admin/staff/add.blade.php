@@ -74,25 +74,21 @@
                     <div class="form-group">
                         <label>District</label>
                         <span class="text-danger">*</span>
-                             <select class="form-control form-control-solid @error('disctrict') is-invalid @enderror" name="district">
-                                       <option value="" selected>Please Select...</option>
+                        <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select...">
+                             <datalist id='districtname'>
                                        @foreach($district as $districts)
-                                            <option value="{{$districts->district_name}}">
-                                                {{ strtoupper($districts->district_name)}}
-                                            </option>
+                                            <option value="{{$districts->district_name}}"> </option>
                                        @endforeach
-
-                                   </select>
+                             </datalist>
                             @error('district')
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>
                             @enderror
                     </div>
-
-
+                    
                     <div class="form-group">
                         <label>Designation Title</label>
                         <span class="text-danger">*</span>
-                        <select name="title_id" id="title_id"
+                        <select name="title_id" id="title_id" 
                         class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required">
                             <option selected value="">Please Select...</option>
                             @foreach($titles as $title)
@@ -182,11 +178,12 @@
                     <div class="form-group">
                         <label>City</label>
                         <span class="text-danger">*</span>
-                        <select name="city" id="city"
-                                class="form-control form-control-solid @error('city') is-invalid @enderror" name="city">
-                            <option selected value="">Please Select...</option>
-                            <option value="abcd">abcd</option>
-                        </select>
+                        <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+                             <datalist id='cityname'>
+                                       @foreach($city as $cities)
+                                            <option value="{{$cities->city_name}}"> </option>
+                                       @endforeach
+                             </datalist>
                         @error('city')
                         <span class="invalid-feedback" role="alert"> {{$message}} </span>
                         @enderror
@@ -276,7 +273,7 @@
                     <input type="checkbox" id="Usercheck" name="ifuser" value='1' checked>
                     <span>Register For User</span>
                 </div>
-                </div>
+                <div>
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -284,30 +281,10 @@
                 </div>
         </form>
     </div>
-@endsection
 
-@section('css')
-
-    <link href="{{asset('adminAssets/assets/plugins/select2/css/select2.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('adminAssets/assets/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 
 @endsection
 
-@section('scripts')
-<script src="{{asset('adminAssets/assets/plugins/select2/js/select2.js')}}"></script>
-    <script src="{{asset('adminAssets/assets/js/pages/select2/select2-init.js')}}"></script>
 
 
-<script>
-$(document).ready(function() {
-            $('.select2-multiple').select2({
-                placeholder: 'Please Choose Service'
-            });
-        });
 
-</script>
-
-<script type="text/javascript">
-    $('#district').select2();
-    </script>
-@endsection

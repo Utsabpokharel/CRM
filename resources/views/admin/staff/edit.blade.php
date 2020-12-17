@@ -62,14 +62,14 @@
                     <div class="form-group">
                         <label>District</label>
                         <span class="text-danger">*</span>
-                        <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district"
-                                value="{{$staff->district}}">
-                                @foreach($district as $districts)
-                                            <option value="{{$districts->district_name}}">
-                                                {{ strtoupper($districts->district_name)}}
-                                            </option>
+                        <input type="text" name="district" list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" 
+                                >
+                                <datalist id='districtname'>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}">"{{$staff->district}}"</option>
                                        @endforeach
-                        </select>
+                                </datalist>
+                        
                         @error('district')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
@@ -155,11 +155,13 @@
                         <div class="form-group">
                         <label>City</label>
                         <span class="text-danger">*</span>
-                        <select name="city" id="city"
-                                class="form-control form-control-solid @error('city') is-invalid @enderror" name="city"
-                                value="{{$staff->city}}">
-                            <option value="abcd">abcd</option>
-                        </select>
+                        <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+                             <datalist id='cityname'>
+                                       @foreach($city as $cities)
+                                            <option value="{{$cities->city_name}}"> </option>
+                                       @endforeach
+                             </datalist>
+                             
                         @error('city')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
@@ -242,7 +244,7 @@
                         <input type="checkbox" id="Usercheck" value="1" name="ifuser" checked>
                         <span>Register For User</span>
                     </div>
-                    </div>
+                    <div>
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Update</button>
