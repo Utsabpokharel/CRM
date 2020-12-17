@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\Bank;
+use App\Models\Admin\user;
 
 class profileDemoController extends Controller
 {
@@ -16,6 +17,7 @@ class profileDemoController extends Controller
      */
     public function index()
     {
+        $abc = user::all();
         $data = Bank::all();
         return view('admin.Profile-demo.demo', compact('data'));
     }

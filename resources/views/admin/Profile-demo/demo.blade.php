@@ -4,7 +4,7 @@
 <!--begin::Profile 2-->
 <div class="d-flex flex-row">
     <!--begin::Aside-->
-    <div class="flex-row-auto offcanvas-mobile w-300px w-xl-350px" id="kt_profile_aside">
+    <div class="flex-row-auto offcanvas-mobile w-400px w-xl-450px" id="kt_profile_aside">
         <!--begin::Card-->
         <div class="card card-custom">
             <!--begin::Body-->
@@ -41,6 +41,114 @@
                 <!--end::Nav-->
             </div>
             <!--end::Body-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-custom card-stretch gutter-b">
+                        <div class="card-header border-0">
+                            <h6 class="card-title font-weight-bolder text-dark">Bank Account Details</h6>
+                        </div>
+                        <div class="flex-row-fluid ml-lg-12">
+                            <!--begin::Card-->
+                            <div class="card card-custom card-stretch">
+                                <!--begin::Header-->
+
+                                <!--end::Header-->
+                                <!--begin::Form-->
+                                <div class="card">
+                                    {{-- <div class="card-body padding height-9"> --}}
+                                    <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Bank Name
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Bank Name Here
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Bank Branch
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Bank Branch Here
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Account Holder's Name
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Account Holder's Name Here
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Account Number
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-12 medium">
+                                                    <h6 class="col-xl-12 col-lg-12">
+                                                        Account Number Here
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- </div> --}}
+                                </div>
+                                <!--end::Form-->
+                            </div>
+                        </div>
+                        <!--end: Card Body-->
+                    </div>
+                    <!--end: Card-->
+                    <!--end: List Widget 10-->
+                </div>
+
+            </div>
         </div>
         <!--end::Card-->
     </div>
@@ -54,7 +162,7 @@
                 <div class="card card-custom card-stretch gutter-b">
                     <!--begin::Header-->
                     <div class="card-header border-0">
-                        <h3 class="card-title font-weight-bolder text-dark">Profile Details</h3>
+                        <h6 class="card-title font-weight-bolder text-dark">Profile Details</h6>
                     </div>
                     <!--end::Header-->
                     <!--begin::Body-->
@@ -64,48 +172,60 @@
                             <!--begin::Header-->
                             <div class="card-header py-3">
                                 <div class="card-title align-items-start flex-column">
-                                    <h3 class="card-label font-weight-bolder text-dark">Personal Information</h3>
+                                    <h6 class="card-label font-weight-bolder text-dark">Personal Information</h6>
                                 </div>
                             </div>
                             <!--end::Header-->
                             <!--begin::Form-->
                             <div class="card">
                                 {{-- <div class="card-body padding height-9"> --}}
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Gender</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->gender}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-5 col-lg-5">Name</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->name}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Date of Birth</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->date_of_birth}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Current Address</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->gender}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Permanent Address</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->date_of_birth}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Position in Company</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->phone}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Department</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->mobileno}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Mobile Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->name}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Phone Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->phone}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->panno}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">PAN Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->phone}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->permanent_address}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Phone Number</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->phone}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->temporary_address}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Date of Birth</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->date_of_birth}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->district}}</h6>
                                 </div>
-                                <div class="row">
-                                    <h6 class="col-xl-4 col-lg-4">Email</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->email}}</h6>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">City</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->city}}</h6>
+                                </div>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Designation Title</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->title}}</h6>
+                                </div>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Designation Level</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->level}}</h6>
+                                </div>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Department</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->department}}</h6>
+                                </div>
+                                <div class="form-group row">
+                                    <h6 class="col-xl-4 col-lg-4">Joined Date</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->joined_date}}</h6>
                                 </div>
 
                                 {{-- </div> --}}
@@ -138,55 +258,7 @@
 <!--end::Aside-->
 <!--begin::Content-->
 <!--begin::Row-->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card card-custom card-stretch gutter-b">
-            <div class="card-header border-0">
-                <h3 class="card-title font-weight-bolder text-dark">Bank Account Details</h3>
-            </div>
-            <div class="flex-row-fluid ml-lg-8">
-                <!--begin::Card-->
-                <div class="card card-custom card-stretch">
-                    <!--begin::Header-->
 
-                    <!--end::Header-->
-                    <!--begin::Form-->
-                    <div class="card">
-                        {{-- <div class="card-body padding height-9"> --}}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4>Bank Name</h4>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4> SwagisteR</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4>Account Number</h4>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4> {{Auth::user()->date_of_birth}}</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- </div> --}}
-                    </div>
-                    <!--end::Form-->
-                </div>
-            </div>
-            <!--end: Card Body-->
-        </div>
-        <!--end: Card-->
-        <!--end: List Widget 10-->
-    </div>
-
-</div>
 <!-- Bank Details -->
 
 <!--end::Content-->

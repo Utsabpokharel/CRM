@@ -13,15 +13,25 @@ class user extends  Authenticatable
     use HasFactory, Notifiable;
     protected $guarded = [];
 
-    public function enquiry(){
+    public function enquiry()
+    {
         return $this->hasMany('App\Models\Admin\EnquiryResponse');
     }
-    public function bank(){
+    public function bank()
+    {
         return $this->hasMany('App\Models\Admin\Bank');
     }
-    
-    public function role(){
-        return $this->belongsTo('App\Models\Admin\role','roleid');
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Admin\role', 'roleid');
+    }
+    public function title()
+    {
+        return $this->belongsTo('App\Models\Admin\title', 'title');
+    }
+    public function level()
+    {
+        return $this->belongsTo('App\Models\Admin\level', 'level');
     }
 }
-

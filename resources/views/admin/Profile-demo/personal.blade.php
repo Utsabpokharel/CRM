@@ -79,15 +79,18 @@
 					</div>
 				</div> -->
 				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Bank Name</label>
+					<label class="col-xl-3 col-lg-3 col-form-label">Full Name</label>
 					<div class="col-lg-9 col-xl-6">
 						<input class="form-control form-control-lg form-control-solid" type="text" value="Nick" />
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
+					<label class="col-xl-3 col-lg-3 col-form-label">Gender</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="text" value="Bold" />
+						<select name="gender" id="gender" class="form-control form-control-solid ">
+							<option value="">Select a Role</option>
+							<option value="Male">Role One</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group row">
@@ -107,13 +110,31 @@
 						<input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" placeholder="Enter Joined Date" />
 					</div>
 				</div>
-
 				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Current Address</label>
+					<label class="col-xl-3 col-lg-3 col-form-label">Phone Number</label>
+					<div class="col-lg-9 col-xl-6">
+						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">Mobile Number</label>
+					<div class="col-lg-9 col-xl-6">
+						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">Email</label>
 					<div class="col-lg-9 col-xl-6">
 						<input class="form-control form-control-lg form-control-solid" type="text" value="" />
 					</div>
 				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">Pan Number</label>
+					<div class="col-lg-9 col-xl-6">
+						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
+					</div>
+				</div>
+
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Permanent Address</label>
 					<div class="col-lg-9 col-xl-6">
@@ -121,13 +142,44 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Position in Company</label>
+					<label class="col-xl-3 col-lg-3 col-form-label">Temporary Address</label>
+					<div class="col-lg-9 col-xl-6">
+						<input class="form-control form-control-lg form-control-solid" type="text" value="" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">District</label>
 					<div class="col-lg-9 col-xl-6">
 						<select name="position" id="position" class="form-control form-control-solid ">
-							<option value="">Select a Position</option>
-							<option value="Male">Front End Designer</option>
-							<option value="Female">Back End Designer</option>
-							<option value="Other">SEO</option>
+							<option value="">Select a District</option>
+							<option value="Male">District One</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">City</label>
+					<div class="col-lg-9 col-xl-6">
+						<select name="position" id="position" class="form-control form-control-solid ">
+							<option value="">Select a City</option>
+							<option value="Male">City One</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">Designation Title</label>
+					<div class="col-lg-9 col-xl-6">
+						<select name="position" id="position" class="form-control form-control-solid ">
+							<option value="">Select a Title</option>
+							<option value="Male">Title One</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-xl-3 col-lg-3 col-form-label">Designation Level</label>
+					<div class="col-lg-9 col-xl-6">
+						<select name="position" id="position" class="form-control form-control-solid ">
+							<option value="">Select a Level</option>
+							<option value="Male">Level One</option>
 						</select>
 					</div>
 				</div>
@@ -137,28 +189,7 @@
 						<select name="department" id="department" class="form-control form-control-solid ">
 							<option value="">Select a Department</option>
 							<option value="Department One">Department Two</option>
-							<option value="Department Two">Department Two</option>
-							<option value="Department Three">Department Three</option>
 						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Mobile Number</label>
-					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
-					</div>
-				</div>
-
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Phone Number</label>
-					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Pan Number</label>
-					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
 					</div>
 				</div>
 				<div class="form-group row">
@@ -167,12 +198,7 @@
 						<input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" placeholder="Enter Joined Date" />
 					</div>
 				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Email</label>
-					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="text" value="" />
-					</div>
-				</div>
+
 
 			</div>
 			<!--end::Body-->

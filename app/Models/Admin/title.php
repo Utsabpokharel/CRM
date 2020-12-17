@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class title extends Model
 {
     use HasFactory;
-    protected $fillable=['title','description'];
+    protected $fillable = ['title', 'description'];
 
     public function staff()
     {
         return $this->hasMany('App\Models\Admin\Staff');
     }
+    public function user()
+    {
+        return $this->hasMany('App\Models\Admin\user');
+    }
 }
-
