@@ -35,8 +35,8 @@
 
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="number" class="form-control form-control-solid" name="phoneno"
-          value="{{$vendor->phoneno}}"/>
+          <input type="number" class="form-control form-control-solid" name="phone"
+          value="{{$vendor->phone}}"/>
         </div>
 
         <div class="form-group">
@@ -131,9 +131,9 @@
         <div class="form-group">
           <label>Mobile Number</label>
           <span class="text-danger">*</span>
-          <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno"
-          value="{{$vendor->mobileno}}" data-validation="required"/>
-          @error('mobileno')
+          <input type="number" class="form-control form-control-solid  @error('mobile') is-invalid @enderror" name="mobile"
+          value="{{$vendor->mobile}}" data-validation="required"/>
+          @error('mobile')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
         </div>
