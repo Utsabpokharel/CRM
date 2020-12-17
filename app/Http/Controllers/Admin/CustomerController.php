@@ -18,7 +18,8 @@ class CustomerController extends Controller
     public function create()
     {
         $district=$this->district();
-        return view('admin.customer.add',compact('district'));
+        $city=$this->city();
+        return view('admin.customer.add',compact('district','city'));
     }
 
     public function store(Request $request)
@@ -73,7 +74,8 @@ class CustomerController extends Controller
     {
         $district=$this->district();
         $customer = Customer::findorfail($id);
-        return view('admin.customer.edit', compact('customer',compact('district')));
+        $city=$this->city();
+        return view('admin.customer.edit', compact('customer',compact('district','city')));
     }
 
     public function update(Request $request, $id)
@@ -184,5 +186,10 @@ class CustomerController extends Controller
     protected function district()
     {
           return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }

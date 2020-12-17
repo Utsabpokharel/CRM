@@ -33,12 +33,11 @@ class VendorController extends Controller
     {
 
         $district=$this->district();
-        return view('admin.vendors.add',compact('district'));
-
         $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
-        return view('admin.vendors.add',compact('levels','titles','departments'));
+        $city=$this->city();
+        return view('admin.vendors.add',compact('levels','titles','departments','city','district'));
 
     }
 
@@ -124,7 +123,8 @@ class VendorController extends Controller
     {
         $district=$this->district();
         $vendor = Vendor::findOrfail($id);
-        return view('admin.vendors.edit', compact('vendor',compact('district')));
+        $city=$this->city();
+        return view('admin.vendors.edit', compact('vendor',compact('district','city')));
     }
 
     /**
@@ -238,5 +238,10 @@ class VendorController extends Controller
     protected function district()
     {
           return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }
