@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class LevelSeeder extends Seeder
 {
@@ -17,5 +18,6 @@ class LevelSeeder extends Seeder
         'level'=>'Mid Level',
         'description'=>'This is Mid Level',
         );
+        DB::table('levels')->insert($level);
     }
 }

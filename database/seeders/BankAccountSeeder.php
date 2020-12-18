@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BankAccountSeeder extends Seeder
 {
@@ -20,5 +21,6 @@ class BankAccountSeeder extends Seeder
             'branch_name'=>'Branch of Super Admin',
             'account_number'=>'1234567899124567'
             );
+            DB::table('banks')->insert($bank);
     }
 }

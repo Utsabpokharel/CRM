@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TitleSeeder extends Seeder
 {
@@ -17,5 +18,6 @@ class TitleSeeder extends Seeder
             'title'=>'Developer',
             'description'=>'This is Mid Level Developer',
             );
+            DB::table('titles')->insert($title);
     }
 }
