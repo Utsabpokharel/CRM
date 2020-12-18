@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             roleSeeder::class,
             districtSeeder::class,
             CitySeeder::class,
+            DepartmentSeeder::class,
+            LevelSeeder::class,
+            TitleSeeder::class,
+            BankAccountSeeder::class,
         ]);
     }
 }

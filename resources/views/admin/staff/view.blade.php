@@ -151,6 +151,7 @@ View All Staff
 						<td>{{$staffs->department_id}}</td>
 						<td>{{$staffs->title['title']}}</td>
 						<td>{{$staffs->level_id}}</td>
+						
 						<td class="text-center"> 
 
 						
