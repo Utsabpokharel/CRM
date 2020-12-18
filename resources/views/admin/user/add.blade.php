@@ -84,8 +84,8 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Mobile Number</label>
-          <input type="number" name="mobile" class="form-control form-control-solid @error('mobile') is-invalid @enderror" placeholder="Enter Mobile Number" />
-          @error('mobile')
+          <input type="number" name="mobileno" class="form-control form-control-solid @error('mobileno') is-invalid @enderror" placeholder="Enter Mobile Number" />
+          @error('mobileno')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
         </div>

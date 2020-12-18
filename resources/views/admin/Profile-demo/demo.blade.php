@@ -70,7 +70,9 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
-                                                        Bank Name Here
+
+                                                            {{$bank->bank_name}}
+
                                                     </h6>
                                                 </div>
                                             </div>
@@ -90,7 +92,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
-                                                        Bank Branch Here
+                                                        {{$bank->branch_name}}
                                                     </h6>
                                                 </div>
                                             </div>
@@ -110,7 +112,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
-                                                        Account Holder's Name Here
+                                                        {{$bank->accountholder_name}}
                                                     </h6>
                                                 </div>
                                             </div>
@@ -130,7 +132,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
-                                                        Account Number Here
+                                                        {{$bank->account_number}}
                                                     </h6>
                                                 </div>
                                             </div>
@@ -216,13 +218,13 @@
                                     <h6 class="col-xl-4 col-lg-4">City</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->city}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Designation Title</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->title}}</h6>
+                                    <h6 class="col-xl-4 col-lg-4">Designation Title</h6> : <h6 class="col-xl-4 col-lg-4"> {{$title->title}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Designation Level</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->level}}</h6>
+                                    <h6 class="col-xl-4 col-lg-4">Designation Level</h6> : <h6 class="col-xl-4 col-lg-4"> {{$level->level}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Department</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->department}}</h6>
+                                    <h6 class="col-xl-4 col-lg-4">Department</h6> : <h6 class="col-xl-4 col-lg-4"> {{$department->dep_name}}</h6>
                                 </div>
                                 <div class="form-group row">
                                     <h6 class="col-xl-4 col-lg-4">Joined Date</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->joined_date}}</h6>

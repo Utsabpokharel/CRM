@@ -130,7 +130,7 @@
 							<td>{{$user->email}}</td>
 							<td>{{$user->phone}}</td>
 							<td>{{$user->gender}}</td>
-							<td>{{$user->roleid}}</td>
+							<td>{{$user->role['name']}}</td>
 							<td class="text-center">
 								<a href="javascript::" class="deleteData" rel1="{{route('user.destroy',$user->id)}}">
 									<i class="fa fa-trash text-danger"></i>

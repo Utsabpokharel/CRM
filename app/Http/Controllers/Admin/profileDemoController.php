@@ -6,7 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\Bank;
-use App\Models\Admin\user;
+use App\Models\Admin\Department;
+use App\Models\Admin\level;
+use App\Models\Admin\title;
+use Illuminate\Support\Facades\DB;
+
+// use App\Models\Admin\user;
 
 class profileDemoController extends Controller
 {
@@ -17,9 +22,15 @@ class profileDemoController extends Controller
      */
     public function index()
     {
-        $abc = user::all();
-        $data = Bank::all();
-        return view('admin.Profile-demo.demo', compact('data'));
+        $title = title::find(1);
+        $level = level::find(1);
+        $department = Department::find(1);
+        $user = Auth::user()->id;
+        // dd($department);
+        $bank = Bank::where('user_id',$user)->first();
+        // $bank = $bank->get('');
+        // dd($bank->bank_name);
+        return view('admin.Profile-demo.demo', compact('title','department','level','bank'));
     }
 
     /**
