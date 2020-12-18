@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Income;
+use App\Models\Admin\incomecategory;
 
 class IncomeController extends Controller
 {
@@ -15,7 +16,8 @@ class IncomeController extends Controller
     }
     public function create()
     {
-    	return view('admin.income.create');
+      $categories=incomecategory::all();
+    	return view('admin.income.create', compact('categories'));
     }
     public function store(Request $request)
     {
@@ -25,8 +27,9 @@ class IncomeController extends Controller
     }
     public function edit($id)
     {
+      $categories=incomecategory::all();
     	$income=Income::findorfail($id);
-    	return view('admin.income.edit',compact('income'));
+    	return view('admin.income.edit',compact('income','categories'));
     }
      public function update(Request  $request, $id)
     {

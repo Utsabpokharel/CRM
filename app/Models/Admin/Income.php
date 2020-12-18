@@ -10,7 +10,10 @@ class Income extends Model
 {
     use HasFactory;
     use softDeletes;
-    protected $guarded=
-    [
-    ];
+    protected $guarded=[];
+
+    public function income(){
+        return $this->belongsTo('App\Models\Admin\incomecategory',' name');
+    }
+    
 }

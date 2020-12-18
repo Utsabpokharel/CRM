@@ -13,6 +13,7 @@ use App\Models\Admin\Department;
 use App\Models\Admin\title;
 use App\Models\Admin\level;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
@@ -28,7 +29,9 @@ class userController extends Controller
         $roles=role::all();
         $titles=title::all();
         $levels=level::all();
-        return view('Admin.user.add',compact('staffs','vendors','customers','roles','departments','titles','levels'));
+        $district=$this->district();
+        $city=$this->city();
+        return view('Admin.user.add',compact('staffs','vendors','customers','roles','departments','titles','levels','district','city'));
     }
     public function store(Request $request){
         // $request->validate([
@@ -60,7 +63,12 @@ class userController extends Controller
         $customers=Customer::all();
         $roles=role::all();
         $user=user::findorfail($id);
-        return view('Admin.user.edit',compact('user','staffs','vendors','customers','roles'));
+        $departments=Department::all();
+        $titles=title::all();
+        $levels=level::all();
+        $district=$this->district();
+        $city=$this->city();
+        return view('Admin.user.edit',compact('user','staffs','vendors','customers','roles','departments','titles','levels','district','city'));
     }
     public function updateUser(Request $request,$id){
         // $request->validate([
@@ -77,5 +85,15 @@ class userController extends Controller
         $user = user::find($id);
         $user->update($data);
         return redirect()->route('user.view')->with('success','User updated sucessfully');
+    }
+
+    protected function district()
+    {
+        return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }
