@@ -131,15 +131,14 @@
 					        	@foreach($banks as $bank)
 					            <tr>
 					                <td>{{$loop->index+1}}</td>
-					                
-					                <td>{{$bank->user_id}}</td>
+					                <td>{{$bank->user['name']}}</td>
 					                <td>{{$bank->accountholder_name}}</td>
 					                <td>{{$bank->bank_name}}</td>
 					                <td>{{$bank->branch_name}}</td>
 					                <td>{{$bank->account_number}}</td>
 
-					                
-					                <td class="text-center"> 
+
+					                <td class="text-center">
 								@if(!empty($trashed))
 								<a class="deleteData" href="javascript::" rel1="{{route('bank.deleteTrash',$bank->id)}}">
 								<i class="fa fa-trash text-danger"></i>
@@ -157,12 +156,12 @@
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
 								@endif
-						</td> 
+						</td>
 					            </tr>
-					           
+
 					           @endforeach
-					           
-					           
+
+
 					        </tbody>
 					    </table>
 						<!--end: Datatable-->
@@ -172,7 +171,7 @@
 		</div>
 		@endsection
 		@push('scripts')
-			
+
 		@endpush
 
 
