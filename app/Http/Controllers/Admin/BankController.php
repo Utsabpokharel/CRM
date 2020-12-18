@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Bank;
-use App\Models\Admin\User;
+use App\Models\Admin\user;
 use Validate;
 
 class BankController extends Controller
 {
     public function index()
     {
+
         $banks = Bank::all();
 
         return view('admin.bankaccount.index', compact('banks'));
@@ -19,26 +20,24 @@ class BankController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        $users = user::all();
         return view('admin.bankaccount.add', compact('users'));
     }
     public function store(Request $request)
     {
         $request->validate([
-            /*'user_id' => 'required',*/
-            'accountholder_name' => 'required|min:3|max:20|alpha',
+            'user_id' => 'required',
+            'accountholder_name' => 'required|min:3|max:50',
             'bank_name' => 'required',
             'branch_name' => 'required',
             'account_number' => 'required|regex:/^([0-9]*)$/|min:10',
 
         ], [
-            /*'user_id.required'=>'User Name is required',
-            */
+            'user_id.required'=>'User Name is required',
             'accountholder_name.min' => 'The Account Holder Name must be at least 3 characters.',
-            'accountholder_name.max' => 'The Account Holder Name Name may not be greater than 20 characters.',
+            'accountholder_name.max' => 'The Account Holder Name Name may not be greater than 50 characters.',
             'accountholder_name.required' => 'Account Holder Name is required',
             'bank_name.required' => 'Bank Name is required',
-
             'account_number.required' => 'Account Number is required',
 
 
@@ -53,7 +52,7 @@ class BankController extends Controller
 
     public function edit($id)
     {
-        $users = User::all();
+        $users = user::all();
         $bank = Bank::findorfail($id);
         return view('admin.bankaccount.edit', compact('bank'), compact('users'));
     }
@@ -61,20 +60,18 @@ class BankController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            /*'user_id' => 'required',*/
+            'user_id' => 'required',
             'accountholder_name' => 'required|min:3|max:20|alpha',
             'bank_name' => 'required',
             'branch_name' => 'required',
             'account_number' => 'required|regex:/^([0-9]*)$/|min:10',
 
         ], [
-            /*'user_id.required'=>'User Name is required',*/
-
+            'user_id.required'=>'User Name is required',
             'accountholder_name.min' => 'The Account Holder Name must be at least 3 characters.',
             'accountholder_name.max' => 'The Account Holder Name Name may not be greater than 20 characters.',
             'accountholder_name.required' => 'Account Holder Name is required',
             'bank_name.required' => 'Bank Name is required',
-
             'account_number.required' => 'Account Number is required',
 
 

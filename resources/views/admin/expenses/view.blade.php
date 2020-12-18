@@ -109,7 +109,7 @@
                   </g>
                 </svg>
                 <!--end::Svg Icon-->
-              </span>New Record</a>
+              </span>Add Expenses</a>&nbsp;&nbsp;
                 @if(!empty($trashed))
               <a href="{{route('expenses.view')}}" id=""
                       class="btn btn-warning">
@@ -133,7 +133,7 @@
             <th>Date</th>
             <th>Particular</th>
             <th>Amount</th>
-            <th>Category ID</th>
+            <th>Category</th>
             <th>Mode of Payment</th>
             <th>Expenditure Status</th>
             <th>Actions</th>
@@ -171,18 +171,7 @@
           </tr>
           @endforeach
           </tbody>
-          <tfoot>
-          <tr>
-             <th>ID</th>
-            <th>Date</th>
-            <th>Particular</th>
-            <th>Amount</th>
-            <th>Category ID</th>
-            <th>Mode of Payment</th>
-            <th>Expenditure Status</th>
-            <th>Actions</th>
-          </tr>
-                  </tbody>
+          
               </table>
             <!--end: Datatable-->
           </div>

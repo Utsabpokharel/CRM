@@ -34,7 +34,6 @@
                     <label>Phone Number</label>
                     <input type="number" class="form-control form-control-solid" name="phoneno" placeholder="Enter Phone Number" data-validation="required" />
                 </div>
-
                 <div class="form-group">
                     <label>Email Address</label>
                     <span class="text-danger">*</span>
@@ -186,6 +185,9 @@
                     @error('department_id')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button type="reset" class="btn btn-danger mr-2">Reset</button>
                 </div>
 
 

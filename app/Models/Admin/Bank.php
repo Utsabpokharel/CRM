@@ -18,5 +18,5 @@ class Bank extends Model
    {
    	return $this->belongsTo('App\Models\Admin\user','user_id');
    }
-     
+
 }
