@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Expenses;
 use App\Http\Requests\ExpensesValidator;
 use App\Models\Admin\Expensescategory;
-
+use App\Models\Admin\Staff;
 
 class Expensescontroller extends Controller
 {
@@ -19,8 +19,10 @@ class Expensescontroller extends Controller
     }
     public function create()
     {
+      $categories=Expensescategory::all();
       $expensescategories=$this->getCategories();
-    	return view('admin.expenses.create',compact('expensescategories'));
+      $staffs=Staff::all();
+    	return view('admin.expenses.create',compact('expensescategories','categories','staffs'));
     }
     public function store(ExpensesValidator $request)
     {
@@ -31,8 +33,10 @@ class Expensescontroller extends Controller
     public function edit($id)
     {
       $expensescategories=$this->getCategories();
-    	$expenses=Expenses::findorfail($id);
-    	return view('admin.expenses.edit',compact('expenses','expensescategories'));
+      $expenses=Expenses::findorfail($id);
+      $categories=Expensescategory::all();
+      $expense=Staff::all();
+    	return view('admin.expenses.edit',compact('expenses','expensescategories','categories','expense'));
     }
     public function update(Request  $request, $id)
     {

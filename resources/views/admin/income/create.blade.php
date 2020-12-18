@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Add Expenses')
+@section('page_title','Add Incomes')
 @section('content')
 <style type="text/css">
  p {
@@ -12,63 +12,57 @@
 <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-           <label>Date:</label>
+           <label>Date</label>
            @error('date')
            <p>The Date is required.</p>
            @enderror
                    <input type="date" name="date" class="form-control form-control-solid" placeholder="Enter Date" />
-                 <span class="form-text text-muted">Please enter Date</span>
              </div>
            </div>        
          <div class="col-md-6">
            <div class="form-group">
-           <label>Amount:</label>
+           <label>Amount</label>
            @error('amount')
            <p>The Amount is required.</p>
            @enderror
-           <input type="number" name="amount" class="form-control form-control-solid" placeholder="     Enter Amount"/>
-           <span class="form-text text-muted">Please enter amount </span>
+           <input type="number" name="amount" class="form-control form-control-solid" placeholder="Enter Amount"/>
           </div>
           </div><div class="col-md-6">
           <div class="form-group">
-                                    <label>Select Mode of CategoryID</label>
+                                    <label>Select Category</label>
                                     @error('category_id')
-                                 <p>The Category ID is required.</p>
+                                 <p>The Category is required.</p>
                                         @enderror
-                                    <select name="category_id"  class="form-control form-control-solid"  value=""
-                                            >
-                                        <option selected disabled="">Select Mode of CategoryID</option>
-                                        <option value="Kathmandu">Kathamandu</option>
-                                        <option value="Pokhara">Pokhara</option>
-                                        <option value="Hetauda">Hetauda</option>
+                                    <select name="category_id"  class="form-control form-control-solid"  value="">
+                                        <option selected disabled="">Select Category</option>
+                                        @foreach($categories as $category)
+                                <option value="{{$category->id}}" class="form-control">{{$category->name}}</option>
+                            @endforeach
                                     </select>
-                                     <span class="form-text text-muted">Please select your Mode of CategoryID</span>
                                 </div>
                               </div>
             <div class="col-md-6">
             <div class="form-group">
-            <label>Paid By:</label>
+            <label>Paid By</label>
        @error('paid_by')
                <p>The Paid By is required.</p>
                   @enderror
             <input type="text" name="paid_by" class="form-control form-control-solid" placeholder="Enter Paid By"/>
-            <span class="form-text text-muted">Your Paid By</span>
             </div>
             </div>
             <div class="col-md-6">
            <div class="form-group">
-                                    <label>Select Mode of Payment</label>
+                                    <label>Payment Method</label>
                                     @error('mode_of_payment')
-                             <p>The Mode of Payment is required.</p>
+                             <p>Payment Method is required.</p>
                                           @enderror
                                     <select name="mode_of_payment"  class="form-control form-control-solid"  value=""
                                             >
-                                        <option selected disabled="">Select Mode of Payment</option>
-                                        <option value="bank">bank</option>
-                                        <option value="esewa">esewa</option>
-                                        <option value="khalti">khalti</option>
+                                        <option selected disabled="">Select Payment Method</option>
+                                        <option value="bank">Bank</option>
+                                        <option value="esewa">Esewa</option>
+                                        <option value="khalti">Khalti</option>
                                     </select>
-                                     <span class="form-text text-muted">Please select your Mode of Payment</span>
                                 </div>
                               </div>
            
@@ -79,13 +73,13 @@
                              <p>The Received By is required.</p>
                                           @enderror
       <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By"/>
-      <span class="form-text text-muted">Please enter your Received By</span>
      </div>
                 </div>
               </div>
                <div class="card-footer">
-          <input type="submit" value="submit" class="btn btn-success">
-          <input type="reset" value="reset" class="btn btn-danger">
+          <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button> 
+          <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
+          <a href="{{route('income.view')}}" class="btn btn-danger">Cancel</a>
         </div>
   </form>
 </div>

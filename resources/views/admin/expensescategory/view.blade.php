@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','View Expensescategory')
+@section('page_title','View Expense Category')
 @section('content')
 <div class="page-content-wrapper ">
   <div class="page-bar">
@@ -24,7 +24,7 @@
           <span class="card-icon">
              <i class="far fa-money-bill-alt"></i>
           </span>
-          <h3 class="card-label">Expensescategory</h3>
+          <h3 class="card-label">Expense Category</h3>
         </div>
         <div class="card-toolbar">
           <!--begin::Dropdown-->
@@ -104,7 +104,7 @@
                   </g>
                 </svg>
                 <!--end::Svg Icon-->
-              </span>New Record</a>
+              </span>Add Expense Category</a>
               <!--end::Button-->
             </div>
           </div>
@@ -137,15 +137,6 @@
           </tr>
           @endforeach
           </tbody>
-          <tfoot>
-          <tr>
-            <th>Record ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-
-                  </tbody>
               </table>
             <!--end: Datatable-->
           </div>

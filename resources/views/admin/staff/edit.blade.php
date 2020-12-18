@@ -244,7 +244,6 @@
                         <input type="checkbox" id="Usercheck" value="1" name="ifuser" checked>
                         <span>Register For User</span>
                     </div>
-                    <div>
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Update</button>

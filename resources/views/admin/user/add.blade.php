@@ -151,10 +151,12 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>District</label>
-          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" name="district" data-validation="required" >
-          <option selected value="">Please Select One...</option>
-          <option value="abcd">abcd</option>
-          </select>
+          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" placeholder="Please Select...">
+          <datalist id='districtname'>
+          @foreach($district as $districts)
+          <option value="{{$districts->district_name}}"> </option>
+          @endforeach
+          </datalist>
 
           @error('district')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
@@ -165,11 +167,13 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>City</label>
-          <select name="city" id="city"
-          class="form-control form-control-solid @error('city') is-invalid @enderror">
-          <option selected value="">Please Select One...</option>
-          <option value="abcd">abcd</option>
-          </select>
+          <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+            <datalist id='cityname'>
+              @foreach($city as $cities)
+              <option value="{{$cities->city_name}}"> </option>
+              @endforeach
+            </datalist>
+            
           @error('city')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
@@ -234,13 +238,14 @@
         <div class="form-group">
           <label>Joined Date</label>
           <input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror"
-          name="joined_date" placeholder="Enter Joined Date"/>
+          name="joined_date"/>
           @error('joined_date')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
         </div>
       </div>
     </div>
+  
     <div class="card-footer">
       <button type="submit" class="btn btn-primary mr-2" value="submit">Add</button>
       <button type="reset" class="btn btn-secondary" value="reset">Reset</button>

@@ -290,8 +290,7 @@
                     <input type="checkbox" id="Usercheck" name="ifuser" value='1' checked>
                     <span>Register For User</span>
                 </div>
-                <div>
-
+                
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button type="reset" class="btn btn-danger mr-2">Reset</button>
