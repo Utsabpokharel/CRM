@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DepartmentSeeder extends Seeder
 {
@@ -18,5 +19,6 @@ class DepartmentSeeder extends Seeder
             'dep_description'=>'This is IT Department',
 
         );
+        DB::table('departments')->insert($department);
     }
 }
