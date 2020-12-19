@@ -274,8 +274,9 @@
                     <span>Register For User</span>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button type="reset" class="btn btn-danger mr-2">Reset</button>
+                <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button>
+                <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
+                <a href="{{route('staff.view')}}" class="btn btn-danger">Cancel</a>
                 </div>
         </form>
     </div>
