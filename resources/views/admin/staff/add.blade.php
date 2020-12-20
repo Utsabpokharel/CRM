@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <label>First Name</label>
                     <span class="text-danger">*</span>
-                    <input type="text" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname" placeholder="Enter First Name" />
+                    <input type="text" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname" placeholder="Enter First Name" value="{{old('fname','')}}"/>
                     @error('fname')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label>Gender</label>
                     <span class="text-danger">*</span>
-                    <select name="gender" id="gender" class="form-control form-control-solid @error('gender') is-invalid @enderror" name="gender" data-validation="required">
+                    <select name="gender" id="gender" class="form-control form-control-solid @error('gender') is-invalid @enderror" name="gender" data-validation="required" value="{{old('gender','')}}">
                         <option selected disabled="">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -32,12 +32,12 @@
 
                 <div class="form-group">
                     <label>Phone Number</label>
-                    <input type="number" class="form-control form-control-solid" name="phoneno" placeholder="Enter Phone Number" data-validation="required" />
+                    <input type="number" class="form-control form-control-solid" name="phoneno" placeholder="Enter Phone Number" data-validation="required" value="{{old('phoneno','')}}"/>
                 </div>
                 <div class="form-group">
                     <label>Email Address</label>
                     <span class="text-danger">*</span>
-                    <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter Email Address" />
+                    <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter Email Address" value="{{old('email','')}}"/>
                     @error('email')
                     <span class="invalid-feedback" role="alert"> {{$message}}</span>
                     @enderror
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label>Password</label>
                     <span class="text-danger">*</span>
-                    <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter Password" />
+                    <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter Password" value="{{old('password','')}}" />
                     @error('password')
                     <span class="invalid-feedback" role="alert"> {{$message}}</span>
                     @enderror
@@ -56,7 +56,7 @@
                 <div class="form-group">
                     <label>Permanent Address</label>
                     <span class="text-danger">*</span>
-                    <input type="text" class="form-control form-control-solid @error('permanent_address') is-invalid @enderror" name="permanent_address" placeholder="Enter Permanent Address" />
+                    <input type="text" class="form-control form-control-solid @error('permanent_address') is-invalid @enderror" name="permanent_address" placeholder="Enter Permanent Address" value="{{old('permanent_address','')}}" />
                     @error('permanent_address')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
@@ -65,7 +65,7 @@
                 <div class="form-group">
                     <label>District</label>
                     <span class="text-danger">*</span>
-                    <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select...">
+                    <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select..." value="{{old('district','')}}">
                     <datalist id='districtname'>
                         @foreach($district as $districts)
                         <option value="{{$districts->district_name}}"> </option>
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     <label>Designation Title</label>
                     <span class="text-danger">*</span>
-                    <select name="title" id="title" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required">
+                    <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required" value="{{old('title_id','')}}">
                         <option selected value="">Please Select...</option>
                         @foreach($titles as $title)
                         <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label>Designation Level</label>
                     <span class="text-danger">*</span>
-                    <select name="level_id" id="level_id" class="form-control form-control-solid @error('level_id') is-invalid @enderror" data-validation="required">
+                    <select name="level_id" id="level_id" class="form-control form-control-solid @error('level_id') is-invalid @enderror" data-validation="required" value="{{old('level_id','')}}">
                         <option selected value="">Please Select...</option>
                         @foreach($levels as $level)
                         <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
@@ -111,7 +111,7 @@
                 <div class="form-group">
                     <label>Last Name</label>
                     <span class="text-danger">*</span>
-                    <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname" placeholder="Enter Last Name" />
+                    <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname" placeholder="Enter Last Name" value="{{old('lname','')}}" />
                     @error('lname')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
@@ -120,7 +120,7 @@
                 <div class="form-group">
                     <label>Date of Birth</label>
                     <span class="text-danger">*</span>
-                    <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob" />
+                    <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dob" value="{{old('dob','')}}" />
                     @error('dob')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
@@ -129,7 +129,7 @@
                 <div class="form-group">
                     <label>Mobile Number</label>
                     <span class="text-danger">*</span>
-                    <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno" placeholder="Enter Mobile Number" data-validation="required" />
+                    <input type="number" class="form-control form-control-solid  @error('mobileno') is-invalid @enderror" name="mobileno" placeholder="Enter Mobile Number" data-validation="required" value="{{old('mobileno','')}}"/>
                     @error('mobileno')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
@@ -137,13 +137,13 @@
 
                 <div class="form-group">
                     <label>PAN Number</label>
-                    <input type="number" class="form-control form-control-solid" name="panno" placeholder="Enter PAN Number" data-validation="required" />
+                    <input type="number" class="form-control form-control-solid" name="panno" placeholder="Enter PAN Number" data-validation="required" value="{{old('panno','')}}"/>
                 </div>
 
                 <div class="form-group">
                     <label>Confirm Password</label>
                     <span class="text-danger">*</span>
-                    <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror" id="password" name="confirm_password" placeholder="Confirm Password" />
+                    <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror" id="password" name="confirm_password" placeholder="Confirm Password" value="{{old('confirm_password','')}}" />
                     @error('confirm_password')
                     <span class="invalid-feedback" role="alert"> {{$message}}</span>
                     @enderror
@@ -152,7 +152,7 @@
                 <div class="form-group">
                     <label>Temporary Address</label>
                     <span class="text-danger">*</span>
-                    <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address" />
+                    <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address" value="{{old('temporary_address','')}}"/>
                     @error('temporary_address')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
@@ -161,7 +161,7 @@
                 <div class="form-group">
                     <label>City</label>
                     <span class="text-danger">*</span>
-                    <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+                    <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select..." value="{{old('city','')}}">
                     <datalist id='cityname'>
                         @foreach($city as $cities)
                         <option value="{{$cities->city_name}}"> </option>
@@ -175,7 +175,7 @@
                 <div class="form-group">
                     <label>Department</label>
                     <span class="text-danger">*</span>
-                    <select name="department_id" id="department_id" class="form-control form-control-solid @error('department_id') is-invalid @enderror" data-validation="required">
+                    <select name="department_id" id="department_id" class="form-control form-control-solid @error('department_id') is-invalid @enderror" data-validation="required" value="{{old('department_id','')}}">
                         <option selected value="">Please Select...</option>
                         @foreach($departments as $department)
                         <option value="{{$department->id}}" class="form-control">{{$department->dep_name}}</option>
@@ -193,7 +193,7 @@
                 <div class="form-group">
                     <label>Joined Date</label>
                     <span class="text-danger">*</span>
-                    <input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" placeholder="Enter Joined Date" />
+                    <input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" placeholder="Enter Joined Date" value="{{old('joined_date','')}}"/>
                     @error('joined_date')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror

@@ -11,7 +11,7 @@ class IncomeController extends Controller
 {
     public function view()
     {
-    	$income=Income::all(); 
+    	$income=Income::all();
     	return view('admin.income.view',compact('income'));
     }
     public function create()
@@ -54,7 +54,7 @@ class IncomeController extends Controller
       $income=Income::findorfail($id);
       $income->delete();
       return back()->with('flash_error','Deleted Successfully')->with('warning',"Deleted Successfully");
-    
+
    }
    public function deletetrashed($id)
   {
@@ -63,4 +63,4 @@ class IncomeController extends Controller
     return back()->with('flash_error','Income has been deleted from trashed');
 
   }
-} 
+}

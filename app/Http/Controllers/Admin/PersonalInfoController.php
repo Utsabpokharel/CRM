@@ -21,7 +21,7 @@ class PersonalInfoController extends Controller
         $data = $request->all();
         $user = user::find($id);
         $user->update($data);
-        return redirect()->route('admin.Profile-demo.personal')->with('success', 'User updated sucessfully');
+        return redirect()->route('profile.index')->with('success', 'User updated sucessfully');
     }
 
     protected function district()
