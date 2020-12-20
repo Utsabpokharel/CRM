@@ -79,7 +79,7 @@
                 <div class="form-group">
                     <label>Designation Title</label>
                     <span class="text-danger">*</span>
-                    <select name="title[]" id="title" multiple class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required">
+                    <select name="title" id="title" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required">
                         <option selected value="">Please Select...</option>
                         @foreach($titles as $title)
                         <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
@@ -185,10 +185,7 @@
                     @error('department_id')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
-                <div class="card-footer">
-                <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button>
-                <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
-                <a href="{{route('staff.view')}}" class="btn btn-danger">Cancel</a>
+                
                 </div>
 
 
@@ -254,12 +251,13 @@
             </div>
             <div>
 
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button type="reset" class="btn btn-danger mr-2">Reset</button>
-                </div>
+            <div class="card-footer">
+                <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button>
+                <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
+                <a href="{{route('staff.view')}}" class="btn btn-danger">Cancel</a>
+            </div>
     </form>
-</div>
+
 
 
 @endsection
