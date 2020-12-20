@@ -143,7 +143,7 @@
             <td>{{$key+1}}</td>
             <td>{{$incomes->date}}</td>
             <td>{{$incomes->amount}}</td>
-            <td>{{$incomes->category_id}}</td>
+            <td>{{$incomes->category['name']}}</td>
             <td>{{$incomes->mode_of_payment}}</td>
              <td class="text-center">
               @if(!empty($trashed))
