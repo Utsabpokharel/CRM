@@ -28,6 +28,7 @@ class user extends  Authenticatable
     }
     public function title()
     {
+
         return $this->belongsTo('App\Models\Admin\title', 'title');
     }
     public function level()
