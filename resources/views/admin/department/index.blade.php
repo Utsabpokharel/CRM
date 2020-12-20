@@ -65,9 +65,6 @@
                                 <a href="{{route('edit_department',$data->id)}}">
                                     <i class="fa fa-paper-plane text-primary "></i>
                                 </a>
-                                <a href="{{route('delete_department',$data->id)}}">
-                                    <i class="fa fa-paper-plane text-primary "></i>
-                                </a>
                                 <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('delete_department', $data->id)}}"><span class="fa fa-trash"></span>
                                 </a>
 

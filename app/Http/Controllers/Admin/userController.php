@@ -14,7 +14,7 @@ use App\Models\Admin\title;
 use App\Models\Admin\level;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use Thebikramlama\Sparrow\Sparrow;
+
 
 class userController extends Controller
 {
@@ -54,7 +54,6 @@ class userController extends Controller
         // $imagepath='images/users/';
         // $data['image']=save_image($request->image,150,150,$imagepath);
         user::create($data);
-        $sms = Sparrow::send('9862043408','Hello Super Admin!!! New User has been created in your system.');
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }
     public function destroy($id)
