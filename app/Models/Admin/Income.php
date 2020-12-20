@@ -12,8 +12,8 @@ class Income extends Model
     use softDeletes;
     protected $guarded=[];
 
-    public function income(){
-        return $this->belongsTo('App\Models\Admin\incomecategory',' name');
+    public function category(){
+        return $this->belongsTo('App\Models\Admin\incomecategory','category_id');
     }
-    
+
 }

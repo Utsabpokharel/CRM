@@ -44,7 +44,7 @@ class districtSeeder extends Seeder
             array('district_name' => 'Kavrepalanchowk','province'=>'3',),
             array('district_name' => 'Rasuwa','province'=>'3',),
             array('district_name' => 'Dolakha','province'=>'3',),
-            array('district_name' => 'Kathmandi','province'=>'3',),
+            array('district_name' => 'Kathmandu','province'=>'3',),
             array('district_name' => 'Bhaktapur','province'=>'3',),
             array('district_name' => 'Lalitpur','province'=>'3',),
             array('district_name' => 'Nuwakot','province'=>'3',),

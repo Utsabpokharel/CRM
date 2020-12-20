@@ -101,7 +101,7 @@
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Date of Birth</label>
 					<div class="col-lg-9 col-xl-6">
-						<input type="date" name="date_of_birth" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror" placeholder="Select your Birth Date" value="{{Auth::user()->date_of_birth}}" />
+						<input type="date" name="date_of_birth" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror" value="{{Auth::user()->date_of_birth}}" />
 						@error('date_of_birth')
 						<span class="invalid-feedback" role="alert">{{$message}}</span>
 						@enderror
