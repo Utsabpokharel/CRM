@@ -27,10 +27,10 @@ class profileDemoController extends Controller
         $department = Department::find(1);
         $user = Auth::user()->id;
         // dd($department);
-        $bank = Bank::where('user_id',$user)->first();
+        $bank = Bank::where('user_id', $user)->first();
         // $bank = $bank->get('');
         // dd($bank->bank_name);
-        return view('admin.Profile-demo.demo', compact('title','department','level','bank'));
+        return view('admin.Profile-demo.demo', compact('title', 'department', 'level', 'bank', 'user'));
     }
 
     /**
@@ -97,9 +97,5 @@ class profileDemoController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function personal()
-    {
-        return view('admin.Profile-demo.personal');
     }
 }

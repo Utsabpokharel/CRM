@@ -35,7 +35,7 @@
 				<!--end::Contact-->
 				<!--begin::Nav-->
 				<a href="{{url('admin/profile')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block ">Profile Overview</a>
-				<a href="{{route('personal')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Personal info</a>
+				<a href="{{route('personal',$user->id)}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Personal info</a>
 				<a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
 				<a href="{{route('email')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
 				<!--end::Nav-->
@@ -48,13 +48,15 @@
 	<!--begin::Content-->
 	<div class="flex-row-fluid ml-lg-8">
 		<!--begin::Row-->
-		<form class="form">
+		<form class="form" method="post" action="{{route('personal_update',$user)}}">
+			@csrf
+			@method('post')
 			<!--begin::Body-->
 			<div class="card-body">
 				<div class="form-group row">
 					<h3 class="card-label font-weight-bolder text-dark">Personal Information</h3>
 					<div class="col-lg-9 col-xl-6">
-						<button type="reset" class="btn btn-success mr-2">Save Changes</button>
+						<button type="submit" class="btn btn-success mr-2">Save Changes</button>
 						<button type="reset" class="btn btn-secondary">Cancel</button>
 					</div>
 				</div>
@@ -81,23 +83,15 @@
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Full Name</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="text" value="Nick" />
+						<input class="form-control form-control-lg form-control-solid" type="text" value="{{Auth::user()->name}}" />
 					</div>
 				</div>
+
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Gender</label>
 					<div class="col-lg-9 col-xl-6">
 						<select name="gender" id="gender" class="form-control form-control-solid ">
-							<option value="">Select a Role</option>
-							<option value="Male">Role One</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Gender</label>
-					<div class="col-lg-9 col-xl-6">
-						<select name="gender" id="gender" class="form-control form-control-solid ">
-							<option value="">Select a Gender</option>
+							<option value="{{Auth::user()->gender}}">{{Auth::user()->gender}}</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
 							<option value="Other">Others</option>
@@ -107,101 +101,78 @@
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Date of Birth</label>
 					<div class="col-lg-9 col-xl-6">
-						<input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" placeholder="Enter Joined Date" />
+						<input type="date" name="date_of_birth" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror" placeholder="Select your Birth Date" value="{{Auth::user()->date_of_birth}}" />
+						@error('date_of_birth')
+						<span class="invalid-feedback" role="alert">{{$message}}</span>
+						@enderror
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Phone Number</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
+						<input class="form-control form-control-lg form-control-solid" type="number" value="{{Auth::user()->phone}}" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Mobile Number</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
+						<input class="form-control form-control-lg form-control-solid" type="number" value="{{Auth::user()->mobileno}}" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Email</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="text" value="" />
+						<input class="form-control form-control-lg form-control-solid" type="text" value="{{Auth::user()->email}}" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Pan Number</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="number" value="" />
+						<input class="form-control form-control-lg form-control-solid" type="number" value="{{Auth::user()->panno}}" />
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Permanent Address</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="text" value="" />
+						<input class="form-control form-control-lg form-control-solid" type="text" value="{{Auth::user()->permanent_address}}" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">Temporary Address</label>
 					<div class="col-lg-9 col-xl-6">
-						<input class="form-control form-control-lg form-control-solid" type="text" value="" />
+						<input class="form-control form-control-lg form-control-solid" type="text" value="{{Auth::user()->temporary_address}}" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">District</label>
 					<div class="col-lg-9 col-xl-6">
-						<select name="position" id="position" class="form-control form-control-solid ">
-							<option value="">Select a District</option>
-							<option value="Male">District One</option>
-						</select>
+						<input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select..." value="{{Auth::user()->district}}">
+						<datalist id='districtname'>
+							@foreach($district as $districts)
+							<option value="{{$districts->district_name}}"> </option>
+							@endforeach
+						</datalist>
+						@error('district')
+						<span class="invalid-feedback" role="alert">{{$message}}</span>
+						@enderror
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-xl-3 col-lg-3 col-form-label">City</label>
 					<div class="col-lg-9 col-xl-6">
-						<select name="position" id="position" class="form-control form-control-solid ">
-							<option value="">Select a City</option>
-							<option value="Male">City One</option>
-						</select>
+						<input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select..." value="{{Auth::user()->city}}">
+						<datalist id='cityname'>
+							@foreach($city as $cities)
+							<option value="{{$cities->city_name}}"> </option>
+							@endforeach
+						</datalist>
+						@error('city')
+						<span class="invalid-feedback" role="alert"> {{$message}} </span>
+						@enderror
 					</div>
 				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Designation Title</label>
-					<div class="col-lg-9 col-xl-6">
-						<select name="position" id="position" class="form-control form-control-solid ">
-							<option value="">Select a Title</option>
-							<option value="Male">Title One</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Designation Level</label>
-					<div class="col-lg-9 col-xl-6">
-						<select name="position" id="position" class="form-control form-control-solid ">
-							<option value="">Select a Level</option>
-							<option value="Male">Level One</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Department</label>
-					<div class="col-lg-9 col-xl-6">
-						<select name="department" id="department" class="form-control form-control-solid ">
-							<option value="">Select a Department</option>
-							<option value="Department One">Department Two</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-xl-3 col-lg-3 col-form-label">Joined Date</label>
-					<div class="col-lg-9 col-xl-6">
-						<input type="date" class="form-control form-control-solid @error('joined_date') is-invalid @enderror" name="joined_date" placeholder="Enter Joined Date" />
-					</div>
-				</div>
-
-
 			</div>
-			<!--end::Body-->
 		</form>
 		<!--end::Row-->
 		<!--begin::Advance Table Widget 5-->
