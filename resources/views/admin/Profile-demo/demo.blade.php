@@ -35,7 +35,7 @@
                 <!--end::Contact-->
                 <!--begin::Nav-->
                 <a href="{{url('admin/profile')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Profile Overview</a>
-                <a href="{{route('personal')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Personal info</a>
+                <a href="{{route('personal',$user)}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Personal info</a>
                 <a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
                 <a href="{{route('email')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
                 <!--end::Nav-->
@@ -71,7 +71,7 @@
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
 
-                                                            {{$bank->bank_name}}
+                                                        {{$bank->bank_name}}
 
                                                     </h6>
                                                 </div>
@@ -188,46 +188,46 @@
                                     <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->gender}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->gender}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->date_of_birth}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->date_of_birth}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->phone}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->phone}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->mobileno}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->mobileno}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->panno}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->panno}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->permanent_address}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->permanent_address}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->temporary_address}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->temporary_address}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->district}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->district}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">City</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->city}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">City</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->city}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Designation Title</h6> : <h6 class="col-xl-4 col-lg-4"> {{$title->title}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Designation Title</h6> : <h6 class="col-xl-6 col-lg-6"> {{$title->title}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Designation Level</h6> : <h6 class="col-xl-4 col-lg-4"> {{$level->level}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Designation Level</h6> : <h6 class="col-xl-6 col-lg-6"> {{$level->level}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Department</h6> : <h6 class="col-xl-4 col-lg-4"> {{$department->dep_name}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Department</h6> : <h6 class="col-xl-6 col-lg-6"> {{$department->dep_name}}</h6>
                                 </div>
                                 <div class="form-group row">
-                                    <h6 class="col-xl-4 col-lg-4">Joined Date</h6> : <h6 class="col-xl-4 col-lg-4"> {{Auth::user()->joined_date}}</h6>
+                                    <h6 class="col-xl-5 col-lg-5">Joined Date</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->joined_date}}</h6>
                                 </div>
 
                                 {{-- </div> --}}
