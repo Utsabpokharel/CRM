@@ -9,6 +9,12 @@ use Validate;
 
 class GeneralController extends Controller
 {
+    public function general()
+    {
+        $general = General::where('user_id','=',Auth::user()->id)->first();
+        return view('admin.generalsetting.add',compact('general'));
+    }
+
      public function create()
     {
         return view('admin.generalsetting.add');
@@ -19,15 +25,11 @@ class GeneralController extends Controller
         //     'website_name' => 'required|min:3|max:20|alpha',
         //     'website' => 'required|min:3|max:20|alpha',
         //     'email' => 'required'
-
         // ],[
         //     'website_name.required'=>'Website Name is required',
         //     'website_name.min'=>'The Website Name must be at least 3 characters.',
         //     'website_name.max'=>'The Website Name Name may not be greater than 20 characters.',
-
         //     'email.required'=>'Email is required'
-
-
         //      ]);
         $data = $request->all();
 
@@ -40,6 +42,18 @@ class GeneralController extends Controller
 protected function imagePath()
     {
         return "images/general/";
+    }
+
+    public function edit($id)
+    {
+        $general = General::findOrfail($id);
+        return view('admin.generalsetting.add',compact('general'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $general = General::find($id);
+        return redirect()->route('admin.generalsetting.add');
     }
 
 }

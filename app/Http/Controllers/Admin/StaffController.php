@@ -76,10 +76,10 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
+        $staff = Staff::findOrfail($id);
         $levels=level::all();
         $titles=title::all();
         $departments=Department::all();
-        $staff = Staff::findOrfail($id);
         $district=$this->district();
         $city=$this->city();
         return view("admin.staff.edit", compact('staff','levels','titles','departments','district','city'));

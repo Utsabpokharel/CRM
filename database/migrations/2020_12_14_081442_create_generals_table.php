@@ -19,7 +19,7 @@ class CreateGeneralsTable extends Migration
             $table->string('website_name');
             $table->string('website');
             $table->string('email')->unique();
-
+            $table->integer('user_id');
 
             $table->timestamps();
         });
