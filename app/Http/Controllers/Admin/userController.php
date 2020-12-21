@@ -50,6 +50,7 @@ class userController extends Controller
         // ]);
 
         $data = $request->except('confirm_password');
+
         $password = Hash::make($request->password);
         $data['password'] = $password;
         // $imagepath='images/users/';
