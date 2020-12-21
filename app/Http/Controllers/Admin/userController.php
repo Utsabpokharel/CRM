@@ -60,15 +60,15 @@ class userController extends Controller
         $user = user::first();
         $details = [
 
-            'greeting' => 'Hi Artisan',
+            'greeting' => 'Hi SuperAdmin',
 
-            'body' => 'This is my first notification from ItSolutionStuff.com',
+            'body' => 'New User has been added to the System.',
 
-            'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
+            'thanks' => 'Please Check and verify',
 
-            'actionText' => 'View My Site',
+            // 'actionText' => 'View My Site',
 
-            'actionURL' => url('/'),
+            // 'actionURL' => url('/'),
 
             'roleid' => 1
         ];
