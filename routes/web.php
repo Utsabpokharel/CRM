@@ -21,8 +21,8 @@ use App\Http\Controllers\GeneralController;
 /*login route*/
 
 Route::group(['prefix' => '/', 'namespace' => 'Admin', 'middleware' => 'guest'], function () {
-    route::get('/', 'LoginController@form')->name('login');
-    route::post('/login/check', 'LoginController@login')->name('login.check');
+    Route::get('/', 'LoginController@form')->name('login');
+    Route::post('/login/check', 'LoginController@login')->name('login.check');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'user']], function () {
@@ -34,7 +34,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     //Profile
     Route::resource('profile', 'profileDemoController');
     Route::get('personalInfo/{id}', 'PersonalInfoController@edit')->name('personal');
-    Route::post('personalInfo/{id}', 'PersonalInfoController@update')->name('personal_update');
     //profile Setting
     Route::get('Profile-Setting', 'ProfilesettingController@settingform')->name('profile');
     // Routing for Service

@@ -63,7 +63,7 @@ View All Staff
 									<span class="navi-text">Print</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -72,7 +72,7 @@ View All Staff
 									<span class="navi-text">Copy</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -81,7 +81,7 @@ View All Staff
 									<span class="navi-text">Excel</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -90,7 +90,7 @@ View All Staff
 									<span class="navi-text">CSV</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -144,17 +144,17 @@ View All Staff
 					<tbody>
 					@foreach($staff as $key=> $staffs)
 					<tr>
-						
+
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>{{$staffs->department_id}}</td>
+						<td>{{$staffs->department['dep_name']}}</td>
 						<td>{{$staffs->title['title']}}</td>
-						<td>{{$staffs->level_id}}</td>
-						
-						<td class="text-center"> 
+						<td>{{$staffs->level['level']}}</td>
 
-						
+						<td class="text-center">
+
+
 							@if(!empty($trashed))
 							<a href="{{route('staff.restore',$staffs->id)}}">
                             <i class="fa fa-undo text-info"></i>
@@ -163,7 +163,7 @@ View All Staff
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							@else
-					
+
 							<a class="deleteData" href="javascript::" rel1="{{route('staff.destroy',$staffs->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>

@@ -25,20 +25,16 @@ class GeneralController extends Controller
         //     'website_name' => 'required|min:3|max:20|alpha',
         //     'website' => 'required|min:3|max:20|alpha',
         //     'email' => 'required'
-            
         // ],[
         //     'website_name.required'=>'Website Name is required',
         //     'website_name.min'=>'The Website Name must be at least 3 characters.',
         //     'website_name.max'=>'The Website Name Name may not be greater than 20 characters.',
-            
         //     'email.required'=>'Email is required'
-           
-
         //      ]);
         $data = $request->all();
 
         $data['website_logo'] = save_image($request->website_logo, 150, 150, $this->imagePath());
-        
+
 
         General::create($data);
         return redirect()->route('general.create');

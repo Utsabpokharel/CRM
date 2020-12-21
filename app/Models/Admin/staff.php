@@ -17,11 +17,11 @@ class staff extends Model
     }
 
     public function level(){
-        return $this->belongsTo('App\Models\Admin\level',' level_id');
+        return $this->belongsTo('App\Models\Admin\level','level_id');
     }
-    
+
     public function department(){
-        return $this->belongsTo('App\Models\Admin\Department',' department_id');
+        return $this->belongsTo('App\Models\Admin\Department','department_id');
     }
 
     public function award()

@@ -12,6 +12,7 @@ use App\Models\Admin\role;
 use App\Models\Admin\Department;
 use App\Models\Admin\title;
 use App\Models\Admin\level;
+use App\Notifications\UserAdd;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -49,11 +50,29 @@ class userController extends Controller
         // ]);
 
         $data = $request->except('confirm_password');
+
         $password = Hash::make($request->password);
         $data['password'] = $password;
         // $imagepath='images/users/';
         // $data['image']=save_image($request->image,150,150,$imagepath);
         user::create($data);
+        // dd($data);
+        $user = user::first();
+        $details = [
+
+            'greeting' => 'Hi SuperAdmin',
+
+            'body' => 'New User has been added to the System.',
+
+            'thanks' => 'Please Check and verify',
+
+            // 'actionText' => 'View My Site',
+
+            // 'actionURL' => url('/'),
+
+            'roleid' => 1
+        ];
+        $user->notify(new UserAdd($details));
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }
     public function destroy($id)

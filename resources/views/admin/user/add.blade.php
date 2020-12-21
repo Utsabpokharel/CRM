@@ -1,7 +1,9 @@
 @extends('admin.layouts.default')
 @section('page_title','Add User')
 @section('content')
-
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+@endpush
 <div class="card-body card">
   <form class="form" method="post" action="{{route('user.store')}}" enctype="multipart/form-data">
     @csrf
@@ -9,21 +11,21 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Name</label>
-          <input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name">
-          {{-- <select name="name" id="name" class="form-control form-control-solid @error('name') is-invalid @enderror">
+          {{--<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name"> --}}
+          <select name="name" id="name" class="form-control form-control-solid @error('name') is-invalid @enderror">
             <option value="">Select Name</option>
             @foreach($staffs as $name)
-              <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
-          @endforeach
+            <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
 
-          @foreach($vendors as $name)
-          <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
-          @endforeach
+            @foreach($vendors as $name)
+            <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
 
-          @foreach($customers as $name)
-          <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
-          @endforeach
-          </select> --}}
+            @foreach($customers as $name)
+            <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
+          </select>
           @error('name')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
@@ -180,7 +182,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Designation Title</label>
-          <select name="title" id="title" class="form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
+          <select name="title[]" id="title" class="multipleSelect2 form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
             <option selected value="">Please Select...</option>
             @foreach($titles as $title)
             <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
@@ -242,3 +244,13 @@
   </form>
 </div>
 @endsection
+@push('scripts')
+<script srd="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
+</script>
+<script>
+  $(".multipleSelect2").select2({
+    placeholder: 'Select One',
+    multiple: true
+  });
+</script>
+@endpush
