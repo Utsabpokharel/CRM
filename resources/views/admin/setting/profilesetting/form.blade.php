@@ -26,7 +26,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="card-body">
 				<form action="" method="post">
 					<div class="row">
@@ -51,24 +51,24 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="form-group">
 										<label>Name</label>
-										<input type="text" name="name" class="form-control form-control-solid" placeholder="Enter Name">
+										<input type="text" name="name" class="form-control form-control-solid" value="{{Auth::user()->name}}">
 									</div>
 									<div class="form-group">
 										<label>Login Email Address</label>
-										<input type="email" name="email" class="form-control form-control-solid" placeholder="Enter Login Email Address">
+										<input type="email" name="email" class="form-control form-control-solid" value="{{Auth::user()->email}}">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="form-group">
-										<label>Phone Number</label>
-										<input type="text" name="phonenumber" class="form-control form-control-solid" placeholder="Enter Phone Number">
+										<label>Mobile Number</label>
+										<input type="text" name="mobileno" class="form-control form-control-solid" value="{{Auth::user()->mobileno}}">
 									</div>
 									<div class="form-group">
-										<label>Address</label>
-										<input type="text" name="address" class="form-control form-control-solid" placeholder="Enter Address">
+										<label>Temporary Address</label>
+										<input type="text" name="address" class="form-control form-control-solid" value="{{Auth::user()->temporary_address}}">
 									</div>
 								</div>
-								
+
 							</div>
 						</div>
 						<div class="col-lg-12">
@@ -86,9 +86,9 @@
 
 							<div class="form-group">
 								<label>New Password</label>
-								<input type="password" name="newpasword" class="form-control form-control-solid" placeholder="Enter New Password">
+								<input type="password" name="password" class="form-control form-control-solid" placeholder="Enter New Password">
 							</div>
-							
+
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12">
 							<div class="form-group">
@@ -103,7 +103,7 @@
 
 				</form>
 			</div>
-				
+
 		</div>
 	</div>
 </div>
