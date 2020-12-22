@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     //Profile
     Route::resource('profile', 'profileDemoController');
     Route::get('personalInfo/{id}', 'PersonalInfoController@edit')->name('personal');
+    Route::post('personalInfo/{id}', 'PersonalInfoController@update')->name('personal_update');
     //profile Setting
     Route::get('Profile-Setting', 'ProfilesettingController@settingform')->name('profile');
     // Routing for Service
@@ -86,8 +87,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['admin']], function () {
     Route::resource('title', 'titleController');
     Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
     // General setting
-    Route::get('general/Create', 'GeneralController@create')->name('general.create');
+    Route::get('generalSettings', 'GeneralController@create')->name('general.create');
     Route::post('general/Store', 'GeneralController@store')->name('general.store');
+    Route::get('general/edit/{id}','GeneralController@edit')->name('general.edit');
+    Route::post('general/update/{id}','GeneralController@update')->name('general.update');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
