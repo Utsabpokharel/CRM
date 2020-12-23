@@ -15,7 +15,8 @@ use App\Models\Admin\level;
 use App\Notifications\UserAdd;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-
+use App\Mail\UserCreate;
+use Illuminate\Support\Facades\Mail;
 
 class userController extends Controller
 {
@@ -73,6 +74,7 @@ class userController extends Controller
             'roleid' => 1
         ];
         $user->notify(new UserAdd($details));
+        Mail::to($user->email)->send(new UserCreate());
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }
     public function destroy($id)
