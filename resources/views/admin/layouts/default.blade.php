@@ -4,8 +4,13 @@
 
 <head>
 	<base href="">
-	<meta charset="utf-8" />
-	<title>CRM | @section('page_title') @show</title>
+    <meta charset="utf-8" />
+    {{-- {{dd(Auth::user()->general)}} --}}
+    @if(Auth::user()->general !=[])
+        <title>{{Auth::user()->general['website_name']}} | @section('page_title') @show</title>
+    @else
+        <title>CRM| @section('page_title') @show</title>
+    @endif
 	<meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -32,7 +37,11 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/my.css')}}">
 
 	<!--end::Layout Themes-->
-	<link rel="shortcut icon" href="{{asset('assets/media/logos/logo-2.png')}}" />
+    @if(Auth::user()->general !=[])
+    <link rel="shortcut icon" href="{{asset('images/general/'.Auth::user()->general['website_logo'])}}" />
+    @else
+    <link rel="shortcut icon" href="{{asset('assets/media/logos/logo-2.png')}}" />
+    @endif
 
 </head>
 <!-- Data Tables -->
