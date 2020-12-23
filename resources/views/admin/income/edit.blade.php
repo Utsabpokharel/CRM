@@ -37,7 +37,7 @@
                                         @enderror
                                     <select name="category_id"  class="form-control form-control-solid"  value=""
                                             >
-                                        <option selected disabled="">Select Category</option>
+                                        
                                         @foreach($categories as $category)
                                 <option value="{{$category->id}}" class="form-control">{{$category->name}}</option>
                             @endforeach
@@ -51,7 +51,7 @@
        @error('paid_by')
                <p>The Paid By is required.</p>
                   @enderror
-            <input type="text" name="paid_by" class="form-control form-control-solid" placeholder="Enter Paid By" value="{{$income->paid_by}}"/>
+            <input type="text" name="paid_by" class="form-control form-control-solid"  value="{{$income->paid_by}}"/>
         
             </div>
             </div>
@@ -63,7 +63,7 @@
                                           @enderror
                                     <select name="mode_of_payment"  class="form-control form-control-solid"  
                                             >
-                                        <option selected disabled="">Select Payment Method</option>
+                                      
                                         <option value="bank" @if($income->mode_of_payment=='Bank')selected @endif>Bank</option>
                                         <option value="esewa" @if($income->mode_of_payment=='Esewa')selected @endif>Esewa</option>
                                         <option value="khalti" @if($income->mode_of_payment=='Khalti')selected @endif>Khalti</option>
