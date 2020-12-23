@@ -72,12 +72,14 @@
 							</div>
 						</div>
 						<div class="col-lg-12">
-							<button class="btn btn-primary">Save</button>
+							<button class="btn btn-primary">Update</button>
 						</div>
 					</div>
 
 				</form>
-				<form action="" method="post" style="margin-top:30px">
+                <form method="post" action="{{route('changePassword',Auth::user()->id)}}" style="margin-top:30px">
+                    @csrf
+                    @method('post')
 					<div class="row">
 						<div class="col-lg-12 setting-heading">
 							<h2>Change Password</h2>
@@ -97,7 +99,7 @@
 							</div>
 						</div>
 						<div class="col-lg-12">
-							<button class="btn btn-primary">Save</button>
+							<button class="btn btn-primary">Update</button>
 						</div>
 					</div>
 

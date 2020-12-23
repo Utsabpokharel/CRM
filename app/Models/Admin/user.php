@@ -35,4 +35,7 @@ class user extends  Authenticatable
     {
         return $this->belongsTo('App\Models\Admin\level', 'level');
     }
+    public function general(){
+        return $this->hasOne('App\Models\Admin\General');
+    }
 }

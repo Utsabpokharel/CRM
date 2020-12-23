@@ -3,7 +3,11 @@
     <div class="brand flex-column-auto" id="kt_brand">
         <!--begin::Logo-->
         <a href="{{route('admin.index')}}" class="brand-logo">
-            <h1>CRM</h1>
+    @if(Auth::user()->general !=[])
+        <h1>{{(Auth::user()->general['website_name'])}}</h1>
+    @else
+        <h1>CRM</h1>
+    @endif
             {{-- <img alt="Logo" class="max-h-50" src="{{asset('assets/media/logos/crm-1.png')}}"/> --}}
         </a>
         <!--end::Logo-->
