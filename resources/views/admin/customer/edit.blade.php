@@ -97,7 +97,7 @@
                <div class="col-md-6">
                     <div class="form-group">
                          <label>District</label>
-                         <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select..." value="{{$customer->district}}">
+                         <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" value="{{$customer->district}}">
                          <datalist id='districtname'>
                               @foreach($district as $districts)
                               <option value="{{$districts->district_name}}"> </option>
