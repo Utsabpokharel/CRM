@@ -62,11 +62,11 @@
                     <div class="form-group">
                         <label>District</label>
                         <span class="text-danger">*</span>
-                        <input type="text" name="district" list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" 
+                        <input type="text" name="district" list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" value="{{$staff->district}}"
                                 >
                                 <datalist id='districtname'>
                                        @foreach($district as $districts)
-                                            <option value="{{$districts->district_name}}">"{{$staff->district}}"</option>
+                                            <option value="{{$districts->district_name}}"></option>
                                        @endforeach
                                 </datalist>
                         

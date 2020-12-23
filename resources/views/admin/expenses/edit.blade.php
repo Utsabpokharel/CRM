@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Add Customer')
+@section('page_title','Update Expense')
 @section('content')
 <div class="card-body card">
     <form class="form" method="post" action="{{route('expenses.update',$expenses->id)}}" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
                                         @enderror
                                     <select name="category_id"  class="form-control form-control-solid"  value=""
                                             >
-                                        <option selected disabled="">Select Category Name</option>
+                                   
                                          @foreach($expensescategories as $expensess)
                                 <option value="{{$expensess->id}}">{{$expensess->name}}</option>
                                         @endforeach  
@@ -63,7 +63,7 @@
                   @enderror
                   <select name="paid_by" class="form-control form-control-solid" value="{{$expenses->paid_by}}"
                                             >
-                                        <option selected disabled="">Select Name</option>
+                                       
                                          @foreach($staffs as $staff)
                                 <option value="{{$staff->id}}" class="form-control">{{$staff->fname}} {{$staff->lname}}</option>
                                         @endforeach 
@@ -94,7 +94,7 @@
                                           @enderror
                                     <select name="expenditure"  class="form-control form-control-solid"  value=""
                                             >
-                                        <option selected disabled="">Select Expenditure Status</option>
+                                        
                                         <option value="paid">Paid</option>
                                         <option value="partiallypaid">Partially Paid</option>
                                         <option value="unpaid">Unpaid</option>
