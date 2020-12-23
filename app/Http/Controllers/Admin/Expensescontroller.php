@@ -35,8 +35,8 @@ class Expensescontroller extends Controller
       $expensescategories=$this->getCategories();
       $expenses=Expenses::findorfail($id);
       $categories=Expensescategory::all();
-      $expense=Staff::all();
-    	return view('admin.expenses.edit',compact('expenses','expensescategories','categories','expense'));
+      $staffs=Staff::all();
+    	return view('admin.expenses.edit',compact('expenses','expensescategories','categories','staffs'));
     }
     public function update(Request  $request, $id)
     {
