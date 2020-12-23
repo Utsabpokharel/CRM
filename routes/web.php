@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('personalInfo/{id}', 'PersonalInfoController@update')->name('personal_update');
     //profile Setting
     Route::get('Profile-Setting', 'ProfilesettingController@settingform')->name('profile');
-    Route::post('ChangePassword/{id}','ProfilesettingController@updatePassword')->name('changePassword');
+    Route::post('ChangePassword','ProfilesettingController@store')->name('changePassword');
     // Routing for Service
     Route::get("services/view_all", "ServiceController@index")->name("view_services");
     Route::get("services/add", "ServiceController@create")->name("add_service");

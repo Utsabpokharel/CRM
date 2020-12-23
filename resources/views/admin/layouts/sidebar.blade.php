@@ -83,14 +83,6 @@
                                     <span class="menu-text">Add User</span>
                                 </a>
                             </li>
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="{{url('admin/profile')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Profile Demo</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </li>
@@ -531,7 +523,7 @@
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">Profile Setting</span>
+                                    <span class="menu-text">Password Setting</span>
                                 </a>
                             </li>
                             @if(Auth::user()->roleid==1)
