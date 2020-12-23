@@ -87,10 +87,10 @@ class VendorController extends Controller
 
         ]);*/
 
+        $data = $request->all();
         $data = $request->except('confirm_password');
         $password = Hash::make($request->password);
         $data['password'] = $password;
-        $data = $request->all();
 
         $imagepath = 'images/vendors/';
 

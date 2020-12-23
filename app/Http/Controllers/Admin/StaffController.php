@@ -48,14 +48,16 @@ class StaffController extends Controller
      */
     public function store(staffValidator $request)
     {
-        
+        $data = $request->all();
         $data = $request->except("confirm_password");
         $password = Hash::make($request->password);
         $data['password'] = $password;
         if($request->hasFile('pp_photo'))
-        {$staff_image_path='images/staff/';
-            $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);}
-            $data = $request->all();
+            {
+                $staff_image_path='images/staff/';
+                $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
+            }
+            
         Staff::create($data);
         return redirect()->route('staff.view')->with('success', 'Staff Created successfully');
     }
