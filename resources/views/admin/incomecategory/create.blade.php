@@ -15,7 +15,7 @@
       <label>Name:</label>
       @error('name')
            <p>The name is required.</p>
-           @enderror
+      @enderror
       <input type="name" name="name" class="form-control form-control-solid" placeholder="Enter Name"/>
       <span class="form-text text-muted">Please enter your Name</span>
       </div>
