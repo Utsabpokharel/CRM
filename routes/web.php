@@ -176,4 +176,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
     Route::get('bank/ViewTrash', 'BankController@ViewTrash')->name('bank.ViewTrash');
     Route::get('bank/restore/{id}', 'BankController@restore')->name('bank.restore');
     Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.deleteTrash');
+    // route for mail
+    Route::get('email', 'CustomMailController@create')->name('sendmailform');
+    Route::post('mail/Store', 'CustomMailController@store')->name('store_mail');
 });
