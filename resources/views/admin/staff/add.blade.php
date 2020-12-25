@@ -1,5 +1,8 @@
 @extends('admin.layouts.default')
 @section('page_title','Add New Staff')
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+@endpush
 @section('content')
 
 <div class="card-body card">
@@ -79,8 +82,7 @@
                 <div class="form-group">
                     <label>Designation Title</label>
                     <span class="text-danger">*</span>
-                    <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required" value="{{old('title_id','')}}">
-                        <option selected value="">Please Select...</option>
+                    <select name="title_id[]" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required" value="{{old('title_id','')}}">
                         @foreach($titles as $title)
                         <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
                         @endforeach
@@ -261,3 +263,14 @@
 
 
 @endsection
+
+@push('scripts')
+<script srd="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
+</script>
+<script>
+  $("#title_id").select2({
+    placeholder: 'Please  Select...',
+    multiple: true
+  });
+</script>
+@endpush

@@ -8,6 +8,9 @@ View All Staff
 @endif
 @endsection
 @section('page_title','View Staff')
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+@endpush
 @section('content')
 
 <div class="page-content-wrapper ">
@@ -148,8 +151,18 @@ View All Staff
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>{{$staffs->department['dep_name']}}</td>
-						<td>{{$staffs->title['title']}}</td>
+						<td></td>
+						<td>
+							@php
+								$titlename=[];
+							@endphp
+							@foreach($staffs->title as $title)
+								@php
+								array_push($titlename,$title->title);
+								@endphp
+							@endforeach
+							{{implode(',',$titlename)}}
+						</td>
 						<td>{{$staffs->level['level']}}</td>
 
 						<td class="text-center">

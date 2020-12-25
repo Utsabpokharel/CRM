@@ -46,10 +46,10 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(staffValidator $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data = $request->except("confirm_password");
+        $data = $request->except('district','confirm_password');
+        $data['title_id']=$data['title_id'][0];
         $password = Hash::make($request->password);
         $data['password'] = $password;
         if($request->hasFile('pp_photo'))
@@ -58,7 +58,8 @@ class StaffController extends Controller
                 $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
             }
             
-        Staff::create($data);
+        $staff=Staff::create($data);
+        $staff->title()->sync($request->title_id);
         return redirect()->route('staff.view')->with('success', 'Staff Created successfully');
     }
 
@@ -101,7 +102,9 @@ class StaffController extends Controller
     {
 
         $data=$request->except('_token','confirm_password');
-        Staff::where("id", $id)->update($data);
+        $staff=Staff::where("id", $id)->update($data);
+        $staff->title()->sync($request->title_id);
+
         return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
     }
 

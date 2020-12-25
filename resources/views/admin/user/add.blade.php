@@ -182,8 +182,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Designation Title</label>
-          <select name="title[]" id="title" class="multipleSelect2 form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
-            <option selected value="">Please Select...</option>
+          <select name="title[]" id="title" class="form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
             @foreach($titles as $title)
             <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
             @endforeach
@@ -248,8 +247,8 @@
 <script srd="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
 </script>
 <script>
-  $(".multipleSelect2").select2({
-    placeholder: 'Select One',
+  $("#title").select2({
+    placeholder: 'Please  Select...',
     multiple: true
   });
 </script>

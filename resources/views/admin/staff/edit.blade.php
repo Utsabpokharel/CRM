@@ -78,10 +78,18 @@
                     <div class="form-group">
                         <label> Designation Title</label>
                         <span class="text-danger">*</span>
-                        <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror"
-                                name="title_id" value="{{$staff->title_id}}">
-                              @foreach($titles as $title)
-                                <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
+                         @php
+                                    $titleids=[];
+                                    foreach($staff->title as $title)
+                                    {
+                                        array_push($titleids,$title->id);
+                                    }
+
+                                @endphp
+                        <select name="title_id[]" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror"
+                                name="title_id" value="{{$staff->title_id}}" multiple="multiple">
+                              @foreach($titles as $key=>$title)
+                                <option value="{{$title->id}}" class="form-control" @if(in_array($title->id,$titleids)) selected="selected" @endif>{{$title->title}}</option>
                               @endforeach
                         </select>
 
@@ -96,11 +104,14 @@
                             <select name="level_id" id="level_id"
                                     class="form-control form-control-solid @error('level_id') is-invalid @enderror"
                                     name="level_id" value="{{$staff->level_id}}">
-                            @foreach($levels as $level)
-                                <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
-                            @endforeach
-                            </select>
+                               
 
+                                @foreach($levels as $skey=>$level)                                   
+                                    <option value="{{$level->id }}"}}>
+                                        {{ $level->level }}
+                                    </option>
+                                @endforeach   
+                            </select>
                             @error('level_id')
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>
                             @enderror
@@ -253,3 +264,13 @@
     </div>
 @endsection
 
+@push('scripts')
+<script srd="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
+</script>
+<script>
+  $("#title_id").select2({
+    placeholder: 'Please  Select...',
+    multiple: true
+  });
+</script>
+@endpush
