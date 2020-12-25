@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class incomecategory extends Model
 {
     use HasFactory;
-    protected $guarded=
-    [
-    ];
+    protected $guarded=[];
+
+    public function income()
+    {
+        return $this->hasMany('App\Models\Admin\Income');
+    }
 }

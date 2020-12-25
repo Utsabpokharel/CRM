@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
+use App\Models\Admin\Department;
+use App\Models\Admin\title;
+use App\Models\Admin\level;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class VendorController extends Controller
 {
@@ -27,7 +32,13 @@ class VendorController extends Controller
     public function addVendor()
     {
 
-        return view('admin.vendors.add');
+        $district=$this->district();
+        $levels=level::all();
+        $titles=title::all();
+        $departments=Department::all();
+        $city=$this->city();
+        return view('admin.vendors.add',compact('levels','titles','departments','city','district'));
+
     }
 
 
@@ -39,20 +50,23 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+        /*$request->validate([
+            'fname' => 'required|min:3|max:20|alpha',
+            'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dateofbirth' => 'required',
             'registrationnumber' => 'required',
             'panvatnumber' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'phone' => 'required',
-            'mobile' => 'required',
+            'confirm_password' => 'required|same:password',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'city' => 'required',
-            'image'=> '',
-            'idproof'=>'',
+            'district' => 'required',
+            'image' => '',
+            'frontcitizenshipimage' => '',
+            'backcitizenshipimage' => '',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
@@ -63,14 +77,26 @@ class VendorController extends Controller
             'secondphone' => 'required',
             'ifuser' => 'required',
             'vendor_type' => 'required',
+        ], [
+            'fname.required' => 'First Name is required',
+            'fname.min' => 'The First Name must be at least 3 characters.',
+            'fname.max' => 'The First Name Name may not be greater than 20 characters.',
+            'lname.min' => 'The Last Name must be at least 3 characters.',
+            'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
+            'lname.required' => 'Last Name is required',
 
-        ]);
+        ]);*/
+
         $data = $request->all();
+        $data = $request->except('confirm_password');
+        $password = Hash::make($request->password);
+        $data['password'] = $password;
 
         $imagepath = 'images/vendors/';
 
         $data['image'] = save_image($request->image, 150, 150, $imagepath);
-        $data['idproof'] = save_image($request->idproof, 150, 150, $imagepath);
+        $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $imagepath);
+        $data['backcitizenshipimage'] = save_image($request->backcitizenshipimage, 150, 150, $imagepath);
 
         Vendor::create($data);
         return redirect()->route('vendors.view')->with('success', 'Vendor added sucessfully');
@@ -95,9 +121,10 @@ class VendorController extends Controller
      */
     public function editVendor($id)
     {
+        $district=$this->district();
         $vendor = Vendor::findOrfail($id);
-
-        return view('admin.vendors.edit', compact('vendor'));
+        $city=$this->city();
+        return view('admin.vendors.edit', compact('vendor',compact('district','city')));
     }
 
     /**
@@ -110,19 +137,22 @@ class VendorController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
+            'fname' => 'required|min:3|max:20|alpha',
+            'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dateofbirth' => 'required',
             'registrationnumber' => 'required',
             'panvatnumber' => 'required',
             'email' => 'required|email',
             'password' => '',
-            'phone' => 'required',
-            'mobile' => 'required',
+            'confirm_password' => '',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'city' => 'required',
+            'district' => 'required',
             'image' => '',
-            'idproof' => '',
+            'frontendcitizenshipimage' => '',
+            'backendcitizenshipimage' => '',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
@@ -133,11 +163,17 @@ class VendorController extends Controller
             'secondphone' => 'required',
             'ifuser' => 'required',
             'vendor_type' => 'required',
-
+        ], [
+            'fname.required' => 'First Name is required',
+            'fname.min' => 'The First Name must be at least 3 characters.',
+            'fname.max' => 'The First Name Name may not be greater than 20 characters.',
+            'lname.min' => 'The Last Name must be at least 3 characters.',
+            'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
+            'lname.required' => 'Last Name is required',
         ]);
         $vendor = Vendor::find($id);
 
-        $data = $request->except('image', 'idproof');
+        $data = $request->except('image', 'frontcitizenshipimage', 'backcitizenshipimage');
         if ($request->hasFile('image')) {
             $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
             delete_image($vendor->image, $this->imagePath());
@@ -145,12 +181,19 @@ class VendorController extends Controller
             $data['image'] = $request->current_image;
         }
 
-        if ($request->hasFile('idproof')) {
-            $data['idproof'] = save_image($request->idproof, 150, 150, $this->imagePath());
-            delete_image($vendor->idproof, $this->imagePath());
+        if ($request->hasFile('frontcitizenshipimage')) {
+            $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $this->imagePath());
+            delete_image($vendor->frontcitizenshipimage, $this->imagePath());
         } else {
 
-            $data['idproof'] = $request->current_idproof;
+            $data['frontcitizenshipimage'] = $request->current_frontcitizenshipimage;
+        }
+        if ($request->hasFile('backcitizenshipimage')) {
+            $data['backcitizenshipimage'] = save_image($request->backcitizenshipimage, 150, 150, $this->imagePath());
+            delete_image($vendor->backcitizenshipimage, $this->imagePath());
+        } else {
+
+            $data['backcitizenshipimage'] = $request->current_backcitizenshipimage;
         }
 
         $vendor->update($data);
@@ -191,5 +234,14 @@ class VendorController extends Controller
     protected function imagePath()
     {
         return "images/vendors/";
+    }
+    protected function district()
+    {
+          return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }

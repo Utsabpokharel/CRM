@@ -130,13 +130,9 @@
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
 							<hr>
-                            {{-- <form class="deleteData"  action="javascript::" rel1="{{ route('title.destroy', $title->id)}}" method="post"
-                                style="display: inline-block">
-                              {{csrf_field()}}
-                              {{method_field('DELETE')}} --}}
-                              <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('title.destroy', $title->id)}}"><span
-                                class="fa fa-trash"></span></a>
-                          </form>
+                            <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('title.destroy', $title->id)}}"><span
+                                class="fa fa-trash"></span>
+                            </a>
                         </td>
 					</tr>
 					</tbody>

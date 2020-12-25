@@ -8,6 +8,9 @@ View All Staff
 @endif
 @endsection
 @section('page_title','View Staff')
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+@endpush
 @section('content')
 
 <div class="page-content-wrapper ">
@@ -15,7 +18,7 @@ View All Staff
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
-				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
+				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route('admin.index') }}">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
 				<li><a class="parent-item" href="">Staff</a>&nbsp;
@@ -63,7 +66,7 @@ View All Staff
 									<span class="navi-text">Print</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -72,7 +75,7 @@ View All Staff
 									<span class="navi-text">Copy</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -81,7 +84,7 @@ View All Staff
 									<span class="navi-text">Excel</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -90,7 +93,7 @@ View All Staff
 									<span class="navi-text">CSV</span>
 									</a>
                                 </li>
-                                
+
 								<li class="navi-item">
 									<a href="#" class="navi-link">
 									<span class="navi-icon">
@@ -144,15 +147,27 @@ View All Staff
 					<tbody>
 					@foreach($staff as $key=> $staffs)
 					<tr>
+
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td>002 Menomonie Crossing</td>
-						<td>Keith Lukesch</td>
-						<td>dsgzdngd</td>
-						<td class="text-center"> 
+						<td></td>
+						<td>
+							@php
+								$titlename=[];
+							@endphp
+							@foreach($staffs->title as $title)
+								@php
+								array_push($titlename,$title->title);
+								@endphp
+							@endforeach
+							{{implode(',',$titlename)}}
+						</td>
+						<td>{{$staffs->level['level']}}</td>
 
-						
+						<td class="text-center">
+
+
 							@if(!empty($trashed))
 							<a href="{{route('staff.restore',$staffs->id)}}">
                             <i class="fa fa-undo text-info"></i>
@@ -161,7 +176,7 @@ View All Staff
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							@else
-					
+
 							<a class="deleteData" href="javascript::" rel1="{{route('staff.destroy',$staffs->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>

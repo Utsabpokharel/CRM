@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Expenses;
 use App\Http\Requests\ExpensesValidator;
+use App\Models\Admin\Expensescategory;
+use App\Models\Admin\Staff;
 
 class Expensescontroller extends Controller
 {
@@ -17,7 +19,10 @@ class Expensescontroller extends Controller
     }
     public function create()
     {
-    	return view('admin.expenses.create');
+      $categories=Expensescategory::all();
+      $expensescategories=$this->getCategories();
+      $staffs=Staff::all();
+    	return view('admin.expenses.create',compact('expensescategories','categories','staffs'));
     }
     public function store(ExpensesValidator $request)
     {
@@ -27,8 +32,11 @@ class Expensescontroller extends Controller
     }
     public function edit($id)
     {
-    	$expenses=Expenses::findorfail($id);
-    	return view('admin.expenses.edit',compact('expenses'));
+      $expensescategories=$this->getCategories();
+      $expenses=Expenses::findorfail($id);
+      $categories=Expensescategory::all();
+      $staffs=Staff::all();
+    	return view('admin.expenses.edit',compact('expenses','expensescategories','categories','staffs'));
     }
     public function update(Request  $request, $id)
     {
@@ -70,4 +78,9 @@ class Expensescontroller extends Controller
     return back()->with('flash_error','Expenses has been deleted from trashed');
 
   }
+   protected function getCategories()
+   {
+        return Expensescategory::all();
+   }
+ 
 }

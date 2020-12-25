@@ -2,12 +2,6 @@
 @section('page_title','Add Award')
 @section('content')
 
-<style type='text/css'>
-.red{
-    color:red;
-    font-size:12px;
-}
-</style>
 
 <div class="card-body card">
     <form method="post" action="{{ route('award.store') }}">
@@ -52,7 +46,7 @@
 
      <div class="form-group">
       <label>Thankyou Point</label>
-      <textarea class="form-control form-control-solid" name="thankyou" placeholder="Describe yourself here..." rows="5"> </textarea>
+      <textarea class="form-control form-control-solid" rows="5" name="thankyou" placeholder="Describe yourself here..." > </textarea>
      </div>
 
      <div class="card-footer">

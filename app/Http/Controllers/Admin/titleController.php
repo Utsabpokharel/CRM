@@ -17,7 +17,7 @@ class titleController extends Controller
     public function index()
     {
         $title = title::all();
-        return view('admin.Designation.Title.view',compact('title'));
+        return view('admin.Designation.Title.view', compact('title'));
     }
 
     /**
@@ -40,8 +40,7 @@ class titleController extends Controller
     {
         $title = $request->all();
         title::create($title);
-        return redirect()->route('title.index')->with('success','New Title Created Successfully');
-
+        return redirect()->route('title.index')->with('success', 'New Title Created Successfully');
     }
 
     /**
@@ -64,7 +63,7 @@ class titleController extends Controller
     public function edit($id)
     {
         $title = title::findOrfail($id);
-        return view('admin.Designation.Title.edit',compact('title'));
+        return view('admin.Designation.Title.edit', compact('title'));
     }
 
     /**
@@ -78,8 +77,7 @@ class titleController extends Controller
     {
         $data = title::findOrfail($id);
         $data->update($request->all());
-        return redirect()->route('title.index')->with('success','Selected Title is Updated');
-
+        return redirect()->route('title.index')->with('success', 'Selected Title is Updated');
     }
 
     /**

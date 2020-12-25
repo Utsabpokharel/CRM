@@ -29,7 +29,7 @@
           <span class="card-icon">
             <i class="flaticon2-gift text-primary"></i>
           </span>
-          <h3 class="card-label">RowGroup DataTable</h3>
+          <h3 class="card-label">Expenses</h3>
         </div>
         <div class="card-toolbar">
           <!--begin::Dropdown-->
@@ -98,7 +98,7 @@
             </div>
             <!--end::Dropdown-->
             <!--begin::Button-->
-            <a href="#" class="btn btn-primary font-weight-bolder">
+            <a href="{{route('expenses.create')}}" class="btn btn-primary font-weight-bolder">
               <span class="svg-icon svg-icon-md">
                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -109,7 +109,7 @@
                   </g>
                 </svg>
                 <!--end::Svg Icon-->
-              </span>New Record</a>
+              </span>Add Expenses</a>&nbsp;&nbsp;
                 @if(!empty($trashed))
               <a href="{{route('expenses.view')}}" id=""
                       class="btn btn-warning">
@@ -133,7 +133,7 @@
             <th>Date</th>
             <th>Particular</th>
             <th>Amount</th>
-            <th>Category ID</th>
+            <th>Category</th>
             <th>Mode of Payment</th>
             <th>Expenditure Status</th>
             <th>Actions</th>
@@ -146,7 +146,7 @@
             <td>{{$expensess->date}}</td>
             <td>{{$expensess->particular}}</td>
             <td>{{$expensess->amount}}</td>
-            <td>{{$expensess->category_id}}</td>
+            <td>{{$expensess->expensescategory->name}}</td>
             <td>{{$expensess->mode_of_payment}}</td>
             <td>{{$expensess->expenditure}}</td>
             <td class="text-center">
@@ -171,18 +171,7 @@
           </tr>
           @endforeach
           </tbody>
-          <tfoot>
-          <tr>
-             <th>ID</th>
-            <th>Date</th>
-            <th>Particular</th>
-            <th>Amount</th>
-            <th>Category ID</th>
-            <th>Mode of Payment</th>
-            <th>Expenditure Status</th>
-            <th>Actions</th>
-          </tr>
-                  </tbody>
+          
               </table>
             <!--end: Datatable-->
           </div>

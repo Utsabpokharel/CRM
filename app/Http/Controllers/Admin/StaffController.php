@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Staff;
 use App\Http\Requests\staffValidator;
 use App\Models\Admin\Department;
+use App\Models\Admin\title;
+use App\Models\Admin\level;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 class StaffController extends Controller
 {
     /**
@@ -27,8 +32,12 @@ class StaffController extends Controller
      */
     public function create()
     {
+        $levels=level::all();
+        $titles=title::all();
         $departments=Department::all();
-        return view('admin.staff.add',compact('departments'));
+        $district=$this->district();
+        $city=$this->city();
+        return view('admin.staff.add',compact('levels','titles','departments','district','city'));
     }
 
     /**
@@ -37,14 +46,20 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(staffValidator $request)
+    public function store(Request $request)
     {
-        $data = $request->except("confirm_password");
+        $data = $request->except('district','confirm_password');
+        $data['title_id']=$data['title_id'][0];
+        $password = Hash::make($request->password);
+        $data['password'] = $password;
         if($request->hasFile('pp_photo'))
-        {$staff_image_path='images/staff/';
-            $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);}
-
-        Staff::create($data);
+            {
+                $staff_image_path='images/staff/';
+                $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
+            }
+            
+        $staff=Staff::create($data);
+        $staff->title()->sync($request->title_id);
         return redirect()->route('staff.view')->with('success', 'Staff Created successfully');
     }
 
@@ -67,9 +82,13 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
-        $departments=Department::all();
         $staff = Staff::findOrfail($id);
-        return view("admin.staff.edit", compact('staff', 'departments'));
+        $levels=level::all();
+        $titles=title::all();
+        $departments=Department::all();
+        $district=$this->district();
+        $city=$this->city();
+        return view("admin.staff.edit", compact('staff','levels','titles','departments','district','city'));
     }
 
     /**
@@ -81,15 +100,11 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $data=$request->except('_token','confirm_password');
-        $data['city']='Kathmandu';
-        $data['department_id']=2;
-        $data['level_id']=2;
-        $data['title_id']=2;
-       
-       
-        Staff::where("id", $id)->update($data);
+        $staff=Staff::where("id", $id)->update($data);
+        $staff->title()->sync($request->title_id);
+
         return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
     }
 
@@ -125,5 +140,14 @@ class StaffController extends Controller
         $staff=Staff::onlyTrashed()->where('id',$id)->first();
         $staff->forceDelete();
         return redirect()->route('staff.view')->with('warning','Permanent Delete Successfully');
+    }
+     protected function district()
+    {
+        return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }

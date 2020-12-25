@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Add Expensescategory')
+@section('page_title','Add Expense Category')
 @section('content')
 <style type="text/css">
   p{
@@ -10,26 +10,26 @@
     <form class="form" method="post" action="{{route('expensescategory.store')}}" enctype="multipart/form-data">
     @csrf
       <div class="form-group">
-      <label>Name:</label>
+      <label>Name</label>
        @error('name')
            <p>The Date is required.</p>
            @enderror
       <input type="name" name="name" class="form-control form-control-solid" placeholder="Enter Name"/>
-      <span class="form-text text-muted">Please enter your Name</span>
+
       </div>
       <div class="form-group">
-      <label>Description:</label>
+      <label>Description</label>
       @error('description')
            <p>The Description is required.</p>
            @enderror
-      <input type="description" name="description" class="form-control form-control-solid" placeholder="Enter Description"/>
-      <span class="form-text text-muted">Please enter your Description</span>
+           <textarea class="form-control form-control-solid" placeholder="Enter Description" name="description" rows="7"> </textarea>
+
       </div>
      
       <div class="card-footer">
-      <button type="submit" class="btn btn-primary mr-2">Submit</button>
-      <button type="reset" class="btn btn-danger mr-2">Reset</button>
-       <!-- <a href="{{route('expensescategory.view')}}">Cancel</a> -->
+      <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button>
+      <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
+      <a href="{{route('expensescategory.view')}}" class="btn btn-danger">Cancel</a>
       </div>
     </form>
 </div>

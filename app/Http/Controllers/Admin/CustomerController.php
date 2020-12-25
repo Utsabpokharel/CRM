@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Customer;
+use Illuminate\Support\Facades\DB;
 use Validate;
+
 class CustomerController extends Controller
 {
     public function index()
@@ -16,7 +18,9 @@ class CustomerController extends Controller
 
     public function create()
     {
-        return view('admin.customer.add');
+        $district = $this->district();
+        $city = $this->city();
+        return view('admin.customer.add', compact('district', 'city'));
     }
 
     public function store(Request $request)
@@ -35,28 +39,29 @@ class CustomerController extends Controller
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'customer_type' => 'required'
-        ],[
-            'fname.required'=>'First Name is required',
-            'fname.min'=>'The First Name must be at least 3 characters.',
-            'fname.max'=>'The First Name Name may not be greater than 20 characters.',
-            'lname.min'=>'The Last Name must be at least 3 characters.',
-            'lname.max'=>'The Last Name Name may not be greater than 20 characters.',
-            'lname.required'=>'Last Name is required',
-            'gender.required'=>'Gender is required',
-            'dob.required'=>'Date of Birth  is required',
-            'password.required'=>'Password is required',
-            'city.required'=>'City is required',
-            'district.required'=>'District is required',
-            'temporaryaddress.required'=>'Temporary address is required',
-            'permanentaddress.required'=>'Permanent address is required',
-            'email.required'=>'Email is required',
-            'phone.required'=>'Phone Number is required',
-            'mobile.required'=>'Mobile Number is required',
-            'customer_type.required'=>'Customer Type is required'
+        ], [
+            'fname.required' => 'First Name is required',
+            'fname.min' => 'The First Name must be at least 3 characters.',
+            'fname.max' => 'The First Name Name may not be greater than 20 characters.',
+            'lname.min' => 'The Last Name must be at least 3 characters.',
+            'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
+            'lname.required' => 'Last Name is required',
+            'gender.required' => 'Gender is required',
+            'dob.required' => 'Date of Birth  is required',
+            'password.required' => 'Password is required',
+            'city.required' => 'City is required',
+            'district.required' => 'District is required',
+            'temporaryaddress.required' => 'Temporary address is required',
+            'permanentaddress.required' => 'Permanent address is required',
+            'email.required' => 'Email is required',
+            'phone.required' => 'Phone Number is required',
+            'mobile.required' => 'Mobile Number is required',
+            'customer_type.required' => 'Customer Type is required'
 
 
-             ]);
+        ]);
         $data = $request->all();
+        // $customers->password = Hash::make('super123');
 
         $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
         $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $this->imagePath());
@@ -68,8 +73,10 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+        $district = $this->district();
         $customer = Customer::findorfail($id);
-        return view('admin.customer.edit', compact('customer'));
+        $city = $this->city();
+        return view('admin.customer.edit', compact('customer', 'district', 'city'));
     }
 
     public function update(Request $request, $id)
@@ -79,7 +86,7 @@ class CustomerController extends Controller
             'lname' => 'required|min:3|max:20|alpha',
             'gender' => 'required',
             'dob' => 'required',
-            
+
             'city' => 'required',
             'district' => 'required',
             'temporaryaddress' => 'required',
@@ -88,43 +95,39 @@ class CustomerController extends Controller
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'customer_type' => 'required'
-        ],[
-            'fname.required'=>'First Name is required',
-             'fname.min'=>'The First Name must be at least 3 characters.',
-            'fname.max'=>'The First Name Name may not be greater than 20 characters.',
-            'lname.min'=>'The Last Name must be at least 3 characters.',
-            'lname.max'=>'The Last Name Name may not be greater than 20 characters.',
-            'lname.required'=>'Last Name is required',
-            'gender.required'=>'Gender is required',
-            'dob.required'=>'Date of Birth  is required',
-            
-            'city.required'=>'City is required',
-            'district.required'=>'District is required',
-            'temporaryaddress.required'=>'Temporary address is required',
-            'permanentaddress.required'=>'Permanent address is required',
-            'email.required'=>'Email is required',
-            'phone.required'=>'Phone Number is required',
-            'mobile.required'=>'Mobile Number is required',
-            'customer_type.required'=>'Customer Type is required'
+        ], [
+            'fname.required' => 'First Name is required',
+            'fname.min' => 'The First Name must be at least 3 characters.',
+            'fname.max' => 'The First Name Name may not be greater than 20 characters.',
+            'lname.min' => 'The Last Name must be at least 3 characters.',
+            'lname.max' => 'The Last Name Name may not be greater than 20 characters.',
+            'lname.required' => 'Last Name is required',
+            'gender.required' => 'Gender is required',
+            'dob.required' => 'Date of Birth  is required',
+
+            'city.required' => 'City is required',
+            'district.required' => 'District is required',
+            'temporaryaddress.required' => 'Temporary address is required',
+            'permanentaddress.required' => 'Permanent address is required',
+            'email.required' => 'Email is required',
+            'phone.required' => 'Phone Number is required',
+            'mobile.required' => 'Mobile Number is required',
+            'customer_type.required' => 'Customer Type is required'
 
 
-             ]);
+        ]);
 
         $customer = Customer::findorfail($id);
         $data = $request->except('_token', '_method', 'current_image', 'current_frontcitizenshipimage', 'current_backcitizenshipimage');
         if ($request->hasFile('image')) {
             $data['image'] = save_image($request->image, 150, 150, $this->imagePath());
             delete_image($customer->image, $this->imagePath());
-
-
         } else
             $data['image'] = $request->current_image;
 
         if ($request->hasFile('frontcitizenshipimage')) {
             $data['frontcitizenshipimage'] = save_image($request->image, 150, 150, $this->imagePath());
             delete_image($customer->image, $this->imagePath());
-
-
         } else
             $data['frontcitizenshipimage'] = $request->current_frontcitizenshipimage;
 
@@ -132,8 +135,6 @@ class CustomerController extends Controller
         if ($request->hasFile('backcitizenshipimage')) {
             $data['backcitizenshipimage'] = save_image($request->image, 150, 150, $this->imagePath());
             delete_image($customer->image, $this->imagePath());
-
-
         } else
             $data['backcitizenshipimage'] = $request->current_backcitizenshipimage;
 
@@ -162,7 +163,6 @@ class CustomerController extends Controller
         $customer = Customer::onlyTrashed()->where('id', $id)->first();
         $customer->restore();
         return back()->with('success', 'Restored seccessfully');
-
     }
 
     public function deleteTrash($id)
@@ -176,5 +176,14 @@ class CustomerController extends Controller
     protected function imagePath()
     {
         return "images/customer/";
+    }
+    protected function district()
+    {
+        return DB::table('districts')->get();
+    }
+
+    protected function city()
+    {
+        return DB::table('cities')->get();
     }
 }

@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class level extends Model
 {
     use HasFactory;
-    protected $fillable=['level','description'];
+    protected $fillable = ['level', 'description'];
+
+    public function staff()
+    {
+        return $this->hasMany('App\Models\Admin\Staff');
+    }
+    public function users()
+    {
+        return $this->hasMany('App\Models\Admin\user');
+    }
 }

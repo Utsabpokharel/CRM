@@ -88,7 +88,7 @@
   array (
     'defaults' => 
     array (
-      'guard' => 'web',
+      'guard' => 'user',
       'passwords' => 'users',
     ),
     'guards' => 
@@ -901,6 +901,17 @@
     'http_only' => true,
     'same_site' => 'lax',
   ),
+  'sparrow' => 
+  array (
+    'access_token' => 'TyUrCzwHXbobGHofD57o',
+    'from' => 'InfoSms',
+    'api_endpoint' => 'http://api.sparrowsms.com/v2/',
+    'methods' => 
+    array (
+      'send' => 'sms/',
+      'credit' => 'credit/',
+    ),
+  ),
   'view' => 
   array (
     'paths' => 
@@ -946,7 +957,7 @@
   'trustedproxy' => 
   array (
     'proxies' => NULL,
-    'headers' => 30,
+    'headers' => 94,
   ),
   'tinker' => 
   array (

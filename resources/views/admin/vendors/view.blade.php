@@ -11,24 +11,13 @@ View All Vendors
 
 <div class="page-content-wrapper ">
 	<div class="page-bar">
-        <div class="btn-group">
-	@if(!empty($trashed))
-    <a href="{{ route('vendors.view') }}" id="addRow" class="btn btn-warning">
-    View Vendor <i class="fa fa-eye"></i>
-    </a>
-    @else
-	<a href="{{ route('vendors.ViewTrash') }}" id="addRow" class="btn btn-warning">
-    Trashed Vendor <i class="fa fa-eye"></i>
-    </a>
-    @endif
-   </div>
 		<div class="page-title-breadcrumb">
 			<ol class="breadcrumb page-breadcrumb">
 				<li class="flex"></li>
-				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route("admin.index") }}">Home</a>&nbsp;
+				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="{{ route('admin.index') }}">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="{{ route("vendors.view") }}">Vendors</a>&nbsp;
+				<li><a class="parent-item" href="{{ route('vendors.view') }}">Vendors</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
 				<li class="active">All Vendors</li>
@@ -43,7 +32,7 @@ View All Vendors
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-					<h3 class="card-label">RowGroup DataTable</h3>
+					<h3 class="card-label">Vendor DataTable</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -123,7 +112,7 @@ View All Vendors
 													</g>
 												</svg>
 												<!--end::Svg Icon-->
-                                            </span>Add New Vendor</a>
+                                            </span>Add New Vendor</a>&nbsp;&nbsp;
                                             	@if(!empty($trashed))
 											<a href="{{route('vendors.view')}}" class="btn btn-warning">View Vendors</a>
 											@else
@@ -134,53 +123,38 @@ View All Vendors
 			</div>
 			<div class="card-body">
 				<!--begin: Datatable-->
-				<table class="table table-bordered table-hover table-checkable" id="roleTable" style="margin-top: 13px !important;">
-					<thead>
+				<table id="demo_table" class="display nowrap table" style="width:100%">
+					<thead class="table-bg">
 					<tr>
                         <th>Vendor ID</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Gender</th>
-						<th>Date of Birth</th>
-						<th>Registration Number</th>
-						<th>PAN/VAT Number</th>
-						<th>Email</th>
-						<th>Image</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Image</th>
                         <th>Mobile Number</th>
-                        <th>Address </th>
-                        <th>Vendor Type</th>
-                        <th>ID Proof</th>
-                        <th>Action</th>
-
+                        <th>Gender</th>
+                        <th>Actions</th>
 					</tr>
 					</thead>
 					<tbody>
                         @foreach($vendor as $value)
 					<tr>
 						<td>{{ $loop->index+1 }}</td>
-                        <td>{{ $value->fname }}</td>
-                        <td>{{ $value->lname }}</td>
-                        <td>{{ $value->gender }}</td>
-                        <td>{{ $value->dateofbirth }}</td>
-                        <td>{{ $value->registrationnumber }}</td>
-                        <td>{{ $value->panvatnumber }}</td>
+                        <td>{{ $value->fname }}&nbsp;{{$value->lname }}</td>
                         <td>{{ $value->email }}</td>
                         <td><img src="{{ asset('images/vendors/'.$value->image) }}"></td>
                         <td>{{ $value->mobile }}</td>
-                        <td>{{ $value->address1 }}</td>
-                        <td>{{ $value->vendor_type }}</td>
-                        <td><img src="{{asset('images/vendors/'.$value->idproof) }}"></td>
+                        <td>{{ $value->gender }}</td>
 						<td class="text-center">
                             @if(!empty($trashed))
 							<a href="{{route('vendors.restore',$value->id)}}">
                             <i class="fa fa-undo text-info"></i>
                             </a>
                             <hr>
-                            <a class="deleteData" href="javascript::" rel1="{{route('vendors.deleteTrash',$value->id)}}">
+                            <a class="deleteData" href="javascript:void(0)" rel1="{{route('vendors.deleteTrash',$value->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							@else
-							<a href="javascript::" class="deleteData" rel1="{{route('vendors.destroy',$value->id)}}">
+							<a href="javascript:void(0)" class="deleteData" rel1="{{route('vendors.destroy',$value->id)}}">
 								<i class="fa fa-trash text-danger"></i>
 							</a>
 							<hr>
@@ -193,24 +167,6 @@ View All Vendors
                     </tr>
                     @endforeach
 					</tbody>
-					<tfoot>
-					<tr>
-                    <th>Vendor ID</th>
-					<th>First Name</th>
-						<th>Last Name</th>
-						<th>Gender</th>
-						<th>Date of Birth</th>
-						<th>Registration Number</th>
-						<th>PAN/VAT Number</th>
-						<th>Email</th>
-						<th>Image</th>
-                        <th>Mobile Number</th>
-                        <th>Address</th>
-                        <th>Vendor Type</th>
-                        <th>ID Proof</th>
-                        <th>Action</th>
-
-					</tfoot>
 				</table>
 				<!--end: Datatable-->
 			</div>

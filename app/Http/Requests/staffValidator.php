@@ -31,23 +31,18 @@ class staffValidator extends FormRequest
             'pp_photo'=>'nullable', 
             'permanent_address'=>'required',    
             'temporary_address'=>'required',
-            'city'=>'required',  
-            'phoneno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',    
-            'mobileno'=>'',  
+            'mobileno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'city'=>'required',   
+            'district'=>'required',
             'department_id'=>'required',
             'title_id'=>'required',
             'level_id'=>'required',  
-            'panno'=>'',
             'joined_date'=>'required',
             'email'=>'required',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
-            'ifuser'=>'',
-            'id_proof'=>'',
-            'resume'=>'',
-            'offer_letter'=>'',
-            'joining_letter'=>'',
-            'contract_agreement'=>''
+
+            
         ];
     }
     public function messages()
@@ -61,7 +56,9 @@ class staffValidator extends FormRequest
             'lname.required'=>'Last Name field is required',
             'lname.min'=>'Minimum two character is required',
             'lname.max'=>'Maximum twenty character is required',
-            'lname.alpha'=>'Only alphabet is accepted'
+            'lname.alpha'=>'Only alphabet is accepted',
+
+            'mobileno.required'=>'Mobile Number is required',
         ];
     }
 }

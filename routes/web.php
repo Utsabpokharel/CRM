@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BankController;
+use App\Http\Controllers\GeneralController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,35 +19,82 @@ use App\Http\Controllers\CustomerController;
 */
 
 /*login route*/
-Route::group(['prefix'=>'/', 'namespace' => 'Admin','middleware'=>'guest'],function (){
-   route::get('/','LoginController@form')->name('login');
-   route::post('/login/check','LoginController@login')->name('login.check');
+
+Route::group(['prefix' => '/', 'namespace' => 'Admin', 'middleware' => 'guest'], function () {
+    Route::get('/', 'LoginController@form')->name('login');
+    Route::post('/login/check', 'LoginController@login')->name('login.check');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'], function () {
-    Route::get('index', 'IndexController@index')->name('admin.index');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'user']], function () {
+    //dashboard
+    Route::get(
+        'index',
+        'IndexController@index'
+    )->name('admin.index');
+    //Profile
+    Route::resource('profile', 'profileDemoController');
+    Route::get('personalInfo/{id}', 'PersonalInfoController@edit')->name('personal');
+    Route::post('personalInfo/{id}', 'PersonalInfoController@update')->name('personal_update');
+    //profile Setting
+    Route::get('Profile-Setting', 'ProfilesettingController@settingform')->name('profile');
+    Route::post('ChangePassword','ProfilesettingController@store')->name('changePassword');
+    // Routing for Service
+    Route::get("services/view_all", "ServiceController@index")->name("view_services");
+    Route::get("services/add", "ServiceController@create")->name("add_service");
+    Route::post("services/store", "ServiceController@store")->name("store_service");
+    Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
+    Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
+    Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
+    /*logout*/
+    Route::get('/logout', 'LoginController@logout')->name('logout');
+});
+
+Route::group(['namespace' => 'Admin', 'middleware' => ['super']], function () {
+    //roles
     Route::resource('roles', 'roleController');
+});
+
+Route::group(['namespace' => 'Admin', 'middleware' => ['admin']], function () {
     // Route for staff
     Route::get('staff', 'StaffController@index')->name('staff.view');
-    Route::get('staffadd', 'StaffController@create')->name('staff.add');
-    Route::post('staffstore', 'StaffController@store')->name('staff.store');
-    Route::get('staffedit/{staffid}', 'StaffController@edit')->name('staff.edit');
-    Route::post('staffupdate/{staffid}', 'StaffController@update')->name('staff.update');
-    Route::get('staffdestroy/{staffid}', 'StaffController@destroy')->name('staff.destroy');
-    Route::get('stafftrashed', 'StaffController@trashedView')->name('staff.trashed');
-    Route::get('staffrestore/{id}', 'StaffController@restore')->name('staff.restore');
-
-    Route::get('staffdeleteTrash/{id}', 'StaffController@deleteTrash')->name('staff.deleteTrash');
+    Route::get('staff/add', 'StaffController@create')->name('staff.add');
+    Route::post('staff/store', 'StaffController@store')->name('staff.store');
+    Route::get('staff/edit/{staffid}', 'StaffController@edit')->name('staff.edit');
+    Route::post('staff/update/{staffid}', 'StaffController@update')->name('staff.update');
+    Route::get('staff/destroy/{staffid}', 'StaffController@destroy')->name('staff.destroy');
+    Route::get('staff/trashed', 'StaffController@trashedView')->name('staff.trashed');
+    Route::get('staff/restore/{id}', 'StaffController@restore')->name('staff.restore');
+    Route::get('staff/deleteTrash/{id}', 'StaffController@deleteTrash')->name('staff.deleteTrash');
     require_once('components/Emailsetting.php');
     require_once('components/Profilesetting.php');
     // Route for award
     Route::get('award', 'AwardController@index')->name('award.view');
-    Route::get('awardadd', 'AwardController@create')->name('award.add');
-    Route::post('awardstore', 'AwardController@store')->name('award.store');
-    Route::get('awardedit/{awardid}', 'AwardController@edit')->name('award.edit');
-    Route::post('awardupdate/{awardid}', 'AwardController@update')->name('award.update');
-    Route::get('awarddestroy/{awardid}', 'AwardController@destroy')->name('award.destroy');
+    Route::get('award/add', 'AwardController@create')->name('award.add');
+    Route::post('award/store', 'AwardController@store')->name('award.store');
+    Route::get('award/edit/{awardid}', 'AwardController@edit')->name('award.edit');
+    Route::post('award/update/{awardid}', 'AwardController@update')->name('award.update');
+    Route::get('award/destroy/{awardid}', 'AwardController@destroy')->name('award.destroy');
+    //users route
+    Route::get('/users', 'userController@users')->name('user.view');
+    Route::get('/adduser', 'userController@addUser')->name('user.add');
+    Route::post('storeuser', 'userController@store')->name('user.store');
+    Route::get('users/delete/{userid}', 'userController@destroy')->name('user.destroy');
+    Route::get('user/edit/{userid}', 'userController@editUser')->name('user.edit');
+    Route::post('user/update/{userid}', 'userController@updateUser')->name('user.update');
+    //level
+    Route::resource('level', 'levelController');
+    Route::get('level/delete/{id}', 'levelController@destroy')->name('level.destroy');
+    //title
+    Route::resource('title', 'titleController');
+    Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
+    // General setting
+    Route::get('generalSettings', 'GeneralController@create')->name('general.create');
+    Route::post('general/Store', 'GeneralController@store')->name('general.store');
+    Route::get('general/edit/{id}','GeneralController@edit')->name('general.edit');
+    Route::post('general/update/{id}','GeneralController@update')->name('general.update');
+});
 
+Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
     //Income and income category
     Route::get('Incomecategory/Create', 'incomecategorycontroller@create')->name('incomecategory.create');
     Route::get('Incomecategory', 'incomecategorycontroller@view')->name('incomecategory.view');
@@ -52,6 +103,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::post('Incomecategory/Update/{incomecategoryid}', 'incomecategorycontroller@update')->name('incomecategory.update');
     Route::get('Incomecategory/Delete/{incomecategoryid}', 'incomecategorycontroller@destroy')->name('incomecategory.destroy');
     //Income
+    Route::get('Income', 'IncomeController@view')->name('income.view');
+    Route::get('Income/Create', 'IncomeController@create')->name('income.create');
+    Route::get('Income', 'IncomeController@view')->name('income.view');
+    Route::post('Income/Store', 'IncomeController@store')->name('income.store');
+    Route::get('Income/Edit{incomeid}', 'IncomeController@edit')->name('income.edit');
+    Route::post('Income/Update{incomeid}', 'IncomeController@update')->name('income.update');
+    Route::get('Income/deleteTrashed/{id}', 'Incomecontroller@deletetrashed')->name('income.trashed');
+    Route::get('Income/Viewtrashed', 'Incomecontroller@Viewtrashed')->name('income.Viewtrashed');
+    Route::get('Income/restore/{id}', 'Incomecontroller@restore')->name('income.restore');
+    Route::get('Income/Delete{incomeid}', 'Incomecontroller@destroy')->name('income.destroy');
     //Expenses and expenses category
     Route::get('Expensescategory', 'Expensescategorycontroller@view')->name('expensescategory.view');
     Route::get('Expensescategory/Create', 'Expensescategorycontroller@create')->name('expensescategory.create');
@@ -69,19 +130,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::get('Expenses/Viewtrashed', 'Expensescontroller@Viewtrashed')->name('expenses.Viewtrashed');
     Route::get('expenses/restore/{id}', 'Expensescontroller@restore')->name('expenses.restore');
     Route::get('Expenses/Delete{expensesid}', 'Expensescontroller@destroy')->name('expenses.destroy');
-    //Title-Level-ProfileDemo
-    Route::resource('level', 'levelController');
-    Route::resource('title', 'titleController');
-    Route::get('title/delete/{id}', 'titleController@destroy')->name('title.destroy');
-    Route::resource('profile', 'profileDemoController');
-    Route::get('personalInfo', 'profileDemoController@personal')->name('personal');
-    //users route
-    Route::get('/users', 'userController@users')->name('user.view');
-    Route::get('/adduser', 'userController@addUser')->name('user.add');
-    Route::post('storeuser', 'userController@store')->name('user.store');
-    Route::get('users/delete/{userid}', 'userController@destroy')->name('user.destroy');
-    Route::get('user/edit/{userid}', 'userController@editUser')->name('user.edit');
-    Route::post('user/update/{userid}', 'userController@updateUser')->name('user.update');
     //Customer
     Route::get('customer', 'CustomerController@index')->name('customer.index');
     Route::post('customer/Store', 'CustomerController@store')->name('customer.store');
@@ -92,19 +140,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::get('customer/ViewTrash', 'CustomerController@ViewTrash')->name('customer.ViewTrash');
     Route::get('customer/restore/{id}', 'CustomerController@restore')->name('customer.restore');
     Route::get('customer/deleteTrash/{id}', 'CustomerController@deleteTrash')->name('customer.deleteTrash');
-    //staff route
-    Route::get('staff', 'StaffController@index')->name('staff.view');
-    Route::get('staffadd', 'StaffController@create')->name('staff.add');
-    Route::post('staffstore', 'StaffController@store')->name('staff.store');
-    Route::get('staffedit/{id}', 'StaffController@edit')->name('staff.edit');
-    Route::get('staffupdate/{id}', 'StaffController@update')->name('staff.update');
-    Route::get('staffdestroy/{id}', 'StaffController@destroy')->name('staff.destroy');
-    require_once('components/Emailsetting.php');
-
     /*enquiry*/
     require_once('components/enquiry.php');
     require_once('components/enquiry-category.php');
     require_once('components/enquiry-source.php');
+    require_once('components/enquiry-response.php');
     // Routing for Department
     Route::get("department/view_all", "DepartmentController@index")->name("view_department");
     Route::get("department/add", "DepartmentController@create")->name("add_department");
@@ -112,15 +152,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::get("department/edit/{id}", "DepartmentController@edit")->name("edit_department");
     Route::post("department/update/{id}", "DepartmentController@update")->name("update_department");
     Route::get('department/delete/{id}', 'DepartmentController@destroy')->name('delete_department');
-    // Routing for Service
-    Route::get("services/view_all", "ServiceController@index")->name("view_services");
-    Route::get("services/add", "ServiceController@create")->name("add_service");
-    Route::post("services/store", "ServiceController@store")->name("store_service");
-    Route::get("services/edit/{id}", "ServiceController@edit")->name("edit_service");
-    Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
-    Route::get('services/delete/{id}', 'ServiceController@destroy')->name('delete_service');
-    /*logout*/
-    Route::get('/logout','LoginController@logout')->name('logout');
 
     // Routing for Vendor
     Route::get("vendors/index", "VendorController@index")->name("vendors.view");
@@ -131,8 +162,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'auth'],
     Route::get("vendors/delete/{id}", "VendorController@destroy")->name("vendors.destroy");
     Route::get("vendors/ViewTrash", "VendorController@ViewTrash")->name("vendors.ViewTrash");
     Route::get("vendors/restore/{id}", "VendorController@restore")->name("vendors.restore");
-    Route::get('customer/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
+    Route::get('vendors/deleteTrash/{id}', "VendorController@deleteTrash")->name("vendors.deleteTrash");
+    //email
+    Route::get('Email-Settings', 'EmailsettingController@settingform')->name('email');
+    //BankAccount
+    Route::get('bank', 'BankController@index')->name('bank.index');
+    Route::get('bank/Create', 'BankController@create')->name('bank.create');
+    Route::post('bank/Store', 'BankController@store')->name('bank.store');
+    Route::get('bank/edit/{id}', 'BankController@edit')->name('bank.edit');
+    Route::put('bank/Update/{id}', 'BankController@update')->name('bank.update');
+    Route::get('bank/destroy/{id}', 'BankController@destroy')->name('bank.destroy');
+
+    Route::get('bank/ViewTrash', 'BankController@ViewTrash')->name('bank.ViewTrash');
+    Route::get('bank/restore/{id}', 'BankController@restore')->name('bank.restore');
+    Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.deleteTrash');
 });
-
-
-

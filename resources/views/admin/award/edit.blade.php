@@ -52,7 +52,7 @@
 
      <div class="form-group">
       <label>Thankyou Point</label>
-      <textarea name="thankyou" class="form-control form-control-solid" name="thankyou" value="{{$award->thankyou}}" placeholder="Write Your Message Here" rows="5"> </textarea>
+      <textarea name="thankyou" class="form-control form-control-solid" name="thankyou" value="{{$award->thankyou}}" rows="5"> </textarea>
      </div>
 
      <div class="card-footer">

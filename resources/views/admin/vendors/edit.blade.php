@@ -1,240 +1,265 @@
 @extends('admin.layouts.default')
-@section('page_title','Edit Vendor')
+@section('page_title','Update Vendor')
 @section('content')
-<style>
-    p{
-        color:red;
-    }
-    </style>
+
 <div class="card-body card">
     <form class="form" method="post" action="{{route('vendors.update',$vendor->id)}}" enctype="multipart/form-data">
-                            @csrf
+     @csrf
 
      <div class="row">
-         @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-    <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="form-group">
-        <label>First Name</label>
-       <input type="text" name="fname"  class="form-control form-control-solid" placeholder="Enter First Name" value="{{ $vendor->fname }}"/>
-      @error('fname')
-      <p>Please Enter First Name</p>
-      @enderror
-      {{-- <span class="form-text text-muted">Please enter your full name</span> --}}
-     </div>
-   </div>
-   <div class="col-md-6">
+          <label>First Name</label>
+          <span class="text-danger">*</span>
+          <input type="text" class="form-control form-control-solid @error('fname') is-invalid @enderror"
+          name="fname" value="{{$vendor->fname}}"/>
+          @error('fname')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
         <div class="form-group">
-        <label>Last Name</label>
-       <input type="text" name="lname"  class="form-control form-control-solid" placeholder="Enter Last Name" value="{{$vendor->lname  }}"/>
-      @error('lname')
-      <p>Please Enter Last Name</p>
-      @enderror
-      {{-- <span class="form-text text-muted">Please enter your full name</span> --}}
+          <label>Gender</label>
+          <span class="text-danger">*</span>
+          <select name="gender" id="gender"
+          class="form-control form-control-solid @error('gender') is-invalid @enderror"
+          name="gender" data-validation="required">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="others">Others</option>
+          </select>
+          @error('gender')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="number" class="form-control form-control-solid" name="phone"
+          value="{{$vendor->phone}}"/>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <span class="text-danger">*</span>
+          <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror"
+          id="email" name="email" value="{{$vendor->email}}"/>
+          @error('email')
+          <span class="invalid-feedback" role="alert"> {{$message}}</span>
+          @enderror
+          <p id="emailExists" style="color: red; display: none">Email Already Exists In Our Database</p>
+        </div>
+
+        <div class="form-group">
+          <label>Permanent Address</label>
+          <span class="text-danger">*</span>
+          <input type="text" class="form-control form-control-solid @error('permanent_address') is-invalid @enderror"
+          name="permanent_address" value="{{$vendor->permanent_address}}"/>
+          @error('permanent_address')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>District</label>
+          <span class="text-danger">*</span>
+          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" data-validation="required" >
+          <option value="abcd">abcd</option>
+          </select>
+          @error('district')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Vendor Type</label>
+          <span class="text-danger">*</span>
+          <select name="vendor_type"  class="form-control form-control-solid @error('vendor_type') is-invalid @enderror">
+            <option value="1">Individual</option>
+            <option value="2">Organisation</option>
+          </select>
+          @error('vendor_type')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>First Contact Person</label>
+          <input type="text" name="firstcontactperson" class="form-control form-control-solid @error('firstcontactperson') is-invalid @enderror" value="{{$vendor->firstcontactperson}}"/>
+          @error('firstcontactperson')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>First Contact Person Phone Number</label>
+          <input type="text" name="firstphone" class="form-control form-control-solid @error('firstphone') is-invalid @enderror" value="{{$vendor->firstphone}}"/>
+          @error('firstphone')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
      </div>
-   </div>
-     <div class="col-md-6">
-     <div class="form-group">
-        <label>Gender</label>
-        <select name="gender" class="form-control form-control-solid" value="{{ $vendor->gender }}">
-            <option>Select a Gender</option>
-            <option @if($vendor->gender=='Male') selected @endif value="Male">Male</option>
-            <option @if($vendor->gender=='Female') selected @endif value="Female">Female</option>
-            <option @if($vendor->gender=='Other') selected @endif>Others</option>
-        </select>
-        @error('gender')
-      <p>Please Select a Gender</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-       <div class="form-group">
-           <label>Date of Birth</label>
-           <input type="date" name="dateofbirth"  class="form-control form-control-solid" placeholder="Enter Birth Date" value="{{$vendor->dateofbirth  }}"/>
-           @error('dateofbirth')
-           <p>Please Enter Date of Birth</p>
-           @enderror
-       </div>
-   </div>
-   <div class="col-md-6">
-       <div class="form-group">
-           <label>Registration Number</label>
-           <input type="text" name="registrationnumber"  class="form-control form-control-solid" placeholder="Enter Registration Number" value="{{$vendor->registrationnumber  }}"/>
-           @error('registrationnumber')
-           <p>Please Enter Registration Number</p>
-           @enderror
-       </div>
-   </div>
-   <div class="col-md-6">
-       <div class="form-group">
-           <label>PAN/VAT Number</label>
-           <input type="text" name="panvatnumber"  class="form-control form-control-solid" placeholder="Enter PAN/VAT Number" value="{{ $vendor->panvatnumber }}"/>
-           @error('panvatnumber')
-           <p>Please Enter PAN/VAT Number</p>
-           @enderror
-       </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-      <label>Email address</label>
-      <input type="email"  name="email" class="form-control form-control-solid" placeholder="Enter Email" value="{{ $vendor->email }}"/>
-      @error('email')
-      <p>Please Enter Email</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>Image</label>
-        <input type="hidden" name="image">
-        <input type="file" class="form-control form-control-solid"  name="image" value="{{ $vendor->image }}"/>
-        @error('image')
-      <p>Please Select a Image</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>Phone Number</label>
-        <input type="text" name="phone" class="form-control form-control-solid" placeholder="Enter Phone Number" value="{{$vendor->phone  }}"/>
-        @error('phone')
-      <p>Please Enter Mobile Number</p>
-      @enderror
-     </div>
-   </div>
-    <div class="col-md-6">
-     <div class="form-group">
-        <label>Phone Number</label>
-        <input type="text" name="mobile" class="form-control form-control-solid" placeholder="Enter Mobile Number" value="{{$vendor->mobile  }}"/>
-        @error('mobile')
-      <p>Please Enter Mobile Number</p>
-      @enderror
-     </div>
-   </div>
-     <div class="col-md-6">
-     <div class="form-group">
-        <label>City</label>
-        <input type="text" name="city" class="form-control form-control-solid" placeholder="Enter City" value="{{$vendor->city }}"/>
-        @error('city')
-      <p>Please Enter city</p>
-      @enderror
-     </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>Permanent Address</label>
-        <input type="text" name="address1" class="form-control form-control-solid" placeholder="Enter Permanent Address" value="{{ $vendor->address1 }}"/>
-        @error('address1')
-      <p>Please Enter Permanent Address</p>
-      @enderror
-     </div>
-   </div>
-    <div class="col-md-6">
-     <div class="form-group">
-        <label>Temporary Address</label>
-        <input type="text" name="address2" class="form-control form-control-solid" placeholder="Enter Temporary Address" value="{{ $vendor->address2 }}"/>
-        @error('address2')
-      <p>Please Enter Temporary Address</p>
-      @enderror
-     </div>
-   </div>
-    <div class="col-md-6">
-     <div class="form-group">
-        <label>Vendor Type</label>
-        <select name="vendor_type" class="form-control form-control-solid" value="{{ $vendor->vendor_type }}">
-            <option>Select Vendor Type</option>
-            <option @if($vendor->vendor_type=="Individual") selected @endif value="Individual">Individual</option>
-            <option @if($vendor->vendor_type=="Organisation") selected @endif value="Organisation">Organisation</option>
-        </select>
-        @error('vendor_type')
-      <p>Please Select Vendor Type</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>First Contact Person</label>
-        <input type="text" name="firstcontactperson" class="form-control form-control-solid" placeholder="Enter the name of first contact person" value="{{ $vendor->firstcontactperson }}"/>
-        @error('firstcontactperson')
-      <p>Please Enter the name of first contact person</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>First Contact Person Email Address</label>
-        <input type="email" name="firstemail" class="form-control form-control-solid" placeholder="Enter the email of first contact person" value="{{ $vendor->firstemail }}"/>
-        @error('firstemail')
-      <p>Please Enter the email of first contact person</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>First Contact Person Phone Number</label>
-        <input type="text" name="firstphone" class="form-control form-control-solid" placeholder="Enter the phone number of first contact person" value="{{ $vendor->firstphone }}"/>
-        @error('firstphone')
-      <p>Please Enter the name of first contact person</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>Second Contact Person </label>
-        <input type="text" name="secondcontactperson" class="form-control form-control-solid" placeholder="Enter the name of second contact person" value="{{ $vendor->secondcontactperson }}"/>
-        @error('secondcontactperson')
-      <p>Please Enter the name of second contact person</p>
-      @enderror
-     </div>
-   </div>
-    <div class="col-md-6">
+
      <div class="form-group">
         <label>Second Contact Person Email Address </label>
-        <input type="text" name="secondemail" class="form-control form-control-solid" placeholder="Enter the email of second contact person" value="{{ $vendor->secondemail }}"/>
+        <input type="text" name="secondemail" class="form-control form-control-solid @error('secondemail') is-invalid @enderror" value="{{$vendor->secondemail}}"/>
         @error('secondemail')
-      <p>Please Enter the email of second contact person</p>
+      <span class="invalid-feedback" role="alert">{{ $message }}</span>
       @enderror
      </div>
-   </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>Second Contact Person Phone Number </label>
-        <input type="text" name="secondphone" class="form-control form-control-solid" placeholder="Enter the phone number of second contact person" value="{{ $vendor->secondphone }}"/>
-        @error('secondphone')
-      <p>Please Enter the phone number of second contact person</p>
-      @enderror
-     </div>
-   </div>
-   <div class="col-md-6">
-      <div class="form-group">
-
-                                    <input type="checkbox" value="1" id="Usercheck" name="ifuser"  checked>
-                                    <span>Register For Vendor</span>
-                                     @error('ifuser')
-                                   <p>Select this checkbox.</p>
-                                        @enderror
-                                </div>
     </div>
-   <div class="col-md-6">
-     <div class="form-group">
-        <label>ID Proof</label>
-        <input type="hidden" name="idproof">
-        <input type="file" class="form-control form-control-solid" id="idproof" name="idproof"  value="{{ $vendor->idproof }}"/>
-        @error('idproof')
-      <p>ID Proof is required</p>
-      @enderror
-     </div>
-   </div>
+
+     <div class="col-sm-6">
+        <div class="form-group">
+          <label>Last Name</label>
+          <span class="text-danger">*</span>
+          <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror"
+          name="lname" value="{{$vendor->lname}}"/>
+          @error('lname')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+          </div>
+
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <span class="text-danger">*</span>
+          <input type="date" class="form-control form-control-solid @error('dob') is-invalid @enderror" name="dateofbirth" value="{{$vendor->dateofbirth}}"/>
+          @error('dob')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
         </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <span class="text-danger">*</span>
+          <input type="number" class="form-control form-control-solid  @error('mobile') is-invalid @enderror" name="mobile"
+          value="{{$vendor->mobile}}" data-validation="required"/>
+          @error('mobile')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Registration Number</label>
+          <input type="number" name="registrationnumber"  class="form-control form-control-solid @error('registrationnumber') is-invalid @enderror" value="{{$vendor->registrationnumber}}"/>
+          @error('registrationnumber')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Temporary Address</label>
+          <span class="text-danger">*</span>
+          <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address"  value="{{$vendor->temporary_address}}"/>
+          @error('temporary_address')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>City</label>
+          <span class="text-danger">*</span>
+          <select name="city" id="city"
+          class="form-control form-control-solid @error('city') is-invalid @enderror" name="city">
+          <option value="abcd">abcd</option>
+          </select>
+          @error('city')
+          <span class="invalid-feedback" role="alert"> {{$message}} </span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>PAN/VAT Number</label>
+          <input type="number" class="form-control form-control-solid" name="panvatnumber"
+          value="{{$vendor->panvatnumber}}" data-validation="required"/>
+        </div>
+
+        <div class="form-group">
+          <label>First Contact Person Email Address</label>
+          <input type="email" name="firstemail" class="form-control form-control-solid @error('firstemail') is-invalid @enderror" value="{{$vendor->firstemail}}"/>
+          @error('firstemail')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Second Contact Person </label>
+          <input type="text" name="secondcontactperson" class="form-control form-control-solid @error('secondcontactperson') is-invalid @enderror" value="{{$vendor->secondcontactperson}}"/>
+          @error('secondcontactperson')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label>Second Contact Person Phone Number </label>
+          <input type="text" name="secondphone" class="form-control form-control-solid @error('secondphone') is-invalid @enderror" value="{{$vendor->secondphone}}"/>
+          @error('secondphone')
+          <span class="invalid-feedback" role="alert">{{ $message }}</span>
+          @enderror
+        </div>
+      </div>
+
+
+                    <div class="col-lg-12">
+                    <center> <h1 style="background-color:powderblue;">Documents</h1> </center>
+                    </div>
+
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Passport Size Photo</label>
+                        <input type="file" class="form-control form-control-solid" name="pp_photo"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Citizenship Proof (Frontside)</label>
+                        <input type="file" class="form-control form-control-solid" name="frontcitizenshipimage"
+                               data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Offer Letter</label>
+                        <input type="file" class="form-control form-control-solid" name="offer_letter"
+                               data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contract and Agreement</label>
+                        <input type="file" class="form-control form-control-solid" name="contract_agreement"
+                               data-validation="required"/>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Resume</label>
+                        <input type="file" class="form-control form-control-solid" name="resume"
+                               data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Citizenship Proof (Backside)</label>
+                        <input type="file" class="form-control form-control-solid" name="backcitizenshipimage"
+                               data-validation="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Joining Letter</label>
+                        <input type="file" class="form-control form-control-solid" name="joining_letter"
+                               data-validation="required"/>
+                    </div>
+                    </div>
+
+               <div class="col-md-6">
+                <div class="form-group">
+                  <input type="checkbox" value="1" id="Usercheck" name="ifuser"  checked>
+                  <span>Register For User</span>
+                </div>
+               </div>
+        </div>
+
         <div class="card-footer">
-    <button type="submit" class="btn btn-primary mr-2" value="submit">Update</button>
-     <button type="reset" class="btn btn-secondary" value="reset">Reset</button>
+     <button type="submit" class="btn btn-primary mr-2" value="submit">Update</button>
+     <a href="{{route('vendors.view')}}" class ="btn btn-danger mr-2">Cancel</a>
    </div>
    </form>
 </div>

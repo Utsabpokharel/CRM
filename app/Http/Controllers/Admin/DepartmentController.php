@@ -16,8 +16,7 @@ class DepartmentController extends Controller
     }
     public function create()
     {
-        $data = Department::latest()->get();
-        return view('admin.department.add', compact('data'));
+        return view('admin.department.add');
     }
     function store(departmentValidator $request)
     {
@@ -25,6 +24,7 @@ class DepartmentController extends Controller
         Department::create($data);
         return redirect()->route('view_department')->with('success', 'Department Created successfully');
     }
+
     function edit($id)
     {
         $data = Department::findOrfail($id);
@@ -40,6 +40,6 @@ class DepartmentController extends Controller
     {
         $data = Department::findOrfail($id);
         $data->delete();
-        return back();
+        return redirect()->route('view_department')->with('success', 'Selected Level has been deleted');
     }
 }

@@ -9,4 +9,8 @@ class Award extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    public function staff(){
+        return $this->belongsTo('App\Models\Admin\Staff','staff');
+    }
 }

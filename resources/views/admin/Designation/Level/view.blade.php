@@ -9,10 +9,10 @@
 				<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="">Home</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li><a class="parent-item" href="">Title</a>&nbsp;
+				<li><a class="parent-item" href="">Level</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li class="active">All Title</li>
+				<li class="active">All Level</li>
 			</ol>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 											<span class="card-icon">
 												<i class="flaticon2-gift text-primary"></i>
 											</span>
-					<h3 class="card-label">All Titles</h3>
+					<h3 class="card-label">All Levels</h3>
 				</div>
 				<div class="card-toolbar">
 					<!--begin::Dropdown-->
@@ -119,24 +119,24 @@
 						<th>Actions</th>
 					</tr>
                     </thead>
-
-					<tbody>
-					<tr>
-                        <td>{{$title->id}}</td>
-                        <td>{{$title->title}}</td>
-                        <td>{{$title->description}}</td>
-						<td class="text-center">
-							<a href="">
-								<i class="fa fa-paper-plane text-primary"></i>
-							</a>
-							<hr>
-                              <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1=""><span
-                                class="fa fa-trash"></span></a>
-                          </form>
-                        </td>
-					</tr>
-					</tbody>
-
+                    @foreach ($level as $level)
+                        <tbody>
+                        <tr>
+                            <td>{{$level->id}}</td>
+                            <td>{{$level->level}}</td>
+                            <td>{{$level->description}}</td>
+                            <td class="text-center">
+                                <a href="{{ route('level.edit', $level->id)}}">
+                                    <i class="fa fa-paper-plane text-primary"></i>
+                                </a>
+                                <hr>
+                                <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('level.destroy', $level->id)}}"><span
+                                    class="fa fa-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    @endforeach
 				</table>
 				<!--end: Datatable-->
 			</div>
