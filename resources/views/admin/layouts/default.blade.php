@@ -91,6 +91,15 @@
 		border-radius: 50%;
 
 	}
+
+	.notification-counter{
+		position: absolute;
+		top: -2px;
+		right: -5px;
+		padding: 5px 10px;
+		border-radius: 50%;
+		color: white;
+	}
 </style>
 </head>
 
