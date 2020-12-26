@@ -8,6 +8,29 @@
   <form class="form" method="post" action="{{route('user.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+              <label>Email address</label>
+              {{-- <input type="email" name="email" class="form-control form-control-solid @error('email') is-invalid @enderror" placeholder="Enter Email" /> --}}
+              <select name="email" id="email" class="form-control form-control-solid @error('email') is-invalid @enderror">
+                <option selected disabled>Select Email</option>
+                @foreach($staffs as $name)
+                <option value="{{$name->email}}" class="form-control">{{$name->email}}</option>
+                @endforeach
+
+                @foreach($vendors as $name)
+                <option value="{{$name->email}}" class="form-control">{{$name->email}}</option>
+                @endforeach
+
+                @foreach($customers as $name)
+                <option value="{{$name->email}}" class="form-control">{{$name->email}}</option>
+                @endforeach
+              </select>
+              @error('email')
+              <span class="invalid-feedback" role="alert"> {{$message}} </span>
+              @enderror
+            </div>
+          </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>Name</label>
@@ -47,29 +70,6 @@
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Email address</label>
-          {{-- <input type="email" name="email" class="form-control form-control-solid @error('email') is-invalid @enderror" placeholder="Enter Email" /> --}}
-          <select name="email" id="email" class="form-control form-control-solid @error('email') is-invalid @enderror">
-            <option selected disabled>Select Email</option>
-            @foreach($staffs as $name)
-            <option value="{{$name->email}}" class="form-control">{{$name->email}}</option>
-            @endforeach
-
-            @foreach($vendors as $name)
-            <option value="{{$name->email}}" class="form-control">{{$name->email}}</option>
-            @endforeach
-
-            @foreach($customers as $name)
-            <option value="{{$name->email}}" class="form-control">{{$name->email}}</option>
-            @endforeach
-          </select>
-          @error('email')
-          <span class="invalid-feedback" role="alert"> {{$message}} </span>
-          @enderror
-        </div>
-      </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>Department</label>

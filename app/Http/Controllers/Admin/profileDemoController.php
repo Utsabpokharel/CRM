@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\Bank;
+use App\Models\Admin\Customer;
 use App\Models\Admin\Department;
 use App\Models\Admin\level;
+use App\Models\Admin\staff;
 use App\Models\Admin\title;
+use App\Models\Vendor;
 use Illuminate\Support\Facades\DB;
 
 // use App\Models\Admin\user;
@@ -26,11 +29,15 @@ class profileDemoController extends Controller
         $level = level::find(1);
         $department = Department::find(1);
         $user = Auth::user()->id;
+        $user_email = Auth::user()->email;
+        $staff = staff::where('email',$user_email)->first();
+        $customer = Customer::where('email',$user_email)->first();
+        $vendor = Vendor::where('email',$user_email)->first();
         // dd($department);
         $bank = Bank::where('user_id', $user)->first();
         // $bank = $bank->get('');
         // dd($bank->bank_name);
-        return view('admin.Profile-demo.demo', compact('title', 'department', 'level', 'bank', 'user'));
+        return view('admin.Profile-demo.demo', compact('title', 'department', 'level', 'bank', 'user','staff','customer','vendor'));
     }
 
     /**
