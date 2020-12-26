@@ -14,6 +14,7 @@ use App\Notifications\UserAdd;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\UserCreate;
 use Illuminate\Support\Facades\Mail;
+use Auth;
 
 class userController extends Controller
 {
@@ -48,24 +49,13 @@ class userController extends Controller
         $data['password'] = $password;
         // $imagepath='images/users/';
         // $data['image']=save_image($request->image,150,150,$imagepath);
-        user::create($data);
+//        user::create($data);
         // dd($data);
-        $user = user::first();
-        $details = [
-
-            'greeting' => 'Hi SuperAdmin',
-
-            'body' => 'New User has been added to the System.',
-
-            'thanks' => 'Please Check and verify',
-
-            // 'actionText' => 'View My Site',
-
-            // 'actionURL' => url('/'),
-
-            'roleid' => 1
-        ];
-        $user->notify(new UserAdd($details));
+        $admin= user::where('roleid',1)->orwhere('roleid',2)->get();
+        foreach ($admin as $admin)
+        {
+            $admin->notify(new UserAdd());
+        }
         // Mail::to($user->email)->send(new UserCreate());
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }

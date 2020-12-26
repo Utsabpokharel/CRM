@@ -6,20 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Auth;
 
 class UserAdd extends Notification
 {
     use Queueable;
-    private $details;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct()
     {
-        $this->details = $details;
+
     }
 
     /**
@@ -56,7 +56,9 @@ class UserAdd extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'roleid' => $this->details['roleid']
+
+            'title' => 'User Added',
+            'description'=>Auth::user()->name, 'added new user',
         ];
     }
 }

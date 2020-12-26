@@ -6,7 +6,6 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\GeneralController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('personalInfo/{id}', 'PersonalInfoController@update')->name('personal_update');
     //profile Setting
     Route::get('Profile-Setting', 'ProfilesettingController@settingform')->name('profile');
-    Route::post('ChangePassword','ProfilesettingController@store')->name('changePassword');
+    Route::post('ChangePassword', 'ProfilesettingController@store')->name('changePassword');
     // Routing for Service
     Route::get("services/view_all", "ServiceController@index")->name("view_services");
     Route::get("services/add", "ServiceController@create")->name("add_service");
@@ -46,6 +45,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     /*logout*/
     Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::get('/notification', function () {
+        auth()->user()->unreadNotifications->where('type', 'App\Notifications\UserAdd')->markAsRead();
+        return redirect()->route('user.view');
+    })->name('notificationmarkasread');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['super']], function () {
@@ -126,8 +129,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['admin']], function () {
     // General setting
     Route::get('generalSettings', 'GeneralController@create')->name('general.create');
     Route::post('general/Store', 'GeneralController@store')->name('general.store');
-    Route::get('general/edit/{id}','GeneralController@edit')->name('general.edit');
-    Route::post('general/update/{id}','GeneralController@update')->name('general.update');
+    Route::get('general/edit/{id}', 'GeneralController@edit')->name('general.edit');
+    Route::post('general/update/{id}', 'GeneralController@update')->name('general.update');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
