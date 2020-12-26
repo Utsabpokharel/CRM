@@ -60,16 +60,6 @@
 
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Password:</label>
-                         <input type="password" name="password" class="form-control form-control-solid @error('password') is-invalid @enderror" placeholder="Enter password" value="{{old('password')}}" />
-                         @error('password')
-                         <span class="invalid-feedback" role="alert">{{$message}}</span>
-                         @enderror
-                    </div>
-               </div>
-
-               <div class="col-md-6">
-                    <div class="form-group">
                          <label>Phone Number:</label>
                          <input type="text" name="phone" class="form-control form-control-solid @error('phone') is-invalid @enderror" placeholder="Enter Phone Number" value="{{old('phone')}}" />
                          @error('phone')

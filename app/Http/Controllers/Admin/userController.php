@@ -10,11 +10,8 @@ use App\Models\Vendor;
 use App\Models\Admin\Customer;
 use App\Models\Admin\role;
 use App\Models\Admin\Department;
-use App\Models\Admin\title;
-use App\Models\Admin\level;
 use App\Notifications\UserAdd;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 use App\Mail\UserCreate;
 use Illuminate\Support\Facades\Mail;
 
@@ -32,23 +29,18 @@ class userController extends Controller
         $customers = Customer::all();
         $departments = Department::all();
         $roles = role::all();
-        $titles = title::all();
-        $levels = level::all();
-        $district = $this->district();
-        $city = $this->city();
-        return view('Admin.user.add', compact('staffs', 'vendors', 'customers', 'roles', 'departments', 'titles', 'levels', 'district', 'city'));
+        return view('Admin.user.add', compact('staffs', 'vendors', 'customers', 'roles', 'departments'));
     }
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name'=>'required',
-        //     'email'=>'required',
-        //     'phone'=>'required',
-        //     'password'=>'required',
-        //     'confirm_password'=>'required|same:password',
-        //     'gender'=>'required',
-        //     'roleid'=>'required'
-        // ]);
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|unique:users',
+            'password'=>'required',
+            'confirm_password'=>'required|same:password',
+            'department'=>'required',
+            'roleid'=>'required'
+        ]);
 
         $data = $request->except('confirm_password');
 
@@ -74,7 +66,7 @@ class userController extends Controller
             'roleid' => 1
         ];
         $user->notify(new UserAdd($details));
-        Mail::to($user->email)->send(new UserCreate());
+        // Mail::to($user->email)->send(new UserCreate());
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }
     public function destroy($id)
@@ -91,21 +83,16 @@ class userController extends Controller
         $roles = role::all();
         $user = user::findorfail($id);
         $departments = Department::all();
-        $titles = title::all();
-        $levels = level::all();
-        $district = $this->district();
-        $city = $this->city();
-        return view('Admin.user.edit', compact('user', 'staffs', 'vendors', 'customers', 'roles', 'departments', 'titles', 'levels', 'district', 'city'));
+        return view('Admin.user.edit', compact('user', 'staffs', 'vendors', 'customers', 'roles', 'departments'));
     }
     public function updateUser(Request $request, $id)
     {
-        // $request->validate([
-        //     'name'=>'required',
-        //     'email'=>'required',
-        //     'phone'=>'required',
-        //     'gender'=>'required',
-        //     'roleid'=>'required'
-        // ]);
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|unique:users',
+            'department'=>'required',
+            'roleid'=>'required'
+        ]);
 
         $data = $request->except('confirm_password');
         $password = Hash::make($request->password);
@@ -113,15 +100,5 @@ class userController extends Controller
         $user = user::find($id);
         $user->update($data);
         return redirect()->route('user.view')->with('success', 'User updated sucessfully');
-    }
-
-    protected function district()
-    {
-        return DB::table('districts')->get();
-    }
-
-    protected function city()
-    {
-        return DB::table('cities')->get();
     }
 }

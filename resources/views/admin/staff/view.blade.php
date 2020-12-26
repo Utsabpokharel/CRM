@@ -151,7 +151,7 @@ View All Staff
 						<td>{{$key+1}}</td>
 						<td>{{$staffs->fname}} {{$staffs->lname}}</td>
 						<td><img src="{{asset('images/staff/'.$staffs->pp_photo)}}"></td>
-						<td></td>
+						<td>{{$staffs->department['dep_name']}}</td>
 						<td>
 							@php
 								$titlename=[];

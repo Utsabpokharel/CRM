@@ -116,21 +116,19 @@
 							<th>User ID</th>
 							<th>Name</th>
 							<th>Email</th>
-							<th>Phone</th>
-							<th>Gender</th>
 							<th>Role</th>
+							<th>Department</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($user as $key=>$user)
 						<tr>
-							<td>{{$key+1}}</td>
+                            <td>{{$key+1}}</td>
 							<td>{{$user->name}}</td>
-							<td>{{$user->email}}</td>
-							<td>{{$user->phone}}</td>
-							<td>{{$user->gender}}</td>
+                            <td>{{$user->email}}</td>
 							<td>{{$user->role['name']}}</td>
+							<td>{{$user->department}}</td>
 							<td class="text-center">
 								<a href="javascript::" class="deleteData" rel1="{{route('user.destroy',$user->id)}}">
 									<i class="fa fa-trash text-danger"></i>
