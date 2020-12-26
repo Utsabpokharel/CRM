@@ -48,15 +48,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Password</label>
-                    <span class="text-danger">*</span>
-                    <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter Password" value="{{old('password','')}}" />
-                    @error('password')
-                    <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <label>Permanent Address</label>
                     <span class="text-danger">*</span>
                     <input type="text" class="form-control form-control-solid @error('permanent_address') is-invalid @enderror" name="permanent_address" placeholder="Enter Permanent Address" value="{{old('permanent_address','')}}" />
@@ -143,15 +134,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Confirm Password</label>
-                    <span class="text-danger">*</span>
-                    <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror" id="password" name="confirm_password" placeholder="Confirm Password" value="{{old('confirm_password','')}}" />
-                    @error('confirm_password')
-                    <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <label>Temporary Address</label>
                     <span class="text-danger">*</span>
                     <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address" value="{{old('temporary_address','')}}"/>
@@ -187,7 +169,7 @@
                     @error('department_id')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
-                
+
                 </div>
 
 

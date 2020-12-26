@@ -48,16 +48,16 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->except('district','confirm_password');
+        $data = $request->all();
         $data['title_id']=$data['title_id'][0];
-        $password = Hash::make($request->password);
-        $data['password'] = $password;
+        // $password = Hash::make($request->password);
+        // $data['password'] = $password;
         if($request->hasFile('pp_photo'))
             {
                 $staff_image_path='images/staff/';
                 $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
             }
-            
+
         $staff=Staff::create($data);
         $staff->title()->sync($request->title_id);
         return redirect()->route('staff.view')->with('success', 'Staff Created successfully');

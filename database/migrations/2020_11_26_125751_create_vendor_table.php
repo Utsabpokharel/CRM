@@ -21,7 +21,6 @@ class CreateVendorTable extends Migration
             $table->date('dateofbirth');
             $table->string('registrationnumber')->nullable();
             $table->string('panvatnumber')->nullable();
-            $table->string('password');
             $table->string('image')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
