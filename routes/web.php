@@ -45,10 +45,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     /*logout*/
     Route::get('/logout', 'LoginController@logout')->name('logout');
-    Route::get('/notification', function () {
-        auth()->user()->unreadNotifications->where('type', 'App\Notifications\UserAdd')->markAsRead();
-        return redirect()->route('user.view');
-    })->name('notificationmarkasread');
+
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['super']], function () {
@@ -198,3 +195,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
     Route::put('bank/Update/{id}', 'BankController@update')->name('bank.update');
     Route::get('bank/destroy/{id}', 'BankController@destroy')->name('bank.destroy');
 });
+Route::get('/notification', 'Admin\NotificationController@notification')->middleware('auth')->name('notification');
+Route::get('/markasread', function () {
+    auth()->user()->unreadNotifications->where('type', 'App\Notifications\UserAdd')->markAsRead();
+    return redirect()->route('user.view');
+})->middleware('auth')->name('notificationmarkasread');
+
