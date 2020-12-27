@@ -46,9 +46,10 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(staffValidator $request)
+    public function store(staffValidator
+     $request)
     {
-        $data = $request->all();
+                $data = $request->all();
         $data['title_id']=$data['title_id'][0];
         // $password = Hash::make($request->password);
         // $data['password'] = $password;
@@ -61,25 +62,37 @@ class StaffController extends Controller
             if($request->hasFile('ctzn_front'))
             {
                 $staff_image_path='images/staff/';
-                $data['ctzn_front']=save_image($request->pp_photo,150,150,$staff_image_path);
+                $data['ctzn_front']=save_image($request->ctzn_front,150,150,$staff_image_path);
             }
 
             if($request->hasFile('ctzn_back'))
             {
                 $staff_image_path='images/staff/';
-                $data['ctzn_back']=save_image($request->pp_photo,150,150,$staff_image_path);
+                $data['ctzn_back']=save_image($request->ctzn_back,150,150,$staff_image_path);
             }
 
             if($request->hasFile('resume'))
             {
                 $staff_image_path='images/staff/';
-                $data['resume']=save_image($request->pp_photo,150,150,$staff_image_path);
+                $data['resume']=save_image($request->resume,150,150,$staff_image_path);
             }
 
-            if($request->hasFile('pp_photo'))
+            if($request->hasFile('offer_letter'))
             {
                 $staff_image_path='images/staff/';
-                $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
+                $data['offer_letter']=save_image($request->offer_letter,150,150,$staff_image_path);
+            }
+
+            if($request->hasFile('joining_letter'))
+            {
+                $staff_image_path='images/staff/';
+                $data['joining_letter']=save_image($request->joining_letter,150,150,$staff_image_path);
+            }
+
+            if($request->hasFile('contract_agreement'))
+            {
+                $staff_image_path='images/staff/';
+                $data['contract_agreement']=save_image($request->contract_agreement,150,150,$staff_image_path);
             }
 
         $staff=Staff::create($data);
@@ -125,7 +138,57 @@ class StaffController extends Controller
     public function update(staffValidator $request, $id)
     {
 
-        $data=$request->except('_token','confirm_password');
+        $data=$request->except('_token','confirm_password','pp_photo','ctzn_front','ctzn_back','resume','offer_letter','joining_letter','contact_agreement');
+   
+        if ($request->hasFile('pp_photo')) {
+            $data['pp_photo'] = save_image($request->pp_photo, 150, 150, $this->imagePath());
+            delete_image($staff->pp_photo, $this->imagePath());
+        } else {
+            $data['pp_photo'] = $request->current_image;
+        }
+
+        if ($request->hasFile('ctzn_front')) {
+            $data['ctzn_front'] = save_image($request->ctzn_front, 150, 150, $this->imagePath());
+            delete_image($staff->ctzn_front, $this->imagePath());
+        } else {
+            $data['ctzn_front'] = $request->current_image;
+        }
+
+        if ($request->hasFile('ctzn_back')) {
+            $data['ctzn_back'] = save_image($request->ctzn_back, 150, 150, $this->imagePath());
+            delete_image($staff->ctzn_back, $this->imagePath());
+        } else {
+            $data['ctzn_back'] = $request->current_image;
+        }
+
+        if ($request->hasFile('resume')) {
+            $data['resume'] = save_image($request->resume, 150, 150, $this->imagePath());
+            delete_image($staff->resume, $this->imagePath());
+        } else {
+            $data['resume'] = $request->current_image;
+        }
+
+        if ($request->hasFile('offer_letter')) {
+            $data['offer_letter'] = save_image($request->offer_letter, 150, 150, $this->imagePath());
+            delete_image($staff->offer_letter, $this->imagePath());
+        } else {
+            $data['offer_letter'] = $request->current_image;
+        }
+
+        if ($request->hasFile('joining_letter')) {
+            $data['joining_letter'] = save_image($request->joining_letter, 150, 150, $this->imagePath());
+            delete_image($staff->joining_letter, $this->imagePath());
+        } else {
+            $data['joining_letter'] = $request->current_image;
+        }
+
+        if ($request->hasFile('contact_agreement')) {
+            $data['contact_agreement'] = save_image($request->contact_agreement, 150, 150, $this->imagePath());
+            delete_image($staff->contact_agreement, $this->imagePath());
+        } else {
+            $data['contact_agreement'] = $request->current_image;
+        }
+
         $staff=Staff::where("id", $id)->update($data);
         $staff->title()->sync($request->title_id);
 
