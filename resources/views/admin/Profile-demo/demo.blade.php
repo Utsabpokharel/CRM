@@ -12,11 +12,21 @@
                 <!--begin::User-->
                 <div class="text-center mb-10">
                     <div class="symbol symbol-60 symbol-circle symbol-xl-90">
-                        <div class="symbol-label" style="background-image:url('/metronic/theme/html/demo1/dist/assets/media/users/300_21.jpg')"></div>
+                        <div class="symbol-label">
+                            @if(Auth::user()->email==$staff->email)
+								<img class="img-css" src="{{asset('images/staff/'.$staff->pp_photo)}}">
+                            @elseif(Auth::user()->email==$customer->email)
+                                <img class="img-css" src="{{asset('images/customer/'.$customer->image)}}">
+                            @elseif(Auth::user()->email==$vendor->email)
+                                <img class="img-css" src="{{asset('images/vendors/'.$vendor->image)}}">
+                            @else
+								<img class="img-css" src="{{asset('images/profile.png')}}">
+							@endif
+                        </div>
                         <i class="symbol-badge symbol-badge-bottom bg-success"></i>
                     </div>
                     <h4 class="font-weight-bold my-2">{{Auth::user()->name}}</h4>
-                    <div class="text-muted mb-2">Application Developer</div>
+                    <div class="text-muted mb-2">{{$title->title}}</div>
                     <span class="label label-light-warning label-inline font-weight-bold label-lg">Active</span>
                 </div>
                 <!--end::User-->
