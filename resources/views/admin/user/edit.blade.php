@@ -33,7 +33,7 @@
         <div class="form-group">
           <label>Roles</label>
           <select name="roleid" id="role" class="form-control form-control-solid @error('roleid') is-invalid @enderror" value="{{$user->roleid}}">
-            <option value="">Select a Role</option>
+         
             @foreach($roles as $roleid)
               <option value="{{$roleid->id}}" class="form-control">{{$roleid->name}}</option>
             @endforeach
@@ -48,7 +48,7 @@
         <div class="form-group">
           <label>Gender</label>
           <select name="gender" id="gender" class="form-control form-control-solid @error('gender') is-invalid @enderror">
-            <option value="">Select a Gender</option>
+          
             <option value="Male"@if($user->gender=='male')selected @endif>Male</option>
             <option value="female" @if($user->gender=='female')selected @endif>Female</option>
             <option value="others" @if($user->gender=='others')selected @endif>Others</option>
@@ -131,7 +131,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>District</label>
-          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" placeholder="Please Select..." >
+          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" value="{{$user->district}}">
           <datalist id='districtname'>
           @foreach($district as $districts)
           <option value="{{$districts->district_name}}"> </option>
@@ -147,7 +147,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>City</label>
-          <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+          <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" value="{{$user->city}}">
             <datalist id='cityname'>
               @foreach($city as $cities)
               <option value="{{$cities->city_name}}"> </option>
@@ -164,8 +164,8 @@
         <div class="form-group">
           <label>Designation Title</label>
           <select name="title" id="title"
-          class="form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required">
-          <option selected value="">Please Select...</option>
+          class="form-control form-control-solid @error('title') is-invalid @enderror" data-validation="required" value="{{$user->title}}">
+  
             @foreach($titles as $title)
             <option value="{{$title->id}}"
             class="form-control">{{$title->title}}</option>
@@ -182,8 +182,8 @@
         <div class="form-group">
           <label>Department</label>
           <select name="department" id="department"
-          class="form-control form-control-solid @error('department') is-invalid @enderror" data-validation="required">
-          <option selected value="">Please Select...</option>
+          class="form-control form-control-solid @error('department') is-invalid @enderror" data-validation="required" value="{{$user->department}}">
+
           @foreach($departments as $department)
           <option value="{{$department->id}}"
           class="form-control">{{$department->dep_name}}</option>
@@ -201,8 +201,8 @@
         <div class="form-group">
           <label>Designation Level</label>
           <select name="level" id="level"
-          class="form-control form-control-solid @error('level') is-invalid @enderror" data-validation="required">
-          <option selected value="">Please Select...</option>
+          class="form-control form-control-solid @error('level') is-invalid @enderror" data-validation="required" value="{{$user->level}}">
+
             @foreach($levels as $level)
             <option value="{{$level->id}}" class="form-control">{{$level->level}}</option>
             @endforeach
