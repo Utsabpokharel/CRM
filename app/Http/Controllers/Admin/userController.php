@@ -49,7 +49,8 @@ class userController extends Controller
         $data['password'] = $password;
         // $imagepath='images/users/';
         // $data['image']=save_image($request->image,150,150,$imagepath);
-        user::create($data);
+       user::create($data);
+
         // dd($data);
         $admin= user::where('roleid',1)->orwhere('roleid',2)->get();
         foreach ($admin as $admin)
