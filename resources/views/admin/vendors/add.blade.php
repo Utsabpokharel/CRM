@@ -38,7 +38,7 @@
           <input type="number" class="form-control form-control-solid" name="phoneno"
           placeholder="Enter Phone Number" data-validation="required"/>
         </div>
-   
+
         <div class="form-group">
           <label>Email Address</label>
           <span class="text-danger">*</span>
@@ -48,16 +48,6 @@
           <span class="invalid-feedback" role="alert"> {{$message}}</span>
           @enderror
           <p id="emailExists" style="color: red; display: none">Email Already Exists In Our Database</p>
-        </div>
-
-        <div class="form-group">
-          <label>Password</label>
-          <span class="text-danger">*</span>
-          <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password"
-          name="password" placeholder="Enter Password"/>
-          @error('password')
-          <span class="invalid-feedback" role="alert"> {{$message}}</span>
-          @enderror
         </div>
 
         <div class="form-group">
@@ -160,18 +150,6 @@
                       @enderror
                     </div>
 
-        <div class="form-group">
-          <label>Confirm Password</label>
-          <span class="text-danger">*</span>
-          <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror"
-          id="password" name="confirm_password" placeholder="Confirm Password"/>
-          @error('confirm_password')
-          <span class="invalid-feedback" role="alert"> {{$message}}</span>
-          @enderror
-        </div>
-
-        
-
                     <div class="form-group">
                         <label>Temporary Address</label>
                         <span class="text-danger">*</span>
@@ -210,7 +188,7 @@
       @enderror
      </div>
 
-    
+
 
 
      <div class="form-group">
@@ -221,9 +199,9 @@
       @enderror
      </div>
 
-    
-     
- 
+
+
+
 
      <div class="form-group">
         <label>Second Contact Person Phone Number </label>
@@ -232,7 +210,7 @@
        <span class="invalid-feedback" role="alert">{{ $message }}</span>
       @enderror
      </div>
- 
+
   </div>
 
 
@@ -290,7 +268,7 @@
                     <input type="checkbox" id="Usercheck" name="ifuser" value='1' checked>
                     <span>Register For User</span>
                 </div>
-                
+
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button type="reset" class="btn btn-danger mr-2">Reset</button>
@@ -299,7 +277,7 @@
     </div>
 @endsection
 
-   
+
 @section('css')
 <link href="{{asset('adminAssets/assets/plugins/select2/css/select2.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('adminAssets/assets/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />

@@ -13,7 +13,7 @@ class staff extends Model
     protected $guarded=[];
 
     public function title(){
-        return $this->belongsTo('App\Models\Admin\title','title_id');
+        return $this->belongsToMany('App\Models\Admin\title','staff_titles');
     }
 
     public function level(){

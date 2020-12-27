@@ -1,5 +1,8 @@
 @extends('admin.layouts.default')
 @section('page_title','Add New Staff')
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+@endpush
 @section('content')
 
 <div class="card-body card">
@@ -45,15 +48,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Password</label>
-                    <span class="text-danger">*</span>
-                    <input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" id="password" name="password" placeholder="Enter Password" value="{{old('password','')}}" />
-                    @error('password')
-                    <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <label>Permanent Address</label>
                     <span class="text-danger">*</span>
                     <input type="text" class="form-control form-control-solid @error('permanent_address') is-invalid @enderror" name="permanent_address" placeholder="Enter Permanent Address" value="{{old('permanent_address','')}}" />
@@ -79,8 +73,7 @@
                 <div class="form-group">
                     <label>Designation Title</label>
                     <span class="text-danger">*</span>
-                    <select name="title_id" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required" value="{{old('title_id','')}}">
-                        <option selected value="">Please Select...</option>
+                    <select name="title_id[]" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" data-validation="required" value="{{old('title_id','')}}">
                         @foreach($titles as $title)
                         <option value="{{$title->id}}" class="form-control">{{$title->title}}</option>
                         @endforeach
@@ -141,15 +134,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Confirm Password</label>
-                    <span class="text-danger">*</span>
-                    <input type="password" class="form-control form-control-solid @error('confirm_password') is-invalid @enderror" id="password" name="confirm_password" placeholder="Confirm Password" value="{{old('confirm_password','')}}" />
-                    @error('confirm_password')
-                    <span class="invalid-feedback" role="alert"> {{$message}}</span>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <label>Temporary Address</label>
                     <span class="text-danger">*</span>
                     <input type="text" class="form-control form-control-solid @error('temporary_address') is-invalid @enderror" name="temporary_address" placeholder="Enter Temporary Address" value="{{old('temporary_address','')}}"/>
@@ -185,7 +169,7 @@
                     @error('department_id')
                     <span class="invalid-feedback" role="alert"> {{$message}} </span>
                     @enderror
-                
+
                 </div>
 
 
@@ -261,3 +245,14 @@
 
 
 @endsection
+
+@push('scripts')
+<script srd="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
+</script>
+<script>
+  $("#title_id").select2({
+    placeholder: 'Please  Select...',
+    multiple: true
+  });
+</script>
+@endpush

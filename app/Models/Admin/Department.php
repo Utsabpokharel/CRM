@@ -13,4 +13,8 @@ class Department extends Model
     {
         return $this->hasOne('App\Models\Admin\Staff');
     }
+
+    public function user(){
+        return $this->hasMany('App\Models\Admin\user');
+    }
 }
