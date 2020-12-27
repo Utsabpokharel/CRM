@@ -103,10 +103,12 @@
                     <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                     <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{Auth::user()->name}}</span>
                     <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
-											<span class="symbol-label font-size-h5 font-weight-bold"><img
+											{{-- <span class="symbol-label font-size-h5 font-weight-bold"><img
                                                         style="width: 45px;border-radius: 200px;"
-                                                        src="{{asset('images/users/'.Auth::user()->image)}}"
-                                                        alt=""></span>
+                                                        src="{{asset('images/staff/'.Auth::user()->staff->pp_photo)}}"
+                                                        alt=""> --}}
+
+                                            </span>
 										</span>
                 </div>
             </div>

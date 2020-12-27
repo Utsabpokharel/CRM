@@ -2,8 +2,8 @@
 <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
     <!--begin::Header-->
     <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-        <h3 class="font-weight-bold m-0">User Profile
-            <small class="text-muted font-size-sm ml-2">12 messages</small>
+        <h3 class="font-weight-bold m-0">My Profile
+            {{-- <small class="text-muted font-size-sm ml-2">12 messages</small> --}}
         </h3>
         <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
             <i class="ki ki-close icon-xs text-muted"></i>
@@ -14,18 +14,13 @@
     <div class="offcanvas-content pr-5 mr-n5">
         <!--begin::Header-->
         <div class="d-flex align-items-center mt-5">
-            <div class="symbol symbol-100 mr-5">
-                <div class="symbol-label"
-                     style="background-image:url({{asset('images/users/'.Auth::user()->image)}})"></div>
-                <i class="symbol-badge bg-success"></i>
-            </div>
             <div class="d-flex flex-column">
-                <a href="#"
-                   class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{Auth::user()->name}}</a>
-                <div class="text-muted mt-1">Application Developer</div>
+                <a href="{{route('profile.index')}}"
+                   class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{Auth::user()->name}}</a> <br>
+                <div class="text-muted mt-1">Login as : <b> {{Auth::user()->role->name}} </b></div>
                 <div class="mt-2">
-                    <a class="navi-text text-muted text-hover-primary" href="mailto:{{Auth::user()->email}}"><i class="fa fa-envelope text-primary"></i>  {{Auth::user()->email}}</a>
-                </div>
+                    <a class="navi-text text-muted text-hover-primary" href="mailto:{{Auth::user()->email}}"><i class="fa fa-envelope text-primary">Email :</i> <b>{{Auth::user()->email}}</b></a>
+                </div> <br>
                 <div class="navi mt-2">
                     <a href="{{route('logout')}}" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign
                         Out</a>
@@ -59,7 +54,7 @@
                         </div>
                     </div>
                     <div class="navi-text">
-                    <div class="font-weight-bold">My Profile</div>
+                    <div class="font-weight-bold">View Full Profile</div>
                         <div class="text-muted">Account settings and more
                             <span class="label label-light-danger label-inline font-weight-bold">update</span></div>
                     </div>
