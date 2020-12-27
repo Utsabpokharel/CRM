@@ -113,13 +113,4 @@
   </form>
 </div>
 @endsection
-@push('scripts')
-<script srd="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
-</script>
-<script>
-  $("#title").select2({
-    placeholder: 'Please  Select...',
-    multiple: true
-  });
-</script>
-@endpush
+

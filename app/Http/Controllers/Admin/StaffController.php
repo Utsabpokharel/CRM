@@ -46,13 +46,37 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(staffValidator $request)
     {
         $data = $request->all();
         $data['title_id']=$data['title_id'][0];
         // $password = Hash::make($request->password);
         // $data['password'] = $password;
         if($request->hasFile('pp_photo'))
+            {
+                $staff_image_path='images/staff/';
+                $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
+            }
+
+            if($request->hasFile('ctzn_front'))
+            {
+                $staff_image_path='images/staff/';
+                $data['ctzn_front']=save_image($request->pp_photo,150,150,$staff_image_path);
+            }
+
+            if($request->hasFile('ctzn_back'))
+            {
+                $staff_image_path='images/staff/';
+                $data['ctzn_back']=save_image($request->pp_photo,150,150,$staff_image_path);
+            }
+
+            if($request->hasFile('resume'))
+            {
+                $staff_image_path='images/staff/';
+                $data['resume']=save_image($request->pp_photo,150,150,$staff_image_path);
+            }
+
+            if($request->hasFile('pp_photo'))
             {
                 $staff_image_path='images/staff/';
                 $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
@@ -98,7 +122,7 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(staffValidator $request, $id)
     {
 
         $data=$request->except('_token','confirm_password');

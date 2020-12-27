@@ -166,7 +166,7 @@
                         <div class="form-group">
                         <label>City</label>
                         <span class="text-danger">*</span>
-                        <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select...">
+                        <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" value="{{$staff->city}}">
                              <datalist id='cityname'>
                                        @foreach($city as $cities)
                                             <option value="{{$cities->city_name}}"> </option>
