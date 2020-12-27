@@ -193,12 +193,20 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Passport Size Photo</label>
-                    <input type="file" class="form-control form-control-solid" name="pp_photo" />
+                    <input type="file" class="form-control form-control-solid @error('pp_photo') is-invalid @enderror" name="pp_photo"  />
+
+                    @error('pp_photo')
+                    <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label>Citizenship Proof (Frontside)</label>
-                    <input type="file" class="form-control form-control-solid" name="ctzn_front" data-validation="required" />
+                    <input type="file" class="form-control form-control-solid @error('ctzn_front') is-invalid @enderror" name="ctzn_front"  />
+
+                    @error('ctzn_front')
+                    <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
@@ -215,7 +223,11 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Resume</label>
-                    <input type="file" class="form-control form-control-solid" name="resume" data-validation="required" />
+                    <input type="file" class="form-control form-control-solid @error('resume') is-invalid @enderror" name="resume" data-validation="required" />
+
+                    @error('resume')
+                    <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">

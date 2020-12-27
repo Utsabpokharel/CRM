@@ -160,9 +160,7 @@ View All Vendors
 								<a href="{{ route('vendors.edit',$value->id) }}">
 									<i class="fa fa-paper-plane text-primary"></i>
 								</a>
-								<a href="{{ route('sendmailform') }}">
-									<i class="fa fa-envelope text-secondary"></i>
-								</a>
+							
 								@endif
 							</td>
 
