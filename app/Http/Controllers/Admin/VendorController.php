@@ -32,13 +32,12 @@ class VendorController extends Controller
     public function addVendor()
     {
 
-        $district=$this->district();
-        $levels=level::all();
-        $titles=title::all();
-        $departments=Department::all();
-        $city=$this->city();
-        return view('admin.vendors.add',compact('levels','titles','departments','city','district'));
-
+        $district = $this->district();
+        $levels = level::all();
+        $titles = title::all();
+        $departments = Department::all();
+        $city = $this->city();
+        return view('admin.vendors.add', compact('levels', 'titles', 'departments', 'city', 'district'));
     }
 
 
@@ -97,6 +96,10 @@ class VendorController extends Controller
         $data['image'] = save_image($request->image, 150, 150, $imagepath);
         $data['frontcitizenshipimage'] = save_image($request->frontcitizenshipimage, 150, 150, $imagepath);
         $data['backcitizenshipimage'] = save_image($request->backcitizenshipimage, 150, 150, $imagepath);
+        $data['resume'] = save_image($request->resume, 150, 150, $imagepath);
+        $data['offer_letter'] = save_image($request->offer_letter, 150, 150, $imagepath);
+        $data['joining_letter'] = save_image($request->joining_letter, 150, 150, $imagepath);
+        $data['contract_agreement'] = save_image($request->contract_agreement, 150, 150, $imagepath);
 
         Vendor::create($data);
         return redirect()->route('vendors.view')->with('success', 'Vendor added sucessfully');
@@ -121,10 +124,10 @@ class VendorController extends Controller
      */
     public function editVendor($id)
     {
-        $district=$this->district();
+        $district = $this->district();
         $vendor = Vendor::findOrfail($id);
-        $city=$this->city();
-        return view('admin.vendors.edit', compact('vendor',compact('district','city')));
+        $city = $this->city();
+        return view('admin.vendors.edit', compact('district', 'vendor', 'city'));
     }
 
     /**
@@ -153,6 +156,10 @@ class VendorController extends Controller
             'image' => '',
             'frontendcitizenshipimage' => '',
             'backendcitizenshipimage' => '',
+            'resume' => '',
+            'offer_letter' => '',
+            'joining_letter' => '',
+            'contract_agreement' => '',
             'address1' => 'required',
             'address2' => 'required',
             'firstcontactperson' => 'required',
@@ -194,6 +201,34 @@ class VendorController extends Controller
         } else {
 
             $data['backcitizenshipimage'] = $request->current_backcitizenshipimage;
+        }
+        if ($request->hasFile('resume')) {
+            $data['resume'] = save_image($request->resume, 150, 150, $this->imagePath());
+            delete_image($vendor->resume, $this->imagePath());
+        } else {
+
+            $data['resume'] = $request->current_resume;
+        }
+        if ($request->hasFile('offer_letter')) {
+            $data['offer_letter'] = save_image($request->offer_letter, 150, 150, $this->imagePath());
+            delete_image($vendor->offer_letter, $this->imagePath());
+        } else {
+
+            $data['offer_letter'] = $request->current_offer_letter;
+        }
+        if ($request->hasFile('joining_letter')) {
+            $data['joining_letter'] = save_image($request->joining_letter, 150, 150, $this->imagePath());
+            delete_image($vendor->joining_letter, $this->imagePath());
+        } else {
+
+            $data['joining_letter'] = $request->current_joining_letter;
+        }
+        if ($request->hasFile('contract_agreement')) {
+            $data['contract_agreement'] = save_image($request->contract_agreement, 150, 150, $this->imagePath());
+            delete_image($vendor->contract_agreement, $this->imagePath());
+        } else {
+
+            $data['contract_agreement'] = $request->current_contract_agreement;
         }
 
         $vendor->update($data);
@@ -237,7 +272,7 @@ class VendorController extends Controller
     }
     protected function district()
     {
-          return DB::table('districts')->get();
+        return DB::table('districts')->get();
     }
 
     protected function city()
