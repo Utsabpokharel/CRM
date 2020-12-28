@@ -10,6 +10,6 @@ class Vendor extends Model
 {
     use SoftDeletes;
     // protected $table = 'vendors';
-    protected $fillable = ['fname', 'lname', 'gender', 'dateofbirth', 'registrationnumber', 'panvatnumber', 'image', 'email', 'phone', 'mobile', 'city', 'district', 'address1', 'address2', 'vendor_type', 'firstcontactperson', 'firstemail', 'firstphone', 'firstemail', 'secondcontactperson', 'secondemail', 'secondphone', 'ifuser', 'frontcitizenshipimage', 'backcitizenshipimage','permanent_address','temporary_address'];
+    protected $fillable = ['fname', 'lname', 'gender', 'dateofbirth', 'registrationnumber', 'panvatnumber', 'image', 'email', 'phone', 'mobile', 'city', 'district', 'address1', 'address2', 'vendor_type', 'firstcontactperson', 'firstemail', 'firstphone', 'firstemail', 'secondcontactperson', 'secondemail', 'secondphone', 'ifuser', 'frontcitizenshipimage', 'backcitizenshipimage', 'resume', 'offer_letter', 'joining_letter', 'contract_agreement', 'permanent_address', 'temporary_address'];
     use HasFactory;
 }

@@ -62,7 +62,7 @@
         <div class="form-group">
           <label>District</label>
           <span class="text-danger">*</span>
-          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('disctrict') is-invalid @enderror" placeholder="Please Select..." value="{{ $vendor->district }}"/>
+          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" value="{{$vendor->district}}"/>
                              <datalist id='districtname'>
                                        @foreach($district as $districts)
                                             <option value="{{$districts->district_name}}"> </option>
@@ -214,7 +214,7 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Passport Size Photo</label>
-                        <input type="file" class="form-control form-control-solid" name="pp_photo"/>
+                        <input type="file" class="form-control form-control-solid" name="image"/>
                     </div>
 
 
