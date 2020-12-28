@@ -140,7 +140,7 @@
 							</td>
 							<td>{{$customer->fname}}&nbsp;{{$customer->lname}}</td>
 							<td>{{$customer->gender}}</td>
-							<td>{{$customer->email}}</td>
+							<td><a href="mailto:{{$customer->email}}">{{$customer->email}}</a></td>
 
 							<td class="text-center">
 								@if(!empty($trashed))

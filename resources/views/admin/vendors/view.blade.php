@@ -140,7 +140,7 @@ View All Vendors
 						<tr>
 							<td>{{ $loop->index+1 }}</td>
 							<td>{{ $value->fname }}&nbsp;{{$value->lname }}</td>
-							<td>{{ $value->email }}</td>
+							<td><a href="mailto:{{$value->email}}">{{$value->email}}</a></td>
 							<td><img src="{{ asset('images/vendors/'.$value->image) }}"></td>
 							<td>{{ $value->mobile }}</td>
 							<td>{{ $value->gender }}</td>
@@ -160,7 +160,7 @@ View All Vendors
 								<a href="{{ route('vendors.edit',$value->id) }}">
 									<i class="fa fa-paper-plane text-primary"></i>
 								</a>
-							
+
 								@endif
 							</td>
 
