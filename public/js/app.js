@@ -53324,8 +53324,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! E:\xampp\htdocs\CRM\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! E:\xampp\htdocs\CRM\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xampp\htdocs\CRM2\CRM\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\CRM2\CRM\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 99a1700c0aa206e16e6313595fbebea91ddf0e86
 =======
 __webpack_require__(/*! E:\CRM\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! E:\CRM\resources\sass\app.scss */"./resources/sass/app.scss");

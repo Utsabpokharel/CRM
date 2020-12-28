@@ -21,7 +21,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff=Staff::all();
+        $staff = Staff::all();
         return view('admin.staff.view', compact('staff'));
     }
 
@@ -32,12 +32,12 @@ class StaffController extends Controller
      */
     public function create()
     {
-        $levels=level::all();
-        $titles=title::all();
-        $departments=Department::all();
-        $district=$this->district();
-        $city=$this->city();
-        return view('admin.staff.add',compact('levels','titles','departments','district','city'));
+        $levels = level::all();
+        $titles = title::all();
+        $departments = Department::all();
+        $district = $this->district();
+        $city = $this->city();
+        return view('admin.staff.add', compact('levels', 'titles', 'departments', 'district', 'city'));
     }
 
     /**
@@ -47,55 +47,48 @@ class StaffController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(staffValidator
-     $request)
+    $request)
     {
-                $data = $request->all();
-        $data['title_id']=$data['title_id'][0];
+        $data = $request->all();
+        $data['title_id'] = $data['title_id'][0];
         // $password = Hash::make($request->password);
         // $data['password'] = $password;
-        if($request->hasFile('pp_photo'))
-            {
-                $staff_image_path='images/staff/';
-                $data['pp_photo']=save_image($request->pp_photo,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('pp_photo')) {
+            $staff_image_path = 'images/staff/';
+            $data['pp_photo'] = save_image($request->pp_photo, 150, 150, $staff_image_path);
+        }
 
-            if($request->hasFile('ctzn_front'))
-            {
-                $staff_image_path='images/staff/';
-                $data['ctzn_front']=save_image($request->ctzn_front,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('ctzn_front')) {
+            $staff_image_path = 'images/staff/';
+            $data['ctzn_front'] = save_image($request->ctzn_front, 150, 150, $staff_image_path);
+        }
 
-            if($request->hasFile('ctzn_back'))
-            {
-                $staff_image_path='images/staff/';
-                $data['ctzn_back']=save_image($request->ctzn_back,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('ctzn_back')) {
+            $staff_image_path = 'images/staff/';
+            $data['ctzn_back'] = save_image($request->ctzn_back, 150, 150, $staff_image_path);
+        }
 
-            if($request->hasFile('resume'))
-            {
-                $staff_image_path='images/staff/';
-                $data['resume']=save_image($request->resume,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('resume')) {
+            $staff_image_path = 'images/staff/';
+            $data['resume'] = save_image($request->resume, 150, 150, $staff_image_path);
+        }
 
-            if($request->hasFile('offer_letter'))
-            {
-                $staff_image_path='images/staff/';
-                $data['offer_letter']=save_image($request->offer_letter,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('offer_letter')) {
+            $staff_image_path = 'images/staff/';
+            $data['offer_letter'] = save_image($request->offer_letter, 150, 150, $staff_image_path);
+        }
 
-            if($request->hasFile('joining_letter'))
-            {
-                $staff_image_path='images/staff/';
-                $data['joining_letter']=save_image($request->joining_letter,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('joining_letter')) {
+            $staff_image_path = 'images/staff/';
+            $data['joining_letter'] = save_image($request->joining_letter, 150, 150, $staff_image_path);
+        }
 
-            if($request->hasFile('contract_agreement'))
-            {
-                $staff_image_path='images/staff/';
-                $data['contract_agreement']=save_image($request->contract_agreement,150,150,$staff_image_path);
-            }
+        if ($request->hasFile('contract_agreement')) {
+            $staff_image_path = 'images/staff/';
+            $data['contract_agreement'] = save_image($request->contract_agreement, 150, 150, $staff_image_path);
+        }
 
-        $staff=Staff::create($data);
+        $staff = Staff::create($data);
         $staff->title()->sync($request->title_id);
         return redirect()->route('staff.view')->with('success', 'Staff Created successfully');
     }
@@ -120,12 +113,12 @@ class StaffController extends Controller
     public function edit($id)
     {
         $staff = Staff::findOrfail($id);
-        $levels=level::all();
-        $titles=title::all();
-        $departments=Department::all();
-        $district=$this->district();
-        $city=$this->city();
-        return view("admin.staff.edit", compact('staff','levels','titles','departments','district','city'));
+        $levels = level::all();
+        $titles = title::all();
+        $departments = Department::all();
+        $district = $this->district();
+        $city = $this->city();
+        return view("admin.staff.edit", compact('staff', 'levels', 'titles', 'departments', 'district', 'city'));
     }
 
     /**
@@ -137,9 +130,10 @@ class StaffController extends Controller
      */
     public function update(staffValidator $request, $id)
     {
+        $staff = Staff::find($id);
 
-        $data=$request->except('_token','confirm_password','pp_photo','ctzn_front','ctzn_back','resume','offer_letter','joining_letter','contact_agreement');
-   
+        $data = $request->except('_token', 'confirm_password', 'pp_photo', 'ctzn_front', 'ctzn_back', 'resume', 'offer_letter', 'joining_letter', 'contact_agreement');
+
         if ($request->hasFile('pp_photo')) {
             $data['pp_photo'] = save_image($request->pp_photo, 150, 150, $this->imagePath());
             delete_image($staff->pp_photo, $this->imagePath());
@@ -189,7 +183,7 @@ class StaffController extends Controller
             $data['contact_agreement'] = $request->current_image;
         }
 
-        $staff=Staff::where("id", $id)->update($data);
+        $staff = Staff::where("id", $id)->update($data);
         $staff->title()->sync($request->title_id);
 
         return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
@@ -210,25 +204,23 @@ class StaffController extends Controller
 
     public function trashedView()
     {
-        $staff=Staff::onlyTrashed()->latest()->get();
-        return view('admin.staff.view', compact('staff'))->with('trashed','true');
-
-
+        $staff = Staff::onlyTrashed()->latest()->get();
+        return view('admin.staff.view', compact('staff'))->with('trashed', 'true');
     }
     public function restore($id)
     {
-        $staff=Staff::onlyTrashed()->where('id',$id)->first();
+        $staff = Staff::onlyTrashed()->where('id', $id)->first();
         $staff->restore();
-        return redirect()->route('staff.view')->with('success','Staff restore successfully');
+        return redirect()->route('staff.view')->with('success', 'Staff restore successfully');
     }
 
     public function deleteTrash($id)
     {
-        $staff=Staff::onlyTrashed()->where('id',$id)->first();
+        $staff = Staff::onlyTrashed()->where('id', $id)->first();
         $staff->forceDelete();
-        return redirect()->route('staff.view')->with('warning','Permanent Delete Successfully');
+        return redirect()->route('staff.view')->with('warning', 'Permanent Delete Successfully');
     }
-     protected function district()
+    protected function district()
     {
         return DB::table('districts')->get();
     }
