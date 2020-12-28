@@ -49,7 +49,7 @@ class userController extends Controller
         $data['password'] = $password;
         // $imagepath='images/users/';
         // $data['image']=save_image($request->image,150,150,$imagepath);
-       user::create($data);
+        $user = user::create($data);
 
         // dd($data);
         $admin= user::where('roleid',1)->orwhere('roleid',2)->get();
@@ -57,7 +57,7 @@ class userController extends Controller
         {
             $admin->notify(new UserAdd());
         }
-        // Mail::to($user->email)->send(new UserCreate());
+        Mail::to($user->email)->send(new UserCreate());
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }
     public function destroy($id)
