@@ -11,7 +11,7 @@
 				<li><a class="parent-item" href="">Setting</a>&nbsp;
 					<i class="fa fa-angle-right"></i>
 				</li>
-				<li class="active">Profile Setting</li>
+				<li class="active">Password Setting</li>
 			</ol>
 		</div>
 	</div>
@@ -19,16 +19,16 @@
 	<div class="col-lg-12 col-md-12">
 		<div class="card card-custom gutter-b example example-compact">
 			<div class="card-header">
-				<h3 class="card-title">Profile Setting</h3>
-				<div class="card-toolbar">
+				<h3 class="card-title">Change Password</h3>
+				{{-- <div class="card-toolbar">
 					<div class="example-tools justify-content-center">
 
 					</div>
-				</div>
+				</div> --}}
 			</div>
-			
-			<div class="card-body">
-				<form action="" method="post">
+
+			{{-- <div class="card-body"> --}}
+				{{-- <form action="" method="post">
 					<div class="row">
 						<div class="col-lg-12 setting-heading">
 							<h2>Personal Details Setting</h2>
@@ -51,59 +51,71 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="form-group">
 										<label>Name</label>
-										<input type="text" name="name" class="form-control form-control-solid" placeholder="Enter Name">
+										<input type="text" name="name" class="form-control form-control-solid" value="{{Auth::user()->name}}">
 									</div>
 									<div class="form-group">
 										<label>Login Email Address</label>
-										<input type="email" name="email" class="form-control form-control-solid" placeholder="Enter Login Email Address">
+										<input type="email" name="email" class="form-control form-control-solid" value="{{Auth::user()->email}}">
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="form-group">
-										<label>Phone Number</label>
-										<input type="text" name="phonenumber" class="form-control form-control-solid" placeholder="Enter Phone Number">
+										<label>Mobile Number</label>
+										<input type="text" name="mobileno" class="form-control form-control-solid" value="{{Auth::user()->mobileno}}">
 									</div>
 									<div class="form-group">
-										<label>Address</label>
-										<input type="text" name="address" class="form-control form-control-solid" placeholder="Enter Address">
+										<label>Temporary Address</label>
+										<input type="text" name="address" class="form-control form-control-solid" value="{{Auth::user()->temporary_address}}">
 									</div>
 								</div>
-								
+
 							</div>
 						</div>
 						<div class="col-lg-12">
-							<button class="btn btn-primary">Save</button>
+							<button class="btn btn-primary">Update</button>
 						</div>
 					</div>
 
-				</form>
-				<form action="" method="post" style="margin-top:30px">
-					<div class="row">
-						<div class="col-lg-12 setting-heading">
+				</form> --}}
+                <form method="post" action="{{route('changePassword')}}" style="margin-top:30px">
+                    @csrf
+                    @foreach ($errors->all() as $error)
+                        <p class="text-danger">{{ $error }}</p>
+                    @endforeach
+					{{-- <div class="row"> --}}
+						{{-- <div class="col-lg-12 setting-heading">
 							<h2>Change Password</h2>
+                        </div> --}}
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+
+							<div class="form-group">
+								<label>Old Password</label>
+								<input type="password" name="current_password" class="form-control form-control-solid" placeholder="Enter Old Password">
+							</div>
+
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12">
 
 							<div class="form-group">
 								<label>New Password</label>
-								<input type="password" name="newpasword" class="form-control form-control-solid" placeholder="Enter New Password">
+								<input type="password" name="new_password" class="form-control form-control-solid" placeholder="Enter New Password">
 							</div>
-							
+
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-12">
 							<div class="form-group">
 								<label>Confirm Password</label>
-								<input type="password" name="confirmpassword" class="form-control form-control-solid" placeholder="Enter Confirm Password">
+								<input type="password" name="new_confirm_password" class="form-control form-control-solid" placeholder="Enter Confirm Password">
 							</div>
 						</div>
 						<div class="col-lg-12">
-							<button class="btn btn-primary">Save</button>
+							<button class="btn btn-primary">Update Password</button>
 						</div>
-					</div>
+					{{-- </div> --}}
 
 				</form>
-			</div>
-				
+			{{-- </div> --}}
+
 		</div>
 	</div>
 </div>

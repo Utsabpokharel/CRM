@@ -28,7 +28,7 @@ class staffValidator extends FormRequest
             'lname'=>'required |min:2|max:20|alpha',
             'gender'=>'required',
             'dob'=>'required',  
-            'pp_photo'=>'nullable', 
+            'pp_photo'=>'required|image', 
             'permanent_address'=>'required',    
             'temporary_address'=>'required',
             'mobileno'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
@@ -39,10 +39,6 @@ class staffValidator extends FormRequest
             'level_id'=>'required',  
             'joined_date'=>'required',
             'email'=>'required',
-            'password' => 'required',
-            'confirm_password' => 'required|same:password',
-
-            
         ];
     }
     public function messages()

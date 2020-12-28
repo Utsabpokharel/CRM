@@ -18,8 +18,8 @@ class CreateGeneralsTable extends Migration
             $table->string('website_logo')->nullable();
             $table->string('website_name');
             $table->string('website');
-            $table->string('email')->unique();
-
+            $table->string('email');
+            $table->integer('user_id');
 
             $table->timestamps();
         });

@@ -26,13 +26,29 @@ class user extends  Authenticatable
     {
         return $this->belongsTo('App\Models\Admin\role', 'roleid');
     }
-    public function title()
+
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Admin\Department','department');
+    }
+
+    public function staff()
     {
 
-        return $this->belongsTo('App\Models\Admin\title', 'title');
+        return $this->hasMany('App\Models\Admin\staff');
     }
-    public function level()
+
+    public function customer()
     {
-        return $this->belongsTo('App\Models\Admin\level', 'level');
+        return $this->hasMany('App\Models\Admin\Customer');
+    }
+
+    public function vendor()
+    {
+        return $this->hasMany('App\Models\Vendor');
+    }
+
+    public function general(){
+        return $this->hasOne('App\Models\Admin\General');
     }
 }

@@ -13,15 +13,15 @@ class staff extends Model
     protected $guarded=[];
 
     public function title(){
-        return $this->belongsTo('App\Models\Admin\title','title_id');
+        return $this->belongsToMany('App\Models\Admin\title','staff_titles');
     }
 
     public function level(){
-        return $this->belongsTo('App\Models\Admin\level',' level_id');
+        return $this->belongsTo('App\Models\Admin\level','level_id');
     }
-    
+
     public function department(){
-        return $this->belongsTo('App\Models\Admin\Department',' department_id');
+        return $this->belongsTo('App\Models\Admin\Department','department_id');
     }
 
     public function award()

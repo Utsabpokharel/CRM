@@ -3,7 +3,11 @@
     <div class="brand flex-column-auto" id="kt_brand">
         <!--begin::Logo-->
         <a href="{{route('admin.index')}}" class="brand-logo">
-            <h1>CRM</h1>
+    @if(Auth::user()->general !=[])
+        <h1>{{(Auth::user()->general['website_name'])}}</h1>
+    @else
+        <h1>CRM</h1>
+    @endif
             {{-- <img alt="Logo" class="max-h-50" src="{{asset('assets/media/logos/crm-1.png')}}"/> --}}
         </a>
         <!--end::Logo-->
@@ -77,14 +81,6 @@
                                         <span></span>
                                     </i>
                                     <span class="menu-text">Add User</span>
-                                </a>
-                            </li>
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="{{url('admin/profile')}}" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Profile Demo</span>
                                 </a>
                             </li>
                         </ul>
@@ -527,7 +523,7 @@
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">Profile Setting</span>
+                                    <span class="menu-text">Password Setting</span>
                                 </a>
                             </li>
                             @if(Auth::user()->roleid==1)

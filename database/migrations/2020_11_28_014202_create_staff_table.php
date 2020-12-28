@@ -32,7 +32,6 @@ class CreateStaffTable extends Migration
             $table->string('panno');
             $table->date('joined_date');
             $table->string('email')->unique();
-            $table->string('password');
             $table->tinyinteger('ifuser')->default(0);
             $table->string('ctzn_front')->nullable();
             $table->string('ctzn_back')->nullable();

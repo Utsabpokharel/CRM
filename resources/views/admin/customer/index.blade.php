@@ -41,141 +41,139 @@
 								</svg>
 								<!--end::Svg Icon-->
 							</span>Export</button>
-							<!--begin::Dropdown Menu-->
-							<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-								<!--begin::Navigation-->
-								<ul class="navi flex-column navi-hover py-2">
-									<li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-icon">
-												<i class="la la-print"></i>
-											</span>
-											<span class="navi-text">Print</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-icon">
-												<i class="la la-copy"></i>
-											</span>
-											<span class="navi-text">Copy</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-icon">
-												<i class="la la-file-excel-o"></i>
-											</span>
-											<span class="navi-text">Excel</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-icon">
-												<i class="la la-file-text-o"></i>
-											</span>
-											<span class="navi-text">CSV</span>
-										</a>
-									</li>
-									<li class="navi-item">
-										<a href="#" class="navi-link">
-											<span class="navi-icon">
-												<i class="la la-file-pdf-o"></i>
-											</span>
-											<span class="navi-text">PDF</span>
-										</a>
-									</li>
-								</ul>
-								<!--end::Navigation-->
-							</div>
-							<!--end::Dropdown Menu-->
+						<!--begin::Dropdown Menu-->
+						<div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+							<!--begin::Navigation-->
+							<ul class="navi flex-column navi-hover py-2">
+								<li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
+								<li class="navi-item">
+									<a href="#" class="navi-link">
+										<span class="navi-icon">
+											<i class="la la-print"></i>
+										</span>
+										<span class="navi-text">Print</span>
+									</a>
+								</li>
+								<li class="navi-item">
+									<a href="#" class="navi-link">
+										<span class="navi-icon">
+											<i class="la la-copy"></i>
+										</span>
+										<span class="navi-text">Copy</span>
+									</a>
+								</li>
+								<li class="navi-item">
+									<a href="#" class="navi-link">
+										<span class="navi-icon">
+											<i class="la la-file-excel-o"></i>
+										</span>
+										<span class="navi-text">Excel</span>
+									</a>
+								</li>
+								<li class="navi-item">
+									<a href="#" class="navi-link">
+										<span class="navi-icon">
+											<i class="la la-file-text-o"></i>
+										</span>
+										<span class="navi-text">CSV</span>
+									</a>
+								</li>
+								<li class="navi-item">
+									<a href="#" class="navi-link">
+										<span class="navi-icon">
+											<i class="la la-file-pdf-o"></i>
+										</span>
+										<span class="navi-text">PDF</span>
+									</a>
+								</li>
+							</ul>
+							<!--end::Navigation-->
 						</div>
-						<!--end::Dropdown-->
-						<!--begin::Button-->
-						<a href="{{route('customer.create')}}" class="btn btn-primary font-weight-bolder">
-							<span class="svg-icon svg-icon-md">
-								<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect x="0" y="0" width="24" height="24" />
-										<circle fill="#000000" cx="9" cy="15" r="6" />
-										<path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
-									</g>
-								</svg>
-								<!--end::Svg Icon-->
-							</span>New Record</a>&nbsp;
-							@if(!empty($trashed))
-							<a href="{{route('customer.index')}}" class="btn btn-warning">View Customer</a>
-							@else
-							<a href="{{route('customer.ViewTrash')}}" class="btn btn-warning">View Trashed Customer</a>
-							@endif
-							<!--end::Button-->
-						</div>
+						<!--end::Dropdown Menu-->
 					</div>
-					<div class="card-body">
-						<!--begin: Datatable-->
-						<table id="customer_table" class="display nowrap table" style="width:100%">
-					        <thead class="table-bg">
-					            <tr>
-					                <th>S.No</th>
-					                <th>Image</th>
-					                <th>Name</th>
-					                <th>Gender</th>
-					                <th>Email</th>
-					                
-					                <th>Action</th>
-					            </tr>
-					        </thead>
-					        <tbody>
-					        	@foreach($customers as $customer)
-					            <tr>
-					                <td>{{$loop->index+1}}</td>
-					                <td>
-					                	@if(!empty($customer->image))
-					                		<img class="img-css" src="{{asset('images/customer/'.$customer->image)}}">
-					                	@else
-					                		<img class="img-css" src="{{asset('images/profile.png')}}">
-					                	@endif
-					                </td>
-					                <td>{{$customer->fname}}&nbsp;{{$customer->lname}}</td>
-					                <td>{{$customer->gender}}</td>
-					                <td>{{$customer->email}}</td>
-					                
-					                <td class="text-center"> 
-								@if(!empty($trashed))
-								<a class="deleteData" href="javascript::" rel1="{{route('customer.deleteTrash',$customer->id)}}">
-								<i class="fa fa-trash text-danger"></i>
-							</a>
-							<hr>
-							<a href="{{route('customer.restore',$customer->id)}}">
-								<i class="fa fa-undo text-primary"></i>
-							</a>
-								@else
-								<a class="deleteData" href="javascript::" rel1="{{route('customer.destroy',$customer->id)}}">
-								<i class="fa fa-trash text-danger"></i>
-							</a>
-							<hr>
-							<a href="{{route('customer.edit',$customer->id)}}">
-								<i class="fa fa-paper-plane text-primary"></i>
-							</a>
-								@endif
-						</td>
-					            </tr>
-					           
-					           @endforeach
-					           
-					           
-					        </tbody>
-					    </table>
-						<!--end: Datatable-->
-					</div>
+					<!--end::Dropdown-->
+					<!--begin::Button-->
+					<a href="{{route('customer.create')}}" class="btn btn-primary font-weight-bolder">
+						<span class="svg-icon svg-icon-md">
+							<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									<rect x="0" y="0" width="24" height="24" />
+									<circle fill="#000000" cx="9" cy="15" r="6" />
+									<path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
+								</g>
+							</svg>
+							<!--end::Svg Icon-->
+						</span>New Record</a>&nbsp;
+					@if(!empty($trashed))
+					<a href="{{route('customer.index')}}" class="btn btn-warning">View Customer</a>
+					@else
+					<a href="{{route('customer.ViewTrash')}}" class="btn btn-warning">View Trashed Customer</a>
+					@endif
+					<!--end::Button-->
 				</div>
 			</div>
+			<div class="card-body">
+				<!--begin: Datatable-->
+				<table id="customer_table" class="display nowrap table" style="width:100%">
+					<thead class="table-bg">
+						<tr>
+							<th>S.No</th>
+							<th>Image</th>
+							<th>Name</th>
+							<th>Gender</th>
+							<th>Email</th>
+
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($customers as $customer)
+						<tr>
+							<td>{{$loop->index+1}}</td>
+							<td>
+								@if(!empty($customer->image))
+								<img class="img-css" src="{{asset('images/customer/'.$customer->image)}}">
+								@else
+								<img class="img-css" src="{{asset('images/profile.png')}}">
+								@endif
+							</td>
+							<td>{{$customer->fname}}&nbsp;{{$customer->lname}}</td>
+							<td>{{$customer->gender}}</td>
+							<td><a href="mailto:{{$customer->email}}">{{$customer->email}}</a></td>
+
+							<td class="text-center">
+								@if(!empty($trashed))
+								<a class="deleteData" href="javascript::" rel1="{{route('customer.deleteTrash',$customer->id)}}">
+									<i class="fa fa-trash text-danger"></i>
+								</a>
+								<hr>
+								<a href="{{route('customer.restore',$customer->id)}}">
+									<i class="fa fa-undo text-primary"></i>
+								</a>
+								@else
+								<a class="deleteData" href="javascript::" rel1="{{route('customer.destroy',$customer->id)}}">
+									<i class="fa fa-trash text-danger"></i>
+								</a>
+								<hr>
+								<a href="{{route('customer.edit',$customer->id)}}">
+									<i class="fa fa-paper-plane text-primary"></i>
+								</a>
+								@endif
+							</td>
+						</tr>
+
+						@endforeach
+
+
+					</tbody>
+				</table>
+				<!--end: Datatable-->
+			</div>
 		</div>
-		@endsection
-		@push('scripts')
-			
-		@endpush
+	</div>
+</div>
+@endsection
+@push('scripts')
 
-
+@endpush

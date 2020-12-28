@@ -7,7 +7,7 @@
           <div class="row">
                <div class="col-sm-6">
                     <div class="form-group">
-                         <label>First Name:</label>
+                         <label>First Name</label>
                          <input type="text" name="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" placeholder="Enter First Name" value="{{old('fname')}}" />
                          @error('fname')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -16,7 +16,7 @@
                </div>
                <div class="col-sm-6">
                     <div class="form-group">
-                         <label>Last Name:</label>
+                         <label>Last Name</label>
 
                          <input type="text" name="lname" class="form-control form-control-solid @error('lname') is-invalid @enderror" placeholder="Enter Last Name" value="{{old('lname')}}" />
                          @error('lname')
@@ -50,7 +50,7 @@
                </div>
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Email address:</label>
+                         <label>Email address</label>
                          <input type="email" name="email" class="form-control form-control-solid @error('email') is-invalid @enderror" placeholder="Enter email" value="{{old('email')}}" />
                          @error('email')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -60,17 +60,7 @@
 
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Password:</label>
-                         <input type="password" name="password" class="form-control form-control-solid @error('password') is-invalid @enderror" placeholder="Enter password" value="{{old('password')}}" />
-                         @error('password')
-                         <span class="invalid-feedback" role="alert">{{$message}}</span>
-                         @enderror
-                    </div>
-               </div>
-
-               <div class="col-md-6">
-                    <div class="form-group">
-                         <label>Phone Number:</label>
+                         <label>Phone Number</label>
                          <input type="text" name="phone" class="form-control form-control-solid @error('phone') is-invalid @enderror" placeholder="Enter Phone Number" value="{{old('phone')}}" />
                          @error('phone')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -79,7 +69,7 @@
                </div>
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Mobile Number:</label>
+                         <label>Mobile Number</label>
                          <input type="text" name="mobile" class="form-control form-control-solid @error('mobile') is-invalid @enderror" placeholder="Enter Mobile Number" value="{{old('mobile')}}" />
                          @error('mobile')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -192,7 +182,7 @@
 
                     </div>
                </div>
-          </div>
+
 </div>
 <div class="card-footer">
      <input type="submit" value="submit" class="btn btn-success">

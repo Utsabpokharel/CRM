@@ -12,11 +12,21 @@
                 <!--begin::User-->
                 <div class="text-center mb-10">
                     <div class="symbol symbol-60 symbol-circle symbol-xl-90">
-                        <div class="symbol-label" style="background-image:url('/metronic/theme/html/demo1/dist/assets/media/users/300_21.jpg')"></div>
+                        <div class="symbol-label">
+                            @if(Auth::user()->email==$staff->email)
+								<img class="img-css" src="{{asset('images/staff/'.$staff->pp_photo)}}">
+                            @elseif(Auth::user()->email==$customer->email)
+                                <img class="img-css" src="{{asset('images/customer/'.$customer->image)}}">
+                            @elseif(Auth::user()->email==$vendor->email)
+                                <img class="img-css" src="{{asset('images/vendors/'.$vendor->image)}}">
+                            @else
+								<img class="img-css" src="{{asset('images/profile.png')}}">
+							@endif
+                        </div>
                         <i class="symbol-badge symbol-badge-bottom bg-success"></i>
                     </div>
                     <h4 class="font-weight-bold my-2">{{Auth::user()->name}}</h4>
-                    <div class="text-muted mb-2">Application Developer</div>
+                    <div class="text-muted mb-2">{{$title->title}}</div>
                     <span class="label label-light-warning label-inline font-weight-bold label-lg">Active</span>
                 </div>
                 <!--end::User-->
@@ -36,7 +46,7 @@
                 <!--begin::Nav-->
                 <a href="{{url('admin/profile')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block active">Profile Overview</a>
                 <a href="{{route('personal',$user)}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Personal info</a>
-                <a href="#" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
+                <a href="{{route('profile')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Change Password</a>
                 <a href="{{route('email')}}" class="btn btn-hover-light-primary font-weight-bold py-3 px-6 mb-2 text-center btn-block">Email Settings</a>
                 <!--end::Nav-->
             </div>
@@ -70,9 +80,11 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
-
+                                                    @if($bank !=[])
                                                         {{$bank->bank_name}}
-
+                                                    @else
+                                                       Please provide details
+                                                    @endif
                                                     </h6>
                                                 </div>
                                             </div>
@@ -92,7 +104,11 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
+                                                    @if($bank !=[])
                                                         {{$bank->branch_name}}
+                                                    @else
+                                                       Please provide details
+                                                    @endif
                                                     </h6>
                                                 </div>
                                             </div>
@@ -112,7 +128,11 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
+                                                    @if($bank !=[])
                                                         {{$bank->accountholder_name}}
+                                                    @else
+                                                       Please provide details
+                                                    @endif
                                                     </h6>
                                                 </div>
                                             </div>
@@ -132,7 +152,11 @@
                                             <div class="row">
                                                 <div class="col-md-12 medium">
                                                     <h6 class="col-xl-12 col-lg-12">
+                                                    @if($bank !=[])
                                                         {{$bank->account_number}}
+                                                    @else
+                                                       Please provide details
+                                                    @endif
                                                     </h6>
                                                 </div>
                                             </div>
@@ -179,59 +203,222 @@
                             </div>
                             <!--end::Header-->
                             <!--begin::Form-->
-                            <div class="card">
-                                {{-- <div class="card-body padding height-9"> --}}
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Name</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->name}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->gender}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->date_of_birth}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->phone}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->mobileno}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->panno}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->permanent_address}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->temporary_address}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->district}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">City</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->city}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Designation Title</h6> : <h6 class="col-xl-6 col-lg-6"> {{$title->title}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Designation Level</h6> : <h6 class="col-xl-6 col-lg-6"> {{$level->level}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Department</h6> : <h6 class="col-xl-6 col-lg-6"> {{$department->dep_name}}</h6>
-                                </div>
-                                <div class="form-group row">
-                                    <h6 class="col-xl-5 col-lg-5">Joined Date</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->joined_date}}</h6>
+                            @if (Auth::user()->email==$staff->email)
+                                <div class="card">
+                                    {{-- <div class="card-body padding height-9"> --}}
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Name</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->gender}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->dob}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->phoneno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->mobileno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->panno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->permanent_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->temporary_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->district}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">City</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->city}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Title</h6> : <h6 class="col-xl-6 col-lg-6"> {{$title->title}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Level</h6> : <h6 class="col-xl-6 col-lg-6"> {{$level->level}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Department</h6> : <h6 class="col-xl-6 col-lg-6"> {{$department->dep_name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Joined Date</h6> : <h6 class="col-xl-6 col-lg-6"> {{$staff->joined_date}}</h6>
+                                    </div>
+
+                                    {{-- </div> --}}
                                 </div>
 
-                                {{-- </div> --}}
-                            </div>
+                            @elseif (Auth::user()->email==$customer->email)
+                                <div class="card">
+                                    {{-- <div class="card-body padding height-9"> --}}
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Name</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->gender}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->date_of_birth}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->phone}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->mobileno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->panno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->permanent_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->temporary_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->district}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">City</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->city}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Title</h6> : <h6 class="col-xl-6 col-lg-6"> {{$title->title}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Level</h6> : <h6 class="col-xl-6 col-lg-6"> {{$level->level}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Department</h6> : <h6 class="col-xl-6 col-lg-6"> {{$department->dep_name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Joined Date</h6> : <h6 class="col-xl-6 col-lg-6"> {{$customer->joined_date}}</h6>
+                                    </div>
+
+                                    {{-- </div> --}}
+                                </div>
+                            @elseif (Auth::user()->email==$vendor->email)
+                                <div class="card">
+                                    {{-- <div class="card-body padding height-9"> --}}
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Name</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->gender}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->date_of_birth}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->phone}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->mobileno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->panno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->permanent_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->temporary_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->district}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">City</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->city}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Title</h6> : <h6 class="col-xl-6 col-lg-6"> {{$title->title}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Level</h6> : <h6 class="col-xl-6 col-lg-6"> {{$level->level}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Department</h6> : <h6 class="col-xl-6 col-lg-6"> {{$department->dep_name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Joined Date</h6> : <h6 class="col-xl-6 col-lg-6"> {{$vendor->joined_date}}</h6>
+                                    </div>
+
+                                    {{-- </div> --}}
+                                </div>
+                            @else
+                                <div class="card">
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Name</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Role</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->role['name']}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Gender</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->gender}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Date of Birth</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->date_of_birth}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Phone Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->phone}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Mobile Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->mobileno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Email</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->email}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">PAN Number</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->panno}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Permanent Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->permanent_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Temporary Address</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->temporary_address}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">District</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->district}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">City</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->city}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Title</h6> : <h6 class="col-xl-6 col-lg-6"> {{$title->title}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Designation Level</h6> : <h6 class="col-xl-6 col-lg-6"> {{$level->level}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Department</h6> : <h6 class="col-xl-6 col-lg-6"> {{$department->dep_name}}</h6>
+                                    </div>
+                                    <div class="form-group row">
+                                        <h6 class="col-xl-5 col-lg-5">Joined Date</h6> : <h6 class="col-xl-6 col-lg-6"> {{Auth::user()->joined_date}}</h6>
+                                    </div>
+                                </div>
+                                {{-- <div class="card">Please Provide Details.</div> --}}
+                            @endif
                             <!--end::Form-->
                         </div>
                     </div>
