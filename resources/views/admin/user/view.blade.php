@@ -128,7 +128,7 @@
 							<td>{{$user->name}}</td>
                             <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
 							<td>{{$user->role['name']}}</td>
-							<td>{{$user->department}}</td>
+							<td>{{$user->Department['dep_name']}}</td>
 							<td class="text-center">
 								<a href="javascript::" class="deleteData" rel1="{{route('user.destroy',$user->id)}}">
 									<i class="fa fa-trash text-danger"></i>
