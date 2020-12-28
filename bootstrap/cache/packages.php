@@ -56,4 +56,15 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'thebikramlama/sparrow' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Thebikramlama\\Sparrow\\SparrowServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Sparrow' => 'Thebikramlama\\Sparrow\\Sparrow',
+    ),
+  ),
 );
