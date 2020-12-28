@@ -10,7 +10,7 @@
           <div class="row">
                <div class="col-sm-6">
                     <div class="form-group">
-                         <label>First Name:</label>
+                         <label>First Name</label>
                          <input type="text" name="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" placeholder="Enter First Name" value="{{$customer->fname}}" />
                          @error('fname')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -19,7 +19,7 @@
                </div>
                <div class="col-sm-6">
                     <div class="form-group">
-                         <label>Last Name:</label>
+                         <label>Last Name</label>
                          <input type="text" name="lname" class="form-control form-control-solid @error('lname') is-invalid @enderror" placeholder="Enter Last Name" value="{{$customer->lname}}" />
                          @error('lname')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -51,7 +51,7 @@
                </div>
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Email address:</label>
+                         <label>Email address</label>
                          <input type="email" name="email" class="form-control form-control-solid @error('email') is-invalid @enderror" placeholder="Enter email" value="{{$customer->email}}" />
                          @error('email')
                          <span class="invalid-feedback" role="alert">{{$message}}</span>
@@ -60,7 +60,7 @@
                </div>
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Phone Number:</label>
+                         <label>Phone Number</label>
 
                          <input type="text" name="phone" class="form-control form-control-solid @error('phone') is-invalid @enderror" placeholder="Enter Phone Number" value="{{$customer->phone}}" />
                          @error('phone')
@@ -70,7 +70,7 @@
                </div>
                <div class="col-md-6">
                     <div class="form-group">
-                         <label>Mobile Number:</label>
+                         <label>Mobile Number</label>
 
                          <input type="text" name="mobile" class="form-control form-control-solid @error('mobile') is-invalid @enderror" placeholder="Enter Mobile Number" value="{{$customer->mobile}}" />
                          @error('mobile')
@@ -194,9 +194,8 @@
           </div>
 </div>
 <div class="card-footer">
-
-     <input type="submit" value="update" class="btn btn-success">
-     <input type="reset" value="reset" class="btn btn-danger">
+ <button type="submit" class="btn btn-primary mr-2" value="submit">Update</button>
+<a href="{{route('customer.index')}}" class="btn btn-danger mr-2">Cancel</a>
 </div>
 </form>
 </div>
