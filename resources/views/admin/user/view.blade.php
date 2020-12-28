@@ -126,7 +126,7 @@
 						<tr>
                             <td>{{$key+1}}</td>
 							<td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
+                            <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
 							<td>{{$user->role['name']}}</td>
 							<td>{{$user->department}}</td>
 							<td class="text-center">
