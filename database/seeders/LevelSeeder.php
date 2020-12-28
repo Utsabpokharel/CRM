@@ -15,8 +15,8 @@ class LevelSeeder extends Seeder
     public function run()
     {
         $level=array(
-        'level'=>'Mid Level',
-        'description'=>'This is Mid Level',
+        'level'=>'Entry Level',
+        'description'=>'This is Entry Level',
         );
         DB::table('levels')->insert($level);
     }

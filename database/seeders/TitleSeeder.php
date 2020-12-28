@@ -15,8 +15,8 @@ class TitleSeeder extends Seeder
     public function run()
     {
         $title=array(
-            'title'=>'Developer',
-            'description'=>'This is Mid Level Developer',
+            array('title'=>'Developer','description'=>'This is a Developer'),
+            array('title'=>'Designer','description'=>'This is a Designer'),
             );
             DB::table('titles')->insert($title);
     }

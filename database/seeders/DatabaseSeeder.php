@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             LevelSeeder::class,
             TitleSeeder::class,
             BankAccountSeeder::class,
+            StaffSeeder::class,
         ]);
     }
 }
