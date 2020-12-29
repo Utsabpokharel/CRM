@@ -46,8 +46,7 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(staffValidator
-    $request)
+    public function store(Request $request)
     {
         $data = $request->all();
         $data['title_id'] = $data['title_id'][0];
@@ -128,12 +127,12 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(staffValidator $request, $id)
+    public function update(Request $request, $id)
     {
         $staff = Staff::find($id);
 
-        $data = $request->except('_token', 'confirm_password', 'pp_photo', 'ctzn_front', 'ctzn_back', 'resume', 'offer_letter', 'joining_letter', 'contact_agreement');
-
+        $data = $request->except('_token', 'confirm_password', 'pp_photo', 'ctzn_front', 'ctzn_back', 'resume', 'offer_letter', 'joining_letter', 'contract_agreement');
+        $data['title_id'] = $data['title_id'][0];
         if ($request->hasFile('pp_photo')) {
             $data['pp_photo'] = save_image($request->pp_photo, 150, 150, $this->imagePath());
             delete_image($staff->pp_photo, $this->imagePath());
@@ -176,15 +175,15 @@ class StaffController extends Controller
             $data['joining_letter'] = $request->current_image;
         }
 
-        if ($request->hasFile('contact_agreement')) {
-            $data['contact_agreement'] = save_image($request->contact_agreement, 150, 150, $this->imagePath());
-            delete_image($staff->contact_agreement, $this->imagePath());
+        if ($request->hasFile('contract_agreement')) {
+            $data['contract_agreement'] = save_image($request->contract_agreement, 150, 150, $this->imagePath());
+            delete_image($staff->contract_agreement, $this->imagePath());
         } else {
-            $data['contact_agreement'] = $request->current_image;
+            $data['contract_agreement'] = $request->current_image;
         }
 
         $staff = Staff::where("id", $id)->update($data);
-        $staff->title()->sync($request->title_id);
+        // $staff->title()->sync($request->title_id);
 
         return redirect()->route('staff.view')->with('success', 'Staff Updated successfully');
     }
