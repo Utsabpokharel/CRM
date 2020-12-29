@@ -57,7 +57,7 @@ class userController extends Controller
         {
             $admin->notify(new UserAdd());
         }
-        // Mail::to($user->email)->send(new UserCreate());
+        Mail::to($user->email)->send(new UserCreate());
         return redirect()->route('user.view')->with('success', 'User added sucessfully');
     }
     public function destroy($id)
