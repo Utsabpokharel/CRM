@@ -69,7 +69,7 @@
                                             <option value="{{$districts->district_name}}"></option>
                                        @endforeach
                                 </datalist>
-                        
+
                         @error('district')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
@@ -86,8 +86,7 @@
                                     }
 
                                 @endphp
-                        <select name="title_id[]" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror"
-                                name="title_id" value="{{$staff->title_id}}" multiple="multiple">
+                        <select name="title_id[]" id="title_id" class="form-control form-control-solid @error('title_id') is-invalid @enderror" value="{{$staff->title_id}}" multiple="multiple">
                               @foreach($titles as $key=>$title)
                                 <option value="{{$title->id}}" class="form-control" @if(in_array($title->id,$titleids)) selected="selected" @endif>{{$title->title}}</option>
                               @endforeach
@@ -104,20 +103,20 @@
                             <select name="level_id" id="level_id"
                                     class="form-control form-control-solid @error('level_id') is-invalid @enderror"
                                     name="level_id" value="{{$staff->level_id}}">
-                               
 
-                                @foreach($levels as $skey=>$level)                                   
+
+                                @foreach($levels as $skey=>$level)
                                     <option value="{{$level->id }}"}}>
                                         {{ $level->level }}
                                     </option>
-                                @endforeach   
+                                @endforeach
                             </select>
                             @error('level_id')
                             <span class="invalid-feedback" role="alert"> {{$message}} </span>
                             @enderror
                         </div>
                     </div>
-                        
+
                     <div class="col-md-6">
                         <div class="form-group">
                         <label>Last Name</label>
@@ -172,7 +171,7 @@
                                             <option value="{{$cities->city_name}}"> </option>
                                        @endforeach
                              </datalist>
-                             
+
                         @error('city')
                         <span class="invalid-feedback" role="alert"> {{$message}}</span>
                         @enderror
@@ -206,17 +205,17 @@
                             @enderror
                         </div>
                     </div>
-                        
+
                         <div class="col-lg-12">
                         <center> <h1 style="background-color:powderblue;">Documents</h1> </center>
                         </div>
-    
+
                         <div class="col-sm-6">
                         <div class="form-group">
                             <label>Passport Size Photo</label>
                             <input type="file" class="form-control form-control-solid" name="pp_photo"/>
                        </div>
-                       
+
                         <div class="form-group">
                             <label>Citizenship Proof (Backside)</label>
                             <input type="file" class="form-control form-control-solid" name="ctzn_back"/>
@@ -243,8 +242,8 @@
                         <label>Citizenship Proof (Frontside)</label>
                         <input type="file" class="form-control form-control-solid" name="ctzn_front"
                                data-validation="required"/>
-                        </div> 
-                        
+                        </div>
+
                         <div class="form-group">
                             <label>Joining Letter</label>
                             <input type="file" class="form-control form-control-solid" name="joining_letter"/>

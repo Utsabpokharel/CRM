@@ -13,14 +13,14 @@ class EnquiryResponseController extends Controller
     public function index()
     {
         $response = EnquiryResponse::all();
-        return view('admin.enquiry.response.index',compact('response'));
+        return view('admin.enquiry.response.index', compact('response'));
     }
 
 
     public function create($id)
     {
-        $enquiry=$id;
-        return view('admin.enquiry.response.add',compact('enquiry'));
+        $enquiry = $id;
+        return view('admin.enquiry.response.add', compact('enquiry'));
     }
 
 
@@ -28,11 +28,11 @@ class EnquiryResponseController extends Controller
     {
         $data = $request->validate(
             [
-                'enquiry_by'=>'required',
-                'responded_by'=>'required',
-                'responded_through'=>'required',
-                'message'=>'required',
-                'remarks'=>'',
+                'enquiry_by' => 'required',
+                'responded_by' => 'required',
+                'responded_through' => 'required',
+                'message' => 'required',
+                'remarks' => '',
             ]
         );
         $response = new EnquiryResponse();
@@ -55,7 +55,7 @@ class EnquiryResponseController extends Controller
     public function edit($id)
     {
         $response = EnquiryResponse::findorfail($id);
-        return view('admin.enquiry.response.edit',compact('response'));
+        return view('admin.enquiry.response.edit', compact('response'));
     }
 
 
@@ -63,8 +63,8 @@ class EnquiryResponseController extends Controller
     {
         $data = $request->validate(
             [
-                'name'=>'required|string',
-                'description'=>''
+                'name' => 'required|string',
+                'description' => ''
             ]
         );
         $response = EnquiryResponse::findorfail($id);
@@ -99,8 +99,7 @@ class EnquiryResponseController extends Controller
     {
         $response = EnquiryResponse::onlyTrashed()->where('id', $id)->first();
         $response->restore();
-        return redirect()->route('EnquiryResponse.index')->with('success', 'Restored seccessfully');
-
+        return redirect()->route('EnquiryResponse.index')->with('success', 'Restored successfully');
     }
 
     public function deleteTrash($id)
