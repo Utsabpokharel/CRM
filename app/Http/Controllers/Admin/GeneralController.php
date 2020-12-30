@@ -60,13 +60,16 @@ class GeneralController extends Controller
             'website_name.max'=>'The Website Name Name may not be greater than 20 characters.',
             'email.required'=>'Email is required'
         ]);
-        $data = $request->except('_token','website_logo');
-        if ($request->hasFile('website_logo')) {
-            $data['website_logo'] = save_image($request->website_logo, 150, 150, $this->imagePath());
-            delete_image($general->website_logo, $this->imagePath());
-        } else
-            $data['website_logo'] = $request->website_logo;
-
+        $data = $request->except('_token');
+        if ($request->website_logo !=[]){
+            if ($request->hasFile('website_logo')) {
+                $data['website_logo'] = save_image($request->website_logo, 150, 150, $this->imagePath());
+                delete_image($general->website_logo, $this->imagePath());
+            } else
+                $data['website_logo'] = $request->website_logo;
+        }else
+        $data['website_logo'] = $request->website_logo;
+        // $general->update($request->all());
         General::where('id', $id)->update($data);
         return redirect()->back()->with('success','General Settings Updated successfully');
 
