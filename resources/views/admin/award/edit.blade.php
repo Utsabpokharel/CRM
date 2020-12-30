@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Update Award')
+@section('page_title','Edit Award')
 @section('content')
 
 <style type='text/css'>
@@ -19,9 +19,9 @@
             <option selected disabled="">Please Select... </option>
             @foreach($staffs as $staff)
             <option value="{{$staff->id}}" class="form-control">{{$staff->fname}} {{$staff->lname}}</option>
-            @endforeach  
+            @endforeach
       </select>
-      
+
       @error('staff')
       <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
@@ -58,7 +58,7 @@
      <div class="card-footer">
      <button type="submit" class="btn btn-primary mr-2">Update</button>
      <button type="reset" class="btn btn-danger mr-2">Reset</button>
-    </div> 
+    </div>
     </form>
 </div>
 @endsection

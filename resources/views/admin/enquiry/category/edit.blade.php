@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','edit enquiry category')
+@section('page_title','Edit enquiry category')
 @section('content')
     <div class="card-body card">
         <form action="{{route('EnquiryCategory.update',$category->id)}}" class="form" method="post">
@@ -17,7 +17,7 @@
                 <textarea class="form-control form-control-solid" name="description" cols="30" rows="10">{{$category->description}}</textarea>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="submit" class="btn btn-primary mr-2">Update</button>
                 <button type="reset" class="btn btn-secondary">Cancel</button>
             </div>
         </form>

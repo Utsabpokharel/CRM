@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Update Vendor')
+@section('page_title','Edit Vendor')
 @section('content')
 
 <div class="card-body card">

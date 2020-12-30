@@ -84,8 +84,8 @@
 <div class="col-md-12">
 
     <div class="card-footer">
-          <input type="submit" value="update" class="btn btn-success">
-          <input type="reset" value="reset" class="btn btn-danger">
+          <input type="submit" value="Update" class="btn btn-success">
+          <input type="reset" value="Reset" class="btn btn-danger">
         </div>
     </div>
    </form>
