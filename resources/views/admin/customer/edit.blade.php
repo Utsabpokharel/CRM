@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Update Customer')
+@section('page_title','Edit Customer')
 @section('content')
 
 

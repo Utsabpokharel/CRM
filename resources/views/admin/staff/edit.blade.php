@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title',' Update Staff')
+@section('page_title',' Edit Staff')
 @section('content')
 
     <div class="card-body card">

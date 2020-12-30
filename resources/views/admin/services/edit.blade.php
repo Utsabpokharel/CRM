@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Edit Department')
+@section('page_title','Edit Services')
 @section('content')
 <div class="card-body card">
     <form class="form" action="{{route('update_service',$data->id)}}" method="post">

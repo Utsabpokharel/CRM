@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Update Income')
+@section('page_title','Edit Income')
 @section('content')
 <style type="text/css">
  p {
@@ -17,9 +17,9 @@
            <p>The Date is required.</p>
            @enderror
                    <input type="date" name="date" value="{{$income->date}}" class="form-control form-control-solid" placeholder="Enter Date"  />
-              
+
              </div>
-           </div>        
+           </div>
          <div class="col-md-6">
            <div class="form-group">
            <label>Amount</label>
@@ -27,7 +27,7 @@
            <p>The Amount is required.</p>
            @enderror
            <input type="number" name="amount" class="form-control form-control-solid" placeholder="     Enter Amount" value="{{$income->amount}}"/>
-       
+
           </div>
           </div><div class="col-md-6">
           <div class="form-group">
@@ -37,12 +37,12 @@
                                         @enderror
                                     <select name="category_id"  class="form-control form-control-solid"  value=""
                                             >
-                                        
+
                                         @foreach($categories as $category)
                                 <option value="{{$category->id}}" class="form-control">{{$category->name}}</option>
                             @endforeach
                                     </select>
-                                     
+
                                 </div>
                               </div>
             <div class="col-md-6">
@@ -52,7 +52,7 @@
                <p>The Paid By is required.</p>
                   @enderror
             <input type="text" name="paid_by" class="form-control form-control-solid"  value="{{$income->paid_by}}"/>
-        
+
             </div>
             </div>
             <div class="col-md-6">
@@ -61,17 +61,17 @@
                                     @error('mode_of_payment')
                              <p>Payment Method is required.</p>
                                           @enderror
-                                    <select name="mode_of_payment"  class="form-control form-control-solid"  
+                                    <select name="mode_of_payment"  class="form-control form-control-solid"
                                             >
-                                      
+
                                         <option value="bank" @if($income->mode_of_payment=='Bank')selected @endif>Bank</option>
                                         <option value="esewa" @if($income->mode_of_payment=='Esewa')selected @endif>Esewa</option>
                                         <option value="khalti" @if($income->mode_of_payment=='Khalti')selected @endif>Khalti</option>
                                     </select>
-                                   
+
                                 </div>
-                              </div>                                     
-           
+                              </div>
+
                  <div class="col-md-6">
                  <div class="form-group">
                  <label>Received By</label>
@@ -79,7 +79,7 @@
                              <p>The Received By is required.</p>
                                           @enderror
       <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By" value="{{$income->received_by}}"/>
-     
+
      </div>
                 </div>
               </div>
