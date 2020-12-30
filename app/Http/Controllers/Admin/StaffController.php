@@ -219,6 +219,10 @@ class StaffController extends Controller
         $staff->forceDelete();
         return redirect()->route('staff.view')->with('warning', 'Permanent Delete Successfully');
     }
+    protected function imagePath()
+    {
+        return "images/staff/";
+    }
     protected function district()
     {
         return DB::table('districts')->get();

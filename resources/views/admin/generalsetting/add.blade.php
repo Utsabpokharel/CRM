@@ -3,12 +3,12 @@
 @section('content')
 <style type="text/css">
   img{
-     width: 150px;
+    width: 150px;
     height: 150px;
-}
-input[type=file]{
-padding:10px;
-background:#2d2d2d;}
+    }
+    input[type=file]{
+    padding:10px;
+    background:#2d2d2d;}
 </style>
 
 <div class="card-body card">
@@ -18,38 +18,33 @@ background:#2d2d2d;}
      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
       <div class="row">
 <div class="col-sm-6">
-
-
-
-
     <div class="col-md-12">
      <div class="form-group">
-                                    <label>Website Logo</label>
+        <label>Website Logo</label>
+            <input type="file" class="form-control form-control-solid @error('website_logo') is-invalid @enderror" name="website_logo"  value="{{old('website_logo')}}" onchange="readURL(this);">
+                <img id="blah" src=""/>
+                    <script >
+                        function readURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    $('#blah')
+                                        .attr('src', e.target.result);
+                                };
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                    </script>
+            @error('website_logo')
+                <span class="invalid-feedback" role="alert">{{$message}}</span>
+            @enderror
+        </div>
+    </div>
 
 
-                                    <input type="file" class="form-control form-control-solid @error('website_logo') is-invalid @enderror" name="website_logo"  value="{{old('website_logo')}}" onchange="readURL(this);">
-                                    <img id="blah" src=""  />
-
-                                    <script >function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#blah')
-                        .attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }</script>
-                                   @error('website_logo')
-          <span class="invalid-feedback" role="alert">{{$message}}</span>
-          @enderror
-                                </div>
-                              </div>
-
-
-<div class="col-sm-12">
+    <div class="col-sm-12">
 
      <div class="form-group">
       <label>Website Name</label>
@@ -58,11 +53,11 @@ background:#2d2d2d;}
           <span class="invalid-feedback" role="alert">{{$message}}</span>
       @enderror
      </div>
-   </div>
+    </div>
 
 
 
-<div class="col-sm-12">
+    <div class="col-sm-12">
      <div class="form-group">
       <label>Website</label>
 
@@ -71,7 +66,7 @@ background:#2d2d2d;}
           <span class="invalid-feedback" role="alert">{{$message}}</span>
           @enderror
      </div>
-   </div>
+    </div>
     <div class="col-md-12">
      <div class="form-group">
       <label>Email address</label>
@@ -94,11 +89,11 @@ background:#2d2d2d;}
      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 <div class="row">
  <div class="col-sm-6">
-    {{-- <div class="col-md-12">
+    <div class="col-md-12">
         <div class="form-group">
             <label>Website Logo</label>
                 <input type="file" class="form-control form-control-solid @error('website_logo') is-invalid @enderror" name="website_logo"  value="{{old('website_logo')}}" onchange="readURL(this);">
-                <img id="blah" src="{{asset('images/general/'.$general->website_logo)}}"/>
+                <img id="blah" src=""/>
 
             <script>function readURL(input) {
                 if (input.files && input.files[0]) {
@@ -117,7 +112,7 @@ background:#2d2d2d;}
                 <span class="invalid-feedback" role="alert">{{$message}}</span>
             @enderror
         </div>
-    </div> --}}
+    </div>
 
 
     <div class="col-sm-12">
@@ -157,7 +152,7 @@ background:#2d2d2d;}
           <input type="submit" value="Update" class="btn btn-success">
           <input type="reset" value="Reset" class="btn btn-danger">
     </div>
-</form>
+    </form>
 @endif
 </div>
 @endsection

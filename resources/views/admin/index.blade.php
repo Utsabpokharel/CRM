@@ -18,14 +18,14 @@
             <a href="#" class="text-muted text-hover-primary font-weight-bold font-size-lg mt-1">Total Staffs</a>
         </div>
     </div>
-    <div class="card card-custom gutter-b col-md-3" style="background: #c55353">
+    <div class="card card-custom gutter-b col-md-3" style="background: #8a3d3d">
         <div class="card-body">
             <i class="fa fa-user"></i>
             <div class="text-dark font-weight-bolder font-size-h2 mt-3">{{$customer}}</div>
             <a href="#" class="text-muted text-hover-primary font-weight-bold font-size-lg mt-1">Total Customers</a>
         </div>
     </div>
-    <div class="card card-custom gutter-b col-md-3" style="background: #7a7861">
+    <div class="card card-custom gutter-b col-md-3" style="background: #cad4cc">
         <div class="card-body">
             <i class="fa fa-user"></i>
             <div class="text-dark font-weight-bolder font-size-h2 mt-3">{{$vendor}}</div>
