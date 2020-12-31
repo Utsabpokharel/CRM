@@ -129,7 +129,6 @@
                                 <a href="{{ route('level.edit', $level->id)}}">
                                     <i class="fa fa-paper-plane text-primary"></i>
                                 </a>
-                                <hr>
                                 <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('level.destroy', $level->id)}}"><span
                                     class="fa fa-trash"></span>
                                 </a>

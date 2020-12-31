@@ -125,14 +125,14 @@
             <td>{{$key+1}}</td>
             <td>{{$incomecategories->name}}</td>
             <td>{{$incomecategories->description}}</td>
-       
+
             <td class="text-center">
-              <a class="deleteData" href="javascript::" rel1="{{route('incomecategory.destroy',$incomecategories->id)}}">
-                <i class="fa fa-trash text-danger"></i>
-              </a>
-              <hr>
+
               <a href="{{route('incomecategory.edit',$incomecategories->id)}}">
                 <i class="fa fa-paper-plane text-primary"></i>
+              </a>
+              <a class="deleteData" href="javascript::" rel1="{{route('incomecategory.destroy',$incomecategories->id)}}">
+                <i class="fa fa-trash text-danger"></i>
               </a>
             </td>
           </tr>

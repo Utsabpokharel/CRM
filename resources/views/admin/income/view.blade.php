@@ -155,12 +155,12 @@
                     <i class="fa fa-undo text-primary"></i>
                   </a>
               @else
-                  <a class="deleteData" href="javascripts::" rel1="{{route('income.destroy',$incomes->id)}}">
-                    <i class="fa fa-trash text-danger"></i>
-                  </a>
-                  <hr>
+
                   <a href="{{route('income.edit',$incomes->id)}}">
                     <i class="fa fa-paper-plane text-primary"></i>
+                  </a>
+                  <a class="deleteData" href="javascripts::" rel1="{{route('income.destroy',$incomes->id)}}">
+                    <i class="fa fa-trash text-danger"></i>
                   </a>
               @endif
             </td>

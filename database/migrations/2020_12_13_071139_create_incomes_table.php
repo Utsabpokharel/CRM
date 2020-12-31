@@ -21,6 +21,7 @@ class CreateIncomesTable extends Migration
             $table->string('mode_of_payment');
             $table->text('paid_by');
             $table->string('received_by');
+            $table->longText('remarks')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -19,7 +19,6 @@ class CreateAwardsTable extends Migration
             $table->string('award');
             $table->string('gift');
             $table->date('date');
-            $table->longText('thankyou')->nullable();
             $table->timestamps();
         });
     }

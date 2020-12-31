@@ -130,12 +130,12 @@
 						<td>{{$datas->gift}}</td>
 						<td>{{$datas->date}}</td>
 						<td class="text-center">
-							<a class="deleteData" href="javascript::" rel1="{{route('award.destroy',$datas->id)}}">
-								<i class="fa fa-trash text-danger"></i>
-							</a>
-							<hr>
 							<a href="{{ route('award.edit',$datas->id) }}">
-								<i class="fa fa-paper-plane text-primary"></i>
+                                <i class="fa fa-paper-plane text-primary"></i>
+							</a>
+
+                                <a class="deleteData" href="javascript::" rel1="{{route('award.destroy',$datas->id)}}">
+								<i class="fa fa-trash text-danger"></i>
 							</a>
 						</td>
 					</tr>

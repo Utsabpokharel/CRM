@@ -17,7 +17,7 @@
            <p>The Date is required.</p>
            @enderror
                    <input type="date" name="date" class="form-control form-control-solid" placeholder="Enter Date" />
-                
+
              </div>
            </div>
            <div class="col-sm-6">
@@ -27,9 +27,9 @@
            <p>The Particular is required.</p>
            @enderror
                 <input type="text" name="particular" class="form-control form-control-solid" placeholder="Enter Particular"/>
-             
+
                 </div>
-           </div>              
+           </div>
          <div class="col-md-6">
            <div class="form-group">
            <label>Amount</label>
@@ -37,7 +37,7 @@
            <p>The Amount is required.</p>
            @enderror
            <input type="number" name="amount" class="form-control form-control-solid" placeholder="Enter Amount"/>
-         
+
           </div>
           </div><div class="col-md-6">
           <div class="form-group">
@@ -50,9 +50,9 @@
                                         <option selected disabled="">Select Category Name</option>
                                          @foreach($expensescategories as $expensess)
                                 <option value="{{$expensess->id}}">{{$expensess->name}}</option>
-                                        @endforeach  
+                                        @endforeach
                                     </select>
-                                     
+
                                 </div>
                               </div>
             <div class="col-md-6">
@@ -66,9 +66,9 @@
                                         <option selected disabled="">Select Name</option>
                                          @foreach($staffs as $staff)
                                 <option value="{{$staff->id}}" class="form-control">{{$staff->fname}} {{$staff->lname}}</option>
-                                        @endforeach 
+                                        @endforeach
                                     </select>
-            
+
             </div>
             </div>
             <div class="col-md-6">
@@ -84,7 +84,7 @@
                                         <option value="esewa">Esewa</option>
                                         <option value="khalti">Khalti</option>
                                     </select>
-                                     
+
                                 </div>
                               </div>
             <div class="col-md-6">
@@ -100,23 +100,29 @@
                                         <option value="partiallypaid">Partially Paid</option>
                                         <option value="unpaid">Unpaid</option>
                                     </select>
-                                     
+
                                 </div>
+        <div class="form-group">
+      <label>Remarks</label>
+
+        <textarea class="form-control form-control-solid" rows="5" name="remarks" placeholder="Remarks" > </textarea>
+     </div>
+
                               </div>
-     
+
                  <div class="col-md-6">
                  <div class="form-group">
                  <label>Received By</label>
       @error('received_by')
                              <p>The Received By is required.</p>
-                                          @enderror
+    @enderror
       <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By"/>
 
-     </div>
-                </div>
+                 </div>
+                  </div>
               </div>
                <div class="card-footer">
-               <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button> 
+               <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button>
                <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
                <a href="{{route('expenses.view')}}" class="btn btn-danger">Cancel</a>
                </div>

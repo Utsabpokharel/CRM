@@ -3,8 +3,8 @@
 @section('content')
 <style type="text/css">
   img{
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     }
     input[type=file]{
     padding:10px;
@@ -22,7 +22,7 @@
      <div class="form-group">
         <label>Website Logo</label>
             <input type="file" class="form-control form-control-solid @error('website_logo') is-invalid @enderror" name="website_logo"  value="{{old('website_logo')}}" onchange="readURL(this);">
-                <img id="blah" src=""/>
+                <img id="blah" src=""/ width="300px" height="300px">
                     <script >
                         function readURL(input) {
                             if (input.files && input.files[0]) {

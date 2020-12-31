@@ -18,7 +18,7 @@
            @enderror
                    <input type="date" name="date" class="form-control form-control-solid" placeholder="Enter Date" />
              </div>
-           </div>        
+           </div>
          <div class="col-md-6">
            <div class="form-group">
            <label>Amount</label>
@@ -64,20 +64,28 @@
                                         <option value="khalti">Khalti</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+
+
+      <label>Remarks</label>
+        <textarea class="form-control form-control-solid" rows="5" name="remarks" placeholder="Remarks" > </textarea>
+                 </div>
+
                               </div>
-           
+
                  <div class="col-md-6">
                  <div class="form-group">
                  <label>Received By</label>
       @error('received_by')
                              <p>The Received By is required.</p>
-                                          @enderror
-      <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By"/>
-     </div>
+       @enderror
+       <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By"/>
+                 </div>
+
                 </div>
               </div>
                <div class="card-footer">
-          <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button> 
+          <button type="submit" value="submit" class="btn btn-primary mr-2">Add</button>
           <button type="reset" class="btn btn-secondary mr-2" value="reset">Reset</button>
           <a href="{{route('income.view')}}" class="btn btn-danger">Cancel</a>
         </div>

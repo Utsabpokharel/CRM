@@ -50,10 +50,6 @@
       @enderror
      </div>
 
-     <div class="form-group">
-      <label>Thankyou Point</label>
-      <textarea name="thankyou" class="form-control form-control-solid" name="thankyou" value="{{$award->thankyou}}" rows="5"> </textarea>
-     </div>
 
      <div class="card-footer">
      <button type="submit" class="btn btn-primary mr-2">Update</button>

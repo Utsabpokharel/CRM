@@ -14,51 +14,52 @@ class Expensescontroller extends Controller
     //
     public function view()
     {
-    	$expenses=Expenses::all(); 
-    	return view('admin.expenses.view',compact('expenses'));
+        $expenses = Expenses::all();
+        return view('admin.expenses.view', compact('expenses'));
     }
     public function create()
     {
-      $categories=Expensescategory::all();
-      $expensescategories=$this->getCategories();
-      $staffs=Staff::all();
-    	return view('admin.expenses.create',compact('expensescategories','categories','staffs'));
+        $categories = Expensescategory::all();
+        $expensescategories = $this->getCategories();
+        $staffs = Staff::all();
+        return view('admin.expenses.create', compact('expensescategories', 'categories', 'staffs'));
     }
     public function store(ExpensesValidator $request)
     {
-    	$data=$request->all();
-    	Expenses::create($data);
-    	return redirect()->route('expenses.view')->with('success','Expenses Successfully Created');
+        $data = $request->all();
+        Expenses::create($data);
+        return redirect()->route('expenses.view')->with('success', 'Expenses Successfully Created');
     }
     public function edit($id)
     {
-      $expensescategories=$this->getCategories();
-      $expenses=Expenses::findorfail($id);
-      $categories=Expensescategory::all();
-      $staffs=Staff::all();
-    	return view('admin.expenses.edit',compact('expenses','expensescategories','categories','staffs'));
+        $expensescategories = $this->getCategories();
+        $expenses = Expenses::findorfail($id);
+        $categories = Expensescategory::all();
+        $staffs = Staff::all();
+        return view('admin.expenses.edit', compact('expenses', 'expensescategories', 'categories', 'staffs'));
     }
     public function update(Request  $request, $id)
     {
-    	$data=$request->all();
-    	$expenses=Expenses::findorfail($id);
-    	$expenses->update($data);
-    	return redirect()->route('expenses.view')->with('success','Update Successfully');
+        $data = $request->all();
+        $expenses = Expenses::findorfail($id);
+        $expenses->update($data);
+        return redirect()->route('expenses.view')->with('success', 'Update Successfully');
     }
     /*public function destroy($id)
     {
       $expenses=Expenses::findorfail($id);
       $expenses->delete();
       return back()->with('flash_error','Deleted Successfully')->with('warning',"Deleted Successfully");
-    
+
     }*/
-    
-  public function viewtrashed()
-  {
-     $expenses=Expenses::onlyTrashed()->latest()->get();
-      return view('admin.expenses.view',compact('expenses'))->with('trashed','true');
-  }
-  public function restore($id){
+
+    public function viewtrashed()
+    {
+        $expenses = Expenses::onlyTrashed()->latest()->get();
+        return view('admin.expenses.view', compact('expenses'))->with('trashed', 'true');
+    }
+    public function restore($id)
+    {
         $expenses = Expenses::onlyTrashed()->where('id', $id)->first();
         $expenses->restore();
         return redirect()->route('expenses.view')->with('flash_message', 'Expenses/Suppliers Has Been Restored');
@@ -66,21 +67,18 @@ class Expensescontroller extends Controller
 
     public function destroy($id)
     {
-      $expenses=Expenses::findorfail($id);
-      $expenses->delete();
-      return back()->with('flash_error','Deleted Successfully')->with('warning',"Deleted Successfully");
-    
-   }
-   public function deletetrashed($id)
-  {
-    $expenses = Expenses::onlyTrashed()->where('id', $id)->first();
-    $expenses->forcedelete();
-    return back()->with('flash_error','Expenses has been deleted from trashed');
-
-  }
-   protected function getCategories()
-   {
+        $expenses = Expenses::findorfail($id);
+        $expenses->delete();
+        return back()->with('flash_error', 'Deleted Successfully')->with('warning', "Deleted Successfully");
+    }
+    public function deletetrashed($id)
+    {
+        $expenses = Expenses::onlyTrashed()->where('id', $id)->first();
+        $expenses->forcedelete();
+        return back()->with('flash_error', 'Expenses has been deleted from trashed');
+    }
+    protected function getCategories()
+    {
         return Expensescategory::all();
-   }
- 
+    }
 }

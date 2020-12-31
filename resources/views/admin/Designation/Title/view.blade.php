@@ -129,7 +129,6 @@
 							<a href="{{route('title.edit',$title->id)}}">
 								<i class="fa fa-paper-plane text-primary"></i>
 							</a>
-							<hr>
                             <a href="javascript::" class="btn text-danger btn-sm deleteData" rel1="{{ route('title.destroy', $title->id)}}"><span
                                 class="fa fa-trash"></span>
                             </a>

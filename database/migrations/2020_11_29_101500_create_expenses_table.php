@@ -23,6 +23,7 @@ class CreateExpensesTable extends Migration
             $table->text('paid_by');
             $table->string('expenditure');
             $table->string('received_by');
+            $table->longText('remarks')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
