@@ -70,6 +70,13 @@
                                     </select>
 
                                 </div>
+                                 <div class="form-group">
+
+      <label>Remarks</label>
+
+        <textarea class="form-control form-control-solid" rows="5" name="remarks" value="{{$income->remarks}}" > </textarea>
+
+     </div>
                               </div>
 
                  <div class="col-md-6">
@@ -77,10 +84,10 @@
                  <label>Received By</label>
       @error('received_by')
                              <p>The Received By is required.</p>
-                                          @enderror
-      <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By" value="{{$income->received_by}}"/>
+    @enderror
+    <input type="text" name="received_by" class="form-control form-control-solid" placeholder="Enter Received By" value="{{$income->received_by}}"/>
+                 </div>
 
-     </div>
                 </div>
               </div>
                <div class="card-footer">

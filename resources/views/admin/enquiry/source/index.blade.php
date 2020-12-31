@@ -151,27 +151,19 @@
                                             <i class="fa fa-undo text-primary"></i>
                                         </a>
                                     @else
+
+                                        <a href="{{route('EnquirySource.edit',$source->id)}}">
+                                            <i class="fa fa-paper-plane text-primary"></i>
+                                        </a>
                                         <a class="deleteData" href="javascript:"
                                            rel1="{{route('EnquirySource.destroy',$source->id)}}">
                                             <i class="fa fa-trash text-danger"></i>
-                                        </a>
-                                        <hr>
-                                        <a href="{{route('EnquirySource.edit',$source->id)}}">
-                                            <i class="fa fa-paper-plane text-primary"></i>
                                         </a>
                                     @endif
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                        </tfoot>
                     </table>
                     <!--end: Datatable-->
                 </div>

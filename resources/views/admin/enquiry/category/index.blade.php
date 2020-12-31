@@ -152,13 +152,13 @@
                                             <i class="fa fa-undo text-primary"></i>
                                         </a>
                                     @else
+
+                                    <a href="{{route('EnquiryCategory.edit',$category->id)}}">
+                                        <i class="fa fa-paper-plane text-primary"></i>
+                                    </a>
                                     <a class="deleteData" href="javascript:"
                                        rel1="{{route('EnquiryCategory.destroy',$category->id)}}">
                                         <i class="fa fa-trash text-danger"></i>
-                                    </a>
-                                    <hr>
-                                    <a href="{{route('EnquiryCategory.edit',$category->id)}}">
-                                        <i class="fa fa-paper-plane text-primary"></i>
                                     </a>
                                         @endif
                                 </td>

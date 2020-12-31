@@ -15,7 +15,7 @@
             <option value="{{$staff->id}}" class="form-control">{{$staff->fname}} {{$staff->lname}}</option>
             @endforeach
       </select>
-      
+
       @error('staff')
       <span class="invalid-feedback" role="alert"> {{$message}} </span>
       @enderror
@@ -44,15 +44,12 @@
       @enderror
      </div>
 
-     <div class="form-group">
-      <label>Thankyou Point</label>
-      <textarea class="form-control form-control-solid" rows="5" name="thankyou" placeholder="Describe yourself here..." > </textarea>
-     </div>
+
 
      <div class="card-footer">
      <button type="submit" class="btn btn-primary mr-2">Submit</button>
      <button type="reset" class="btn btn-danger mr-2">Reset</button>
-    </div> 
+    </div>
     </form>
 </div>
 @endsection

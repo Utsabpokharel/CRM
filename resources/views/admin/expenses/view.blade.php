@@ -159,19 +159,19 @@
                     <i class="fa fa-undo text-primary"></i>
                   </a>
               @else
-                  <a class="deleteData" href="javascripts::" rel1="{{route('expenses.destroy',$expensess->id)}}">
-                    <i class="fa fa-trash text-danger"></i>
-                  </a>
-                  <hr>
+
                   <a href="{{route('expenses.edit',$expensess->id)}}">
                     <i class="fa fa-paper-plane text-primary"></i>
+                  </a>
+                  <a class="deleteData" href="javascripts::" rel1="{{route('expenses.destroy',$expensess->id)}}">
+                    <i class="fa fa-trash text-danger"></i>
                   </a>
               @endif
             </td>
           </tr>
           @endforeach
           </tbody>
-          
+
               </table>
             <!--end: Datatable-->
           </div>

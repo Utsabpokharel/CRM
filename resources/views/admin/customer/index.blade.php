@@ -151,13 +151,12 @@
 								<a href="{{route('customer.restore',$customer->id)}}">
 									<i class="fa fa-undo text-primary"></i>
 								</a>
-								@else
-								<a class="deleteData" href="javascript::" rel1="{{route('customer.destroy',$customer->id)}}">
-									<i class="fa fa-trash text-danger"></i>
-								</a>
-								<hr>
-								<a href="{{route('customer.edit',$customer->id)}}">
+                                @else
+                                <a href="{{route('customer.edit',$customer->id)}}">
 									<i class="fa fa-paper-plane text-primary"></i>
+                                </a>
+                                <a class="deleteData" href="javascript::" rel1="{{route('customer.destroy',$customer->id)}}">
+									<i class="fa fa-trash text-danger"></i>
 								</a>
 								@endif
 							</td>

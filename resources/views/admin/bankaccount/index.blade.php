@@ -147,13 +147,14 @@
 							<a href="{{route('bank.restore',$bank->id)}}">
 								<i class="fa fa-undo text-primary"></i>
 							</a>
-								@else
-								<a class="deleteData" href="javascript::" rel1="{{route('bank.destroy',$bank->id)}}">
-								<i class="fa fa-trash text-danger"></i>
+                                @else
+                                <a href="{{route('bank.edit',$bank->id)}}">
+                                <i class="fa fa-paper-plane text-primary"></i>
+
 							</a>
-							<hr>
-							<a href="{{route('bank.edit',$bank->id)}}">
-								<i class="fa fa-paper-plane text-primary"></i>
+
+                                <a class="deleteData" href="javascript::" rel1="{{route('bank.destroy',$bank->id)}}">
+								<i class="fa fa-trash text-danger"></i>
 							</a>
 								@endif
 						</td>
