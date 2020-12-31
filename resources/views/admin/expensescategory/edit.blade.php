@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Update Expense Category')
+@section('page_title','Edit Expense Category')
 @section('content')
 <div class="card-body card">
     <form class="form" method="post" action="{{route('expensescategory.update',$expensescategory->id)}}" enctype="multipart/form-data">
@@ -12,9 +12,9 @@
       <div class="form-group">
       <label>Description</label>
       <textarea class="form-control form-control-solid" name="description" rows="7" value="{{$expensescategory->description}}"> </textarea>
-   
+
       </div>
-     
+
       <div class="card-footer">
       <button type="submit" class="btn btn-primary mr-2">Update</button>
       <a href="{{route('expensescategory.view')}}">Cancel</a>

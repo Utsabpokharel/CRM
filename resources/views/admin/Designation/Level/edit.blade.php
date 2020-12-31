@@ -22,7 +22,7 @@
             @enderror
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success mr-2">Submit</button>
+            <button type="submit" class="btn btn-success mr-2">Update</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         <a href="{{route('level.index')}}" class="btn btn-primary">Cancel</a>
     </form>

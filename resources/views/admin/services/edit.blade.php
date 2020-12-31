@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Edit Department')
+@section('page_title','Edit Services')
 @section('content')
 <div class="card-body card">
     <form class="form" action="{{route('update_service',$data->id)}}" method="post">
@@ -33,7 +33,7 @@
             <span class="form-text text-muted">Please enter service description</span>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success mr-2">Submit</button>
+            <button type="submit" class="btn btn-success mr-2">Update</button>
             <a href="{{route('view_services')}}" class="btn btn-primary mr-2">Back</a>
     </form>
 </div>

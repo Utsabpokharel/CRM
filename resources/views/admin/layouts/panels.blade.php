@@ -17,9 +17,9 @@
             <div class="d-flex flex-column">
                 <a href="{{route('profile.index')}}"
                    class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{Auth::user()->name}}</a> <br>
-                <div class="text-muted mt-1">Login as : <b> {{Auth::user()->role->name}} </b></div>
+                <div class="text-muted mt-1">Logged In as : <b> {{Auth::user()->role->name}} </b></div>
                 <div class="mt-2">
-                    <a class="navi-text text-muted text-hover-primary" href="mailto:{{Auth::user()->email}}"><i class="fa fa-envelope text-primary">Email :</i> <b>{{Auth::user()->email}}</b></a>
+                    <a class="navi-text text-muted text-hover-primary" href="#"><i class="fa fa-envelope text-primary">Email :</i> <b>{{Auth::user()->email}}</b></a>
                 </div> <br>
                 <div class="navi mt-2">
                     <a href="{{route('logout')}}" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Sign

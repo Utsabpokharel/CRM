@@ -221,7 +221,7 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Passport Size Photo</label>
-                        <input type="file" class="form-control form-control-solid" name="pp_photo"/>
+                        <input type="file" class="form-control form-control-solid" name="image"/>
                     </div>
 
 

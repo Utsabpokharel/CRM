@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Add Income Category')
+@section('page_title','Edit Income Category')
 @section('content')
 <div class="card-body card">
     <form  method="post" action="{{route('incomecategory.update',$incomecategory->id)}}" enctype="multipart/form-data">
@@ -7,7 +7,7 @@
       <div class="form-group">
       <label>Name</label>
       <input type="name" name="name" class="form-control form-control-solid" placeholder="Enter Name" value="{{$incomecategory->name}}"/>
-     
+
       </div>
       <div class="form-group">
       <label>Description</label>

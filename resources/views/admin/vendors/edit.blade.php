@@ -1,5 +1,5 @@
 @extends('admin.layouts.default')
-@section('page_title','Update Vendor')
+@section('page_title','Edit Vendor')
 @section('content')
 
 <div class="card-body card">
@@ -59,17 +59,22 @@
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
         </div>
-
         <div class="form-group">
           <label>District</label>
           <span class="text-danger">*</span>
-          <select name="district" id="district" class="form-control form-control-solid @error('district') is-invalid @enderror" data-validation="required" >
-          <option value="abcd">abcd</option>
-          </select>
+          <input type="text" name='district' list='districtname' class="form-control form-control-solid @error('district') is-invalid @enderror" value="{{$vendor->district}}"/>
+                             <datalist id='districtname'>
+                                       @foreach($district as $districts)
+                                            <option value="{{$districts->district_name}}"> </option>
+                                       @endforeach
+                             </datalist>
+
           @error('district')
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
         </div>
+
+
 
         <div class="form-group">
           <label>Vendor Type</label>
@@ -154,18 +159,21 @@
           <span class="invalid-feedback" role="alert"> {{$message}} </span>
           @enderror
         </div>
-
         <div class="form-group">
-          <label>City</label>
-          <span class="text-danger">*</span>
-          <select name="city" id="city"
-          class="form-control form-control-solid @error('city') is-invalid @enderror" name="city">
-          <option value="abcd">abcd</option>
-          </select>
-          @error('city')
-          <span class="invalid-feedback" role="alert"> {{$message}} </span>
-          @enderror
-        </div>
+                        <label>City</label>
+                        <span class="text-danger">*</span>
+                        <input type="text" name='city' list='cityname' class="form-control form-control-solid @error('city') is-invalid @enderror" placeholder="Please Select..." value="{{$vendor->city }}"/>
+                             <datalist id='cityname'>
+                                       @foreach($city as $cities)
+                                            <option value="{{$cities->city_name}}"> </option>
+                                       @endforeach
+                             </datalist>
+
+                        @error('city')
+                        <span class="invalid-feedback" role="alert"> {{$message}} </span>
+                        @enderror
+                    </div>
+
 
         <div class="form-group">
           <label>PAN/VAT Number</label>
@@ -206,7 +214,7 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Passport Size Photo</label>
-                        <input type="file" class="form-control form-control-solid" name="pp_photo"/>
+                        <input type="file" class="form-control form-control-solid" name="image"/>
                     </div>
 
 
