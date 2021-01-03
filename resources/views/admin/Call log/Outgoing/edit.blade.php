@@ -1,0 +1,85 @@
+@extends('admin.layouts.default')
+@section('page_title',' Edit Outgoing Call Logs')
+@section('content')
+
+
+<div class="card-body card">
+    <form class="form" method="post" action="{{route('outgoing.update',$outgoings->id)}}" >
+     @csrf
+      <div class="row">
+
+                                 <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="outgoing_time">Outgoing Time</label>
+
+                                    <input type="time" class="form-control form-control-solid @error('outgoing_time')"  name="outgoing_time" value="{{ $outgoings->outgoing_time }}"/>
+
+                                     @error('outgoing_time');
+          <span class="invalid-feedback" role="alert">{{$message}}</span>
+          @enderror
+                                   </div>
+                                  </div>
+
+
+<div class="col-sm-6">
+     <div class="form-group">
+      <label for="outgoing_date">Outgoing Date</label>
+
+      <input type="date" name="outgoing_date" class="form-control form-control-solid @error('outgoing_date') is-invalid @enderror" placeholder="Enter Outgoing Date" value="{{ $outgoings->outgoing_date }}"/>
+      @error('incoming_date')
+          <span class="invalid-feedback" role="alert">{{$message}}</span>
+          @enderror
+     </div>
+   </div>
+
+   <div class="col-sm-6">
+     <div class="form-group">
+      <label for="called_by">Called By</label>
+      <select name="called_by" id="called_by" class="form-control form-control-solid @error('called_by') is-invalid @enderror">
+            <option selected disabled value="">Select the person who is calling</option>
+            @foreach($staffs as $name)
+            <option value="{{$name->id}}" class="form-control">{{$name->fname}} {{$name->lname}}</option>
+            @endforeach
+      </select>
+     </div>
+   </div>
+   <div class="col-sm-6">
+     <div class="form-group">
+      <label for="received_by">Received By</label>
+
+      <input type="text" name="received_by" class="form-control form-control-solid @error('received_by') is-invalid @enderror" placeholder="Received By" value="{{$outgoings->received_by}}"/>
+      @error('received_by')
+          <span class="invalid-feedback" role="alert">{{$message}}</span>
+          @enderror
+     </div>
+   </div>
+   <div class="col-md-6">
+      <div class="form-group">
+      <label for="remarks">Remarks</label>
+      <textarea class="form-control form-control-solid" rows="5" name="remarks" placeholder="Remarks" value="{{$outgoings->remarks}}" > </textarea>
+     </div>
+   </div>
+   <div class="col-sm-6">
+     <div class="form-group">
+      <label for="purpose">Purpose</label>
+
+      <input type="text" name="purpose" class="form-control form-control-solid @error('purpose') is-invalid @enderror" placeholder="Purpose" value="{{$outgoings->purpose}}"/>
+      @error('purpose')
+          <span class="invalid-feedback" role="alert">{{$message}}</span>
+          @enderror
+     </div>
+   </div>
+
+
+
+
+<div class="col-md-12">
+
+    <div class="card-footer">
+          <input type="submit" value="Update" class="btn btn-success">
+          <input type="reset" value="Reset" class="btn btn-danger">
+        </div>
+    </div>
+   </form>
+</div>
+@endsection

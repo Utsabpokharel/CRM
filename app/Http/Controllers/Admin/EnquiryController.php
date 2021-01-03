@@ -15,8 +15,8 @@ class EnquiryController extends Controller
     public function index()
     {
         $enquiry = Enquiry::all();
-//        dd($enquiry);
-        return view('admin.enquiry.index',compact('enquiry'));
+        //        dd($enquiry);
+        return view('admin.enquiry.index', compact('enquiry'));
     }
 
     /**
@@ -26,10 +26,10 @@ class EnquiryController extends Controller
      */
     public function create()
     {
-        $category=EnquiryCategory::all();
-        $source=EnquirySource::all();
-        $customer=Customer::all();
-        return view('admin.enquiry.add',compact('category','source','customer'));
+        $category = EnquiryCategory::all();
+        $source = EnquirySource::all();
+        $customer = Customer::all();
+        return view('admin.enquiry.add', compact('category', 'source', 'customer'));
     }
 
     /**
@@ -42,16 +42,16 @@ class EnquiryController extends Controller
     {
         $data = $request->validate(
             [
-                'is_customer'=>'',
-                'customer_id'=>'',
-                'name'=>'',
-                'email'=>'',
-                'phone'=>'',
-                'date'=>'required|date',
-                'time'=>'required',
-                'category_id'=>'required',
-                'source_id'=>'required',
-                'remarks'=>''
+                'is_customer' => '',
+                'customer_id' => '',
+                'name' => '',
+                'email' => '',
+                'phone' => '',
+                'date' => 'required|date',
+                'time' => 'required',
+                'category_id' => 'required',
+                'source_id' => 'required',
+                'remarks' => ''
             ]
         );
         $enquiry = new Enquiry();
@@ -83,11 +83,11 @@ class EnquiryController extends Controller
      */
     public function edit($id)
     {
-        $category=EnquiryCategory::all();
-        $source=EnquirySource::all();
-        $customer=Customer::all();
+        $category = EnquiryCategory::all();
+        $source = EnquirySource::all();
+        $customer = Customer::all();
         $enquiry = Enquiry::findorfail($id);
-        return view('admin.enquiry.edit',compact('enquiry','source','category','customer'));
+        return view('admin.enquiry.edit', compact('enquiry', 'source', 'category', 'customer'));
     }
 
     /**
@@ -101,16 +101,16 @@ class EnquiryController extends Controller
     {
         $data = $request->validate(
             [
-                'is_customer'=>'',
-                'customer_id'=>'',
-                'name'=>'',
-                'email'=>'',
-                'phone'=>'',
-                'date'=>'required|date',
-                'time'=>'required',
-                'category_id'=>'required',
-                'source_id'=>'required',
-                'remarks'=>''
+                'is_customer' => '',
+                'customer_id' => '',
+                'name' => '',
+                'email' => '',
+                'phone' => '',
+                'date' => 'required|date',
+                'time' => 'required',
+                'category_id' => 'required',
+                'source_id' => 'required',
+                'remarks' => ''
             ]
         );
         $enquiry = Enquiry::findorfail($id);
@@ -150,8 +150,7 @@ class EnquiryController extends Controller
     {
         $enquiry = Enquiry::onlyTrashed()->where('id', $id)->first();
         $enquiry->restore();
-        return redirect()->route('Enquiry.index')->with('success', 'Restored seccessfully');
-
+        return redirect()->route('Enquiry.index')->with('success', 'Restored successfully');
     }
 
     public function deleteTrash($id)

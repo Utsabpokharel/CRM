@@ -45,7 +45,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post("services/update/{id}", "ServiceController@update")->name("update_service");
     /*logout*/
     Route::get('/logout', 'LoginController@logout')->name('logout');
-
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['super']], function () {
@@ -95,6 +94,18 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['super']], function () {
     Route::get('bank/ViewTrash', 'BankController@ViewTrash')->name('bank.ViewTrash');
     Route::get('bank/restore/{id}', 'BankController@restore')->name('bank.restore');
     Route::get('bank/deleteTrash/{id}', 'BankController@deleteTrash')->name('bank.deleteTrash');
+    // Incoming Call Logs Deleted
+    Route::get("incoming/ViewTrash", "IncomingController@ViewTrash")->name("incoming.ViewTrash");
+    Route::get("incoming/restore/{id}", "IncomingController@restore")->name("incoming.restore");
+    Route::get('incoming/deleteTrash/{id}', "IncomingContoller@deleteTrash")->name("incoming.deleteTrash");
+    // Outgoing Call Logs Deleted
+    Route::get("outgoing/ViewTrash", "OutgoingController@ViewTrash")->name("outgoing.ViewTrash");
+    Route::get("outgoing/restore/{id}", "OutgoingController@restore")->name("outgoing.restore");
+    Route::get('outgoing/deleteTrash/{id}', "OutgoingContoller@deleteTrash")->name("outgoing.deleteTrash");
+    // Visited Call Logs Deleted
+    Route::get("visited/ViewTrash", "VisitedController@ViewTrash")->name("visited.ViewTrash");
+    Route::get("visited/restore/{id}", "VisitedController@restore")->name("visited.restore");
+    Route::get('visited/deleteTrash/{id}', "VisitedContoller@deleteTrash")->name("visited.deleteTrash");
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['admin']], function () {
@@ -194,10 +205,28 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['staff']], function () {
     Route::get('bank/edit/{id}', 'BankController@edit')->name('bank.edit');
     Route::put('bank/Update/{id}', 'BankController@update')->name('bank.update');
     Route::get('bank/destroy/{id}', 'BankController@destroy')->name('bank.destroy');
+    // Routing for Incoming
+    Route::get("incoming/index", "IncomingController@index")->name("incoming.view");
+    Route::get("incoming/add", "IncomingController@create")->name("incoming.add");
+    Route::post("incoming/store", "IncomingController@store")->name("incoming.store");
+    Route::get("incoming/edit/{id}", "IncomingController@edit")->name("incoming.edit");
+    Route::post("incoming/update/{id}", "IncomingController@update")->name("incoming.update");
+    Route::get("incoming/delete/{id}", "IncomingController@destroy")->name("incoming.destroy");
+    Route::get("outgoing/index", "OutgoingController@index")->name("outgoing.view");
+    Route::get("outgoing/add", "OutgoingController@create")->name("outgoing.add");
+    Route::post("outgoing/store", "OutgoingController@store")->name("outgoing.store");
+    Route::get("outgoing/edit/{id}", "OutgoingController@edit")->name("outgoing.edit");
+    Route::post("outgoing/update/{id}", "OutgoingController@update")->name("outgoing.update");
+    Route::get("outgoing/delete/{id}", "OutgoingController@destroy")->name("outgoing.destroy");
+    Route::get("visited/index", "VisitedController@index")->name("visited.view");
+    Route::get("visited/add", "VisitedController@create")->name("visited.add");
+    Route::post("visited/store", "VisitedController@store")->name("visited.store");
+    Route::get("visited/edit/{id}", "VisitedController@edit")->name("visited.edit");
+    Route::post("visited/update/{id}", "VisitedController@update")->name("visited.update");
+    Route::get("visited/delete/{id}", "VisitedController@destroy")->name("visited.destroy");
 });
 Route::get('/notification', 'Admin\NotificationController@notification')->middleware('auth')->name('notification');
 Route::get('/markasread', function () {
     auth()->user()->unreadNotifications->where('type', 'App\Notifications\UserAdd')->markAsRead();
     return redirect()->route('user.view');
 })->middleware('auth')->name('notificationmarkasread');
-
