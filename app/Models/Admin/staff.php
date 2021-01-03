@@ -10,23 +10,38 @@ class staff extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function title(){
-        return $this->belongsToMany('App\Models\Admin\title','staff_titles');
+    public function title()
+    {
+        return $this->belongsToMany('App\Models\Admin\title', 'staff_titles');
     }
 
-    public function level(){
-        return $this->belongsTo('App\Models\Admin\level','level_id');
+    public function level()
+    {
+        return $this->belongsTo('App\Models\Admin\level', 'level_id');
     }
 
-    public function department(){
-        return $this->belongsTo('App\Models\Admin\Department','department_id');
+    public function department()
+    {
+        return $this->belongsTo('App\Models\Admin\Department', 'department_id');
     }
 
     public function award()
     {
         return $this->hasMany('App\Models\Admin\Award');
     }
+    public function incoming()
+    {
+        return $this->hasMany('App\Models\Admin\Staff');
+    }
+    public function outgoing()
+    {
 
+        return $this->hasMany('App\Models\Admin\Staff');
+    }
+    public function visited()
+    {
+        return $this->hasMany('App\Models\Admin\Staff');
+    }
 }
